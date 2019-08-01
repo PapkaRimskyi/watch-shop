@@ -14,37 +14,7 @@
   }
 
   &__hamburger-menu {
-    @keyframes openHamburger {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(90deg);
-      }
-    }
-
-    &--openBurger {
-      animation-name: openHamburger;
-      animation-duration: 1s;
-      animation-fill-mode: both;
-      animation-timing-function: linear;
-    }
-
-    @keyframes closeHamburger {
-      from {
-        transform: rotate(90deg);
-      }
-      to {
-        transform: rotate(0deg);
-      }
-    }
-
-    &--closeBurger {
-      animation-name: closeHamburger;
-      animation-duration: 1s;
-      animation-fill-mode: both;
-      animation-timing-function: steps(5, end);
-    }
+    transition: all 2s ease-in-out;
   }
 
   &__section-nav {
@@ -59,30 +29,8 @@
     border-top: 1px solid $black-color;
     border-right: 1px solid $black-color;
 
-    @keyframes sectionNavAppears {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
     &--active {
       display: block;
-      animation-name: sectionNavAppears;
-      animation-duration: 1s;
-      animation-fill-mode: both;
-      animation-timing-function: linear;
-    }
-
-    @keyframes sectionNavDisappears {
-      from {
-        opacity: 1;
-      }
-      to {
-        opacity: 0;
-      }
     }
   }
 
@@ -92,6 +40,7 @@
 
   &__user-buttons {
     align-self: center;
+    z-index: 1;
 
     &-list {
       display: flex;
@@ -106,13 +55,56 @@
       align-self: center;
     }
 
+    &-link {
+      display: inline-block;
+      vertical-align: top;
+    }
+
     &-link--position {
       position: relative;
     }
   }
 
+  &__user-button-svg {
+    fill: #1B1A17;
+  }
+
+  &__user-buttons-link:hover  &__user-button-svg {
+    fill: #DB0019;
+  }
+
+  &__user-search-input {
+    width: 150px;
+    display: none;
+    padding: 0 4px;
+    font-family: inherit;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: transparent;
+
+    @keyframes showInput {
+      from {
+        transform: translateX(100px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    &--active {
+      display: inline-block;
+      animation-name: showInput;
+      animation-fill-mode: forwards;
+      animation-duration: 1s;
+      animation-timing-function: ease-out;
+    }
+  }
+
   &__user-buttons-like-count {
-    bottom: 12px;
+    bottom: 15px;
     right: -6px;
     position: absolute;
     min-width: 13px;

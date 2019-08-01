@@ -56,6 +56,15 @@
     background-color: #444240;
     vertical-align: middle;
     text-transform: uppercase;
+
+    &:hover {
+      background-color: #c7c7c7;
+      color: $main-color;
+    }
+
+    &:active {
+      box-shadow: 1px 1px 10px #464444 inset;
+    }
   }
 
   &__product {

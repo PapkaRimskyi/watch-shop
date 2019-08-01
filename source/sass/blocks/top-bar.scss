@@ -1,0 +1,125 @@
+.top-bar {
+  margin-bottom: 74px;
+  padding: 31px 53px 0 53px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  &__logo-container {
+    position: relative;
+    min-width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__hamburger-menu {
+    @keyframes openHamburger {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(90deg);
+      }
+    }
+
+    &--openBurger {
+      animation-name: openHamburger;
+      animation-duration: 1s;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+    }
+
+    @keyframes closeHamburger {
+      from {
+        transform: rotate(90deg);
+      }
+      to {
+        transform: rotate(0deg);
+      }
+    }
+
+    &--closeBurger {
+      animation-name: closeHamburger;
+      animation-duration: 1s;
+      animation-fill-mode: both;
+      animation-timing-function: steps(5, end);
+    }
+  }
+
+  &__section-nav {
+    top: 38px;
+    left: 0;
+    position: absolute;
+    padding: 20px 30px 20px 15px;
+    width: 150px;
+    display: none;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: $white-color;
+    border-top: 1px solid $black-color;
+    border-right: 1px solid $black-color;
+
+    @keyframes sectionNavAppears {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    &--active {
+      display: block;
+      animation-name: sectionNavAppears;
+      animation-duration: 1s;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+    }
+
+    @keyframes sectionNavDisappears {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__section-link {
+    color: $black-color;
+  }
+
+  &__user-buttons {
+    align-self: center;
+
+    &-list {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-item {
+      padding-top: 5px;
+      min-width: 38px;
+      text-align: center;
+      align-self: center;
+    }
+
+    &-link--position {
+      position: relative;
+    }
+  }
+
+  &__user-buttons-like-count {
+    bottom: 12px;
+    right: -6px;
+    position: absolute;
+    min-width: 13px;
+    font-family: $roboto;
+    font-size: 10px;
+    line-height: 12px;
+    border-radius: 50%;
+    background-color: #E6C8B4;
+  }
+}

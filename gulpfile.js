@@ -16,15 +16,21 @@ var uglify = require('gulp-uglify');
 var pump = require('pump');
 var concat = require('gulp-concat');
 var order = require('gulp-order');
+var babel = require('gulp-babel');
 
 gulp.task('js-file-dist', function () {
   return gulp.src('source/js/*.js')
   .pipe(gulp.dest('build/js'))
 });
 
+// ^For all other js-file, who isn't js_module.
+
 gulp.task('js_min', function () {
   return gulp.src('source/js/js_module/*.js')
   .pipe(concat('javascript.js'))
+  .pipe(babel({
+    presets: ['@babel/env']
+  }))
   .pipe(gulp.dest('build/js'))
   .pipe(uglify())
   .pipe(rename('javascript-min.js'))

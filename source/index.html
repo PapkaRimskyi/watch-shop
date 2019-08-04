@@ -38,6 +38,9 @@
     <symbol id="conquest-social__twitter">
       <path d="M17 1.657a6.902 6.902 0 01-2.003.557A3.538 3.538 0 0016.53.258c-.674.406-1.42.7-2.214.858A3.461 3.461 0 0011.77 0C9.844 0 8.283 1.582 8.283 3.534c0 .277.03.547.09.806C5.474 4.192 2.905 2.785 1.185.647a3.552 3.552 0 00-.473 1.777c0 1.226.616 2.307 1.552 2.942a3.434 3.434 0 01-1.58-.443v.045c0 1.713 1.202 3.14 2.797 3.466a3.444 3.444 0 01-1.575.06c.444 1.404 1.732 2.426 3.258 2.455A6.942 6.942 0 010 12.412 9.78 9.78 0 005.347 14c6.414 0 9.922-5.385 9.922-10.056 0-.153-.004-.305-.01-.457A7.155 7.155 0 0017 1.657"/>
     </symbol>
+    <symbol id="arrow-switch">
+      <path d="M6 1L1 6l5 5" stroke="#1B1A17" stroke-width=".5"/>
+    </symbol>
   </svg>
   <header class="header">
     <section class="top-bar">
@@ -118,7 +121,7 @@
         <h1 class="new-collection-preview__headline">Весна/Лето 2019</h1>
         <p class="new-collection-preview__type">Коллекция</p>
         <p class="new-collection-preview__text">Швейцарские часы в наличии в Москве и с доставкой по всему миру</p>
-        <a href="#" class="new-collection-preview__link">Смотреть каталог</a>
+        <a href="#" class="new-collection-preview__link button-catalog">Смотреть каталог</a>
       </div>
       <section class="conquest-social">
         <h2 class="visually-hidden">Список социальных сетей магазина Conquest</h2>
@@ -201,6 +204,32 @@
           </div>
         </div>
       </div>
+    </section>
+    <section class="advantages">
+      <h2 class="visually-hidden">Наши преимущества</h2>
+      <div class="advantages__container">
+        <div class="advantages__img-container">
+          <img class="advantages__img" src="img/clockBanner.jpg" alt="Часы" width="521" height="414">
+        </div>
+        <div class="advantages__description">
+          <h3 class="advantages__description-headline">Подлинное качество</h3>
+          <p class="advantages__description-text">Все часы производятся в Швейцарии и имеют сертификаты качества. Настоящие швейцарские часы &mdash; это предмет гордости и престижа.</p>
+          <a href="#" class="advantages__link-to-catalog button-catalog">Смотреть каталог</a>
+        </div>
+      </div>
+      <p class="advantages__switch">
+        <a href="#" class="advantages__switch-link" aria-label="Предыдущий слайд">
+          <svg class="advantages__switch-link-svg" width="7" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <use xlink:href="#arrow-switch"></use>
+          </svg>
+        </a>
+        <span class="advantages__switch-count">01</span>
+        <a href="#" class="advantages__switch-link" aria-label="Следующий слайд">
+          <svg class="advantages__switch-link-svg advantages__switch-link-svg--right" width="7" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <use xlink:href="#arrow-switch"></use>
+          </svg>
+        </a>
+      </p>
     </section>
   </main>
   <script src="js/javascript.js"></script>

@@ -1,0 +1,61 @@
+.social {
+  width: 100%;
+
+  &__container {
+    margin: $margin-auto;
+    padding-bottom: 81px;
+    width: 85.5%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__follow-container {
+    padding: 141px 20px 20px 0;
+  }
+
+  &__follow-news {
+    margin-bottom: 46px;
+    width: 72%;
+    font-family: $roboto;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 27px;
+    color: #444240;
+
+    &--font {
+      margin-bottom: 27px;
+      width: 100%;
+      font-family: $playFairDisplay;
+      font-size: 32px;
+      line-height: 43px;
+      color: $main-color;
+    }
+  }
+
+  &__clock-illustration {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      'c1r1e1 cre3'
+      'c1r2e2 cre3';
+    grid-gap: 10px;
+
+    &-photo:first-child {
+      grid-area: c1r1e1;
+    }
+
+    &-photo:nth-child(2) {
+      grid-area: c1r2e2;
+    }
+
+    &-photo:last-child {
+      grid-area: cre3;
+    }
+  }
+
+  &__conquest-social-position {
+    width: 18%;
+    display: flex;
+    justify-content: space-between;
+  }
+}

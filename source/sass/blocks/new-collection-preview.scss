@@ -5,6 +5,12 @@
   display: flex;
   justify-content: space-between;
 
+  &__conquest-social-position {
+    position: absolute;
+    top: 33%;
+    left: 4%;
+  }
+
   &__description {
     margin: 99px 16px 125px 70px;
     width: 380px;

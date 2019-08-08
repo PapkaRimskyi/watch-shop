@@ -3,6 +3,8 @@
   let sectionNav = document.querySelector('.top-bar__section-nav');
   let searchButton = document.querySelector('.top-bar__user-buttons-link--deploy-search');
   let searchInput = document.querySelector('.top-bar__user-search-input');
+  let switchContainer = document.querySelector('.advantages__switch');
+
 
   function toggleHamburgerMenu () {
     if (!sectionNav.classList.contains('top-bar__section-nav--active')) {

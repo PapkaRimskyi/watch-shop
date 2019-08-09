@@ -34,22 +34,12 @@
 
   &__clock-illustration {
     display: grid;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      'c1r1e1 cre3'
-      'c1r2e2 cre3';
+    grid-template-columns: auto auto;
     grid-gap: 10px;
+    grid-auto-flow: row dense;
 
-    &-photo:first-child {
-      grid-area: c1r1e1;
-    }
-
-    &-photo:nth-child(2) {
-      grid-area: c1r2e2;
-    }
-
-    &-photo:last-child {
-      grid-area: cre3;
+    &-photo--big {
+      grid-row: span 2;
     }
   }
 

@@ -3,10 +3,17 @@
   width: 100%;
   background: linear-gradient(to right, #f7f5ef 34%, #fdfdfb 34%);
 
-  &__container {
+  &__collection-container {
     padding: 52px 40px 9px 177px;
-    display: flex;
-    justify-content: space-between;
+  }
+
+  &__slider-container {
+    display: none;
+
+    &--active {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   &__description {

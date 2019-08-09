@@ -4,6 +4,10 @@
   let searchButton = document.querySelector('.top-bar__user-buttons-link--deploy-search');
   let searchInput = document.querySelector('.top-bar__user-search-input');
   let switchContainer = document.querySelector('.advantages__switch');
+  let switchLeft = switchContainer.querySelector('.advantages__switch-link--left-arrow');
+  let switchRight = switchContainer.querySelector('.advantages__switch-link--right-arrow');
+  let contentSliders = document.querySelectorAll('.advantages__slider-container');
+  let indexSlider = 0;
 
 
   function toggleHamburgerMenu () {

@@ -7,10 +7,15 @@
 
   &__logo-container {
     position: relative;
-    min-width: 150px;
+    min-width: 145px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  &_logo-name {
+    font-size: 12px;
+    line-height: 16px;
   }
 
   &__hamburger-menu {

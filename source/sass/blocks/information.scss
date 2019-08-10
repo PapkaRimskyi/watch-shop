@@ -1,0 +1,48 @@
+.information {
+  margin: $margin-auto;
+  padding: 67px 72px 62px 48px;
+  width: 80%;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__list:not(:first-child) {
+    padding-top: 13px;
+  }
+
+  &__list-item:first-child {
+    margin-bottom: 21px;
+  }
+
+  &__list:first-child &__list-item:first-child {
+    margin-bottom: 13px;
+  }
+
+  &__list-item-link {
+    font-family: $roboto;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 14px;
+    color: rgba(255, 255, 255, 0.7);
+
+    &--upper {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 16px;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+
+  &__list-item:not(:first-child) &__list-item-link:hover {
+    color: #f3f3f3;
+  }
+
+  &__list-item:not(:first-child) &__list-item-link:active {
+    opacity: .5;
+  }
+}

@@ -1,19 +1,24 @@
 .information {
   margin: $margin-auto;
-  padding: 67px 72px 62px 48px;
-  width: 80%;
+  padding: 40px 30px 50px 30px;
+  width: 90%;
 
   &__container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    flex-wrap: wrap;
   }
 
-  &__list:not(:first-child) {
+  &__list:first-child {
+    order: 4;
+  }
+
+  &__list {
     padding-top: 13px;
   }
 
   &__list-item:first-child {
-    margin-bottom: 21px;
+    margin-bottom: 5px;
   }
 
   &__list:first-child &__list-item:first-child {
@@ -44,5 +49,40 @@
 
   &__list-item:not(:first-child) &__list-item-link:active {
     opacity: .5;
+  }
+}
+
+@media  (min-width: $tablet-width) {
+  .information {
+    padding: 67px 30px 50px 30px;
+
+    &__container {
+      justify-content: space-between;
+    }
+
+    &__list:first-child {
+      padding-top: 0;
+      order: 0;
+    }
+
+    &__list:not(:first-child) {
+      padding-top: 13px;
+    }
+
+    &__list-item:first-child {
+      margin-bottom: 21px;
+    }
+  }
+}
+
+
+@media (min-width: $desktop-width) {
+  .information {
+    padding: 67px 72px 62px 48px;
+    width: 80%;
+
+    &__container {
+      justify-content: space-between;
+    }
   }
 }

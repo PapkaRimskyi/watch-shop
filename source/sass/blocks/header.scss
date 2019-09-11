@@ -1,7 +1,19 @@
 .header {
-  margin-bottom: 78px;
-  width: 100%;
-  background-color: #fdfdfb;
-  background: url("../img/Ellipse.svg") no-repeat 468px center;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  width: $mobile-width;
+}
+
+@media (min-width: $tablet-width) {
+  .header {
+    width: $tablet-width;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .header {
+    margin-bottom: 78px;
+    width: 100%;
+    background-color: #fdfdfb;
+    background: url("../img/Ellipse.svg") no-repeat 468px center;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
 }

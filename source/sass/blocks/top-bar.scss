@@ -1,21 +1,16 @@
-.top-bar {
-  margin-bottom: 74px;
-  padding: 31px 53px 0 53px;
-  width: 100%;
+.top-bar  {
+  margin: $margin-auto;
+  margin-bottom: 25px;
+  padding-top: 15px;
+  width: 90%;
   display: flex;
   justify-content: space-between;
 
   &__logo-container {
     position: relative;
-    min-width: 145px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  &_logo-name {
-    font-size: 12px;
-    line-height: 16px;
   }
 
   &__hamburger-menu {
@@ -35,12 +30,16 @@
     }
   }
 
+  &__logo {
+    display: none;
+  }
+
   &__section-nav {
-    top: 38px;
+    top: 33px;
     left: 0;
     position: absolute;
-    padding: 20px 30px 20px 15px;
-    width: 150px;
+    padding: 20px 15px;
+    width: 130px;
     display: none;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     background-color: $white-color;
@@ -140,5 +139,32 @@
     line-height: 12px;
     border-radius: 50%;
     background-color: #E6C8B4;
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .top-bar {
+
+    &__logo-container {
+      min-width: 145px;
+    }
+
+    &__logo {
+      display: block;
+    }
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .top-bar {
+    margin-bottom: 74px;
+    padding: 31px 53px 0 53px;
+    width: 100%;
+
+    &__section-nav {
+      top: 38px;
+      padding: 20px 30px 20px 15px;
+      width: 150px;
+    }
   }
 }

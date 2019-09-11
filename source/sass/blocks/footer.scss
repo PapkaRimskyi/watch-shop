@@ -2,3 +2,17 @@
   width: 100%;
   background-color: #444240;
 }
+
+@media (min-width: $tablet-width) {
+  .footer {
+    width: 100%;
+    background-color: #444240;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .footer {
+    width: 100%;
+    background-color: #444240;
+  }
+}

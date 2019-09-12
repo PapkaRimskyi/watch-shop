@@ -1,0 +1,15 @@
+.slider-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &-count {
+    font-family: $prata;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  &__switch-link-svg--right {
+    transform: rotate(180deg);
+  }
+}

@@ -92,14 +92,6 @@
     }
   }
 
-  &__user-button-svg {
-    fill: $main-color;
-  }
-
-  &__user-buttons-link:hover  &__user-button-svg {
-    fill: #DB0019;
-  }
-
   &__user-search-input {
     width: 150px;
     display: none;

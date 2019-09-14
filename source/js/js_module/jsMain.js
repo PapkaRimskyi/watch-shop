@@ -3,13 +3,19 @@
   let sectionNav = document.querySelector('.top-bar__section-nav');
   let searchButton = document.querySelector('.top-bar__user-buttons-link--deploy-search');
   let searchInput = document.querySelector('.top-bar__user-search-input');
-  let sliderCollection = document.querySelectorAll('.advantages__slider-container');
-  let leftSwitchArrow = document.querySelector('.advantages__switch-link--left-arrow');
-  let rightSwitchArrow = document.querySelector('.advantages__switch-link--right-arrow');
+  let advantagesSliderCollection = document.querySelectorAll('.advantages__slider-container');
+  let advantagesLeftSwitchArrow = document.querySelector('.advantages__slider-button .slider-button__switch-link--left-arrow');
+  let advantagesSliderCount = document.querySelector('.advantages__slider-button .slider-button__switch-count');
+  let advantagesRightSwitchArrow = document.querySelector('.advantages__slider-button .slider-button__switch-link--right-arrow');
+  let popularModelsCollection = document.querySelectorAll('.popular-models__product');
+  let popularModelsLeftSwitchArrow = document.querySelector('.popular-models__slider-button .slider-button__switch-link--left-arrow');
+  let popularModulsSliderCount = document.querySelector('.popular-models__slider-button .slider-button__switch-count');
+  let popularModelsRightSwitchArrow = document.querySelector('.popular-models__slider-button .slider-button__switch-link--right-arrow');
   let index = 0;
 
 
-  function toggleHamburgerMenu () {
+  function toggleHamburgerMenu (evt) {
+    evt.preventDefault();
     if (!sectionNav.classList.contains('top-bar__section-nav--active')) {
       hamburgerMenu.style.transform = 'rotate(360deg)';
       sectionNav.classList.toggle('top-bar__section-nav--active');
@@ -37,22 +43,33 @@
     }
   }
 
-  function switchSlider (itemCollection, value) {
+  function switchSlider (itemCollection, value, className, sliderCountItem) {
     checkIndex(itemCollection, value);
     for (let i = 0; i < itemCollection.length; i++) {
-      itemCollection[i].classList.remove('advantages__slider-container--active');
+      itemCollection[i].classList.remove(className);
     }
-    itemCollection[index].classList.add('advantages__slider-container--active');
+    itemCollection[index].classList.add(className);
+    sliderCountItem.textContent = '0' + (index + 1);
   }
 
-  rightSwitchArrow.addEventListener('click', function (evt) {
+  advantagesRightSwitchArrow.addEventListener('click', function(evt) {
     evt.preventDefault();
-    switchSlider(sliderCollection, 1);
+    switchSlider(advantagesSliderCollection, 1, 'advantages__slider-container--active', advantagesSliderCount);
   });
 
-  leftSwitchArrow.addEventListener('click', function (evt) {
+  advantagesLeftSwitchArrow.addEventListener('click', function(evt) {
     evt.preventDefault();
-    switchSlider(sliderCollection, -1);
+    switchSlider(advantagesSliderCollection, -1, 'advantages__slider-container--active', advantagesSliderCount);
+  });
+
+  popularModelsRightSwitchArrow.addEventListener('click', function(evt) {
+    evt.preventDefault();
+    switchSlider(popularModelsCollection, 1, 'popular-models__product--active', popularModulsSliderCount);
+  });
+
+  popularModelsLeftSwitchArrow.addEventListener('click', function(evt) {
+    evt.preventDefault();
+    switchSlider(popularModelsCollection, -1, 'popular-models__product--active', popularModulsSliderCount);
   });
 
 })();

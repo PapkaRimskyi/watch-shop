@@ -1,0 +1,88 @@
+.filter {
+  width: 230px;
+
+  &__fieldset:last-of-type {
+    margin-bottom: 9px;
+  }
+
+  &__legend {
+    margin-bottom: 19px;
+    padding-right: 15px;
+    width: 100%;
+    font-family: $roboto;
+    line-height: 16px;
+    color: #444240;
+    cursor: pointer;
+
+    &--open {
+      background: url("../img/filter-close.png") center right no-repeat;
+    }
+
+    &--close {
+      background: url("../img/filter-open.png") center right no-repeat;
+    }
+  }
+
+  &__range-cost {
+    min-height: 60px;
+  }
+
+  &__option-list {
+    margin-bottom: 28px;
+    padding-left: 25px;
+
+    &--display {
+      display: none;
+    }
+  }
+
+  &__checkbox-option {
+    margin-bottom: 8px;
+  }
+
+  &__checkbox-label {
+    position: relative;
+    cursor: pointer;
+    font-family: $roboto;
+    font-size: 12px;
+    color: #6F6E6D;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: -2px;
+      left: -25px;
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  &__checkbox-input + &__checkbox-label::before {
+    border: 2px solid #909090;
+    background-color: transparent;
+  }
+
+  &__checkbox-input:checked + &__checkbox-label::before {
+    border: 2px solid #6F6E6D;
+    background: url("../img/checkbox-checked.png") center center no-repeat #6F6E6D;
+  }
+
+  &__checkbox-input:focus + &__checkbox-label::before,
+  &__checkbox-input:checked:focus + &__checkbox-label::before {
+    outline: 2px solid rgb(77, 144, 254);
+  }
+
+  &__reset-button {
+    padding: 22px 0 21px 0;
+    width: 230px;
+    font-family: $roboto;
+    font-size: 12px;
+    line-height: 14px;
+    color: #1D1A1A;
+    text-transform: uppercase;
+    border: 2px solid #E7E0CF;
+    letter-spacing: 0.5px;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}

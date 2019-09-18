@@ -15,5 +15,11 @@
     background-color: #fdfdfb;
     background: url("../img/Ellipse.svg") no-repeat 468px center;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+    &--no-bg {
+      margin-bottom: 36px;
+      background: none;
+      box-shadow: none;
+    }
   }
 }

@@ -1,0 +1,77 @@
+.product {
+  width: 836px;
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    &-item {
+      position: relative;
+      margin-bottom: 40px;
+      padding: 18px 20px;
+      width: 30.5%;
+      min-height: 300px;
+      background: linear-gradient(0deg, #FDFDFB, #FDFDFB);
+      overflow: hidden;
+
+      &--special-offer {
+        padding: 90px 44px 40px 34px;
+        background: url("../img/watch_2.png") 113px 7px no-repeat #D4B098;
+        background-size: cover;
+      }
+    }
+  }
+
+  &__info-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+  }
+
+  &__name-and-price {
+    width: 60px;
+    font-family: $roboto;
+    font-weight: 300;
+    line-height: 21px;
+    color: #636261;
+  }
+
+  &__name {
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #444240;
+  }
+
+  &__interaction-list {
+    width: 55px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__image-container {
+    position: absolute;
+    top: 8px;
+    left: 19%;
+  }
+
+  &__discount {
+    width: 70%;
+    font-size: 16px;
+    font-weight: 700;
+    color: $white-color;
+    text-align: center;
+
+    &-size {
+      display: block;
+      font-size: 45px;
+      line-height: 58px;
+    }
+
+    &-condition {
+      text-transform: uppercase;
+    }
+  }
+}

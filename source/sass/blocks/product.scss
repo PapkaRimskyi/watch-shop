@@ -53,8 +53,16 @@
 
   &__image-container {
     position: absolute;
-    top: 8px;
-    left: 19%;
+    width: 60%;
+    height: 100%;
+    top: 33px;
+    left: 23%;
+  }
+
+  &__image {
+    width: 95%;
+    height: 85%;
+    object-fit: cover;
   }
 
   &__discount {

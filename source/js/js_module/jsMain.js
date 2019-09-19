@@ -76,50 +76,63 @@
 
   //Блок с сортировкой//
 
-  const sortContainer = document.querySelector('.catalog-name-and-sort__sort-container');
+  if (window.location.href.includes('catalog.html')) {
+    const sortContainer = document.querySelector('.catalog-name-and-sort__sort-container');
 
-  function removeSortActive() {
-    let sortTypeItem = document.querySelectorAll('.catalog-name-and-sort__list-item-link');
-    for (let i = 0; i < sortTypeItem.length; i++) {
-      sortTypeItem[i].classList.remove('catalog-name-and-sort__sort-type--active');
-    }
-  }
-
-  function sortTypeHandler(e) {
-    let target = e.target;
-    if (target.tagName === 'A') {
-      e.preventDefault();
-      if (!target.classList.contains('catalog-name-and-sort__sort-type--active')) {
-        document.querySelector('.catalog-name-and-sort__sort-type').textContent = target.textContent;
-        removeSortActive();
-        target.classList.add('catalog-name-and-sort__sort-type--active');
+    function removeSortActive() {
+      let sortTypeItem = document.querySelectorAll('.catalog-name-and-sort__list-item-link');
+      for (let i = 0; i < sortTypeItem.length; i++) {
+        sortTypeItem[i].classList.remove('catalog-name-and-sort__sort-type--active');
       }
     }
-  }
 
-  function showSortList(e) {
-    let target = e.target;
-    if (target.classList.contains('catalog-name-and-sort__sort-type')) {
-      let listOptions = document.querySelector('.catalog-name-and-sort__list-options');
-      if (!listOptions.classList.contains('catalog-name-and-sort__list-options--active')) {
-        listOptions.classList.add('catalog-name-and-sort__list-options--active');
-        listOptions.addEventListener('click', sortTypeHandler);
-        return;
+    function sortTypeHandler(e) {
+      let target = e.target;
+      if (target.tagName === 'A') {
+        e.preventDefault();
+        if (!target.classList.contains('catalog-name-and-sort__sort-type--active')) {
+          document.querySelector('.catalog-name-and-sort__sort-type').textContent = target.textContent;
+          removeSortActive();
+          target.classList.add('catalog-name-and-sort__sort-type--active');
+        }
       }
-      listOptions.classList.remove('catalog-name-and-sort__list-options--active');
-      listOptions.removeEventListener('click', sortTypeHandler);
     }
-  }
 
-  sortContainer.addEventListener('click', showSortList);
+    function showSortList(e) {
+      let target = e.target;
+      if (target.classList.contains('catalog-name-and-sort__sort-type')) {
+        let listOptions = document.querySelector('.catalog-name-and-sort__list-options');
+        if (!listOptions.classList.contains('catalog-name-and-sort__list-options--active')) {
+          listOptions.classList.add('catalog-name-and-sort__list-options--active');
+          listOptions.addEventListener('click', sortTypeHandler);
+          return;
+        }
+        listOptions.classList.remove('catalog-name-and-sort__list-options--active');
+        listOptions.removeEventListener('click', sortTypeHandler);
+      }
+    }
 
-  //Блок кода с открытием/закрытием разделов фильтра//
+    sortContainer.addEventListener('click', showSortList);
 
-  const formFilter = document.querySelector('.filter__form');
+    //Блок кода с открытием/закрытием разделов фильтра//
 
-  function toggleCheckboxSection(e) {
-    let target = e.target;
-    if (target.tagName === 'LEGEND') {
+    const formFilter = document.querySelector('.filter__form');
+
+    function checkboxSectionKeyDownHandler(e) {
+      if (document.activeElement.tagName === 'LEGEND' && e.code === 'Enter') {
+        let target = document.activeElement;
+        toggleCheckboxSection(target);
+      }
+    }
+
+    function checkboxSectionClickHandler(e) {
+      let target = e.target;
+      if (target.tagName === 'LEGEND') {
+        toggleCheckboxSection(target);
+      }
+    }
+
+    function toggleCheckboxSection(target) {
       let parentLegend = target.parentNode;
       if (target.classList.contains('filter__legend--open')) {
         target.classList.remove('filter__legend--open');
@@ -131,8 +144,24 @@
       target.classList.add('filter__legend--open');
       parentLegend.lastElementChild.classList.remove('filter__option-list--display');
     }
+
+    // function toggleCheckboxSection(e) {
+    //   let target = e.target;
+    //   if (target.tagName === 'LEGEND') {
+    //     let parentLegend = target.parentNode;
+    //     if (target.classList.contains('filter__legend--open')) {
+    //       target.classList.remove('filter__legend--open');
+    //       target.classList.add('filter__legend--close');
+    //       parentLegend.lastElementChild.classList.add('filter__option-list--display');
+    //       return;
+    //     }
+    //     target.classList.remove('filter__legend--close');
+    //     target.classList.add('filter__legend--open');
+    //     parentLegend.lastElementChild.classList.remove('filter__option-list--display');
+    //   }
+    // }
+
+    formFilter.addEventListener('click', checkboxSectionClickHandler);
+    formFilter.addEventListener('keydown', checkboxSectionKeyDownHandler);
   }
-
-  formFilter.addEventListener('click', toggleCheckboxSection);
-
 })();

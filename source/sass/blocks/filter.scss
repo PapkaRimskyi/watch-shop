@@ -84,5 +84,13 @@
     letter-spacing: 0.5px;
     background-color: transparent;
     cursor: pointer;
+
+    &:hover {
+      background-color: #E7E0CF;
+    }
+
+    &:active {
+      opacity: .5;
+    }
   }
 }

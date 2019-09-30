@@ -38,6 +38,14 @@
   &__sort-type {
     cursor: pointer;
 
+    &:hover {
+      color: rgb(101, 55, 12);
+    }
+
+    &:active {
+      color: #803b3b;
+    }
+
     &--active {
       opacity: .5;
     }

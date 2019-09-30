@@ -1,4 +1,5 @@
 .product {
+  margin-bottom: 67px;
   width: 836px;
 
   &__list {
@@ -31,7 +32,7 @@
   }
 
   &__name-and-price {
-    width: 60px;
+    min-width: 60px;
     font-family: $roboto;
     font-weight: 300;
     line-height: 21px;
@@ -49,6 +50,29 @@
     width: 55px;
     display: flex;
     justify-content: space-between;
+  }
+
+  &__interaction-list-item-link:hover &__interaction-button {
+    fill: $svg-state-default;
+  }
+
+  &__interaction-list-item-link:hover &__interaction-button--stroke {
+    stroke: $like-color;
+  }
+
+  &__interaction-list-item-link:active &__interaction-button {
+    opacity: .5;
+  }
+
+  &__interaction-button {
+
+    &--stroke {
+      stroke: $black-color;
+    }
+
+    &--active {
+      stroke: $like-color;
+    }
   }
 
   &__image-container {
@@ -81,5 +105,9 @@
     &-condition {
       text-transform: uppercase;
     }
+  }
+
+  &__pagination {
+    margin-left: 86%;
   }
 }

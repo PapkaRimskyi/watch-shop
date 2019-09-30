@@ -1,8 +1,10 @@
 @import "variables.scss";
 @import "global.scss";
-@import "blocks/button-catalog.scss";
+@import "blocks/button.scss";
 @import "blocks/slider-button.scss";
 @import "blocks/breadcrumbs.scss";
+@import "blocks/pagination.scss";
+@import "blocks/animation.scss";
 @import "blocks/header.scss";
 @import "blocks/top-bar.scss";
 @import "blocks/new-collection-preview.scss";
@@ -14,6 +16,7 @@
 @import "blocks/filter.scss";
 @import "blocks/advantages.scss";
 @import "blocks/product.scss";
+@import "blocks/subscribe.scss";
 @import "blocks/social.scss";
 @import "blocks/footer.scss";
 @import "blocks/information.scss";

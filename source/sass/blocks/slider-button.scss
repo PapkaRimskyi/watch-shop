@@ -9,6 +9,15 @@
     line-height: 16px;
   }
 
+  &__switch-link:hover,
+  &__switch-link:focus {
+    opacity: .8;
+  }
+
+  &__switch-link:active {
+    opacity: .3;
+  }
+
   &__switch-link-svg--right {
     transform: rotate(180deg);
   }

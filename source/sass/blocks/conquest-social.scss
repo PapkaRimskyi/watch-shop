@@ -9,4 +9,42 @@
     display: inline-block;
     vertical-align: top;
   }
+
+  &__icon {
+
+    &--insta {
+      fill: #C13584;
+      stroke: #C13584;
+    }
+
+    &--facebook {
+      fill: #3C5A99;
+    }
+
+    &--twitter {
+      fill: #1DA1F2;
+    }
+  }
+
+  &__link:hover &__icon--insta,
+  &__link:focus &__icon--insta {
+    fill: #833AB4;
+    stroke: #833AB4;
+  }
+
+  &__link:hover &__icon--facebook,
+  &__link:focus &__icon--facebook {
+    fill: #155aec;
+  }
+
+  &__link:hover &__icon--twitter,
+  &__link:focus &__icon--twitter {
+    fill: #0d73b1;
+  }
+
+  &__link:active &__icon--insta,
+  &__link:active &__icon--facebook,
+  &__link:active &__icon--twitter {
+    opacity: .5;
+  }
 }

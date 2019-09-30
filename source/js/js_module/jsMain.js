@@ -13,16 +13,15 @@
   let popularModelsRightSwitchArrow = document.querySelector('.popular-models__slider-button .slider-button__switch-link--right-arrow');
   let index = 0;
 
-
-  function toggleHamburgerMenu (e) {
+  function toggleHamburgerMenu(e) {
     e.preventDefault();
-    if (!sectionNav.classList.contains('top-bar__section-nav--active')) {
-      hamburgerMenu.style.transform = 'rotate(360deg)';
-      sectionNav.classList.toggle('top-bar__section-nav--active');
-    } else {
-      hamburgerMenu.style.transform = 'rotate(0deg)';
-      sectionNav.classList.toggle('top-bar__section-nav--active');
+    if (!hamburgerMenu.classList.contains('top-bar__hamburger-menu--active')) {
+      hamburgerMenu.classList.add('top-bar__hamburger-menu--active');
+      sectionNav.classList.add('top-bar__section-nav--active');
+      return;
     }
+    hamburgerMenu.classList.remove('top-bar__hamburger-menu--active');
+    sectionNav.classList.remove('top-bar__section-nav--active');
   }
 
   hamburgerMenu.addEventListener('click', toggleHamburgerMenu);
@@ -99,6 +98,7 @@
     }
 
     function showSortList(e) {
+      e.preventDefault();
       let target = e.target;
       if (target.classList.contains('catalog-name-and-sort__sort-type')) {
         let listOptions = document.querySelector('.catalog-name-and-sort__list-options');
@@ -144,22 +144,6 @@
       target.classList.add('filter__legend--open');
       parentLegend.lastElementChild.classList.remove('filter__option-list--display');
     }
-
-    // function toggleCheckboxSection(e) {
-    //   let target = e.target;
-    //   if (target.tagName === 'LEGEND') {
-    //     let parentLegend = target.parentNode;
-    //     if (target.classList.contains('filter__legend--open')) {
-    //       target.classList.remove('filter__legend--open');
-    //       target.classList.add('filter__legend--close');
-    //       parentLegend.lastElementChild.classList.add('filter__option-list--display');
-    //       return;
-    //     }
-    //     target.classList.remove('filter__legend--close');
-    //     target.classList.add('filter__legend--open');
-    //     parentLegend.lastElementChild.classList.remove('filter__option-list--display');
-    //   }
-    // }
 
     formFilter.addEventListener('click', checkboxSectionClickHandler);
     formFilter.addEventListener('keydown', checkboxSectionKeyDownHandler);

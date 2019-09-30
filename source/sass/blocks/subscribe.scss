@@ -1,0 +1,75 @@
+.subscribe {
+  background-color: rgba(234, 228, 213, 0.38);
+
+  &__info-container {
+    padding: 66px 102px 81px 143px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__condition-container {
+    width: 505px;
+  }
+
+  &__condition {
+    margin-bottom: 14px;
+    font-family: $roboto;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: #818181;
+    letter-spacing: 0.5px;
+  }
+
+  &__present {
+    font-family: $playFairDisplay;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 58px;
+    color: #1B1A17;
+    text-transform: none;
+    letter-spacing: 1.1px;
+  }
+
+  &__form {
+    margin-top: 73px;
+    width: 496px;
+    display: flex;
+    justify-content: space-between;
+
+    &-input {
+      width: 278px;
+      font-family: $roboto;
+      font-size: 18px;
+      color: #444240;
+      border: none;
+      border-bottom: 1px solid #1B1A17;
+      background-color: transparent;
+
+      &::placeholder {
+        font-size: 14px;
+      }
+    }
+
+    &-button-submit {
+      padding: 22px 42px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border: none;
+      background-color: #31302C;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        background-color: $white-color;
+        color: #31302C;
+      }
+
+      &:active {
+        color: rgba(73, 72, 72, 0.5);
+      }
+    }
+  }
+}

@@ -1,24 +1,20 @@
 .catalog-name-and-sort {
   margin: $margin-auto;
   margin-bottom: 33px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 1160px;
+  width: 88%;
+  text-align: center;
 
   &__name {
     font-size: 30px;
     line-height: 40px;
-    color: #1B1A17;
+    color: $main-color;
   }
 
   &__sort-container {
     position: relative;
-    margin-right: 19px;
     min-width: 210px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
   }
 
   &__sort-by {
@@ -53,8 +49,8 @@
 
   &__list-options {
     position: absolute;
-    top: 20px;
-    right: -4px;
+    top: 17px;
+    right: 31px;
     padding: 5px 10px;
     display: none;
     background-color: $white-color;
@@ -62,6 +58,36 @@
 
     &--active {
       display: block;
+    }
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .catalog-name-and-sort {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    text-align: justify;
+
+    &__list-options {
+      right: -5px;
+    }
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .catalog-name-and-sort {
+    width: 1160px;
+
+    &__sort-container {
+      margin-right: 19px;
+      align-items: center;
+    }
+
+    &__list-options {
+      top: 20px;
+      right: -4px;
     }
   }
 }

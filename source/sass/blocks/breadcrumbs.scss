@@ -1,10 +1,11 @@
-.breadcrumbs {
-  margin: 0 102px;
-  width: 270px;
+.breadcrumbs{
+  margin-left: 20px;
+  width: 75%;
 
   &__list {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 
     &-item {
       position: relative;
@@ -12,7 +13,7 @@
       &:not(:last-child)::after {
         position: absolute;
         top: 8px;
-        right: -21px;
+        right: -11px;
         content: "";
         width: 6px;
         height: 10px;
@@ -38,5 +39,22 @@
         }
       }
     }
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .breadcrumbs {
+    margin-left: 40px;
+    width: 270px;
+
+    &__list-item:not(:last-child)::after {
+      right: -21px;
+    }
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .breadcrumbs {
+    margin-left: 102px;
   }
 }

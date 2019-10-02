@@ -1,5 +1,4 @@
 .filter {
-  width: 230px;
 
   &__fieldset:last-of-type {
     margin-bottom: 9px;
@@ -90,8 +89,9 @@
   }
 
   &__reset-button {
+    margin-bottom: 30px;
     padding: 22px 0 21px 0;
-    width: 230px;
+    width: 100%;
     font-family: $roboto;
     font-size: 12px;
     line-height: 14px;
@@ -108,6 +108,22 @@
 
     &:active {
       opacity: .5;
+    }
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .filter__reset-button {
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .filter {
+    width: 230px;
+
+    &__reset-button {
+      margin-bottom: 0;
     }
   }
 }

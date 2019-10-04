@@ -23,11 +23,11 @@
     }
 
     &:hover &-svg {
-      stroke: rgb(175, 164, 94);
+      stroke: $svg-state-hover;
     }
 
     &:active &-svg {
-      stroke: rgb(139, 53, 30);
+      stroke: $svg-state-active;
     }
 
     &-svg {
@@ -40,9 +40,9 @@
   }
 
   &__section-nav {
+    position: absolute;
     top: 48px;
     left: 0;
-    position: absolute;
     padding: 20px 15px;
     width: 130px;
     display: none;
@@ -114,7 +114,7 @@
   }
 
   &__user-buttons-link:hover &__user-button-svg {
-    fill: #afa45d;
+    fill: $svg-state-hover;
   }
 
   &__user-buttons-link:hover &__user-button-svg--red-color {
@@ -129,11 +129,11 @@
 
   &__user-search-input {
     position: absolute;
-    width: 150px;
     top: -2px;
     left: -142px;
-    display: none;
     padding: 0 4px;
+    width: 150px;
+    display: none;
     font-family: inherit;
     font-size: 16px;
     border: none;
@@ -149,9 +149,10 @@
   }
 
   &__user-buttons-like-count {
+    position: absolute;
     bottom: 15px;
     right: -6px;
-    position: absolute;
+    padding: 2px;
     min-width: 13px;
     font-family: $roboto;
     font-size: 10px;

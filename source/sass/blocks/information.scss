@@ -1,6 +1,6 @@
 .information {
   margin: $margin-auto;
-  padding: 40px 30px 50px 30px;
+  padding: 40px 30px 65px 30px;
   width: 90%;
 
   &__container {
@@ -54,7 +54,7 @@
 
 @media  (min-width: $tablet-width) {
   .information {
-    padding: 67px 30px 50px 30px;
+    padding: 67px 30px 60px 30px;
 
     &__container {
       justify-content: space-between;

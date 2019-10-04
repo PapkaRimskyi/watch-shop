@@ -13,33 +13,33 @@
   &__icon {
 
     &--insta {
-      fill: #C13584;
-      stroke: #C13584;
+      fill: $instagram-color;
+      stroke: $instagram-color;
     }
 
     &--facebook {
-      fill: #3C5A99;
+      fill: $facebook-color;
     }
 
     &--twitter {
-      fill: #1DA1F2;
+      fill: $twitter-color;
     }
   }
 
   &__link:hover &__icon--insta,
   &__link:focus &__icon--insta {
-    fill: #833AB4;
-    stroke: #833AB4;
+    fill: $instagram-state-hover;
+    stroke: $instagram-state-hover;
   }
 
   &__link:hover &__icon--facebook,
   &__link:focus &__icon--facebook {
-    fill: #155aec;
+    fill: $facebook-state-hover;
   }
 
   &__link:hover &__icon--twitter,
   &__link:focus &__icon--twitter {
-    fill: #0d73b1;
+    fill: $twitter-state-hover;
   }
 
   &__link:active &__icon--insta,

@@ -5,6 +5,7 @@
   text-align: center;
 
   &__name {
+    margin-bottom: 20px;
     font-size: 30px;
     line-height: 40px;
     color: $main-color;
@@ -35,7 +36,7 @@
     cursor: pointer;
 
     &:hover {
-      color: rgb(101, 55, 12);
+      color: #65370c;
     }
 
     &:active {
@@ -69,6 +70,10 @@
     align-items: center;
     width: 90%;
     text-align: justify;
+
+    &__name {
+      margin-bottom: 0;
+    }
 
     &__list-options {
       right: -5px;

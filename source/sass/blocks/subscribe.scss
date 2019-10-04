@@ -25,7 +25,7 @@
     font-size: 27px;
     font-weight: 700;
     line-height: 45px;
-    color: #1B1A17;
+    color: $main-color;
     text-transform: none;
     letter-spacing: 1.1px;
   }
@@ -39,7 +39,7 @@
       font-size: 18px;
       color: #444240;
       border: none;
-      border-bottom: 1px solid #1B1A17;
+      border-bottom: 1px solid $main-color;
       background-color: transparent;
 
       &::placeholder {
@@ -90,7 +90,7 @@
       justify-content: space-between;
 
       &-input {
-        width: 278px;
+        width: 56%;
       }
 
       &-button-submit {
@@ -111,7 +111,7 @@
     }
 
     &__condition-container {
-      width: 505px;
+      width: 45%;
     }
 
     &__present {
@@ -120,8 +120,13 @@
     }
 
     &__form {
-      margin-top: 73px;
-      width: 496px;
+      margin-top: 33px;
+      width: 44.3%;
+
+      &-input {
+        margin-bottom: 0;
+        align-self: flex-end;
+      }
     }
   }
 }

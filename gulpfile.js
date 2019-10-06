@@ -18,22 +18,12 @@ var concat = require('gulp-concat');
 var order = require('gulp-order');
 var babel = require('gulp-babel');
 
-gulp.task('js-file-dist', function () {
-  return gulp.src('source/js/*.js')
-  .pipe(gulp.dest('build/js'))
-});
-
-// ^For all other js-file, who isn't js_module.
-
 gulp.task('js_min', function () {
-  return gulp.src('source/js/js_module/*.js')
-  .pipe(concat('javascript.js'))
+  return gulp.src('source/js/*.js')
   .pipe(babel({
     presets: ['@babel/env']
   }))
-  .pipe(gulp.dest('build/js'))
-  .pipe(uglify())
-  .pipe(rename('javascript-min.js'))
+  // .pipe(uglify())
   .pipe(gulp.dest('build/js'))
 });
 
@@ -71,7 +61,7 @@ gulp.task('server', function () {
 
   gulp.watch('source/sass/**/*.{scss,sass}', gulp.series('css', 'refresh'));
   gulp.watch('source/*.html', gulp.series('html', 'refresh'));
-  gulp.watch('source/js/js_module/*.js', gulp.series('js_min', 'refresh'));
+  gulp.watch('source/js/*.js', gulp.series('js_min', 'refresh'));
 });
 
 gulp.task('images', function() {
@@ -110,6 +100,6 @@ gulp.task('html', function () {
   .pipe(gulp.dest('build'));
 });
 
-gulp.task('build', gulp.series('clean', 'copy', 'html', 'css', 'js-file-dist', 'js_min'));
+gulp.task('build', gulp.series('clean', 'copy', 'html', 'css', 'js_min'));
 
 gulp.task('start', gulp.series('build', 'server'));

@@ -98,10 +98,10 @@
     &-link {
       display: inline-block;
       vertical-align: top;
-    }
 
-    &-link--position {
-      position: relative;
+      &--position {
+        position: relative;
+      }
     }
   }
 
@@ -148,7 +148,7 @@
     }
   }
 
-  &__user-buttons-like-count {
+  &__user-count {
     position: absolute;
     bottom: 15px;
     right: -6px;

@@ -94,14 +94,15 @@
               <svg class="top-bar__user-button-svg top-bar__user-button-svg--red-color" width="21" height="18" xmlns="http://www.w3.org/2000/svg">
                 <use class="user-button-icon" xlink:href="#user-button-like"></use>
               </svg>
-              <span class="top-bar__user-buttons-like-count">1</span>
+              <span class="top-bar__user-count top-bar__user-count--like">1</span>
             </a>
           </li>
           <li class="top-bar__user-buttons-item">
-            <a href="#" class="top-bar__user-buttons-link" aria-label="Пользовательская корзина">
+            <a href="#" class="top-bar__user-buttons-link top-bar__user-buttons-link--position" aria-label="Пользовательская корзина">
               <svg class="top-bar__user-button-svg" width="18" height="16" xmlns="http://www.w3.org/2000/svg">
                 <use class="user-button-icon" xlink:href="#user-button-basket"></use>
               </svg>
+              <span class="top-bar__user-count top-bar__user-count--basket">0</span>
             </a>
           </li>
         </ul>
@@ -347,8 +348,8 @@
               </p>
               <ul class="product__interaction-list">
                 <li class="product__interaction-list-item">
-                  <a href="#" class="product__interaction-list-item-link product__like-button" aria-label="В избранное">
-                    <svg class="product__interaction-button product__interaction-button--stroke product__interaction-button--active" width="21" height="18" xmlns="http://www.w3.org/2000/svg">
+                  <a href="#" class="product__interaction-list-item-link product__like-button product__like-button--active" aria-label="В избранное">
+                    <svg class="product__interaction-button product__interaction-button--stroke" width="21" height="18" xmlns="http://www.w3.org/2000/svg">
                       <use xlink:href="#user-button-like"></use>
                     </svg>
                   </a>
@@ -660,6 +661,7 @@
       </div>
     </section>
   </footer>
-  <script src="js/javascript.js"></script>
+  <script src="js/mainJs.js"></script>
+  <script src="js/catalog.js"></script>
 </body>
 </html>

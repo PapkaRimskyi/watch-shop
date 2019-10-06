@@ -39,6 +39,17 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #444240;
+    transition: .2s ease-out;
+
+    &:hover,
+    &:focus {
+      font-size: 16px;
+      line-height: 18px;
+    }
+
+    &:active {
+      opacity: .5;
+    }
   }
 
   &__interaction-list {
@@ -47,11 +58,13 @@
     justify-content: space-between;
   }
 
-  &__interaction-list-item-link:hover &__interaction-button {
+  &__interaction-list-item-link:hover &__interaction-button,
+  &__interaction-list-item-link:focus &__interaction-button {
     fill: $svg-state-hover;
   }
 
-  &__interaction-list-item-link:hover &__interaction-button--stroke {
+  &__interaction-list-item-link:hover &__interaction-button--stroke,
+  &__interaction-list-item-link:focus &__interaction-button--stroke {
     stroke: $like-color;
   }
 
@@ -59,14 +72,19 @@
     opacity: .5;
   }
 
+  &__like-button--active &__interaction-button {
+    stroke: $like-color;
+  }
+
+  &__basket-button--active &__interaction-button {
+    fill: $svg-state-hover;
+  }
+
   &__interaction-button {
+    transition: .2s ease-in;
 
     &--stroke {
       stroke: $black-color;
-    }
-
-    &--active {
-      stroke: $like-color;
     }
   }
 

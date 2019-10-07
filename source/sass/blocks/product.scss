@@ -23,7 +23,6 @@
     position: relative;
     display: flex;
     justify-content: space-between;
-    z-index: 2;
   }
 
   &__name-and-price {
@@ -58,13 +57,11 @@
     justify-content: space-between;
   }
 
-  &__interaction-list-item-link:hover &__interaction-button,
-  &__interaction-list-item-link:focus &__interaction-button {
+  &__interaction-list-item-link:hover &__interaction-button, {
     fill: $svg-state-hover;
   }
 
-  &__interaction-list-item-link:hover &__interaction-button--stroke,
-  &__interaction-list-item-link:focus &__interaction-button--stroke {
+  &__interaction-list-item-link:hover &__interaction-button--stroke, {
     stroke: $like-color;
   }
 
@@ -91,9 +88,9 @@
   &__image-container {
     position: absolute;
     width: 60%;
-    height: 100%;
-    top: 33px;
-    left: 23%;
+    height: 95%;
+    top: 55px;
+    left: 22%;
   }
 
   &__image {

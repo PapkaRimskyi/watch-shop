@@ -1,7 +1,7 @@
 (function () {
   const hamburgerMenu = document.querySelector('.top-bar__hamburger-menu');
   const sectionNav = document.querySelector('.top-bar__section-nav');
-  const searchButton = document.querySelector('.top-bar__user-buttons-link--deploy-search');
+  const searchButton = document.querySelector('.top-bar__user-buttons-link--search');
   const searchInput = document.querySelector('.top-bar__user-search-input');
 
   function toggleHamburgerMenu(e) {

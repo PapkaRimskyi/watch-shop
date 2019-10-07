@@ -1,0 +1,21 @@
+.user-collection {
+  position: absolute;
+  top: 20px;
+  left: -130px;
+  width: 240px;
+  height: 125px;
+  display: none;
+  background: linear-gradient(0deg, $fdfdfb-color, $fdfdfb-color);
+  overflow-y: scroll;
+
+  &--display {
+    display: block;
+  }
+
+  &__list-item {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    line-height: 20px;
+  }
+}

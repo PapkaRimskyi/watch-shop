@@ -86,22 +86,16 @@
     }
 
     &-item {
+      position: relative;
       min-width: 38px;
       text-align: center;
       align-self: center;
-
-      &--search-container {
-        position: relative;
-      }
     }
 
     &-link {
+      position: relative;
       display: inline-block;
       vertical-align: top;
-
-      &--position {
-        position: relative;
-      }
     }
   }
 
@@ -159,6 +153,10 @@
     line-height: 12px;
     border-radius: 50%;
     background-color: #E6C8B4;
+  }
+
+  &__user-button-animation {
+    animation: .2s shaking;
   }
 }
 

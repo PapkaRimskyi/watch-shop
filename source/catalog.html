@@ -81,29 +81,35 @@
       </nav>
       <nav class="top-bar__user-buttons">
         <ul class="top-bar__user-buttons-list">
-          <li class="top-bar__user-buttons-item top-bar__user-buttons-item--search-container">
+          <li class="top-bar__user-buttons-item">
             <input type="text" class="top-bar__user-search-input" name="input-search" autocomplete="off" placeholder="Поиск по сайту" title="Поле для поиска по сайту">
-            <a href="#" class="top-bar__user-buttons-link top-bar__user-buttons-link--deploy-search" aria-label="Поиск по сайту">
+            <a href="#" class="top-bar__user-buttons-link top-bar__user-buttons-link--search" aria-label="Поиск по сайту">
               <svg class="top-bar__user-button-svg" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
                 <use class="user-button-icon" xlink:href="#user-button-search"></use>
               </svg>
             </a>
           </li>
           <li class="top-bar__user-buttons-item">
-            <a href="#" class="top-bar__user-buttons-link top-bar__user-buttons-link--position" aria-label="Избранные товары">
+            <a href="#" class="top-bar__user-buttons-link top-bar__user-buttons-link--favorites" aria-label="Избранные товары">
               <svg class="top-bar__user-button-svg top-bar__user-button-svg--red-color" width="21" height="18" xmlns="http://www.w3.org/2000/svg">
                 <use class="user-button-icon" xlink:href="#user-button-like"></use>
               </svg>
-              <span class="top-bar__user-count top-bar__user-count--like">1</span>
+              <span class="top-bar__user-count top-bar__user-count--favorites">0</span>
             </a>
+            <div class="user-collection user-collection--favorites">
+              <ul class="user-collection__list"></ul>
+            </div>
           </li>
           <li class="top-bar__user-buttons-item">
-            <a href="#" class="top-bar__user-buttons-link top-bar__user-buttons-link--position" aria-label="Пользовательская корзина">
+            <a href="#" class="top-bar__user-buttons-link top-bar__user-buttons-link--basket" aria-label="Пользовательская корзина">
               <svg class="top-bar__user-button-svg" width="18" height="16" xmlns="http://www.w3.org/2000/svg">
                 <use class="user-button-icon" xlink:href="#user-button-basket"></use>
               </svg>
               <span class="top-bar__user-count top-bar__user-count--basket">0</span>
             </a>
+            <div class="user-collection user-collection--basket">
+              <ul class="user-collection__list"></ul>
+            </div>
           </li>
         </ul>
       </nav>
@@ -348,7 +354,7 @@
               </p>
               <ul class="product__interaction-list">
                 <li class="product__interaction-list-item">
-                  <a href="#" class="product__interaction-list-item-link product__like-button product__like-button--active" aria-label="В избранное">
+                  <a href="#" class="product__interaction-list-item-link product__like-button" aria-label="В избранное">
                     <svg class="product__interaction-button product__interaction-button--stroke" width="21" height="18" xmlns="http://www.w3.org/2000/svg">
                       <use xlink:href="#user-button-like"></use>
                     </svg>
@@ -661,6 +667,15 @@
       </div>
     </section>
   </footer>
+  <template id ="productTemplate">
+    <li class="user-collection__list-item">
+      <img src="" alt="Мини-картинка часов" width="100" height="120">
+      <div class="user-collection__product-info">
+        <p class="user-collection__name"></p>
+        <p class="user-collection__price"></p>
+      </div>
+    </li>
+  </template>
   <script src="js/mainJs.js"></script>
   <script src="js/catalog.js"></script>
 </body>

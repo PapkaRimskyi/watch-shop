@@ -12,29 +12,27 @@
   }
 
   function sortTypeHandler(e) {
-    let target = e.target;
-    if (target.tagName === 'A') {
+    if (e.target.tagName === 'A') {
       e.preventDefault();
-      if (!target.classList.contains('catalog-name-and-sort__sort-type--active')) {
-        document.querySelector('.catalog-name-and-sort__sort-type').textContent = target.textContent;
+      if (!e.target.classList.contains('catalog-name-and-sort__sort-type--active')) {
+        document.querySelector('.catalog-name-and-sort__sort-type').textContent = e.target.textContent;
         removeSortActive();
-        target.classList.add('catalog-name-and-sort__sort-type--active');
+        e.target.classList.add('catalog-name-and-sort__sort-type--active');
       }
     }
   }
 
   function showSortList(e) {
     e.preventDefault();
-    let target = e.target;
-    if (target.classList.contains('catalog-name-and-sort__sort-type')) {
-      let listOptions = document.querySelector('.catalog-name-and-sort__list-options');
-      if (!listOptions.classList.contains('catalog-name-and-sort__list-options--active')) {
-        listOptions.classList.add('catalog-name-and-sort__list-options--active');
-        listOptions.addEventListener('click', sortTypeHandler);
+    if (e.target.classList.contains('catalog-name-and-sort__sort-type')) {
+      let sortListOptions = document.querySelector('.catalog-name-and-sort__list-options');
+      if (!sortListOptions.classList.contains('catalog-name-and-sort__list-options--active')) {
+        sortListOptions.classList.add('catalog-name-and-sort__list-options--active');
+        sortListOptions.addEventListener('click', sortTypeHandler);
         return;
       }
-      listOptions.classList.remove('catalog-name-and-sort__list-options--active');
-      listOptions.removeEventListener('click', sortTypeHandler);
+      sortListOptions.classList.remove('catalog-name-and-sort__list-options--active');
+      sortListOptions.removeEventListener('click', sortTypeHandler);
     }
   }
 
@@ -53,31 +51,28 @@
 
   //Open or close product filter section//
 
+  function filterSectionDisplayToggle(legendButton) {
+    if (legendButton.classList.contains('filter__legend--open')) {
+      legendButton.classList.remove('filter__legend--open');
+      legendButton.classList.add('filter__legend--close');
+      legendButton.nextElementSibling.classList.add('filter__option-list--display');
+      return;
+    }
+    legendButton.classList.remove('filter__legend--close');
+    legendButton.classList.add('filter__legend--open');
+    legendButton.nextElementSibling.classList.remove('filter__option-list--display');
+  }
+
   function checkboxSectionKeyDownHandler(e) {
     if (document.activeElement.tagName === 'LEGEND' && e.code === 'Enter') {
-      let target = document.activeElement;
-      toggleCheckboxSection(target);
+      filterSectionDisplayToggle(document.activeElement);
     }
   }
 
   function checkboxSectionClickHandler(e) {
-    let target = e.target;
-    if (target.tagName === 'LEGEND') {
-      toggleCheckboxSection(target);
+    if (e.target.tagName === 'LEGEND') {
+      filterSectionDisplayToggle(e.target);
     }
-  }
-
-  function toggleCheckboxSection(target) {
-    let parentLegend = target.parentNode;
-    if (target.classList.contains('filter__legend--open')) {
-      target.classList.remove('filter__legend--open');
-      target.classList.add('filter__legend--close');
-      parentLegend.lastElementChild.classList.add('filter__option-list--display');
-      return;
-    }
-    target.classList.remove('filter__legend--close');
-    target.classList.add('filter__legend--open');
-    parentLegend.lastElementChild.classList.remove('filter__option-list--display');
   }
 
   formFilter.addEventListener('click', checkboxSectionClickHandler);
@@ -85,18 +80,18 @@
 
   //User button handler//
 
-  function addNothingToShowAnimation(button) {
-    button.classList.add('top-bar__user-button-animation');
+  function emptyUserListAnimation(userButton) {
+    userButton.classList.add('top-bar__user-button-animation');
     setTimeout(() => {
-      button.classList.remove('top-bar__user-button-animation');
+      userButton.classList.remove('top-bar__user-button-animation');
     }, 205);
   }
 
-  function findTargetClosest(cssClass, target, returnElem) {
-    for (let value of cssClass) {
-      if (target.closest('.' + value)) {
+  function findUserButton(userButtonClasses, userButton, returnElem) {
+    for (let value of userButtonClasses) {
+      if (userButton.closest('.' + value)) {
         if (returnElem) {
-          return target.closest('.' + value);
+          return userButton.closest('.' + value);
         }
         return true;
       }
@@ -104,31 +99,30 @@
     return false;
   }
 
-  function isClosedAnotherWindow(cssClass, button) {
+  function isAnotherUserListClosed(userButtonClasses, userButton) {
     let anotherUserButton;
-    for (let value of cssClass) {
-      if (!button.classList.contains(value)) {
+    for (let value of userButtonClasses) {
+      if (!userButton.classList.contains(value)) {
         anotherUserButton = '.' + value;
         break;
       }
     }
-    let userCollectionItem = document.querySelector(anotherUserButton).nextElementSibling;
-    if (userCollectionItem.classList.contains('user-collection--display')) {
-      userCollectionItem.classList.remove('user-collection--display');
+    let userCollectionContainer = document.querySelector(anotherUserButton).nextElementSibling;
+    if (userCollectionContainer.classList.contains('user-collection--display')) {
+      userCollectionContainer.classList.remove('user-collection--display');
     }
   }
 
   function userButtonsHandler(e) {
     e.preventDefault();
-    const linkClass = ['top-bar__user-buttons-link--favorites', 'top-bar__user-buttons-link--basket'];
-    let target = e.target;
-    if (findTargetClosest(linkClass, target)) {
-      let linkButton = findTargetClosest(linkClass, target, true);
-      if (linkButton.lastElementChild.textContent === '0') {
-        addNothingToShowAnimation(linkButton);
+    const userButtonClasses = ['top-bar__user-buttons-link--favorites', 'top-bar__user-buttons-link--basket'];
+    if (findUserButton(userButtonClasses, e.target)) {
+      let userButton = findUserButton(userButtonClasses, e.target, true);
+      if (userButton.lastElementChild.textContent === '0') {
+        emptyUserListAnimation(userButton);
       } else {
-        let userList = linkButton.parentNode.querySelector('.user-collection');
-        isClosedAnotherWindow(linkClass, linkButton);
+        let userList = userButton.parentNode.querySelector('.user-collection');
+        isAnotherUserListClosed(userButtonClasses, userButton);
         userList.classList.toggle('user-collection--display');
       }
     }
@@ -138,13 +132,13 @@
 
   //Add in favorites or basket//
 
-  function getProductInfo(interactiveButton) {
-    let infoContainer = interactiveButton.closest('.product__list-item');
+  function getProductInfo(interactiveProductButton) {
+    let productInfoContainer = interactiveProductButton.closest('.product__list-item');
     return {
-      productName: infoContainer.querySelector('.product__name').textContent,
-      productPrice: infoContainer.querySelector('.product__price').textContent,
-      productImgSrc: infoContainer.querySelector('.product__image').getAttribute('src'),
-      productDataNumber: infoContainer.getAttribute('data-product'),
+      productName: productInfoContainer.querySelector('.product__name').textContent,
+      productPrice: productInfoContainer.querySelector('.product__price').textContent,
+      productImgSrc: productInfoContainer.querySelector('.product__image').getAttribute('src'),
+      productDataNumber: productInfoContainer.getAttribute('data-product'),
     }
   }
 
@@ -155,55 +149,54 @@
     template.querySelector('.user-collection__price').textContent = info.productPrice;
   }
 
-  function renderProduct(interactiveButton, userCountType) {
-    let productInfo = getProductInfo(interactiveButton);
+  function renderProduct(interactiveProductButton, userCountType) {
+    let productInfo = getProductInfo(interactiveProductButton);
     let liTemplate = productTemplate.content;
     setProductInfo(liTemplate, productInfo);
-    let contentContainer = document.querySelector(userCountType).closest('.top-bar__user-buttons-item').querySelector('.user-collection__list');
-    contentContainer.append(liTemplate.cloneNode(true));
+    let userCollectionList = document.querySelector(userCountType).closest('.top-bar__user-buttons-item').querySelector('.user-collection__list');
+    userCollectionList.append(liTemplate.cloneNode(true));
   }
 
-  function checkForEmptyList(list, userCountType) {
+  function checkForEmptyList(list) {
     if (list.children.length === 0) {
       list.parentNode.classList.remove('user-collection--display');
     }
   }
 
-  function deleteProduct(interactiveButton, userCountType) {
-    let productNumber = interactiveButton.closest('.product__list-item').getAttribute('data-product');
-    let listItem = document.querySelector(userCountType).parentNode.nextElementSibling.querySelector('.user-collection__list');
-    let itemCollection = listItem.children;
+  function deleteProduct(interactiveProductButton, userCountType) {
+    let productNumber = interactiveProductButton.closest('.product__list-item').getAttribute('data-product');
+    let userCollectionList = document.querySelector(userCountType).parentNode.nextElementSibling.querySelector('.user-collection__list');
+    let itemCollection = userCollectionList.children;
     for (let i = 0; i < itemCollection.length; i++) {
       if (itemCollection[i].getAttribute('data-product') === productNumber) {
         itemCollection[i].remove();
       }
     }
-    checkForEmptyList(listItem, userCountType);
+    checkForEmptyList(userCollectionList);
   }
 
-  function getCountsOfProducts(elem, elemCounter, status, interactiveButton) {
-    let spanCounter = document.querySelector(elemCounter);
-    if (elem.classList.contains(status)) {
-      elem.classList.remove(status);
+  function getCountsOfProducts(productButton, counter, state, interactiveProductButton) {
+    let spanCounter = document.querySelector(counter);
+    if (productButton.classList.contains(state)) {
+      productButton.classList.remove(state);
       --spanCounter.textContent;
-      deleteProduct(interactiveButton, elemCounter);
+      deleteProduct(interactiveProductButton, counter);
       return;
     }
-    elem.classList.add(status);
+    productButton.classList.add(state);
     ++spanCounter.textContent;
-    renderProduct(interactiveButton, elemCounter);
+    renderProduct(interactiveProductButton, counter);
   }
 
   function interactiveProductButtonsHandler(e) {
     e.preventDefault();
-    let target = e.target;
     let productButton;
-    if (target.closest('.product__like-button')) {
-      productButton = target.closest('.product__like-button');
-      getCountsOfProducts(productButton, '.top-bar__user-count--favorites', 'product__like-button--active', target);
-    } else if (target.closest('.product__basket-button')) {
-      productButton = target.closest('.product__basket-button');
-      getCountsOfProducts(productButton, '.top-bar__user-count--basket', 'product__basket-button--active', target);
+    if (e.target.closest('.product__like-button')) {
+      productButton = e.target.closest('.product__like-button');
+      getCountsOfProducts(productButton, '.top-bar__user-count--favorites', 'product__like-button--active', e.target);
+    } else if (e.target.closest('.product__basket-button')) {
+      productButton = e.target.closest('.product__basket-button');
+      getCountsOfProducts(productButton, '.top-bar__user-count--basket', 'product__basket-button--active', e.target);
     }
   }
 

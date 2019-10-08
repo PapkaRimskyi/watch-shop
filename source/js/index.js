@@ -37,9 +37,8 @@
 
   function switchArrowHandler(e) {
     e.preventDefault();
-    let target = e.target;
-    if (target.closest('.slider-button__switch-link')) {
-      let sliderButton = target.closest('.slider-button__switch-link');
+    if (e.target.closest('.slider-button__switch-link')) {
+      let sliderButton = e.target.closest('.slider-button__switch-link');
       if (sliderButton.parentNode.classList.contains('advantages__slider-button')) {
         if (sliderButton.classList.contains('slider-button__switch-link--left-arrow')) {
           switchSlider(advantagesSliderCollection, -1, 'advantages__slider-container--active', advantagesSliderCount, advantagesCheckIndex);

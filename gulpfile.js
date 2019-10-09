@@ -13,12 +13,10 @@ var csso = require('gulp-csso');
 var rename = require('gulp-rename');
 var svgo = require('svgo');
 var uglify = require('gulp-uglify');
-var pump = require('pump');
 var concat = require('gulp-concat');
-var order = require('gulp-order');
 var babel = require('gulp-babel');
 
-gulp.task('js_min', function () {
+gulp.task('assemblyJs', function () {
   return gulp.src('source/js/*.js')
   .pipe(babel({
     presets: ['@babel/env']
@@ -61,7 +59,7 @@ gulp.task('server', function () {
 
   gulp.watch('source/sass/**/*.{scss,sass}', gulp.series('css', 'refresh'));
   gulp.watch('source/*.html', gulp.series('html', 'refresh'));
-  gulp.watch('source/js/*.js', gulp.series('js_min', 'refresh'));
+  gulp.watch('source/js/*.js', gulp.series('assemblyJs', 'refresh'));
 });
 
 gulp.task('images', function() {
@@ -100,6 +98,6 @@ gulp.task('html', function () {
   .pipe(gulp.dest('build'));
 });
 
-gulp.task('build', gulp.series('clean', 'copy', 'html', 'css', 'js_min'));
+gulp.task('build', gulp.series('clean', 'copy', 'html', 'css', 'assemblyJs'));
 
 gulp.task('start', gulp.series('build', 'server'));

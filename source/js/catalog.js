@@ -6,14 +6,21 @@
 
   //Add data attribute//
 
-  function addProductNumbering() {
-    let productCollection = productList.children;
-    for (let i = 0; i < productCollection.length; i++) {
-      productCollection[i].setAttribute('data-product', i);
+  function getRandomNumber() {
+    return Math.floor(Math.random() * 100);
+  }
+
+  function addProductDataset() {
+    let productCollection = productList.querySelectorAll('.product__item-card');
+    let i = 0;
+    for (let item of productCollection) {
+      item.setAttribute('data-product', i);
+      item.setAttribute('data-popular', getRandomNumber());
+      i++;
     }
   }
 
-  addProductNumbering();
+  addProductDataset();
 
   //Open or close product filter section//
 
@@ -170,6 +177,65 @@
 
   //Sort product//
 
+  function removeAdUnit(itemCollection) {
+    return itemCollection.find(function(item, i) {
+      if (item.classList.contains('product__list-item--special-offer')) {
+        return itemCollection.splice(i, 1);
+      }
+    });
+  }
+
+  function sortProductByPopular(a, b) {
+    if (+a.getAttribute('data-popular') > +b.getAttribute('data-popular')) {
+      return 1;
+    } else if (+a.getAttribute('data-popular') === +b.getAttribute('data-popular')) {
+      return 0;
+    } else {
+      return -1;
+    }
+  }
+
+  function sortProductByPrice(a, b) {
+    if (+a.querySelector('.product__price').textContent.match(/\d+/g).join('') > +b.querySelector('.product__price').textContent.match(/\d+/g).join('')) {
+      return 1;
+    } else if (+a.querySelector('.product__price').textContent.match(/\d+/g).join('') === +b.querySelector('.product__price').textContent.match(/\d+/g).join('')) {
+      return 0;
+    } else {
+      return -1;
+    }
+  }
+
+  function returnAssembledProductArray(sortedList, adUnitItem) {
+    let halfArray = sortedList.splice(0, Math.floor(sortedList.length / 2));
+    halfArray.push(adUnitItem);
+    return halfArray.concat(sortedList);
+  }
+
+  function renderSortedProductList(sortedList, adUnitItem) {
+    for (let value of returnAssembledProductArray(sortedList, adUnitItem)) {
+      productList.append(value);
+    }
+  }
+
+  function getStartSort() {
+    let itemCollection = [...productList.children];
+    let adUnitItem = removeAdUnit(itemCollection);
+    switch(document.querySelector('.catalog-name-and-sort__sort-type').textContent) {
+      case 'популярности':
+        let sortedByPopular = itemCollection.sort(sortProductByPopular).reverse();
+        productList.innerHTML = '';
+        renderSortedProductList(sortedByPopular, adUnitItem);
+        break;
+      case 'цене':
+        let sortedByPrice = itemCollection.sort(sortProductByPrice);
+        productList.innerHTML = '';
+        renderSortedProductList(sortedByPrice, adUnitItem);
+        break;
+    }
+  }
+
+  getStartSort();
+
   function sortListHandlerClicker(e) {
     let trackedContainer = document.querySelector('.catalog-name-and-sort__list-options');
     if (!trackedContainer.querySelector(`${e.target.tagName}`) && trackedContainer !== e.target) {
@@ -191,6 +257,7 @@
         document.querySelector('.catalog-name-and-sort__sort-type').textContent = e.target.textContent;
         removeSortActive();
         e.target.classList.add('catalog-name-and-sort__sort-type--active');
+        getStartSort();
       }
     }
   }

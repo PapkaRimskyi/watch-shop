@@ -19,7 +19,7 @@ var babel = require('gulp-babel');
 gulp.task('assemblyJs', function () {
   return gulp.src('source/js/*.js')
   .pipe(babel({
-    presets: ['@babel/env']
+    presets: ['@babel/preset-env']
   }))
   // .pipe(uglify())
   .pipe(gulp.dest('build/js'))

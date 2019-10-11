@@ -280,4 +280,53 @@
 
   sortContainer.addEventListener('click', showSortList);
 
+  //Checkbox filter code//
+
+  let brendFilter = formFilter.firstElementChild.nextElementSibling;
+  let resetButton = formFilter.querySelector('.filter__reset-button');
+
+  function getOptionsChecked() {
+    let inputCollection = [...brendFilter.querySelectorAll('.filter__checkbox-input')];
+    return inputCollection.filter(function(item) {
+      if (item.checked) {
+        return item;
+      }
+    })
+  }
+
+  function checkProductValue(productValue) {
+    let status = false;
+    for (let inputChecked of getOptionsChecked()) {
+      if (productValue === inputChecked.name.toUpperCase()) {
+        status = true;
+      }
+    }
+    return status;
+  }
+
+  function throwOffStyles(productCollection) {
+    for (let item of productCollection) {
+      item.style = '';
+    }
+  }
+
+  function filterCheckboxHandler(e) {
+    if (e.target.tagName === 'INPUT') {
+      let productCollection = productList.querySelectorAll('.product__item-card');
+      throwOffStyles(productCollection);
+      if (getOptionsChecked().length) {
+        for (let item of productCollection) {
+          if (!checkProductValue(item.querySelector('.product__name').textContent.toUpperCase())) {
+            item.style = 'display: none;';
+          }
+        }
+      }
+    }
+  }
+
+  brendFilter.addEventListener('click', filterCheckboxHandler);
+  resetButton.addEventListener('click', function () {
+    throwOffStyles(productList.querySelectorAll('.product__item-card'));
+  });
+
 })();

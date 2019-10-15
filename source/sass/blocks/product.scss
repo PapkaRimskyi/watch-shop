@@ -57,6 +57,11 @@
     justify-content: space-between;
   }
 
+  &__interaction-list-item-link {
+    display: inline-block;
+    vertical-align: top;
+  }
+
   &__interaction-list-item-link:hover &__interaction-button, {
     fill: $svg-state-hover;
   }

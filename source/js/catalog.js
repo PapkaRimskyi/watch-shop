@@ -3,341 +3,113 @@
   const formFilter = document.querySelector('.filter__form');
   const productList = document.querySelector('.product__list');
   const userButtonsList = document.querySelector('.top-bar__user-buttons-list');
-  //
-  // //Add in favorites or basket//
-  //
-  // function getProductInfo(interactiveProductButton) {
-  //   let productInfoContainer = interactiveProductButton.closest('.product__list-item');
-  //   return {
-  //     productName: productInfoContainer.querySelector('.product__name').textContent,
-  //     productPrice: productInfoContainer.querySelector('.product__price').textContent,
-  //     productImgSrc: productInfoContainer.querySelector('.product__image').getAttribute('src'),
-  //     productDataNumber: productInfoContainer.getAttribute('data-product'),
-  //   }
-  // }
-  //
-  // function setProductInfo(template, info) {
-  //   template.querySelector('li').setAttribute('data-product', info.productDataNumber);
-  //   template.querySelector('img').src = info.productImgSrc;
-  //   template.querySelector('.user-collection__name').textContent = info.productName;
-  //   template.querySelector('.user-collection__price').textContent = info.productPrice;
-  // }
-  //
-  // function renderProduct(interactiveProductButton, userCountType) {
-  //   let productInfo = getProductInfo(interactiveProductButton);
-  //   let liTemplate = productTemplate.content;
-  //   setProductInfo(liTemplate, productInfo);
-  //   let userCollectionList = document.querySelector(userCountType).closest('.top-bar__user-buttons-item').querySelector('.user-collection__list');
-  //   userCollectionList.append(liTemplate.cloneNode(true));
-  // }
-  //
-  // function checkForEmptyList(list) {
-  //   if (list.children.length === 0) {
-  //     list.parentNode.classList.remove('user-collection--display');
-  //   }
-  // }
-  //
-  // function deleteProduct(interactiveProductButton, userCountType) {
-  //   let productNumber = interactiveProductButton.closest('.product__list-item').getAttribute('data-product');
-  //   let userCollectionList = document.querySelector(userCountType).parentNode.nextElementSibling.querySelector('.user-collection__list');
-  //   let itemCollection = userCollectionList.children;
-  //   for (let i = 0; i < itemCollection.length; i++) {
-  //     if (itemCollection[i].getAttribute('data-product') === productNumber) {
-  //       itemCollection[i].remove();
-  //     }
-  //   }
-  //   checkForEmptyList(userCollectionList);
-  // }
-  //
-  // function getCountsOfProducts(productButton, counter, state, interactiveProductButton) {
-  //   let spanCounter = document.querySelector(counter);
-  //   if (productButton.classList.contains(state)) {
-  //     productButton.classList.remove(state);
-  //     --spanCounter.textContent;
-  //     deleteProduct(interactiveProductButton, counter);
-  //     return;
-  //   }
-  //   productButton.classList.add(state);
-  //   ++spanCounter.textContent;
-  //   renderProduct(interactiveProductButton, counter);
-  // }
-  //
-  // function interactiveProductButtonsHandler(e) {
-  //   e.preventDefault();
-  //   let productButton;
-  //   if (e.target.closest('.product__like-button')) {
-  //     productButton = e.target.closest('.product__like-button');
-  //     getCountsOfProducts(productButton, '.top-bar__user-count--favorites', 'product__like-button--active', e.target);
-  //   } else if (e.target.closest('.product__basket-button')) {
-  //     productButton = e.target.closest('.product__basket-button');
-  //     getCountsOfProducts(productButton, '.top-bar__user-count--basket', 'product__basket-button--active', e.target);
-  //   }
-  // }
-  //
-  // productList.addEventListener('click', interactiveProductButtonsHandler);
-  //
-  // //Sort product//
-  //
-  // function removeAdUnit(itemCollection) {
-  //   return itemCollection.find(function(item, i) {
-  //     if (item.classList.contains('product__list-item--special-offer')) {
-  //       return itemCollection.splice(i, 1);
-  //     }
-  //   });
-  // }
-  //
-  // function sortProductByPopular(a, b) {
-  //   if (+a.getAttribute('data-popular') > +b.getAttribute('data-popular')) {
-  //     return 1;
-  //   } else if (+a.getAttribute('data-popular') === +b.getAttribute('data-popular')) {
-  //     return 0;
-  //   } else {
-  //     return -1;
-  //   }
-  // }
-  //
-  // function sortProductByPrice(a, b) {
-  //   if (+a.querySelector('.product__price').textContent.match(/\d+/g).join('') > +b.querySelector('.product__price').textContent.match(/\d+/g).join('')) {
-  //     return 1;
-  //   } else if (+a.querySelector('.product__price').textContent.match(/\d+/g).join('') === +b.querySelector('.product__price').textContent.match(/\d+/g).join('')) {
-  //     return 0;
-  //   } else {
-  //     return -1;
-  //   }
-  // }
-  //
-  // function returnAssembledProductArray(sortedList, adUnitItem) {
-  //   let halfArray = sortedList.splice(0, Math.floor(sortedList.length / 2));
-  //   halfArray.push(adUnitItem);
-  //   return halfArray.concat(sortedList);
-  // }
-  //
-  // function renderSortedProductList(sortedList, adUnitItem) {
-  //   for (let value of returnAssembledProductArray(sortedList, adUnitItem)) {
-  //     productList.append(value);
-  //   }
-  // }
-  //
-  // function getStartSort() {
-  //   let itemCollection = [...productList.children];
-  //   let adUnitItem = removeAdUnit(itemCollection);
-  //   switch(document.querySelector('.catalog-name-and-sort__sort-type').textContent) {
-  //     case 'популярности':
-  //       let sortedByPopular = itemCollection.sort(sortProductByPopular).reverse();
-  //       productList.innerHTML = '';
-  //       renderSortedProductList(sortedByPopular, adUnitItem);
-  //       break;
-  //     case 'цене':
-  //       let sortedByPrice = itemCollection.sort(sortProductByPrice);
-  //       productList.innerHTML = '';
-  //       renderSortedProductList(sortedByPrice, adUnitItem);
-  //       break;
-  //   }
-  // }
-  //
-  // getStartSort();
-  //
-  // function sortListHandlerClicker(e) {
-  //   let trackedContainer = document.querySelector('.catalog-name-and-sort__list-options');
-  //   if (!trackedContainer.querySelector(`${e.target.tagName}`) && trackedContainer !== e.target) {
-  //     trackedContainer.classList.remove('catalog-name-and-sort__list-options--active');
-  //   }
-  // }
-  //
-  // function removeSortActive() {
-  //   let sortTypeItem = document.querySelectorAll('.catalog-name-and-sort__list-item-link');
-  //   for (let i = 0; i < sortTypeItem.length; i++) {
-  //     sortTypeItem[i].classList.remove('catalog-name-and-sort__sort-type--active');
-  //   }
-  // }
-  //
-  // function sortTypeHandler(e) {
-  //   if (e.target.tagName === 'A') {
-  //     e.preventDefault();
-  //     if (!e.target.classList.contains('catalog-name-and-sort__sort-type--active')) {
-  //       document.querySelector('.catalog-name-and-sort__sort-type').textContent = e.target.textContent;
-  //       removeSortActive();
-  //       e.target.classList.add('catalog-name-and-sort__sort-type--active');
-  //       getStartSort();
-  //     }
-  //   }
-  // }
-  //
-  // function showSortList(e) {
-  //   e.preventDefault();
-  //   if (e.target.classList.contains('catalog-name-and-sort__sort-type')) {
-  //     let sortListOptions = document.querySelector('.catalog-name-and-sort__list-options');
-  //     if (!sortListOptions.classList.contains('catalog-name-and-sort__list-options--active')) {
-  //       sortListOptions.classList.add('catalog-name-and-sort__list-options--active');
-  //       sortListOptions.addEventListener('click', sortTypeHandler);
-  //       document.addEventListener('mouseup', sortListHandlerClicker);
-  //       return;
-  //     }
-  //     sortListOptions.classList.remove('catalog-name-and-sort__list-options--active');
-  //     sortListOptions.removeEventListener('click', sortTypeHandler);
-  //     document.removeEventListener('mouseup', sortListHandlerClicker);
-  //   }
-  // }
-  //
-  // sortContainer.addEventListener('click', showSortList);
-  //
-  // //Checkbox filter code//
-  //
-  // let brendFilter = formFilter.firstElementChild.nextElementSibling;
-  // let resetButton = formFilter.querySelector('.filter__reset-button');
-  //
-  // function getOptionsChecked() {
-  //   let inputCollection = [...brendFilter.querySelectorAll('.filter__checkbox-input')];
-  //   return inputCollection.filter(function(item) {
-  //     if (item.checked) {
-  //       return item;
-  //     }
-  //   })
-  // }
-  //
-  // function checkProductValue(productValue) {
-  //   let status = false;
-  //   for (let inputChecked of getOptionsChecked()) {
-  //     if (productValue === inputChecked.name.toUpperCase()) {
-  //       status = true;
-  //     }
-  //   }
-  //   return status;
-  // }
-  //
-  // function throwOffStyles(productCollection) {
-  //   for (let item of productCollection) {
-  //     item.style = '';
-  //   }
-  // }
-  //
-  // function filterCheckboxHandler(e) {
-  //   if (e.target.tagName === 'INPUT') {
-  //     let productCollection = productList.querySelectorAll('.product__item-card');
-  //     throwOffStyles(productCollection);
-  //     if (getOptionsChecked().length) {
-  //       for (let item of productCollection) {
-  //         if (!checkProductValue(item.querySelector('.product__name').textContent.toUpperCase())) {
-  //           item.style = 'display: none;';
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-  //
-  // brendFilter.addEventListener('click', filterCheckboxHandler);
-  // resetButton.addEventListener('click', function () {
-  //   throwOffStyles(productList.querySelectorAll('.product__item-card'));
-  // });
-
-  //Render product list
 
   let productListObj = {
     watch1: {
-      brand: 'Techne',
-      price: 12700,
       imgPath: 'img/product__product-img1.png',
       productProperties: {
+        brand: 'Techne',
+        price: 12700,
         mechanism: 'mechanical',
         material: 'steel',
         color: 'white',
       },
     },
     watch2: {
-      brand: 'Techne',
-      price: 12700,
       imgPath: 'img/product__product-img2.png',
       productProperties: {
+        brand: 'Techne',
+        price: 12700,
         mechanism: 'mechanical',
         material: 'steel',
         color: 'black',
       },
     },
     watch3: {
-      brand: 'Techne',
-      price: 15700,
       imgPath: 'img/product__product-img3.png',
       productProperties: {
+        brand: 'Techne',
+        price: 15700,
         mechanism: 'quartz',
         material: 'steel',
         color: 'black',
       },
     },
     watch4: {
-      brand: 'Techne',
-      price: 15700,
       imgPath: 'img/product__product-img4.png',
       productProperties:  {
+        brand: 'Techne',
+        price: 15700,
         mechanism: 'quartz',
         material: 'steel',
         color: 'white',
       },
     },
     watch5: {
-      brand: 'Techne',
-      price: 12700,
       imgPath: 'img/product__product-img5.png',
       productProperties:  {
+        brand: 'Techne',
+        price: 12700,
         mechanism: 'quartz',
         material: 'steel',
         color: 'black',
       },
     },
     watch6: {
-      brand: 'Techne',
-      price: 18500,
       imgPath: 'img/product__product-img6.png',
       productProperties:  {
+        brand: 'Techne',
+        price: 18500,
         mechanism: 'quartz',
         material: 'titanium',
         color: 'white',
       },
     },
     watch7: {
-      brand: 'Techne',
-      price: 15700,
       imgPath: 'img/product__product-img7.png',
       productProperties: {
+        brand: 'Techne',
+        price: 15700,
         mechanism: 'quartz',
         material: 'steel',
         color: 'white',
       },
     },
     watch8: {
-      brand: 'Rado',
-      price: 14700,
       imgPath: 'img/product__product-img8.png',
       productProperties: {
+        brand: 'Rado',
+        price: 14700,
         mechanism: 'electronic',
         material: 'steel',
         color: 'black',
       },
     },
     watch9: {
-      brand: 'Bvlgari',
-      price: 72700,
       imgPath: 'img/product__product-img9.png',
       productProperties: {
+        brand: 'Bvlgari',
+        price: 72700,
         mechanism: 'quartz',
         material: 'titanium',
         color: 'white',
       },
     },
     watch10: {
-      brand: 'Techne',
-      price: 22700,
       imgPath: 'img/product__product-img10.png',
       productProperties: {
+        brand: 'Techne',
+        price: 22700,
         mechanism: 'quartz',
         material: 'titanium',
         color: 'white',
       },
     },
     watch11: {
-      brand: 'Rado',
-      price: 22000,
       imgPath: 'img/product__product-img11.png',
       productProperties: {
+        brand: 'Rado',
+        price: 22000,
         mechanism: 'electronic',
         material: 'titanium',
         color: 'white',
@@ -363,10 +135,10 @@
     let template = document.getElementById('productListTemplate').content;
     for (let item in itemInfo) {
       let li = template.querySelector('li');
-      template.querySelector('.product__name').textContent = itemInfo[item].brand;
-      template.querySelector('.product__price').textContent = itemInfo[item].price;
-      template.querySelector('.product__image').src = itemInfo[item].imgPath;
       let {productProperties} = itemInfo[item];
+      template.querySelector('.product__name').textContent = productProperties.brand;
+      template.querySelector('.product__price').textContent = productProperties.price;
+      template.querySelector('.product__image').src = itemInfo[item].imgPath;
       for (let i = 0; i < Object.keys(productProperties).length; i++) {
         li.setAttribute(`data-${Object.keys(productProperties)[i]}`, Object.values(productProperties)[i]);
       }
@@ -457,5 +229,216 @@
   }
 
   userButtonsList.addEventListener('click', userButtonsHandler);
+
+  // //Add in favorites or basket//
+
+  function getProductInfo(interactiveProductButton) {
+    let productContainer = interactiveProductButton.closest('.product__list-item');
+    return {
+      brand: productContainer.querySelector('.product__name').textContent,
+      price: productContainer.querySelector('.product__price').textContent,
+      imgSrc: productContainer.querySelector('.product__image').getAttribute('src'),
+      productNumber: productContainer.getAttribute('data-product'),
+    }
+  }
+
+  function setProductInfo(template, productInfo) {
+    template.querySelector('li').setAttribute('data-product', productInfo.productNumber);
+    template.querySelector('img').src = productInfo.imgSrc;
+    template.querySelector('.user-collection__name').textContent = productInfo.brand;
+    template.querySelector('.user-collection__price').textContent = productInfo.price;
+  }
+
+  function renderProduct(interactiveProductButton, userCountType) {
+    let productInfo = getProductInfo(interactiveProductButton);
+    let favoriteTemplate = productTemplate.content;
+    setProductInfo(favoriteTemplate, productInfo);
+    let userSelectedProducts = document.querySelector(userCountType).closest('.top-bar__user-buttons-item').querySelector('.user-collection__list');
+    userSelectedProducts.append(favoriteTemplate.cloneNode(true));
+  }
+
+  function checkForEmptyList(list) {
+    if (list.children.length === 0) {
+      list.parentNode.classList.remove('user-collection--display');
+    }
+  }
+
+  function deleteProduct(interactiveProductButton, userCountType) {
+    let productNumber = interactiveProductButton.closest('.product__list-item').getAttribute('data-product');
+    let userSelectedProducts = document.querySelector(userCountType).parentNode.nextElementSibling.querySelector('.user-collection__list');
+    let productsCollection = userSelectedProducts.children;
+    for (let i = 0; i < productsCollection.length; i++) {
+      if (productsCollection[i].getAttribute('data-product') === productNumber) {
+        productsCollection[i].remove();
+      }
+    }
+    checkForEmptyList(userSelectedProducts);
+  }
+
+  function getCountsOfProducts(interactiveProductButton, productCounter, buttonState) {
+    let spanCounter = document.querySelector(productCounter);
+    if (interactiveProductButton.classList.contains(buttonState)) {
+      interactiveProductButton.classList.remove(buttonState);
+      --spanCounter.textContent;
+      deleteProduct(interactiveProductButton, productCounter);
+      return;
+    }
+    interactiveProductButton.classList.add(buttonState);
+    ++spanCounter.textContent;
+    renderProduct(interactiveProductButton, productCounter);
+  }
+
+  function interactiveProductButtonsHandler(e) {
+    e.preventDefault();
+    let productButton;
+    if (e.target.closest('.product__like-button')) {
+      productButton = e.target.closest('.product__like-button');
+      getCountsOfProducts(productButton, '.top-bar__user-count--favorites', 'product__like-button--active');
+    } else if (e.target.closest('.product__basket-button')) {
+      productButton = e.target.closest('.product__basket-button');
+      getCountsOfProducts(productButton, '.top-bar__user-count--basket', 'product__basket-button--active');
+    }
+  }
+
+  productList.addEventListener('click', interactiveProductButtonsHandler);
+
+  //Sort product//
+
+  function sortProductByPopular(a, b) {
+    if (+a.getAttribute('data-popular') > +b.getAttribute('data-popular')) {
+      return 1;
+    } else if (+a.getAttribute('data-popular') === +b.getAttribute('data-popular')) {
+      return 0;
+    } else {
+      return -1;
+    }
+  }
+
+  function sortProductByPrice(a, b) {
+    if (+a.querySelector('.product__price').textContent.match(/\d+/g).join('') > +b.querySelector('.product__price').textContent.match(/\d+/g).join('')) {
+      return 1;
+    } else if (+a.querySelector('.product__price').textContent.match(/\d+/g).join('') === +b.querySelector('.product__price').textContent.match(/\d+/g).join('')) {
+      return 0;
+    } else {
+      return -1;
+    }
+  }
+
+  function renderSortedProductList(sortedList) {
+    for (let value of sortedList) {
+      productList.append(value);
+    }
+  }
+
+  function getStartSort() {
+    let itemCollection = [...productList.children];
+    switch(document.querySelector('.catalog-name-and-sort__sort-type').textContent) {
+      case 'популярности':
+        let sortedByPopular = itemCollection.sort(sortProductByPopular).reverse();
+        productList.innerHTML = '';
+        renderSortedProductList(sortedByPopular);
+        break;
+      case 'цене':
+        let sortedByPrice = itemCollection.sort(sortProductByPrice);
+        productList.innerHTML = '';
+        renderSortedProductList(sortedByPrice);
+        break;
+    }
+  }
+
+  getStartSort();
+
+  function sortListHandlerClicker(e) {
+    let trackedContainer = document.querySelector('.catalog-name-and-sort__list-options');
+    if (!trackedContainer.querySelector(`${e.target.tagName}`) && trackedContainer !== e.target) {
+      trackedContainer.classList.remove('catalog-name-and-sort__list-options--active');
+    }
+  }
+
+  function removeSortActive() {
+    let sortTypeItem = document.querySelectorAll('.catalog-name-and-sort__list-item-link');
+    for (let i = 0; i < sortTypeItem.length; i++) {
+      sortTypeItem[i].classList.remove('catalog-name-and-sort__sort-type--active');
+    }
+  }
+
+  function sortTypeHandler(e) {
+    if (e.target.tagName === 'A') {
+      e.preventDefault();
+      if (!e.target.classList.contains('catalog-name-and-sort__sort-type--active')) {
+        document.querySelector('.catalog-name-and-sort__sort-type').textContent = e.target.textContent;
+        removeSortActive();
+        e.target.classList.add('catalog-name-and-sort__sort-type--active');
+        getStartSort();
+      }
+    }
+  }
+
+  function showSortList(e) {
+    e.preventDefault();
+    if (e.target.classList.contains('catalog-name-and-sort__sort-type')) {
+      let sortListOptions = document.querySelector('.catalog-name-and-sort__list-options');
+      if (!sortListOptions.classList.contains('catalog-name-and-sort__list-options--active')) {
+        sortListOptions.classList.add('catalog-name-and-sort__list-options--active');
+        sortListOptions.addEventListener('click', sortTypeHandler);
+        document.addEventListener('mouseup', sortListHandlerClicker);
+        return;
+      }
+      sortListOptions.classList.remove('catalog-name-and-sort__list-options--active');
+      sortListOptions.removeEventListener('click', sortTypeHandler);
+      document.removeEventListener('mouseup', sortListHandlerClicker);
+    }
+  }
+
+  sortContainer.addEventListener('click', showSortList);
+
+  //Checkbox filter code//
+
+  let brendFilter = formFilter.firstElementChild.nextElementSibling;
+  let resetButton = formFilter.querySelector('.filter__reset-button');
+
+  function getOptionsChecked() {
+    let inputCollection = [...brendFilter.querySelectorAll('.filter__checkbox-input')];
+    return inputCollection.filter(function(item) {
+      if (item.checked) {
+        return item;
+      }
+    })
+  }
+
+  function checkProductValue(productValue) {
+    let status = false;
+    for (let inputChecked of getOptionsChecked()) {
+      if (productValue === inputChecked.name.toUpperCase()) {
+        status = true;
+      }
+    }
+    return status;
+  }
+
+  function throwOffStyles(productCollection) {
+    for (let item of productCollection) {
+      item.style = '';
+    }
+  }
+
+  function filterCheckboxHandler(e) {
+    if (e.target.tagName === 'INPUT') {
+      let productCollection = productList.querySelectorAll('.product__item-card');
+      throwOffStyles(productCollection);
+      if (getOptionsChecked().length) {
+        for (let item of productCollection) {
+          if (!checkProductValue(item.querySelector('.product__name').textContent.toUpperCase())) {
+            item.style = 'display: none;';
+          }
+        }
+      }
+    }
+  }
+
+  brendFilter.addEventListener('click', filterCheckboxHandler);
+  resetButton.addEventListener('click', function () {
+    throwOffStyles(productList.querySelectorAll('.product__item-card'));
+  });
 
 })();

@@ -3,6 +3,7 @@
   const formFilter = document.querySelector('.filter__form');
   const productList = document.querySelector('.product__list');
   const userButtonsList = document.querySelector('.top-bar__user-buttons-list');
+  const resetButton = formFilter.querySelector('.filter__reset-button');
 
   let productListObj = {
     watch1: {
@@ -137,7 +138,7 @@
       let li = template.querySelector('li');
       let {productProperties} = itemInfo[item];
       template.querySelector('.product__name').textContent = productProperties.brand;
-      template.querySelector('.product__price').textContent = productProperties.price;
+      template.querySelector('.product__price').textContent = `${productProperties.price}`.slice(0, 2) + ' ' + `${productProperties.price}`.slice(2) + ' Р';
       template.querySelector('.product__image').src = itemInfo[item].imgPath;
       for (let i = 0; i < Object.keys(productProperties).length; i++) {
         li.setAttribute(`data-${Object.keys(productProperties)[i]}`, Object.values(productProperties)[i]);
@@ -395,7 +396,6 @@
   //Checkbox filter code//
 
   let brendFilter = formFilter.firstElementChild.nextElementSibling;
-  let resetButton = formFilter.querySelector('.filter__reset-button');
 
   function getOptionsChecked() {
     let inputCollection = [...brendFilter.querySelectorAll('.filter__checkbox-input')];
@@ -439,6 +439,56 @@
   brendFilter.addEventListener('click', filterCheckboxHandler);
   resetButton.addEventListener('click', function () {
     throwOffStyles(productList.querySelectorAll('.product__item-card'));
+  });
+
+  const rangeCostContainer = document.querySelector('.filter__range-cost');
+
+  rangeCostContainer.addEventListener('mousedown', function(e) {
+    const rangeLineFilterValues  = {
+      minPinPosition: 0,
+      maxPinPosition: 0,
+      pinStep: 0,
+      priceStep: 6000,
+      maxPrice: 120000,
+    };
+    let pinButton;
+    if (e.target.classList.contains('filter__range-button')) {
+      pinButton = e.target;
+      const rangeLine = rangeCostContainer.querySelector('.filter__range-line');
+      let lineBetweenButtonsWidth = rangeCostContainer.querySelector('.filter__line-between-buttons').offsetWidth;
+      rangeLineFilterValues.maxPinPosition = rangeLine.offsetWidth - (pinButton.offsetWidth / 2);
+      rangeLineFilterValues.pinStep = (rangeLineFilterValues.maxPinPosition / rangeLineFilterValues.maxPrice) * rangeLineFilterValues.priceStep;
+      let pinPosition = e.target.offsetLeft;
+      let mousePosition = e.clientX;
+
+      function dragPin(e) {
+        e.preventDefault();
+        let previousStep;
+        let step;
+        let shiftDifference = mousePosition - e.clientX;
+        let newPinPosition = pinPosition - shiftDifference;
+        if (newPinPosition >= rangeLineFilterValues.minPinPosition && newPinPosition <= rangeLineFilterValues.maxPinPosition) {
+          step = Math.round(newPinPosition / rangeLineFilterValues.pinStep);
+          if (typeof previousStep !== undefined && previousStep !== step) {
+            pinButton.style.left = `${Math.round(step * rangeLineFilterValues.pinStep)}px`;
+            previousStep = step;
+          } else {
+            pinButton.style.left = `${Math.round(step * rangeLineFilterValues.pinStep)}px`;
+            previousStep = Math.round(newPinPosition / rangeLineFilterValues.pinStep);
+          }
+        }
+      }
+
+      function dropPin(e) {
+        e.preventDefault();
+        dragPin(e);
+        document.removeEventListener('mousemove', dragPin);
+        document.removeEventListener('mouseup', dropPin);
+      }
+
+      document.addEventListener('mousemove', dragPin);
+      document.addEventListener('mouseup', dropPin);
+    }
   });
 
 })();

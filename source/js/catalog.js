@@ -441,7 +441,36 @@
     throwOffStyles(productList.querySelectorAll('.product__item-card'));
   });
 
+  //Range line filter//
+
   const rangeCostContainer = document.querySelector('.filter__range-cost');
+
+  function setPriceSegmentStyle(priceSegment) {
+    let pinFrom = rangeCostContainer.querySelector('.filter__range-button--from');
+    let pinTo = rangeCostContainer.querySelector('.filter__range-button--to');
+    priceSegment.style.width = `${Math.abs(pinTo.offsetLeft - pinFrom.offsetLeft)}px`;
+    priceSegment.style.left = `${pinFrom.offsetLeft + (pinFrom.offsetWidth / 2)}px`;
+  }
+
+  function setDistanceBetweenPins(unusedPin, currentStep, rangeLineFilterValues) {
+    if (unusedPin.classList.contains('filter__range-button--from') && Math.round(unusedPin.offsetLeft / rangeLineFilterValues.pinStep) < currentStep - 1) {
+      return true;
+    } else if (unusedPin.classList.contains('filter__range-button--to') && Math.round(unusedPin.offsetLeft / rangeLineFilterValues.pinStep) > currentStep + 1) {
+      return  true;
+    } else {
+      return false;
+    }
+  }
+
+  function findUnusedPin(currentPin, currentStep, rangeLineFilterValues) {
+    const pinModifierCollection = ['filter__range-button--from', 'filter__range-button--to'];
+    for (let modifier of pinModifierCollection) {
+      if (!currentPin.classList.contains(modifier)) {
+        let unusedPin = rangeCostContainer.querySelector(`.${modifier}`);
+        return setDistanceBetweenPins(unusedPin, currentStep, rangeLineFilterValues);
+      }
+    }
+  }
 
   rangeCostContainer.addEventListener('mousedown', function(e) {
     const rangeLineFilterValues  = {
@@ -449,32 +478,35 @@
       maxPinPosition: 0,
       pinStep: 0,
       priceStep: 6000,
+      minPrice: 0,
       maxPrice: 120000,
     };
-    let pinButton;
+    let currentPin;
     if (e.target.classList.contains('filter__range-button')) {
-      pinButton = e.target;
+      currentPin = e.target;
       const rangeLine = rangeCostContainer.querySelector('.filter__range-line');
-      let lineBetweenButtonsWidth = rangeCostContainer.querySelector('.filter__line-between-buttons').offsetWidth;
-      rangeLineFilterValues.maxPinPosition = rangeLine.offsetWidth - (pinButton.offsetWidth / 2);
-      rangeLineFilterValues.pinStep = (rangeLineFilterValues.maxPinPosition / rangeLineFilterValues.maxPrice) * rangeLineFilterValues.priceStep;
+      const priceSegment = rangeCostContainer.querySelector('.filter__price-segment-line');
       let pinPosition = e.target.offsetLeft;
       let mousePosition = e.clientX;
+      rangeLineFilterValues.maxPinPosition = rangeLine.offsetWidth - (currentPin.offsetWidth / 2);
+      rangeLineFilterValues.pinStep = (rangeLineFilterValues.maxPinPosition / rangeLineFilterValues.maxPrice) * rangeLineFilterValues.priceStep;
 
       function dragPin(e) {
         e.preventDefault();
         let previousStep;
-        let step;
+        let currentStep;
         let shiftDifference = mousePosition - e.clientX;
         let newPinPosition = pinPosition - shiftDifference;
         if (newPinPosition >= rangeLineFilterValues.minPinPosition && newPinPosition <= rangeLineFilterValues.maxPinPosition) {
-          step = Math.round(newPinPosition / rangeLineFilterValues.pinStep);
-          if (typeof previousStep !== undefined && previousStep !== step) {
-            pinButton.style.left = `${Math.round(step * rangeLineFilterValues.pinStep)}px`;
-            previousStep = step;
-          } else {
-            pinButton.style.left = `${Math.round(step * rangeLineFilterValues.pinStep)}px`;
-            previousStep = Math.round(newPinPosition / rangeLineFilterValues.pinStep);
+          currentStep = Math.round(newPinPosition / rangeLineFilterValues.pinStep);
+          if (findUnusedPin(currentPin, currentStep, rangeLineFilterValues)) {
+            if (typeof previousStep !== undefined && previousStep !== currentStep) {
+              previousStep = currentStep;
+            } else {
+              previousStep = Math.round(newPinPosition / rangeLineFilterValues.pinStep);
+            }
+            currentPin.style.left = `${Math.round(currentStep * rangeLineFilterValues.pinStep)}px`;
+            setPriceSegmentStyle(priceSegment);
           }
         }
       }
@@ -490,5 +522,4 @@
       document.addEventListener('mouseup', dropPin);
     }
   });
-
 })();

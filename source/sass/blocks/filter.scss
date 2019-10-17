@@ -63,9 +63,10 @@
     }
   }
 
-  &__line-between-buttons {
+  &__price-segment-line {
     position: absolute;
     top: -1px;
+    left: 1px;
     width: 226px;
     border: 1px solid $main-color;
   }

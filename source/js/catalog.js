@@ -3,8 +3,120 @@
   const formFilter = document.querySelector('.filter__form');
   const productList = document.querySelector('.product__list');
   const userButtonsList = document.querySelector('.top-bar__user-buttons-list');
+  const resetButton = formFilter.querySelector('.filter__reset-button');
 
-  //Add data attribute//
+  let productListObj = {
+    watch1: {
+      imgPath: 'img/product__product-img1.png',
+      productProperties: {
+        brand: 'Techne',
+        price: 12700,
+        mechanism: 'mechanical',
+        material: 'steel',
+        color: 'white',
+      },
+    },
+    watch2: {
+      imgPath: 'img/product__product-img2.png',
+      productProperties: {
+        brand: 'Techne',
+        price: 12700,
+        mechanism: 'mechanical',
+        material: 'steel',
+        color: 'black',
+      },
+    },
+    watch3: {
+      imgPath: 'img/product__product-img3.png',
+      productProperties: {
+        brand: 'Techne',
+        price: 15700,
+        mechanism: 'quartz',
+        material: 'steel',
+        color: 'black',
+      },
+    },
+    watch4: {
+      imgPath: 'img/product__product-img4.png',
+      productProperties:  {
+        brand: 'Techne',
+        price: 15700,
+        mechanism: 'quartz',
+        material: 'steel',
+        color: 'white',
+      },
+    },
+    watch5: {
+      imgPath: 'img/product__product-img5.png',
+      productProperties:  {
+        brand: 'Techne',
+        price: 12700,
+        mechanism: 'quartz',
+        material: 'steel',
+        color: 'black',
+      },
+    },
+    watch6: {
+      imgPath: 'img/product__product-img6.png',
+      productProperties:  {
+        brand: 'Techne',
+        price: 18500,
+        mechanism: 'quartz',
+        material: 'titanium',
+        color: 'white',
+      },
+    },
+    watch7: {
+      imgPath: 'img/product__product-img7.png',
+      productProperties: {
+        brand: 'Techne',
+        price: 15700,
+        mechanism: 'quartz',
+        material: 'steel',
+        color: 'white',
+      },
+    },
+    watch8: {
+      imgPath: 'img/product__product-img8.png',
+      productProperties: {
+        brand: 'Rado',
+        price: 14700,
+        mechanism: 'electronic',
+        material: 'steel',
+        color: 'black',
+      },
+    },
+    watch9: {
+      imgPath: 'img/product__product-img9.png',
+      productProperties: {
+        brand: 'Bvlgari',
+        price: 72700,
+        mechanism: 'quartz',
+        material: 'titanium',
+        color: 'white',
+      },
+    },
+    watch10: {
+      imgPath: 'img/product__product-img10.png',
+      productProperties: {
+        brand: 'Techne',
+        price: 22700,
+        mechanism: 'quartz',
+        material: 'titanium',
+        color: 'white',
+      },
+    },
+    watch11: {
+      imgPath: 'img/product__product-img11.png',
+      productProperties: {
+        brand: 'Rado',
+        price: 22000,
+        mechanism: 'electronic',
+        material: 'titanium',
+        color: 'white',
+      },
+    },
+  };
 
   function getRandomNumber() {
     return Math.floor(Math.random() * 100);
@@ -20,7 +132,23 @@
     }
   }
 
-  addProductDataset();
+  function renderProductItems(itemInfo) {
+    let template = document.getElementById('productListTemplate').content;
+    for (let item in itemInfo) {
+      let li = template.querySelector('li');
+      let {productProperties} = itemInfo[item];
+      template.querySelector('.product__name').textContent = productProperties.brand;
+      template.querySelector('.product__price').textContent = `${productProperties.price}`.slice(0, 2) + ' ' + `${productProperties.price}`.slice(2) + ' Р';
+      template.querySelector('.product__image').src = itemInfo[item].imgPath;
+      for (let i = 0; i < Object.keys(productProperties).length; i++) {
+        li.setAttribute(`data-${Object.keys(productProperties)[i]}`, Object.values(productProperties)[i]);
+      }
+      productList.append(template.cloneNode(true));
+      addProductDataset();
+    }
+  }
+
+  renderProductItems(productListObj);
 
   //Open or close product filter section//
 
@@ -103,31 +231,31 @@
 
   userButtonsList.addEventListener('click', userButtonsHandler);
 
-  //Add in favorites or basket//
+  // //Add in favorites or basket//
 
   function getProductInfo(interactiveProductButton) {
-    let productInfoContainer = interactiveProductButton.closest('.product__list-item');
+    let productContainer = interactiveProductButton.closest('.product__list-item');
     return {
-      productName: productInfoContainer.querySelector('.product__name').textContent,
-      productPrice: productInfoContainer.querySelector('.product__price').textContent,
-      productImgSrc: productInfoContainer.querySelector('.product__image').getAttribute('src'),
-      productDataNumber: productInfoContainer.getAttribute('data-product'),
+      brand: productContainer.querySelector('.product__name').textContent,
+      price: productContainer.querySelector('.product__price').textContent,
+      imgSrc: productContainer.querySelector('.product__image').getAttribute('src'),
+      productNumber: productContainer.getAttribute('data-product'),
     }
   }
 
-  function setProductInfo(template, info) {
-    template.querySelector('li').setAttribute('data-product', info.productDataNumber);
-    template.querySelector('img').src = info.productImgSrc;
-    template.querySelector('.user-collection__name').textContent = info.productName;
-    template.querySelector('.user-collection__price').textContent = info.productPrice;
+  function setProductInfo(template, productInfo) {
+    template.querySelector('li').setAttribute('data-product', productInfo.productNumber);
+    template.querySelector('img').src = productInfo.imgSrc;
+    template.querySelector('.user-collection__name').textContent = productInfo.brand;
+    template.querySelector('.user-collection__price').textContent = productInfo.price;
   }
 
   function renderProduct(interactiveProductButton, userCountType) {
     let productInfo = getProductInfo(interactiveProductButton);
-    let liTemplate = productTemplate.content;
-    setProductInfo(liTemplate, productInfo);
-    let userCollectionList = document.querySelector(userCountType).closest('.top-bar__user-buttons-item').querySelector('.user-collection__list');
-    userCollectionList.append(liTemplate.cloneNode(true));
+    let favoriteTemplate = productTemplate.content;
+    setProductInfo(favoriteTemplate, productInfo);
+    let userSelectedProducts = document.querySelector(userCountType).closest('.top-bar__user-buttons-item').querySelector('.user-collection__list');
+    userSelectedProducts.append(favoriteTemplate.cloneNode(true));
   }
 
   function checkForEmptyList(list) {
@@ -138,27 +266,27 @@
 
   function deleteProduct(interactiveProductButton, userCountType) {
     let productNumber = interactiveProductButton.closest('.product__list-item').getAttribute('data-product');
-    let userCollectionList = document.querySelector(userCountType).parentNode.nextElementSibling.querySelector('.user-collection__list');
-    let itemCollection = userCollectionList.children;
-    for (let i = 0; i < itemCollection.length; i++) {
-      if (itemCollection[i].getAttribute('data-product') === productNumber) {
-        itemCollection[i].remove();
+    let userSelectedProducts = document.querySelector(userCountType).parentNode.nextElementSibling.querySelector('.user-collection__list');
+    let productsCollection = userSelectedProducts.children;
+    for (let i = 0; i < productsCollection.length; i++) {
+      if (productsCollection[i].getAttribute('data-product') === productNumber) {
+        productsCollection[i].remove();
       }
     }
-    checkForEmptyList(userCollectionList);
+    checkForEmptyList(userSelectedProducts);
   }
 
-  function getCountsOfProducts(productButton, counter, state, interactiveProductButton) {
-    let spanCounter = document.querySelector(counter);
-    if (productButton.classList.contains(state)) {
-      productButton.classList.remove(state);
+  function getCountsOfProducts(interactiveProductButton, productCounter, buttonState) {
+    let spanCounter = document.querySelector(productCounter);
+    if (interactiveProductButton.classList.contains(buttonState)) {
+      interactiveProductButton.classList.remove(buttonState);
       --spanCounter.textContent;
-      deleteProduct(interactiveProductButton, counter);
+      deleteProduct(interactiveProductButton, productCounter);
       return;
     }
-    productButton.classList.add(state);
+    interactiveProductButton.classList.add(buttonState);
     ++spanCounter.textContent;
-    renderProduct(interactiveProductButton, counter);
+    renderProduct(interactiveProductButton, productCounter);
   }
 
   function interactiveProductButtonsHandler(e) {
@@ -166,24 +294,16 @@
     let productButton;
     if (e.target.closest('.product__like-button')) {
       productButton = e.target.closest('.product__like-button');
-      getCountsOfProducts(productButton, '.top-bar__user-count--favorites', 'product__like-button--active', e.target);
+      getCountsOfProducts(productButton, '.top-bar__user-count--favorites', 'product__like-button--active');
     } else if (e.target.closest('.product__basket-button')) {
       productButton = e.target.closest('.product__basket-button');
-      getCountsOfProducts(productButton, '.top-bar__user-count--basket', 'product__basket-button--active', e.target);
+      getCountsOfProducts(productButton, '.top-bar__user-count--basket', 'product__basket-button--active');
     }
   }
 
   productList.addEventListener('click', interactiveProductButtonsHandler);
 
   //Sort product//
-
-  function removeAdUnit(itemCollection) {
-    return itemCollection.find(function(item, i) {
-      if (item.classList.contains('product__list-item--special-offer')) {
-        return itemCollection.splice(i, 1);
-      }
-    });
-  }
 
   function sortProductByPopular(a, b) {
     if (+a.getAttribute('data-popular') > +b.getAttribute('data-popular')) {
@@ -205,31 +325,24 @@
     }
   }
 
-  function returnAssembledProductArray(sortedList, adUnitItem) {
-    let halfArray = sortedList.splice(0, Math.floor(sortedList.length / 2));
-    halfArray.push(adUnitItem);
-    return halfArray.concat(sortedList);
-  }
-
-  function renderSortedProductList(sortedList, adUnitItem) {
-    for (let value of returnAssembledProductArray(sortedList, adUnitItem)) {
+  function renderSortedProductList(sortedList) {
+    for (let value of sortedList) {
       productList.append(value);
     }
   }
 
   function getStartSort() {
     let itemCollection = [...productList.children];
-    let adUnitItem = removeAdUnit(itemCollection);
     switch(document.querySelector('.catalog-name-and-sort__sort-type').textContent) {
       case 'популярности':
         let sortedByPopular = itemCollection.sort(sortProductByPopular).reverse();
         productList.innerHTML = '';
-        renderSortedProductList(sortedByPopular, adUnitItem);
+        renderSortedProductList(sortedByPopular);
         break;
       case 'цене':
         let sortedByPrice = itemCollection.sort(sortProductByPrice);
         productList.innerHTML = '';
-        renderSortedProductList(sortedByPrice, adUnitItem);
+        renderSortedProductList(sortedByPrice);
         break;
     }
   }
@@ -283,7 +396,6 @@
   //Checkbox filter code//
 
   let brendFilter = formFilter.firstElementChild.nextElementSibling;
-  let resetButton = formFilter.querySelector('.filter__reset-button');
 
   function getOptionsChecked() {
     let inputCollection = [...brendFilter.querySelectorAll('.filter__checkbox-input')];
@@ -310,23 +422,152 @@
     }
   }
 
-  function filterCheckboxHandler(e) {
-    if (e.target.tagName === 'INPUT') {
+  function filterHandler(e) {
+    let activated = false;
+    if (e.tagName === 'INPUT' || e.classList.contains('filter__range-button')) {
+      activated = true;
       let productCollection = productList.querySelectorAll('.product__item-card');
+      let priceCollection = formFilter.querySelectorAll('.filter__range-price');
       throwOffStyles(productCollection);
-      if (getOptionsChecked().length) {
+      if (activated) {
         for (let item of productCollection) {
-          if (!checkProductValue(item.querySelector('.product__name').textContent.toUpperCase())) {
-            item.style = 'display: none;';
+          if (+priceCollection[0].textContent <= +item.querySelector('.product__price').textContent.match(/\d+/g).join('') && +item.querySelector('.product__price').textContent.match(/\d+/g).join('') <= +priceCollection[1].textContent) {
+            if (getOptionsChecked().length) {
+              if (checkProductValue(item.querySelector('.product__name').textContent.toUpperCase())) {
+                continue;
+              } else {
+                item.style = 'display: none;';
+                continue;
+              }
+            }
+            continue;
           }
+          item.style = 'display: none;';
         }
       }
     }
   }
 
-  brendFilter.addEventListener('click', filterCheckboxHandler);
+  formFilter.addEventListener('click', function(e) {
+    filterHandler(e.target);
+  });
   resetButton.addEventListener('click', function () {
     throwOffStyles(productList.querySelectorAll('.product__item-card'));
   });
 
+  //Range line filter//
+
+  const rangeCostContainer = document.querySelector('.filter__range-cost');
+  const priceFilterValues = {
+    minPinPosition: 0,
+    maxPinPosition: 0,
+    stepSize: 0,
+    priceStep: 6000,
+    minPrice: 0,
+    maxPrice: 120000,
+    findMaxPinPosition(rangeLine, currentPin) {
+      this.maxPinPosition = rangeLine.offsetWidth - (currentPin.offsetWidth / 2);
+    },
+    findStepSize() {
+      this.stepSize = (this.maxPinPosition / this.maxPrice) * this.priceStep;
+    },
+    findUnusedPinStep(unusedPin) {
+      return Math.round(unusedPin.offsetLeft / this.stepSize);
+    },
+    findStep(newPinPosition) {
+      return Math.round(newPinPosition / this.stepSize);
+    },
+    setPinCoords(currentStep) {
+      return `${Math.round(currentStep * this.stepSize)}px`;
+    }
+  };
+
+  function setDefaultMinMaxPrice() {
+    const inputPriceCollection = rangeCostContainer.querySelectorAll('.filter__range-price');
+    for (let input of inputPriceCollection) {
+      if (input.classList.contains('filter__range-price--from')) {
+        input.textContent = priceFilterValues.minPrice;
+        continue;
+      }
+      input.textContent = priceFilterValues.maxPrice;
+    }
+  }
+
+  setDefaultMinMaxPrice();
+
+  function setPinPrice(currentStep, priceStep, currentPin) {
+    currentPin.firstElementChild.textContent = currentStep * priceStep;
+    currentPin.firstElementChild.style.left = `${currentPin.offsetWidth - (currentPin.offsetWidth * 2.7)}px`;
+  }
+
+  function setPriceSegmentStyle(priceSegment) {
+    let pinFrom = rangeCostContainer.querySelector('.filter__range-button--from');
+    let pinTo = rangeCostContainer.querySelector('.filter__range-button--to');
+    priceSegment.style.width = `${Math.abs(pinTo.offsetLeft - pinFrom.offsetLeft)}px`;
+    priceSegment.style.left = `${pinFrom.offsetLeft + (pinFrom.offsetWidth / 2)}px`;
+  }
+
+  function setDistanceBetweenPins(unusedPin, currentStep, priceFilterValues) {
+    if (unusedPin.classList.contains('filter__range-button--from') && priceFilterValues.findUnusedPinStep(unusedPin) < currentStep - 1) {
+      return true;
+    } else if (unusedPin.classList.contains('filter__range-button--to') && priceFilterValues.findUnusedPinStep(unusedPin) > currentStep + 1) {
+      return  true;
+    } else {
+      return false;
+    }
+  }
+
+  function findUnusedPin(currentPin, currentStep, priceFilterValues) {
+    const pinModifierCollection = ['filter__range-button--from', 'filter__range-button--to'];
+    for (let modifier of pinModifierCollection) {
+      if (!currentPin.classList.contains(modifier)) {
+        let unusedPin = rangeCostContainer.querySelector(`.${modifier}`);
+        return setDistanceBetweenPins(unusedPin, currentStep, priceFilterValues);
+      }
+    }
+  }
+
+  rangeCostContainer.addEventListener('mousedown', function(e) {
+    let currentPin;
+    if (e.target.classList.contains('filter__range-button')) {
+      currentPin = e.target;
+      const rangeLine = rangeCostContainer.querySelector('.filter__range-line');
+      const priceSegment = rangeCostContainer.querySelector('.filter__price-segment-line');
+      let pinPosition = e.target.offsetLeft;
+      let mousePosition = e.clientX;
+      priceFilterValues.findMaxPinPosition(rangeLine, currentPin);
+      priceFilterValues.findStepSize();
+
+      function dragPin(e) {
+        e.preventDefault();
+        let previousStep, currentStep;
+        let shiftDifference = mousePosition - e.clientX;
+        let newPinPosition = pinPosition - shiftDifference;
+        if (newPinPosition >= priceFilterValues.minPinPosition && newPinPosition <= priceFilterValues.maxPinPosition) {
+          currentStep = priceFilterValues.findStep(newPinPosition);
+          if (findUnusedPin(currentPin, currentStep, priceFilterValues)) {
+            if (typeof previousStep !== undefined && previousStep !== currentStep) {
+              previousStep = currentStep;
+            } else {
+              previousStep = priceFilterValues.findStep(newPinPosition);
+            }
+            currentPin.style.left = priceFilterValues.setPinCoords(currentStep);
+            setPriceSegmentStyle(priceSegment);
+            setPinPrice(currentStep, priceFilterValues.priceStep, currentPin);
+          }
+        }
+      }
+
+      function dropPin(e) {
+        e.preventDefault();
+        dragPin(e);
+        filterHandler(currentPin);
+        document.removeEventListener('mousemove', dragPin);
+        document.removeEventListener('mouseup', dropPin);
+      }
+
+      document.addEventListener('mousemove', dragPin);
+      document.addEventListener('mouseup', dropPin);
+    }
+  });
 })();

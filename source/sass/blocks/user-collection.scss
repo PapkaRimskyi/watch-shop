@@ -1,12 +1,13 @@
 .user-collection {
   position: absolute;
-  top: 20px;
-  left: -130px;
-  width: 240px;
+  top: 25px;
+  left: -166px;
+  width: 220px;
   height: 125px;
   display: none;
+  border: 1px solid $black-color;
   background: linear-gradient(0deg, $fdfdfb-color, $fdfdfb-color);
-  overflow-y: scroll;
+  overflow-y: auto;
 
   &--display {
     display: block;
@@ -17,5 +18,20 @@
     align-items: center;
     font-size: 18px;
     line-height: 20px;
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .user-collection {
+    top: 30px;
+    left: -143px;
+    height: 125px;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .user-collection {
+    left: -130px;
+    width: 240px;
   }
 }

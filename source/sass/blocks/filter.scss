@@ -39,7 +39,7 @@
 
   &__range-line {
     position: relative;
-    width: 231px;
+    width: 226px;
     border: 1px solid #D4D4D4;
   }
 
@@ -59,7 +59,26 @@
     }
 
     &--to {
-      left: 226px;
+      left: 221px;
+    }
+  }
+
+  &__range-price {
+    position: absolute;
+    left: -17px;
+    min-width: 42px;
+    font-family: $roboto;
+    font-size: 12px;
+    line-height: 14px;
+    user-select: none;
+    text-align: center;
+
+    &--from {
+      top: -15px;
+    }
+
+    &--to {
+      top: 10px;
     }
   }
 

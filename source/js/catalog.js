@@ -422,21 +422,35 @@
     }
   }
 
-  function filterCheckboxHandler(e) {
-    if (e.target.tagName === 'INPUT') {
+  function filterHandler(e) {
+    let activated = false;
+    if (e.tagName === 'INPUT' || e.classList.contains('filter__range-button')) {
+      activated = true;
       let productCollection = productList.querySelectorAll('.product__item-card');
+      let priceCollection = formFilter.querySelectorAll('.filter__range-price');
       throwOffStyles(productCollection);
-      if (getOptionsChecked().length) {
+      if (activated) {
         for (let item of productCollection) {
-          if (!checkProductValue(item.querySelector('.product__name').textContent.toUpperCase())) {
-            item.style = 'display: none;';
+          if (+priceCollection[0].textContent <= +item.querySelector('.product__price').textContent.match(/\d+/g).join('') && +item.querySelector('.product__price').textContent.match(/\d+/g).join('') <= +priceCollection[1].textContent) {
+            if (getOptionsChecked().length) {
+              if (checkProductValue(item.querySelector('.product__name').textContent.toUpperCase())) {
+                continue;
+              } else {
+                item.style = 'display: none;';
+                continue;
+              }
+            }
+            continue;
           }
+          item.style = 'display: none;';
         }
       }
     }
   }
 
-  brendFilter.addEventListener('click', filterCheckboxHandler);
+  formFilter.addEventListener('click', function(e) {
+    filterHandler(e.target);
+  });
   resetButton.addEventListener('click', function () {
     throwOffStyles(productList.querySelectorAll('.product__item-card'));
   });
@@ -444,6 +458,47 @@
   //Range line filter//
 
   const rangeCostContainer = document.querySelector('.filter__range-cost');
+  const priceFilterValues = {
+    minPinPosition: 0,
+    maxPinPosition: 0,
+    stepSize: 0,
+    priceStep: 6000,
+    minPrice: 0,
+    maxPrice: 120000,
+    findMaxPinPosition(rangeLine, currentPin) {
+      this.maxPinPosition = rangeLine.offsetWidth - (currentPin.offsetWidth / 2);
+    },
+    findStepSize() {
+      this.stepSize = (this.maxPinPosition / this.maxPrice) * this.priceStep;
+    },
+    findUnusedPinStep(unusedPin) {
+      return Math.round(unusedPin.offsetLeft / this.stepSize);
+    },
+    findStep(newPinPosition) {
+      return Math.round(newPinPosition / this.stepSize);
+    },
+    setPinCoords(currentStep) {
+      return `${Math.round(currentStep * this.stepSize)}px`;
+    }
+  };
+
+  function setDefaultMinMaxPrice() {
+    const inputPriceCollection = rangeCostContainer.querySelectorAll('.filter__range-price');
+    for (let input of inputPriceCollection) {
+      if (input.classList.contains('filter__range-price--from')) {
+        input.textContent = priceFilterValues.minPrice;
+        continue;
+      }
+      input.textContent = priceFilterValues.maxPrice;
+    }
+  }
+
+  setDefaultMinMaxPrice();
+
+  function setPinPrice(currentStep, priceStep, currentPin) {
+    currentPin.firstElementChild.textContent = currentStep * priceStep;
+    currentPin.firstElementChild.style.left = `${currentPin.offsetWidth - (currentPin.offsetWidth * 2.7)}px`;
+  }
 
   function setPriceSegmentStyle(priceSegment) {
     let pinFrom = rangeCostContainer.querySelector('.filter__range-button--from');
@@ -452,35 +507,27 @@
     priceSegment.style.left = `${pinFrom.offsetLeft + (pinFrom.offsetWidth / 2)}px`;
   }
 
-  function setDistanceBetweenPins(unusedPin, currentStep, rangeLineFilterValues) {
-    if (unusedPin.classList.contains('filter__range-button--from') && Math.round(unusedPin.offsetLeft / rangeLineFilterValues.pinStep) < currentStep - 1) {
+  function setDistanceBetweenPins(unusedPin, currentStep, priceFilterValues) {
+    if (unusedPin.classList.contains('filter__range-button--from') && priceFilterValues.findUnusedPinStep(unusedPin) < currentStep - 1) {
       return true;
-    } else if (unusedPin.classList.contains('filter__range-button--to') && Math.round(unusedPin.offsetLeft / rangeLineFilterValues.pinStep) > currentStep + 1) {
+    } else if (unusedPin.classList.contains('filter__range-button--to') && priceFilterValues.findUnusedPinStep(unusedPin) > currentStep + 1) {
       return  true;
     } else {
       return false;
     }
   }
 
-  function findUnusedPin(currentPin, currentStep, rangeLineFilterValues) {
+  function findUnusedPin(currentPin, currentStep, priceFilterValues) {
     const pinModifierCollection = ['filter__range-button--from', 'filter__range-button--to'];
     for (let modifier of pinModifierCollection) {
       if (!currentPin.classList.contains(modifier)) {
         let unusedPin = rangeCostContainer.querySelector(`.${modifier}`);
-        return setDistanceBetweenPins(unusedPin, currentStep, rangeLineFilterValues);
+        return setDistanceBetweenPins(unusedPin, currentStep, priceFilterValues);
       }
     }
   }
 
   rangeCostContainer.addEventListener('mousedown', function(e) {
-    const rangeLineFilterValues  = {
-      minPinPosition: 0,
-      maxPinPosition: 0,
-      pinStep: 0,
-      priceStep: 6000,
-      minPrice: 0,
-      maxPrice: 120000,
-    };
     let currentPin;
     if (e.target.classList.contains('filter__range-button')) {
       currentPin = e.target;
@@ -488,25 +535,25 @@
       const priceSegment = rangeCostContainer.querySelector('.filter__price-segment-line');
       let pinPosition = e.target.offsetLeft;
       let mousePosition = e.clientX;
-      rangeLineFilterValues.maxPinPosition = rangeLine.offsetWidth - (currentPin.offsetWidth / 2);
-      rangeLineFilterValues.pinStep = (rangeLineFilterValues.maxPinPosition / rangeLineFilterValues.maxPrice) * rangeLineFilterValues.priceStep;
+      priceFilterValues.findMaxPinPosition(rangeLine, currentPin);
+      priceFilterValues.findStepSize();
 
       function dragPin(e) {
         e.preventDefault();
-        let previousStep;
-        let currentStep;
+        let previousStep, currentStep;
         let shiftDifference = mousePosition - e.clientX;
         let newPinPosition = pinPosition - shiftDifference;
-        if (newPinPosition >= rangeLineFilterValues.minPinPosition && newPinPosition <= rangeLineFilterValues.maxPinPosition) {
-          currentStep = Math.round(newPinPosition / rangeLineFilterValues.pinStep);
-          if (findUnusedPin(currentPin, currentStep, rangeLineFilterValues)) {
+        if (newPinPosition >= priceFilterValues.minPinPosition && newPinPosition <= priceFilterValues.maxPinPosition) {
+          currentStep = priceFilterValues.findStep(newPinPosition);
+          if (findUnusedPin(currentPin, currentStep, priceFilterValues)) {
             if (typeof previousStep !== undefined && previousStep !== currentStep) {
               previousStep = currentStep;
             } else {
-              previousStep = Math.round(newPinPosition / rangeLineFilterValues.pinStep);
+              previousStep = priceFilterValues.findStep(newPinPosition);
             }
-            currentPin.style.left = `${Math.round(currentStep * rangeLineFilterValues.pinStep)}px`;
+            currentPin.style.left = priceFilterValues.setPinCoords(currentStep);
             setPriceSegmentStyle(priceSegment);
+            setPinPrice(currentStep, priceFilterValues.priceStep, currentPin);
           }
         }
       }
@@ -514,6 +561,7 @@
       function dropPin(e) {
         e.preventDefault();
         dragPin(e);
+        filterHandler(currentPin);
         document.removeEventListener('mousemove', dragPin);
         document.removeEventListener('mouseup', dropPin);
       }

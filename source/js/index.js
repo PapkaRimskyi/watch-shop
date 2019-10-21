@@ -56,24 +56,4 @@
   }
 
   mainSection.addEventListener('click', switchArrowHandler);
-
-  // advantagesRightSwitchArrow.addEventListener('click', function(e) {
-  //   e.preventDefault();
-  //   switchSlider(advantagesSliderCollection, 1, 'advantages__slider-container--active', advantagesSliderCount, advantagesCheckIndex);
-  // });
-
-  // advantagesLeftSwitchArrow.addEventListener('click', function(e) {
-  //   e.preventDefault();
-  //   switchSlider(advantagesSliderCollection, -1, 'advantages__slider-container--active', advantagesSliderCount, advantagesCheckIndex);
-  // });
-
-  // popularModelsRightSwitchArrow.addEventListener('click', function(e) {
-  //   e.preventDefault();
-  //   switchSlider(popularModelsCollection, 1, 'popular-models__product--active', popularModulsSliderCount, popularModelsCheckIndex);
-  // });
-
-  // popularModelsLeftSwitchArrow.addEventListener('click', function(e) {
-  //   e.preventDefault();
-  //   switchSlider(popularModelsCollection, -1, 'popular-models__product--active', popularModulsSliderCount, popularModelsCheckIndex);
-  // });
 })();

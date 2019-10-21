@@ -416,9 +416,34 @@
     return status;
   }
 
-  function throwOffStyles(productCollection) {
+  function throwOffProductStyles(productCollection) {
     for (let item of productCollection) {
       item.style = '';
+    }
+    renderSearchNotification(productCollection);
+  }
+
+  function checkProductItemOnVisibility(productCollection) {
+    for (let item of productCollection) {
+      if (item.style.display !== 'none') {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function renderSearchNotification(productCollection) {
+    let productPagination = document.querySelector('.product__pagination');
+    if (checkProductItemOnVisibility(productCollection) && !productList.querySelector('.search-notification')) {
+      let div = document.createElement('div');
+      div.classList.add('search-notification');
+      div.textContent = 'Упс, похоже такого товара у нас нет.';
+      div.style = 'margin: 0 auto; font-size: 24px; line-height: 24px; text-align: center;';
+      productList.prepend(div);
+      productPagination.style.display = 'none';
+    } else if (!checkProductItemOnVisibility(productCollection) && productList.querySelector('.search-notification')) {
+      productList.querySelector('.search-notification').remove();
+      productPagination.style.display = 'flex';
     }
   }
 
@@ -428,7 +453,7 @@
       activated = true;
       let productCollection = productList.querySelectorAll('.product__item-card');
       let priceCollection = formFilter.querySelectorAll('.filter__range-price');
-      throwOffStyles(productCollection);
+      throwOffProductStyles(productCollection);
       if (activated) {
         for (let item of productCollection) {
           if (+priceCollection[0].textContent <= +item.querySelector('.product__price').textContent.match(/\d+/g).join('') && +item.querySelector('.product__price').textContent.match(/\d+/g).join('') <= +priceCollection[1].textContent) {
@@ -436,15 +461,16 @@
               if (checkProductValue(item.querySelector('.product__name').textContent.toUpperCase())) {
                 continue;
               } else {
-                item.style = 'display: none;';
+                item.style.display = 'none';
                 continue;
               }
             }
             continue;
           }
-          item.style = 'display: none;';
+          item.style.display = 'none';
         }
       }
+      renderSearchNotification(productCollection);
     }
   }
 
@@ -452,12 +478,14 @@
     filterHandler(e.target);
   });
   resetButton.addEventListener('click', function () {
-    throwOffStyles(productList.querySelectorAll('.product__item-card'));
+    throwOffProductStyles(productList.querySelectorAll('.product__item-card'));
   });
 
   //Range line filter//
 
   const rangeCostContainer = document.querySelector('.filter__range-cost');
+  const rangeLine = rangeCostContainer.querySelector('.filter__range-line');
+  const priceSegment = rangeCostContainer.querySelector('.filter__price-segment-line');
   const priceFilterValues = {
     minPinPosition: 0,
     maxPinPosition: 0,
@@ -508,9 +536,9 @@
   }
 
   function setDistanceBetweenPins(unusedPin, currentStep, priceFilterValues) {
-    if (unusedPin.classList.contains('filter__range-button--from') && priceFilterValues.findUnusedPinStep(unusedPin) < currentStep - 1) {
+    if (unusedPin.classList.contains('filter__range-button--from') && priceFilterValues.findUnusedPinStep(unusedPin) < currentStep - 1 && priceFilterValues.findUnusedPinStep(unusedPin) !== currentStep + 1) {
       return true;
-    } else if (unusedPin.classList.contains('filter__range-button--to') && priceFilterValues.findUnusedPinStep(unusedPin) > currentStep + 1) {
+    } else if (unusedPin.classList.contains('filter__range-button--to') && priceFilterValues.findUnusedPinStep(unusedPin) > currentStep + 1 && priceFilterValues.findUnusedPinStep(unusedPin) !== currentStep - 1) {
       return  true;
     } else {
       return false;
@@ -528,28 +556,26 @@
   }
 
   rangeCostContainer.addEventListener('mousedown', function(e) {
+    e.preventDefault();
     let currentPin;
     if (e.target.classList.contains('filter__range-button')) {
       currentPin = e.target;
-      const rangeLine = rangeCostContainer.querySelector('.filter__range-line');
-      const priceSegment = rangeCostContainer.querySelector('.filter__price-segment-line');
       let pinPosition = e.target.offsetLeft;
       let mousePosition = e.clientX;
       priceFilterValues.findMaxPinPosition(rangeLine, currentPin);
       priceFilterValues.findStepSize();
 
       function dragPin(e) {
-        e.preventDefault();
-        let previousStep, currentStep;
+        let nextStep, currentStep;
         let shiftDifference = mousePosition - e.clientX;
         let newPinPosition = pinPosition - shiftDifference;
         if (newPinPosition >= priceFilterValues.minPinPosition && newPinPosition <= priceFilterValues.maxPinPosition) {
           currentStep = priceFilterValues.findStep(newPinPosition);
           if (findUnusedPin(currentPin, currentStep, priceFilterValues)) {
-            if (typeof previousStep !== undefined && previousStep !== currentStep) {
-              previousStep = currentStep;
+            if (typeof nextStep !== undefined && nextStep !== currentStep) {
+              nextStep = currentStep;
             } else {
-              previousStep = priceFilterValues.findStep(newPinPosition);
+              nextStep = priceFilterValues.findStep(newPinPosition);
             }
             currentPin.style.left = priceFilterValues.setPinCoords(currentStep);
             setPriceSegmentStyle(priceSegment);
@@ -559,7 +585,6 @@
       }
 
       function dropPin(e) {
-        e.preventDefault();
         dragPin(e);
         filterHandler(currentPin);
         document.removeEventListener('mousemove', dragPin);
@@ -568,6 +593,47 @@
 
       document.addEventListener('mousemove', dragPin);
       document.addEventListener('mouseup', dropPin);
+    }
+  });
+
+  rangeCostContainer.addEventListener('keydown', function(e) {
+    let currentPin;
+    if (e.code === 'ArrowRight' || e.code === 'ArrowLeft' && e.target.classList.contains('filter__range-button')) {
+      currentPin = e.target;
+      let pinPosition = e.target.offsetLeft;
+      priceFilterValues.findMaxPinPosition(rangeLine, e.target);
+      priceFilterValues.findStepSize();
+      let currentStep = priceFilterValues.findStep(pinPosition);
+      let nextStep;
+
+      function rangeCostKeyDownHandler(e) {
+        e.preventDefault();
+        if (e.code === 'ArrowRight' && Math.round(pinPosition + priceFilterValues.stepSize) <= priceFilterValues.maxPinPosition) {
+          nextStep = currentStep + 1;
+          if (findUnusedPin(e.target, nextStep, priceFilterValues)) {
+            e.target.style.left = `${Math.round(pinPosition + priceFilterValues.stepSize)}px`;
+            setPinPrice(nextStep, priceFilterValues.priceStep, e.target);
+          }
+        } else if (e.code === 'ArrowLeft' && Math.round(pinPosition - priceFilterValues.stepSize) >= priceFilterValues.minPinPosition) {
+          nextStep = currentStep - 1;
+          if (findUnusedPin(e.target, nextStep, priceFilterValues)) {
+            e.target.style.left = `${Math.round(pinPosition - priceFilterValues.stepSize)}px`;
+            setPinPrice(nextStep, priceFilterValues.priceStep, e.target);
+          }
+        }
+        setPriceSegmentStyle(priceSegment);
+      }
+
+      function rangeCostKeyUpHandler(e) {
+        e.preventDefault();
+        rangeCostKeyDownHandler(e);
+        filterHandler(currentPin);
+        document.removeEventListener('keydown', rangeCostKeyDownHandler);
+        document.removeEventListener('keyup', rangeCostKeyUpHandler);
+      }
+
+      document.addEventListener('keydown', rangeCostKeyDownHandler);
+      document.addEventListener('keyup', rangeCostKeyUpHandler);
     }
   });
 })();

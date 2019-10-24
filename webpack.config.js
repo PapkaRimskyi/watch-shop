@@ -106,7 +106,6 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      hash: false,
       filename: './index.html',
       template: `${PATHS.src}/index.html`,
       inject: false,

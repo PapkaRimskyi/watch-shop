@@ -1,27 +1,30 @@
-export const hamburgerFunctionality = {
-  toggleHamburgerMenu: toggleHamburgerMenu,
-  hamburgerMenu: document.querySelector('.top-bar__hamburger-menu'),
-  sectionNav: document.querySelector('.top-bar__section-nav'),
-}
-
-export const siteSearchFunctionality = {
-  toggleSearchInput: toggleSearchInput,
-  searchButton: document.querySelector('.top-bar__user-buttons-link--search'),
-  searchInput: document.querySelector('.top-bar__user-search-input'),
-}
+const sectionNav = document.querySelector('.top-bar__section-nav');
+const searchInput = document.querySelector('.top-bar__user-search-input');
+const hamburgerMenu = document.querySelector('.top-bar__hamburger-menu');
+const searchButton = document.querySelector('.top-bar__user-buttons-link--search');
 
 function toggleHamburgerMenu(e) {
   e.preventDefault();
-  if (!hamburgerFunctionality.hamburgerMenu.classList.contains('top-bar__hamburger-menu--active')) {
-    hamburgerFunctionality.hamburgerMenu.classList.add('top-bar__hamburger-menu--active');
-    hamburgerFunctionality.sectionNav.classList.add('top-bar__section-nav--active');
+  if (!hamburgerMenu.classList.contains('top-bar__hamburger-menu--active')) {
+    hamburgerMenu.classList.add('top-bar__hamburger-menu--active');
+    sectionNav.classList.add('top-bar__section-nav--active');
     return;
   }
-  hamburgerFunctionality.hamburgerMenu.classList.remove('top-bar__hamburger-menu--active');
-  hamburgerFunctionality.sectionNav.classList.remove('top-bar__section-nav--active');
+  hamburgerMenu.classList.remove('top-bar__hamburger-menu--active');
+  sectionNav.classList.remove('top-bar__section-nav--active');
 }
 
 function toggleSearchInput(e) {
   e.preventDefault();
-  siteSearchFunctionality.searchInput.classList.toggle('top-bar__user-search-input--active');
+  searchInput.classList.toggle('top-bar__user-search-input--active');
+}
+
+export const hamburgerFunctionality = {
+  hamburgerMenuSelector: hamburgerMenu,
+  toggleHamburgerMenu: toggleHamburgerMenu,
+}
+
+export const siteSearchFunctionality = {
+  searchButtonSelector: searchButton,
+  toggleSearchInput: toggleSearchInput,
 }

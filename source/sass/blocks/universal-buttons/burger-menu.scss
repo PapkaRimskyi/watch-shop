@@ -1,0 +1,25 @@
+.burger-menu {
+  margin-bottom: 5px;
+  transition: transform .8s ease;
+
+  & > svg > path {
+    transition: stroke .2s ease-in;
+  }
+
+  &:focus {
+    outline: 2px solid black;
+    outline-offset: 2px;
+  }
+
+  &:hover {
+    transform: rotate(15deg);
+  }
+
+  &:active {
+    transform: rotate(360deg);
+  }
+
+  &:active > svg > path {
+    stroke: #CC9900;
+  }
+}

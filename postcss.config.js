@@ -1,10 +1,10 @@
 module.exports = {
-  plugins: [
-    require('autoprefixer')({
-      grid: 'autoplace',
-    }),
-    require('cssnano')({
+  plugins: {
+    autoprefixer: {
+      browsers: ['last 2 versions'],
+    },
+    cssnano: {
       preset: 'default',
-    }),
-  ]
-}
+    },
+  },
+};

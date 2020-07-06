@@ -1,0 +1,19 @@
+.favorite-button {
+  position: relative;
+
+  &__count {
+    position: absolute;
+    top: -5px;
+    right: -6px;
+    padding: 2px 0;
+    width: 13px;
+    font: {
+      size: 8px;
+      family: $roboto;
+    }
+    line-height: 9px;
+    text-align: center;
+    background-color: #E6C8B4;
+    border-radius: 50%;
+  }
+}

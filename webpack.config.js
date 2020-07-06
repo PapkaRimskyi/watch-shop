@@ -1,34 +1,31 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const PATHS = {
   src: path.resolve(__dirname, './source'),
-  docs: path.resolve(__dirname, './docs'),
+  build: path.resolve(__dirname, './docs'),
   assets: 'assets/',
 };
 
 module.exports = {
-  entry: {
-    index: `${PATHS.src}/js/index.js`,
-    catalog: `${PATHS.src}/js/catalog.js`,
-  },
+  entry: `${PATHS.src}/js/index.jsx`,
   output: {
-    filename: `${PATHS.assets}js/[name].js`,
-    path: `${PATHS.docs}`,
+    filename: `${PATHS.assets}js/index.js`,
+    path: `${PATHS.build}`,
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
+        resolve: {
+          extensions: ['.js', '.jsx'],
+        },
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-          },
         },
       },
       {
@@ -58,7 +55,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpe?g|svg)$/,
+        test: /\.(png|jpe?g|svg|gif|ico)$/,
         use: [
           {
             loader: 'file-loader',
@@ -90,17 +87,6 @@ module.exports = {
           },
         ],
       },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-            },
-          },
-        ],
-      },
     ],
   },
   plugins: [
@@ -108,26 +94,21 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: './index.html',
       template: `${PATHS.src}/index.html`,
-      inject: false,
-    }),
-    new HtmlWebpackPlugin({
-      hash: false,
-      filename: './catalog.html',
-      template: `${PATHS.src}/catalog.html`,
-      inject: false,
     }),
     new MiniCssExtractPlugin({
       filename: `${PATHS.assets}css/style.css`,
     }),
-    new CopyPlugin([
-      { from: `${PATHS.src}/fonts`, to: `${PATHS.assets}fonts` },
-      { from: `${PATHS.src}/img`, to: `${PATHS.assets}img` },
-    ]),
+    new CopyPlugin({
+      patterns: [
+        { from: `${PATHS.src}/fonts`, to: `${PATHS.assets}fonts` },
+      ],
+    }),
   ],
   devServer: {
-    contentBase: 'docs/',
+    host: '192.168.1.70',
+    contentBase: `${PATHS.build}/`,
     port: 8081,
     open: true,
   },
-  devtool: 'eval',
-}
+  devtool: 'source-map',
+};

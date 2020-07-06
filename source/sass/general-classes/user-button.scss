@@ -1,0 +1,22 @@
+.user-button {
+
+  & > svg > path {
+    transition: fill, stroke, .4s ease;
+  }
+
+  &:hover > svg > path {
+    fill: #CC9900;
+  }
+
+  &:hover > svg > path[stroke] {
+    stroke: #CC9900;
+  }
+
+  &:active > svg > path {
+    fill: #996633;
+  }
+
+  &:active > svg > path[stroke] {
+    stroke: #996633;
+  }
+}

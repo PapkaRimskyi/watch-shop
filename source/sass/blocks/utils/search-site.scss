@@ -1,0 +1,16 @@
+.search-site {
+  position: absolute;
+  bottom: 5px;
+  right: 115%;
+  width: 120px;
+  border: none;
+  border-bottom: 1px solid $black-color;
+
+  &::placeholder {
+    transition: font-size .5s ease-out;
+  }
+
+  &:hover::placeholder {
+    font-size: 10px;
+  }
+}

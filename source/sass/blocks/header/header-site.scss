@@ -3,5 +3,6 @@
   padding: 30px 52px 0;
   width: $desktop-width;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }

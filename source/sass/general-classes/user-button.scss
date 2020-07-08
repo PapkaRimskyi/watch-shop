@@ -5,18 +5,18 @@
   }
 
   &:hover > svg > path {
-    fill: #CC9900;
+    fill: $svg-state-hover;
   }
 
   &:hover > svg > path[stroke] {
-    stroke: #CC9900;
+    stroke: $svg-state-hover;
   }
 
   &:active > svg > path {
-    fill: #996633;
+    fill: $svg-state-active;
   }
 
   &:active > svg > path[stroke] {
-    stroke: #996633;
+    stroke: $svg-state-active;
   }
 }

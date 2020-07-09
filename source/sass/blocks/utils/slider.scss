@@ -1,0 +1,32 @@
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 70px;
+
+  &__slide-number {
+    font: {
+      family: $prata;
+      size: 12px;
+    }
+    line-height: 16px;
+  }
+
+  &__button--right > svg {
+    transform: rotate(180deg);
+  }
+
+  &__button > svg > path {
+    transition: stroke .3s ease-out;
+  }
+
+  &__button:hover > svg > path {
+    stroke: $svg-state-hover;
+  }
+
+  &__button:active > svg > path {
+    stroke: $svg-state-active;
+  }
+}

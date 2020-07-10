@@ -6,6 +6,7 @@ import '../../../../img/Ellipse.svg';
 import SocialLinks from '../../utils/social-links';
 
 export default function YearCollection() {
+  const majorClass = 'year-collection';
   const collectionInfo = {
     collectionName: 'Весна/Лето 2019',
     type: 'Коллекция',
@@ -15,7 +16,7 @@ export default function YearCollection() {
   };
   return (
     <section className="year-collection">
-      <SocialLinks />
+      <SocialLinks majorClass={majorClass} />
       <div className="year-collection__container">
         <h1 className="year-collection__collection-name">{collectionInfo.collectionName}</h1>
         <p className="year-collection__type">{collectionInfo.type}</p>

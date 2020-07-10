@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-closing-tag-location */
 import React from 'react';
 
-export default function SocialLinks() {
+export default function SocialLinks(props) {
+  const { majorClass } = props;
   const socialLinksInfo = [
     {
       linkType: 'instagram',
@@ -23,7 +25,7 @@ export default function SocialLinks() {
     },
   ];
   return (
-    <nav className="social-links year-collection__social">
+    <nav className={`social-links ${majorClass}__social`}>
       <ul className="social-links__list">
         {socialLinksInfo.map((link) => (
           <li className="social-links__item" key={link.linkType}>

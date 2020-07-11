@@ -1,0 +1,51 @@
+.detailed-information {
+  margin: $margin-auto;
+  padding: 67px 72px 62px 61px;
+  width: 82%;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__list:not(:first-of-type) {
+    margin-top: 14px;
+  }
+
+  &__logo {
+    margin-bottom: 11px;
+  }
+
+  &__list-headline {
+    margin-bottom: 21px;
+    font: {
+      family: $roboto;
+      size: 15px;
+      weight: 700;
+    }
+    line-height: 16px;
+    letter-spacing: .7px;
+    color: $white-color;
+    text-transform: uppercase;
+  }
+
+  &__link {
+    font: {
+      family: $roboto;
+      size: 12px;
+      weight: 300;
+    }
+    line-height: 14px;
+    color: rgba(255, 255, 255, .75);
+    transition: color .3s ease-in-out;
+
+    &:hover {
+      color: rgba(255, 255, 255, 1);
+    }
+
+    &:active {
+      color: rgba(255, 255, 255, .3);
+    }
+  }
+}

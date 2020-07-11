@@ -5,6 +5,7 @@ import '../sass/style.scss';
 
 import Header from './blocks/header/header-site';
 import Main from './blocks/main/main-site';
+import Footer from './blocks/footer/footer-site';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class MainWrapper extends React.Component {
@@ -13,6 +14,7 @@ class MainWrapper extends React.Component {
       <>
         <Header />
         <Main />
+        <Footer />
       </>
     );
   }

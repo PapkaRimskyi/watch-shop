@@ -1,6 +1,6 @@
-.burger-menu {
+.burger-button {
   margin-bottom: 5px;
-  transition: transform .8s ease;
+  transition: transform .4s ease;
 
   & > svg > path {
     transition: stroke .2s ease-in;
@@ -16,7 +16,7 @@
   }
 
   &:active {
-    transform: rotate(360deg);
+    transform: rotate(45deg);
   }
 
   &:active > svg > path {

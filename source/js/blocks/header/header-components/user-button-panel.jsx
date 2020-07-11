@@ -1,6 +1,8 @@
 /* eslint-disable react/jsx-closing-tag-location */
 import React from 'react';
 
+import { CSSTransition } from 'react-transition-group';
+
 import UserButton from '../../universal-buttons/user-button';
 
 import SearchSite from '../../utils/search-site';
@@ -49,7 +51,9 @@ export default class UserButtonPanel extends React.Component {
     return (
       <nav className="user-button-panel" aria-label="Пользовательские кнопки">
         {this.buttonSettings.map((buttonInfo) => <UserButton key={buttonInfo.ariaLabel} buttonInfo={buttonInfo} />)}
-        {siteSearch ? <SearchSite /> : null}
+        <CSSTransition in={siteSearch} classNames="animate" timeout={{ enter: 500, exit: 500 }} unmountOnExit>
+          <SearchSite />
+        </CSSTransition>
       </nav>
     );
   }

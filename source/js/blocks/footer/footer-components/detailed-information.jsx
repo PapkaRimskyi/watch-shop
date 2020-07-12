@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../../../img/logo-color-reverse.svg';
+import '../../../../img/logo/logo-color-reverse.svg';
 
 export default function DetailedInformation() {
   return (

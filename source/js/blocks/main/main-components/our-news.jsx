@@ -1,8 +1,8 @@
 import React from 'react';
 
-import '../../../../img/news-decorative-photo-1.jpg';
-import '../../../../img/news-decorative-photo-2.jpg';
-import '../../../../img/news-decorative-photo-3.jpg';
+import '../../../../img/decorative-photo/news-decorative-photo-1.jpg';
+import '../../../../img/decorative-photo/news-decorative-photo-2.jpg';
+import '../../../../img/decorative-photo/news-decorative-photo-3.jpg';
 
 import SocialLinks from '../../utils/social-links';
 

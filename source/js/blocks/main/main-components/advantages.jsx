@@ -1,8 +1,8 @@
 /* eslint-disable no-lonely-if */
 import React from 'react';
 
-import '../../../../img/advantages__banner-1.jpg';
-import '../../../../img/arrow.svg';
+import '../../../../img/decorative-photo/advantages__banner-1.jpg';
+import '../../../../img/unique-icon/arrow.svg';
 
 import Slider from '../../utils/slider';
 

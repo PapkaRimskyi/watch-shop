@@ -13,17 +13,3 @@ export default function Main() {
     </main>
   );
 }
-
-// export default class Main extends React.Component {
-//   constructor(props) {
-//     super(props)
-//   }
-
-//   render() {
-//     return (
-//       <main className="main-site">
-
-//       </main>
-//     );
-//   }
-// }

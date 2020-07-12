@@ -1,7 +1,7 @@
 import React from 'react';
 
-import '../../../../img/watch_example.png';
-import '../../../../img/Ellipse.svg';
+import '../../../../img/watch-example/watch_example.png';
+import '../../../../img/decorative-elements/Ellipse.svg';
 
 import SocialLinks from '../../utils/social-links';
 

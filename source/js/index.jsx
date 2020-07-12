@@ -1,5 +1,7 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import '../sass/style.scss';
 
@@ -20,4 +22,9 @@ class MainWrapper extends React.Component {
   }
 }
 
-ReactDOM.render(<MainWrapper />, document.getElementById('root'));
+ReactDOM.render(
+  <BrowserRouter>
+    <MainWrapper />
+  </BrowserRouter>,
+  document.getElementById('root'),
+);

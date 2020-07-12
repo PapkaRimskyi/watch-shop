@@ -80,6 +80,13 @@ module.exports = {
                 quality: 70,
                 progressive: true,
               },
+              svgo: {
+                plugins: [
+                  {
+                    removeViewBox: false,
+                  },
+                ],
+              },
               webp: {
                 quality: 70,
               },

@@ -1,5 +1,6 @@
 /* eslint-disable no-lonely-if */
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import '../../../../img/decorative-photo/advantages__banner-1.jpg';
 import '../../../../img/unique-icon/arrow.svg';
@@ -61,7 +62,7 @@ export default class Advantages extends React.Component {
               <div className="advantages__description-container">
                 <h3 className="headline advantages__advantages-name">{currentAdvantagesSlide.advantagesName}</h3>
                 <p className="advantages__advantages-description">{currentAdvantagesSlide.advantagesDescription}</p>
-                <button className="button advantages__see-catalog" type="button">Смотреть каталог</button>
+                <Link to="/catalog" className="button advantages__see-catalog">Смотреть каталог</Link>
               </div>
             </li>
           </ul>

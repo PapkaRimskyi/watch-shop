@@ -9,16 +9,17 @@
 
   &__watch-all {
     position: relative;
-    margin-left: auto;
+    margin-left: 91%;
     margin-bottom: 26px;
     padding-bottom: 7px;
-    display: block;
+    display: inline-block;
     font: {
       family: $roboto;
       size: 16px;
     }
     line-height: 19px;
     color: #444240;
+    vertical-align: middle;
     transition: opacity, .3s ease;
 
     &:hover {

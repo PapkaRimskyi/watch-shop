@@ -1,0 +1,48 @@
+.breadcrumbs {
+  padding: 0 103px;
+
+  &__list {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__item {
+    position: relative;
+    margin-right: 32px;
+
+    &:not(:last-of-type)::after {
+      position: absolute;
+      content: "";
+      top: 39%;
+      right: -36%;
+      width: 4px;
+      height: 7px;
+      transform: rotate(180deg);
+      background-image: url("../img/arrow.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  &__link {
+    font: {
+      family: $roboto;
+      weight: 500;
+    }
+    color: #B3B3B3;
+    line-height: 16px;
+    transition: color .3s ease-in-out;
+
+    &--active {
+      color: #555248;
+    }
+
+    &:hover {
+      color: $black-color;
+    }
+
+    &:active {
+      color: rgba(0, 0, 0, 0.5);
+    }
+  }
+}

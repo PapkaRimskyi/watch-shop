@@ -1,12 +1,13 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 
 import '../sass/style.scss';
 
 import Header from './blocks/header/header-site';
 import Main from './blocks/main/main-site';
+import Catalog from './blocks/main/catalog';
 import Footer from './blocks/footer/footer-site';
 
 // eslint-disable-next-line react/prefer-stateless-function
@@ -15,7 +16,14 @@ class MainWrapper extends React.Component {
     return (
       <>
         <Header />
-        <Main />
+        <Switch>
+          <Route path="/catalog">
+            <Catalog />
+          </Route>
+          <Route exact path="/">
+            <Main />
+          </Route>
+        </Switch>
         <Footer />
       </>
     );
@@ -23,8 +31,8 @@ class MainWrapper extends React.Component {
 }
 
 ReactDOM.render(
-  <BrowserRouter>
+  <HashRouter>
     <MainWrapper />
-  </BrowserRouter>,
+  </HashRouter>,
   document.getElementById('root'),
 );

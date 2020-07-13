@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import '../../../../img/watch-example/popular-watch-1.png';
 import '../../../../img/watch-example/popular-watch-2.png';
@@ -38,7 +39,7 @@ export default class PopularModels extends React.Component {
     return (
       <section className="popular-models">
         <h2 className="headline popular-models__headline">Популярные модели</h2>
-        <button className="popular-models__watch-all" type="button">Смотреть все</button>
+        <Link to="/catalog" className="popular-models__watch-all" type="button">Смотреть все</Link>
         <ul className="popular-models__list">
           {this.popularModelsInfo.map((model, index) => (
             <li className="popular-models__item" key={`${model.modelName}-${index}`}>

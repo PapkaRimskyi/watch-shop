@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import '../../../../img/watch-example/watch_example.png';
 import '../../../../img/decorative-elements/Ellipse.svg';
@@ -21,7 +22,7 @@ export default function YearCollection() {
         <h1 className="year-collection__collection-name">{collectionInfo.collectionName}</h1>
         <p className="year-collection__type">{collectionInfo.type}</p>
         <p className="year-collection__description">{collectionInfo.description}</p>
-        <button className="button year-collection__see-catalog" type="button">Смотреть каталог</button>
+        <Link to="/catalog" className="button year-collection__see-catalog">Смотреть каталог</Link>
       </div>
       <div className="example-of-watch">
         <p className="example-of-watch__info example-of-watch__info--price">{collectionInfo.modelExamplePrice} &#8381;</p>

@@ -5,7 +5,6 @@ import { CSSTransition } from 'react-transition-group';
 import BurgerAndLogo from './header-components/burger-and-logo';
 import SiteSectionNav from './header-components/site-section-navigation';
 import UserButtonPanel from './header-components/user-button-panel';
-import YearCollection from './header-components/year-collection';
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -50,7 +49,6 @@ export default class Header extends React.Component {
           </CSSTransition>
           <UserButtonPanel />
         </section>
-        <YearCollection />
       </header>
     );
   }

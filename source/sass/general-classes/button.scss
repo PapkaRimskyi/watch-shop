@@ -1,5 +1,6 @@
 .button {
   padding: 25px 36px;
+  display: inline-block;
   font: {
     family: $roboto;
     size: 12px;
@@ -8,6 +9,7 @@
   letter-spacing: .05em;
   text-transform: uppercase;
   color: $white-color;
+  vertical-align: middle;
   transition: all .5s ease;
 
   &:hover {

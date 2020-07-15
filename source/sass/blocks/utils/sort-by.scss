@@ -1,0 +1,31 @@
+.sort-by {
+  display: flex;
+  align-items: center;
+
+  &__type {
+    font: {
+      family: $roboto;
+      weight: 300;
+    }
+    line-height: 21px;
+    letter-spacing: 0.3px;
+    color: #BDB9B5;
+  }
+
+  &__active-type {
+    width: 114px;
+    font-family: $roboto;
+    border: none;
+    letter-spacing: inherit;
+    transition: all .2s ease;
+    cursor: pointer;
+
+    &:hover {
+      color: #65370c;
+    }
+
+    &:active {
+      opacity: .7;
+    }
+  }
+}

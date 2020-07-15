@@ -1,0 +1,122 @@
+.filter {
+  width: 20%;
+
+  &__legend {
+    position: relative;
+    margin-bottom: 19px;
+    padding-right: 15px;
+    width: 100%;
+    font-family: $roboto;
+    line-height: 16px;
+    color: #444240;
+    cursor: pointer;
+
+    &:hover {
+      color: #7a7671;
+    }
+
+    &:active {
+      color: $black-color;
+    }
+
+    &--active::after,
+    &--closed::after,
+    &--closed::before {
+      position: absolute;
+      content: "";
+      top: 5px;
+      right: 1px;
+      width: 10px;
+      height: 1px;
+      background-color: $main-color;
+    }
+
+    &--closed::before {
+      transform: rotate(90deg);
+    }
+  }
+
+  &__fieldset:last-of-type {
+    margin-bottom: 9px;
+  }
+
+  &__option-list {
+    margin-bottom: 28px;
+    padding-left: 29px;
+
+    &--closed {
+      display: none;
+    }
+  }
+
+  &__checkbox-option {
+    margin-bottom: 8px;
+  }
+
+  &__checkbox-label {
+    position: relative;
+    font: {
+      family: $roboto;
+      size: 12px;
+    }
+    color: #6f6e6d;
+    transition: color .3s ease-in;
+    cursor: pointer;
+
+    &:hover {
+      color: #a1897c;
+    }
+
+    &:active {
+      color: $black-color;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: -2px;
+      left: -30px;
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  &__checkbox-input + &__checkbox-label::before {
+    border: 2px solid #909090;
+    background-color: transparent;
+  }
+
+  &__checkbox-input:focus + &__checkbox-label::before {
+    outline: 2px solid $outline-spare-button-color;
+  }
+
+  &__checkbox-input:checked + &__checkbox-label::before {
+    border: 2px solid #6f6e6d;
+    background: url("../img/check-mark.svg") 50% no-repeat #6f6e6d;
+  }
+
+  &__button-drop-option {
+    padding: 22px 0 21px;
+    width: 100%;
+    font: {
+      family: $roboto;
+      size: 12px;
+    }
+    line-height: 14px;
+    text-transform: uppercase;
+    transition: .4s ease-in-out;
+    border: 2px solid #e7e0cf;
+    background-color: transparent;
+    letter-spacing: .5px;
+    color: #1d1a1a;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #e7e0cf;
+    }
+
+    &:active {
+      opacity: .5;
+    }
+  }
+}

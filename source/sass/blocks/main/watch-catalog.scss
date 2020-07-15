@@ -1,0 +1,13 @@
+.watch-catalog {
+  margin: 0 103px;
+
+  &__catalog-name-and-sort-type {
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__catalog-name {
+    width: auto;
+  }
+}

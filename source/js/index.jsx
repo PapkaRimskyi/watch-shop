@@ -15,7 +15,7 @@ class MainWrapper extends React.Component {
   render() {
     return (
       <>
-        <Header />
+        <Header popupClassName="site-section-navigation" />
         <Switch>
           <Route path="/catalog">
             <Catalog />

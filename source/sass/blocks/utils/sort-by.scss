@@ -1,4 +1,5 @@
 .sort-by {
+  position: relative;
   display: flex;
   align-items: center;
 
@@ -26,6 +27,31 @@
 
     &:active {
       opacity: .7;
+    }
+  }
+
+  &__type-list {
+    position: absolute;
+    top: 32px;
+    right: 12px;
+    padding: 5px 10px;
+    background-color: $white-color;
+    z-index: 2;
+  }
+
+  &__type-link {
+    font-family: $roboto;
+    line-height: 21px;
+    color: $black-color;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom, opacity .2s ease-in-out;
+
+    &:hover {
+      border-bottom-color: $black-color;
+    }
+
+    &:active {
+      opacity: .5;
     }
   }
 }

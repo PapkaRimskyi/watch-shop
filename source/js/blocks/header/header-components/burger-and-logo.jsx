@@ -5,10 +5,10 @@ import Logo from '../../universal-buttons/logo';
 import BurgerButton from '../../universal-buttons/burger-button';
 
 export default function BurgerAndLogo(props) {
-  const { burgerHandler } = props;
+  const { buttonHandler } = props;
   return (
     <div className="burger-and-logo">
-      <BurgerButton burgerHandler={burgerHandler} />
+      <BurgerButton buttonHandler={buttonHandler} />
       <Logo />
     </div>
   );

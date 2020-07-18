@@ -14,5 +14,6 @@ rules: {
   react/jsx-one-expression-per-line: 'off',
   react/button-has-type: 'off',
   jsx-a11y/no-noninteractive-tabindex: 'off',
+  react/destructuring-assignment: [0],
   max-len: 'off',
 }

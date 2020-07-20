@@ -1,0 +1,87 @@
+.watch-list {
+  width: 72%;
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    position: relative;
+    margin-bottom: 40px;
+    padding: 18px 20px;
+    width: 30.5%;
+    min-height: 300px;
+    background: linear-gradient(0deg,#fdfdfb,#fdfdfb);
+    overflow: hidden;
+  }
+
+  &__info-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__name-and-price {
+    font: {
+      family: $roboto;
+      weight: 300;
+    }
+    line-height: 21px;
+    color: #636261;
+  }
+
+  &__product-name {
+    font-weight: 700;
+    color: #444240;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: font-size, line-height, .2s ease-out;
+
+    &:hover {
+      font-size: 16px;
+      line-height: 18px;
+    }
+
+    &:active {
+      opacity: .5;
+    }
+  }
+
+  &__interaction-list {
+    width: 55px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__interaction-button {
+
+    & > svg > path {
+      transition: all .4s ease-in-out;
+    }
+
+    &--favorite:hover > svg > path {
+      stroke: #D75A4A;
+    }
+
+    &--basket:hover > svg > path {
+      fill: #afa45d;
+    }
+  }
+
+  &__watch-img-container {
+    position: absolute;
+    margin: 0;
+    width: 60%;
+    height: 95%;
+    top: 55px;
+    left: 22%;
+
+    & > img {
+      width: 95%;
+      height: 85%;
+      object-fit: cover;
+    }
+  }
+}

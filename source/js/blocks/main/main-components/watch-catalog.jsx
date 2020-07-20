@@ -4,6 +4,8 @@ import SortBy from '../../utils/sort-by';
 
 import Filter from '../../utils/filter';
 
+import WatchList from './watch-list';
+
 export default class WatchCatalog extends React.Component {
   constructor(props) {
     super(props);
@@ -30,6 +32,7 @@ export default class WatchCatalog extends React.Component {
         <section className="filter-and-product">
           <h2 className="visually-hidden">Фильтр и товар</h2>
           <Filter />
+          <WatchList />
         </section>
       </section>
     );

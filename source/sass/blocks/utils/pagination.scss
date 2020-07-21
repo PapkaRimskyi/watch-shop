@@ -1,0 +1,38 @@
+.pagination {
+  position: absolute;
+  bottom: 0;
+  right: 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__button--next > svg {
+    transform: rotate(180deg);
+  }
+
+  &__page-list {
+    padding: 0 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__page-item {
+    min-width: 20px;
+    text-align: center;
+  }
+
+  &__page-link {
+    font-family: $roboto;
+    line-height: 21px;
+    color: #b6b6b6;
+    transition: font-size, .2s ease-out;
+
+    &:hover {
+      font-size: 16px;
+    }
+
+    &:active {
+      font-size: 13px;
+    }
+  }
+}

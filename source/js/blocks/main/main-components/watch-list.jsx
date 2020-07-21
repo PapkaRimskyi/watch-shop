@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 
@@ -13,97 +14,8 @@ import '../../../../img/watch-list/watch_9.png';
 import '../../../../img/watch-list/watch_10.png';
 import '../../../../img/watch-list/watch_11.png';
 
-export default function WatchList() {
-  const watchInfo = [
-    {
-      brandName: 'techne',
-      price: '12 700',
-      mechType: 'Механические',
-      material: 'Сталь',
-      color: 'Белый',
-      imgPath: 'assets/img/watch_1.png',
-    },
-    {
-      brandName: 'techne',
-      price: '12 700',
-      mechType: 'Механические',
-      material: 'Сталь',
-      color: 'Чёрный',
-      imgPath: 'assets/img/watch_2.png',
-    },
-    {
-      brandName: 'techne',
-      price: '15 700',
-      mechType: 'Механические',
-      material: 'Сталь',
-      color: 'Чёрный',
-      imgPath: 'assets/img/watch_3.png',
-    },
-    {
-      brandName: 'techne',
-      price: '15 700',
-      mechType: 'Механические',
-      material: 'Сталь',
-      color: 'Белый',
-      imgPath: 'assets/img/watch_4.png',
-    },
-    {
-      brandName: 'techne',
-      price: '12 700',
-      mechType: 'Механические',
-      material: 'Сталь',
-      color: 'Чёрный',
-      imgPath: 'assets/img/watch_5.png',
-    },
-    {
-      brandName: 'techne',
-      price: '18 500',
-      mechType: 'Механические',
-      material: 'Титан',
-      color: 'Белый',
-      imgPath: 'assets/img/watch_6.png',
-    },
-    {
-      brandName: 'techne',
-      price: '15700',
-      mechType: 'Механические',
-      material: 'Титан',
-      color: 'Белый',
-      imgPath: 'assets/img/watch_7.png',
-    },
-    {
-      brandName: 'rado',
-      price: '14 700',
-      mechType: 'Кварцевые',
-      material: 'Сталь',
-      color: 'Белый',
-      imgPath: 'assets/img/watch_8.png',
-    },
-    {
-      brandName: 'bvlgari',
-      price: '72 700',
-      mechType: 'Механические',
-      material: 'Титан',
-      color: 'Белый',
-      imgPath: 'assets/img/watch_9.png',
-    },
-    {
-      brandName: 'techne',
-      price: '22 700',
-      mechType: 'Кварцевые',
-      material: 'Сталь',
-      color: 'Белый',
-      imgPath: 'assets/img/watch_10.png',
-    },
-    {
-      brandName: 'rado',
-      price: '22 000',
-      mechType: 'Кварцевые',
-      material: 'Сталь',
-      color: 'Белый',
-      imgPath: 'assets/img/watch_11.png',
-    },
-  ];
+export default function WatchList(props) {
+  const { watchInfo } = props;
   return (
     <section className="watch-list">
       <h2 className="visually-hidden">Каталог часов</h2>

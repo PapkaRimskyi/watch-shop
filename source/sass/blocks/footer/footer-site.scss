@@ -1,5 +1,18 @@
 .footer-site {
   margin: $margin-auto;
-  width: $desktop-width;
+  width: $mobile-width;
   background-color: #444240;
 }
+
+@media screen and (min-width: $tablet-width) {
+  .footer-site {
+    width: $tablet-width;
+  }
+}
+
+@media screen and (min-width: $desktop-width) and (orientation: landscape) {
+  .footer-site {
+    width: $desktop-width;
+  }
+}
+

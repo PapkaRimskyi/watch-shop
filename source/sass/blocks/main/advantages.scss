@@ -1,48 +1,117 @@
 .advantages {
   position: relative;
-  background-image: linear-gradient(90deg, #F7F5EF 34%, $fdfdfb-color 0);
+  margin-bottom: 20px;
+  padding: 0 15px;
+  background-image: linear-gradient(90deg,#f7f5ef 34%,#fdfdfb 0);
 
-  &__container {
-    margin-bottom: 83px;
-    padding: 52px 40px 29px 136px;
+  &__list {
+    padding: 40px 0 20px;
   }
 
   &__item {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
   }
 
   &__illustration-container {
-    margin-top: 0;
-  }
-
-  &__description-container {
-    padding: 32px 70px 45px 33px;
+    margin: 0;
     align-self: center;
   }
 
+  &__illustration-img {
+    width: 250px;
+    height: 250px;
+  }
+
+  &__description-container {
+    padding: 10px 20px 28px 20px;
+  }
+
   &__advantages-name {
-    margin-bottom: 32px;
+    margin-bottom: 20px;
+    width: auto;
+    font-size: 24px;
+    line-height: 32px;
     text-align: left;
   }
 
   &__advantages-description {
-    margin-bottom: 39px;
-    width: 80%;
-    font: {
-      family: $roboto;
-      weight: 300;
-      size: 16px;
-    }
+    margin-bottom: 30px;
+    font-family: $roboto;
+    line-height: 24px;
     color: #444240;
   }
 
   &__see-catalog {
-    background-color: #d4b098;
+    background-color: #D4B098;
   }
 
   &__slider {
-    top: 94%;
-    left: 40.1%;
+    top: 95%;
+    left: 40.5%;
+  }
+}
+
+@media screen and (min-width: $tablet-width) {
+  .advantages {
+    margin-bottom: 30px;
+    padding: 0 40px;
+
+    &__list {
+      padding: 40px 0 35px;
+    }
+
+    &__item {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    &__illustration-img {
+      width: 350px;
+      height: 350px;
+    }
+
+    &__description-container {
+      padding: 20px 30px;
+    }
+
+    &__advantages-name {
+      font-size: 28px;
+      line-height: 36px;
+    }
+
+    &__advantages-description {
+      font-size: 16px;
+    }
+  }
+}
+
+@media screen and (min-width: $desktop-width) and (orientation: landscape) {
+  .advantages {
+    margin-bottom: 82px;
+    padding: 0 174px;
+
+    &__list {
+      padding: 52px 0 44px;
+    }
+
+    &__illustration-img {
+      width: auto;
+      height: auto;
+    }
+
+    &__description-container {
+      padding: 20px 30px 20px 73px;
+    }
+
+    &__advantages-name {
+      font-size: 32px;
+      line-height: 43px;
+    }
+
+    &__slider {
+      top: 94%;
+      left: 40.1%;
+    }
   }
 }

@@ -87,9 +87,6 @@ module.exports = {
                   },
                 ],
               },
-              webp: {
-                quality: 70,
-              },
             },
           },
         ],
@@ -112,7 +109,7 @@ module.exports = {
     }),
   ],
   devServer: {
-    host: '192.168.1.70',
+    host: '192.168.1.67',
     contentBase: `${PATHS.build}/`,
     port: 8081,
     open: true,

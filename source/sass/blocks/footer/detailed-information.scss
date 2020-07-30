@@ -1,24 +1,13 @@
 .detailed-information {
   margin: $margin-auto;
-  padding: 67px 72px 62px 61px;
-  width: 82%;
-
-  &__container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
+  padding: 45px 50px 50px 60px;
 
   &__list:not(:first-of-type) {
-    margin-top: 14px;
-  }
-
-  &__logo {
-    margin-bottom: 11px;
+    margin-top: 20px;
   }
 
   &__list-headline {
-    margin-bottom: 21px;
+    margin-bottom: 10px;
     font: {
       family: $roboto;
       size: 15px;
@@ -47,5 +36,36 @@
     &:active {
       color: rgba(255, 255, 255, .3);
     }
+  }
+}
+
+@media screen and (min-width: $tablet-width) {
+  .detailed-information {
+    padding: 30px;
+
+    &__container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    &__list:not(:first-of-type) {
+      margin-top: 14px;
+    }
+
+    &__logo {
+      margin-bottom: 11px;
+    }
+
+    &__list-headline {
+      margin-bottom: 21px;
+    }
+  }
+}
+
+@media screen and (min-width: $desktop-width) {
+  .detailed-information {
+    padding: 67px 72px 62px 61px;
+    width: 82%;
   }
 }

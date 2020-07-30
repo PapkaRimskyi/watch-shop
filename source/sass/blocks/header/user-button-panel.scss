@@ -1,9 +1,21 @@
 .user-button-panel {
   position: relative;
-  padding-top: 6px;
-  width: 8.2%;
+  width: 30%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 2;
+}
+
+@media screen and (min-width: $tablet-width) {
+  .user-button-panel {
+    padding-top: 6px;
+    width: 15%;
+  }
+}
+
+@media screen and (min-width: $desktop-width) and (orientation: landscape) {
+  .user-button-panel {
+    width: 8.2%;
+  }
 }

@@ -1,6 +1,25 @@
 .burger-and-logo {
-  width: 11.8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  & > a {
+    display: none;
+  }
+}
+
+@media screen and (min-width: $tablet-width) {
+  .burger-and-logo {
+    width: 20%;
+
+    & > a {
+      display: inline;
+    }
+  }
+}
+
+@media screen and (min-width: $desktop-width) and (orientation: landscape) {
+  .burger-and-logo {
+    width: 11.8%;
+  }
 }

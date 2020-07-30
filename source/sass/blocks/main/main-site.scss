@@ -1,4 +1,16 @@
 .main-site {
   margin: $margin-auto;
-  width: $desktop-width;
+  width: $mobile-width;
+}
+
+@media screen and (min-width: $tablet-width) {
+  .main-site {
+    width: $tablet-width;
+  }
+}
+
+@media screen and (min-width: $desktop-width) and (orientation: landscape) {
+  .main-site {
+    width: $desktop-width;
+  }
 }

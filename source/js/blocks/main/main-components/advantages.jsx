@@ -18,7 +18,7 @@ export default class Advantages extends React.Component {
     this.advantagesInfo = [
       {
         advantagesName: 'Подлинное качество',
-        advantagesDescription: 'Все часы производятся в Швейцарии и имеют сертификаты качества. Настоящие швейцарские часы - это предмет гордости и престижа',
+        advantagesDescription: 'Все часы производятся в Швейцарии и имеют сертификаты качества. Настоящие швейцарские часы — это предмет гордости и престижа',
         imgPath: 'advantages__banner-1.jpg',
       },
       {
@@ -53,20 +53,18 @@ export default class Advantages extends React.Component {
     const currentAdvantagesSlide = this.advantagesInfo[currentNumber - 1];
     return (
       <section className="advantages">
-        <div className="advantages__container">
-          <ul className="advantages__list">
-            <li className="advantages__item">
-              <figure className="advantages__illustration-container">
-                <img src={`assets/img/${currentAdvantagesSlide.imgPath}`} alt="" className="advantages__illustration-img" />
-              </figure>
-              <div className="advantages__description-container">
-                <h3 className="headline advantages__advantages-name">{currentAdvantagesSlide.advantagesName}</h3>
-                <p className="advantages__advantages-description">{currentAdvantagesSlide.advantagesDescription}</p>
-                <Link to="/catalog" className="button advantages__see-catalog">Смотреть каталог</Link>
-              </div>
-            </li>
-          </ul>
-        </div>
+        <ul className="advantages__list">
+          <li className="advantages__item">
+            <figure className="advantages__illustration-container">
+              <img src={`assets/img/${currentAdvantagesSlide.imgPath}`} alt="" className="advantages__illustration-img" />
+            </figure>
+            <div className="advantages__description-container">
+              <h3 className="headline advantages__advantages-name">{currentAdvantagesSlide.advantagesName}</h3>
+              <p className="advantages__advantages-description">{currentAdvantagesSlide.advantagesDescription}</p>
+              <Link to="/catalog" className="button advantages__see-catalog">Смотреть каталог</Link>
+            </div>
+          </li>
+        </ul>
         <Slider slideNumber={currentNumber} environmentClassName={this.advantagesClassSlider} slideArrowHandler={this.slideNumberChange} />
       </section>
     );

@@ -41,6 +41,10 @@ export default class UserButtonPanel extends React.Component {
     ];
   }
 
+  focusOnSearchInput() {
+    this.searchRef.current.focus();
+  }
+
   searchHandler(e) {
     e.preventDefault();
     this.setState((prevState) => ({ siteSearch: !prevState.siteSearch }));
@@ -51,7 +55,7 @@ export default class UserButtonPanel extends React.Component {
     return (
       <nav className="user-button-panel" aria-label="Пользовательские кнопки">
         {this.buttonSettings.map((buttonInfo) => <UserButton key={buttonInfo.ariaLabel} buttonInfo={buttonInfo} />)}
-        <CSSTransition in={siteSearch} classNames="animate" timeout={{ enter: 500, exit: 500 }} unmountOnExit>
+        <CSSTransition in={siteSearch} classNames="animate" timeout={200} unmountOnExit>
           <SearchSite />
         </CSSTransition>
       </nav>

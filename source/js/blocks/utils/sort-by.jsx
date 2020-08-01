@@ -1,7 +1,5 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable react/no-unused-state */
-/* eslint-disable react/prop-types */
 import React from 'react';
 import popupSwitch from '../HOC/popupSwitch';
 
@@ -10,27 +8,16 @@ class SortBy extends React.Component {
     super(props);
 
     this.state = { sortTypeList: this.props.sortTypeList };
-
-    this.listItemHandler = this.listItemHandler.bind(this);
   }
 
   typeList() {
-    const { popupClassName } = this.props;
+    const { popupClassName, popupListItemHandler } = this.props;
     const { sortTypeList } = this.state;
     return (
-      <ul className={popupClassName} onClick={this.listItemHandler}>
+      <ul className={popupClassName} onClick={popupListItemHandler}>
         {sortTypeList.map((type) => <li key={type} className="sort-by__type-element"><a href="  " className="sort-by__type-link">{type}</a></li>)}
       </ul>
     );
-  }
-
-  listItemHandler(e) {
-    e.preventDefault();
-    const { sortTypeChange, buttonHandler } = this.props;
-    if (e.target.tagName === 'A') {
-      sortTypeChange(e.target.textContent);
-      buttonHandler(e);
-    }
   }
 
   render() {

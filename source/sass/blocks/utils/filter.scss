@@ -1,5 +1,5 @@
 .filter {
-  width: 20%;
+  margin-bottom: 25px;
 
   &__legend {
     position: relative;
@@ -118,5 +118,13 @@
     &:active {
       opacity: .5;
     }
+  }
+}
+
+@media screen and (min-width: $desktop-width) and (orientation: landscape) {
+  .filter {
+    margin-bottom: 0;
+    width: 20%;
+    align-self: flex-start;
   }
 }

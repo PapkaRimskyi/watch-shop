@@ -15,5 +15,6 @@ rules: {
   react/button-has-type: 'off',
   jsx-a11y/no-noninteractive-tabindex: 'off',
   react/destructuring-assignment: [0],
+  react/prop-types: 0,
   max-len: 'off',
 }

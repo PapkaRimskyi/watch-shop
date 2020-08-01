@@ -1,6 +1,18 @@
 .filter-and-product {
   position: relative;
-  margin-bottom: 71px;
-  display: flex;
-  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+@media screen and (min-width: $tablet-width) {
+  .filter-and-product {
+    margin-bottom: 55px;
+  }
+}
+
+@media screen and (min-width: $desktop-width) and (orientation: landscape) {
+  .filter-and-product {
+    margin-bottom: 66px;
+    display: flex;
+    justify-content: space-between;
+  }
 }

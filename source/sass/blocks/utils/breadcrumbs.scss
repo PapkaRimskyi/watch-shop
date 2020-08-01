@@ -1,27 +1,32 @@
 .breadcrumbs {
-  margin-bottom: 36px;
-  padding: 0 103px;
+  margin: $margin-auto;
+  margin-bottom: 30px;
+  width: $mobile-container-width;
 
   &__list {
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
   }
 
   &__item {
     position: relative;
-    margin-right: 32px;
 
-    &:not(:last-of-type)::after {
-      position: absolute;
-      content: "";
-      top: 39%;
-      right: -36%;
-      width: 4px;
-      height: 7px;
-      transform: rotate(180deg);
-      background-image: url("../img/arrow.svg");
-      background-repeat: no-repeat;
-      background-size: contain;
+    &:not(:last-of-type) {
+      padding-right: 24px;
+
+      &::after {
+        position: absolute;
+        content: "";
+        top: 39%;
+        right: 15%;
+        width: 4px;
+        height: 7px;
+        transform: rotate(180deg);
+        background-image: url("../img/arrow.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
     }
   }
 
@@ -44,6 +49,23 @@
 
     &:active {
       color: rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+@media screen and (min-width: $tablet-width) {
+  .breadcrumbs {
+    width: $tablet-container-width;
+  }
+}
+
+@media screen and (min-width: $desktop-width) and (orientation: landscape) {
+  .breadcrumbs {
+    margin-bottom: 36px;
+    width: $desktop-container-width;
+
+    &__item:not(:last-of-type) {
+      padding-right: 32px;
     }
   }
 }

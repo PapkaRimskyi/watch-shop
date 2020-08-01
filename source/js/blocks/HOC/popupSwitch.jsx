@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 
@@ -11,6 +10,7 @@ export default function popupSwitch(WrappedComponent) {
       this.isThatClickBeenOutsideElement = this.isThatClickBeenOutsideElement.bind(this);
       this.buttonHandler = this.buttonHandler.bind(this);
       this.keyDownHandler = this.keyDownHandler.bind(this);
+      this.popupListItemHandler = this.popupListItemHandler.bind(this);
     }
 
     isThatClickBeenOutsideElement(e) {
@@ -18,6 +18,16 @@ export default function popupSwitch(WrappedComponent) {
       if (!e.target.closest(`.${popupClassName}`)) {
         this.setState((prevState) => ({ popupStatus: !prevState.popupStatus }));
         document.removeEventListener('click', this.isThatClickBeenOutsideElement);
+      }
+    }
+
+    popupListItemHandler(e) {
+      e.preventDefault();
+      if (e.target.tagName === 'A') {
+        if (typeof this.props.sortTypeChange === 'function') {
+          this.props.sortTypeChange(e.target.textContent);
+        }
+        this.buttonHandler(e);
       }
     }
 
@@ -39,7 +49,7 @@ export default function popupSwitch(WrappedComponent) {
     }
 
     render() {
-      return <WrappedComponent popupStatus={this.state.popupStatus} buttonHandler={this.buttonHandler} keyDownHandler={this.keyDownHandler} {...this.props} />;
+      return <WrappedComponent popupStatus={this.state.popupStatus} buttonHandler={this.buttonHandler} keyDownHandler={this.keyDownHandler} popupListItemHandler={this.popupListItemHandler} {...this.props} />;
     }
   }
 

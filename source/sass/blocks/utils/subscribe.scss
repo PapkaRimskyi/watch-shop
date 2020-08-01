@@ -2,15 +2,11 @@
   background-color: rgba(234,228,213,.38);
 
   &__info-container {
-    padding: 66px 102px 81px 143px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 20px 40px 40px;
   }
 
   &__condition-container {
-    margin-bottom: 45px;
-    width: 45%;
+    margin-bottom: 40px;
   }
 
   &__condition {
@@ -29,22 +25,15 @@
   &__present {
     font: {
       weight: 700;
-      size: 45px;
+      size: 27px;
     }
-    line-height: 58px;
+    line-height: 45px;
     letter-spacing: 1.1px;
   }
 
-  &__form {
-    margin-top: 33px;
-    width: 44.3%;
-    display: flex;
-    justify-content: space-between;
-  }
-
   &__email-input {
-    width: 56%;
-    align-self: flex-end;
+    margin-bottom: 25px;
+    width: 100%;
     font: {
       family: $roboto;
       size: 18px;
@@ -52,17 +41,93 @@
     color: #444240;
     border: none;
     border-bottom: 1px solid $main-color;
-    background-color: rgba(0, 0, 0, 0,);
+    background-color: transparent;
 
     &::placeholder {
+      font: inherit;
       font-size: 14px;
+      transition: font-size .2s ease-in-out;
+    }
+
+    &:hover,
+    &:focus {
+      &::placeholder {
+        font-size: 12px;
+      }
     }
   }
 
   &__button-submit {
-    padding: 22px 42px;
-    font-weight: 700;
-    letter-spacing: 1px;
+    width: 100%;
     background-color: #31302c;
+    letter-spacing: 1px;
+  }
+}
+
+@media screen and (min-width: $tablet-width) {
+  .subscribe {
+
+    &__info-container {
+      padding: 66px 70px 60px;
+    }
+
+    &__condition-container {
+      margin-bottom: 45px;
+    }
+
+    &__present {
+      font-size: 28px;
+      line-height: 38px;
+    }
+
+    &__form {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__email-input {
+      width: 56%;
+    }
+
+    &__button-submit {
+      width: auto;
+    }
+  }
+}
+
+@media screen and (min-width: $desktop-width) and (orientation: landscape) {
+  .subscribe {
+    background-color: rgba(234,228,213,.38);
+
+    &__info-container {
+      padding: 66px 102px 81px 143px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__condition-container {
+      width: 45%;
+    }
+
+    &__present {
+      font-size: 45px;
+      line-height: 58px;
+    }
+
+    &__form {
+      margin-top: 33px;
+      width: 44.3%;
+    }
+
+    &__email-input {
+      margin-bottom: 0;
+      align-self: flex-end;
+    }
+
+    &__button-submit {
+      padding: 22px 42px;
+      font-weight: 700;
+    }
   }
 }

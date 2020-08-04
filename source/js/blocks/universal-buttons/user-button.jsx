@@ -8,11 +8,11 @@ export default class UserButton extends React.Component {
   }
 
   render() {
-    const { buttonInfo } = this.props;
+    const { className, ariaLabel, icon } = this.props.buttonInfo;
     return (
-      <button className={`user-button ${buttonInfo.className}`} type="button" aria-label={buttonInfo.ariaLabel} onClick={buttonInfo.itemHandler || null}>
-        {buttonInfo.ariaLabel === 'Избранное' ? this.counter : ''}
-        {buttonInfo.icon}
+      <button className={`user-button ${className}-button`} type="button" aria-label={ariaLabel} onClick={this.props.handler || null}>
+        {ariaLabel === 'Избранное' ? this.counter : ''}
+        {icon}
       </button>
     );
   }

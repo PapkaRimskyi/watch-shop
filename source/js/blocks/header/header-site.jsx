@@ -1,14 +1,13 @@
 import React from 'react';
-
 import { CSSTransition } from 'react-transition-group';
 
 import BurgerAndLogo from './header-components/burger-and-logo';
 import SiteSectionNav from './header-components/site-section-navigation';
 import UserButtonPanel from './header-components/user-button-panel';
+
 import popupSwitch from '../HOC/popupSwitch';
 
-function Header(props) {
-  const { popupStatus, buttonHandler, popupListItemHandler } = props;
+function Header({ popupStatus, buttonHandler, popupListItemHandler }) {
   return (
     <header className="header-site">
       <section className="top-bar-site">

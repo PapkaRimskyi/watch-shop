@@ -5,10 +5,10 @@ import { HashRouter, Switch, Route } from 'react-router-dom';
 
 import '../sass/style.scss';
 
-import Header from './blocks/header/header-site';
-import Main from './blocks/main/main-site';
-import Catalog from './blocks/main/catalog';
-import Footer from './blocks/footer/footer-site';
+import Header from './blocks/site-blocks/header/header-site';
+import Index from './blocks/site-blocks/main/index';
+import Catalog from './blocks/site-blocks/main/catalog';
+import Footer from './blocks/site-blocks/footer/footer-site';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class MainWrapper extends React.Component {
@@ -21,7 +21,7 @@ class MainWrapper extends React.Component {
             <Catalog />
           </Route>
           <Route exact path="/">
-            <Main />
+            <Index />
           </Route>
         </Switch>
         <Footer />

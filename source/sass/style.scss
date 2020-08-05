@@ -1,15 +1,14 @@
 @import "variables.scss";
 @import "global.scss";
 
-@import "connecting-styles/support-classes-connect.scss";
+@import "./connecting-styles/general-classes-file/general-classes-connect-file.scss";
 
-@import "blocks/utils/social-links.scss";
-@import "blocks/universal-buttons/logo.scss";
-@import "blocks/universal-buttons/burger-button.scss";
-@import "connecting-styles/header-connect-file.scss";
-@import "blocks/utils/search-site.scss";
-@import "blocks/universal-buttons/favorite-button.scss";
+@import "./connecting-styles/universal-buttons-file/universal-buttons-connect-file.scss";
+@import "./connecting-styles/universal-blocks-file/universal-blocks-conntect-file.scss";
 
-@import "connecting-styles/main-connect-file.scss";
+@import "./connecting-styles/header-file/header-connect-file.scss";
 
-@import "connecting-styles/footer-connect-file.scss";
+@import "./connecting-styles/main-files/index-connection-file.scss";
+@import "./connecting-styles/main-files/catalog-connection-file.scss";
+
+@import "./connecting-styles/footer-file/footer-connect-file.scss";

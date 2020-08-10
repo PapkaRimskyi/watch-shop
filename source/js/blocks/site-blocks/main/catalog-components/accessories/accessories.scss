@@ -3,6 +3,7 @@
   width: $mobile-container-width;
 
   &__section-name {
+    margin: $margin-auto;
     margin-bottom: 40px;
     display: flex;
     justify-content: space-between;
@@ -12,11 +13,52 @@
   &__watch-all {
     margin: 0;
   }
+
+  &__slide-button {
+    display: none;
+
+    &:hover {
+      opacity: .6;
+    }
+
+    &:active {
+      opacity: .3;
+    }
+
+    & > svg {
+      width: 17px;
+      height: 38px;
+    }
+
+    &--right > svg {
+      transform: rotate(180deg);
+    }
+  }
 }
 
 @media screen and (min-width: $tablet-width) {
   .accessories {
-    width: $tablet-container-width;
+    width: $tablet-width;
+
+    &__section-name {
+      width: $tablet-container-width;
+    }
+
+    &__slide-button {
+      margin-bottom: 4%;
+      display: block;
+    }
+
+    &__container {
+      margin: $margin-auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__list {
+      width: $tablet-container-width - 20px;
+    }
 
     &__item {
       width: 31%;
@@ -26,7 +68,24 @@
 
 @media screen and (min-width: $desktop-width) and (orientation: landscape) {
   .accessories {
-    width: $desktop-container-width;
+    margin-bottom: 20px;
+    width: $desktop-width;
+
+    &__section-name {
+      width: $desktop-container-width;
+    }
+
+    &__slide-button {
+      margin-bottom: 4%;
+    }
+
+    &__container {
+      width: 93%;
+    }
+
+    &__list {
+      width: $desktop-container-width;
+    }
 
     &__item {
       padding: 24px 20px;

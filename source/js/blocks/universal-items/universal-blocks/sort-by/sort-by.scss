@@ -4,6 +4,7 @@
   align-items: center;
 
   &__type {
+    position: relative;
     font: {
       family: $roboto;
       weight: 300;
@@ -11,9 +12,28 @@
     line-height: 21px;
     letter-spacing: 0.3px;
     color: #BDB9B5;
+
+    &::after {
+      position: absolute;
+      content: "";
+      top: 5px;
+      right: 5px;
+      width: 7px;
+      height: 12px;
+      background-image: url("../img/arrow.svg");
+      background-repeat: no-repeat;
+      transform: rotate(-90deg);
+    }
+
+    &--active {
+      &::after {
+        transform: rotate(90deg);
+      }
+    }
   }
 
   &__active-type {
+    padding-right: 18px;
     width: 114px;
     font-family: $roboto;
     border: none;

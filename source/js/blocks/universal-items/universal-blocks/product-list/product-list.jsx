@@ -19,7 +19,7 @@ import { FavoriteIcon, BasketIcon } from '../../../svg-icons/user-icons';
 export default function ProductList({ watchInfo, majorClass }) {
   const classList = classNames(majorClass ? `${majorClass}` : false);
   return (
-    <section className={`product-list ${classList}`}>
+    <section className={`product-list ${classList}__list`}>
       <ul className="product-list__list">
         {watchInfo.map((watch, index) => (
           <li key={`${watch}-${index}`} className={`product-list__item ${classList}__item`}>

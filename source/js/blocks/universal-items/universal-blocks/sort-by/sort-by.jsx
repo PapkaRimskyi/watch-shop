@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
+import classNames from 'classnames';
 import popupSwitch from '../../../../HOC/popupSwitch';
 
 class SortBy extends React.Component {
@@ -26,7 +27,7 @@ class SortBy extends React.Component {
     } = this.props;
     return (
       <section className="sort-by" aria-label="Варианты сортировки часов">
-        <p className="sort-by__type">Сортировать по: <input type="text" className="sort-by__active-type" aria-label={`Текущая сортировка: по ${sortType}`} onClick={buttonHandler} onKeyDown={keyDownHandler} name="active-sort-type" value={sortType} readOnly /></p>
+        <p className={`sort-by__type ${classNames(popupStatus ? 'sort-by__type--active' : false)}`}>Сортировать по: <input type="text" className="sort-by__active-type" aria-label={`Текущая сортировка: по ${sortType}`} onClick={buttonHandler} onKeyDown={keyDownHandler} name="active-sort-type" value={sortType} readOnly /></p>
         {popupStatus ? this.typeList() : null}
       </section>
     );

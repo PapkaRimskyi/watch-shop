@@ -62,10 +62,12 @@
     "classnames": "2.2.6",
     "core-js": "3.6.5",
     "cssnano": "4.1.10",
+    "dot-prop": "^5.2.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-router-dom": "5.2.0",
-    "react-transition-group": "4.4.1"
+    "react-transition-group": "4.4.1",
+    "serialize-javascript": "^4.0.0"
   },
   "editorconfig": [
     "*.json",

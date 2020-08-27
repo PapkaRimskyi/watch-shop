@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import socialLinksInfo from './model/social-links-data';
 
-export default function SocialLinks(props) {
-  const { majorClass } = props;
+export default function SocialLinks({ majorClass }) {
   return (
     <nav className={`social-links ${majorClass}__social`} aria-label="Список наших социальных сетей">
       <ul className="social-links__list">
@@ -18,3 +18,7 @@ export default function SocialLinks(props) {
     </nav>
   );
 }
+
+SocialLinks.propTypes = {
+  majorClass: PropTypes.string.isRequired,
+};

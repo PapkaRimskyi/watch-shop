@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Arrow from '../../../svg-icons/arrow';
 
@@ -9,3 +10,9 @@ export default function ArrowButton({ ariaLabel, majorClass, arrowsHandler }) {
     </button>
   );
 }
+
+ArrowButton.propTypes = {
+  ariaLabel: PropTypes.string.isRequired,
+  majorClass: PropTypes.string.isRequired,
+  arrowsHandler: PropTypes.func.isRequired,
+};

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 import UserButton from '../../../../universal-items/universal-buttons/user-button/user-button';
@@ -6,29 +6,20 @@ import SearchSite from '../../../../universal-items/universal-blocks/search-site
 
 import userButtonsModel from '../../model/user-button-model';
 
-export default class UserButtonPanel extends React.Component {
-  constructor(props) {
-    super(props);
+export default function UserButtonPanel() {
+  const [siteSearch, setSiteSearch] = useState(false);
 
-    this.state = { siteSearch: false };
-
-    this.searchHandler = this.searchHandler.bind(this);
-  }
-
-  searchHandler(e) {
+  function searchHandler(e) {
     e.preventDefault();
-    this.setState((prevState) => ({ siteSearch: !prevState.siteSearch }));
+    setSiteSearch((prevState) => !prevState);
   }
 
-  render() {
-    const { siteSearch } = this.state;
-    return (
-      <nav className="user-button-panel" aria-label="Пользовательские кнопки">
-        {userButtonsModel.map((buttonInfo) => <UserButton key={buttonInfo.ariaLabel} buttonInfo={buttonInfo} handler={buttonInfo.className === 'search' ? this.searchHandler : null} />)}
-        <CSSTransition in={siteSearch} classNames="animate" timeout={200} unmountOnExit>
-          <SearchSite />
-        </CSSTransition>
-      </nav>
-    );
-  }
+  return (
+    <nav className="user-button-panel" aria-label="Пользовательские кнопки">
+      {userButtonsModel.map((buttonInfo) => <UserButton key={buttonInfo.ariaLabel} buttonInfo={buttonInfo} handler={buttonInfo.className === 'search' ? searchHandler : null} />)}
+      <CSSTransition in={siteSearch} classNames="animate" timeout={200} unmountOnExit>
+        <SearchSite />
+      </CSSTransition>
+    </nav>
+  );
 }

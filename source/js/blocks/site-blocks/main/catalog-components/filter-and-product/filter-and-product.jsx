@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Filter from '../../../../universal-items/universal-blocks/filter/filter';
 import Pagination from '../../../../universal-items/universal-blocks/navigation/pagination/pagination';
@@ -13,3 +14,9 @@ export default function FilterAndProduct({ watchInfo, maxProductOnPage, productL
     </section>
   );
 }
+
+FilterAndProduct.propTypes = {
+  watchInfo: PropTypes.arrayOf(PropTypes.object).isRequired,
+  maxProductOnPage: PropTypes.number.isRequired,
+  productLength: PropTypes.number.isRequired,
+};

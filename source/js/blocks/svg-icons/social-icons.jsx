@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export function InstagramIcon({ className }) {
   return (
@@ -23,3 +24,27 @@ export function TwitterIcon({ className }) {
     </svg>
   );
 }
+
+InstagramIcon.propTypes = {
+  className: PropTypes.string,
+};
+
+InstagramIcon.defaultProps = {
+  className: null,
+};
+
+FacebookIcon.propTypes = {
+  className: PropTypes.string,
+};
+
+FacebookIcon.defaultProps = {
+  className: null,
+};
+
+TwitterIcon.propTypes = {
+  className: PropTypes.string,
+};
+
+TwitterIcon.defaultProps = {
+  className: null,
+};

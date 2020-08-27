@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export function DefaultLogo({ className }) {
   return (
@@ -22,3 +23,19 @@ export function InverseColorLogo({ className }) {
     </svg>
   );
 }
+
+DefaultLogo.propTypes = {
+  className: PropTypes.string,
+};
+
+DefaultLogo.defaultProps = {
+  className: null,
+};
+
+InverseColorLogo.propTypes = {
+  className: PropTypes.string,
+};
+
+InverseColorLogo.defaultProps = {
+  className: null,
+};

@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import '../../../../../../img/watch-example/watch_example.png';
-import '../../../../../../img/decorative-elements/Ellipse.svg';
-
 import SocialLinks from '../../../../universal-items/universal-blocks/social-links/social-links';
 import ExampleOfWatch from '../example-of-watch/example-of-watch';
+
 import collectionInfo from '../model/collection-info';
+
+import '../../../../../../img/watch-example/watch_example.png';
+import '../../../../../../img/decorative-elements/Ellipse.svg';
 
 export default function YearCollection() {
   return (

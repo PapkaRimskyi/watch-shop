@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export function SearchIcon({ className }) {
   return (
@@ -23,3 +24,27 @@ export function BasketIcon({ className }) {
     </svg>
   );
 }
+
+SearchIcon.propTypes = {
+  className: PropTypes.string,
+};
+
+SearchIcon.defaultProps = {
+  className: null,
+};
+
+FavoriteIcon.propTypes = {
+  className: PropTypes.string,
+};
+
+FavoriteIcon.defaultProps = {
+  className: null,
+};
+
+BasketIcon.propTypes = {
+  className: PropTypes.string,
+};
+
+BasketIcon.defaultProps = {
+  className: null,
+};

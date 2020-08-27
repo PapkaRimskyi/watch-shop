@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function ExampleOfWatch({ modelExamplePrice, modelExampleDiameter }) {
   return (
@@ -8,3 +9,8 @@ export default function ExampleOfWatch({ modelExamplePrice, modelExampleDiameter
     </div>
   );
 }
+
+ExampleOfWatch.propTypes = {
+  modelExamplePrice: PropTypes.string.isRequired,
+  modelExampleDiameter: PropTypes.string.isRequired,
+};

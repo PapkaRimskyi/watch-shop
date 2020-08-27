@@ -1,14 +1,14 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 
+import WatchAllLink from '../../../../universal-items/universal-buttons/watch-all-link/watch-all-link';
+
+import popularModelsInfo from '../model/popular-models';
+
 import '../../../../../../img/watch-example/popular-watch-1.png';
 import '../../../../../../img/watch-example/popular-watch-2.png';
 import '../../../../../../img/watch-example/popular-watch-3.png';
 import '../../../../../../img/watch-example/popular-watch-4.png';
-
-import WatchAllLink from '../../../../universal-items/universal-buttons/watch-all-link/watch-all-link';
-
-import popularModelsInfo from '../model/popular-models';
 
 export default function PopularModels() {
   return (

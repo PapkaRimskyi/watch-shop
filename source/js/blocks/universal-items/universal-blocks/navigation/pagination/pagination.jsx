@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Arrow from '../../../../svg-icons/arrow';
 
@@ -10,8 +11,7 @@ function sectionPage(productLength, maxProductOnPage) {
   return quantityOfPageArray;
 }
 
-export default function Pagination(props) {
-  const { maxProductOnPage, productLength } = props;
+export default function Pagination({ maxProductOnPage, productLength }) {
   if (productLength <= maxProductOnPage) {
     return null;
   }
@@ -33,3 +33,8 @@ export default function Pagination(props) {
     </div>
   );
 }
+
+Pagination.propTypes = {
+  maxProductOnPage: PropTypes.number.isRequired,
+  productLength: PropTypes.number.isRequired,
+};

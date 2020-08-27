@@ -1,19 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-export default class SearchSite extends React.Component {
-  constructor(props) {
-    super(props);
+export default function SearchSite() {
+  const searchRef = React.createRef();
 
-    this.searchRef = React.createRef();
-  }
+  useEffect(() => {
+    searchRef.current.focus();
+  }, []);
 
-  componentDidMount() {
-    this.searchRef.current.focus();
-  }
-
-  render() {
-    return (
-      <input ref={this.searchRef} type="text" className="search-site" placeholder="Поиск по сайту" title="Поле для поиска по сайту" />
-    );
-  }
+  return (
+    <input ref={searchRef} type="text" className="search-site" placeholder="Поиск по сайту" title="Поле для поиска по сайту" />
+  );
 }

@@ -1,37 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Arrow from '../../../svg-icons/arrow';
 
-export default class Slider extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.slideArrowHandler = this.props.slideArrowHandler;
-
-    this.arrowsHandler = this.arrowsHandler.bind(this);
-  }
-
-  arrowsHandler(e) {
+export default function Slider({ sliderNumber, majorClass, sliderNumberChangeHandler }) {
+  function arrowsHandler(e) {
     e.preventDefault();
     if (e.target.closest('.slider__button--left')) {
-      this.slideArrowHandler('left');
+      sliderNumberChangeHandler('left');
     } else {
-      this.slideArrowHandler('right');
+      sliderNumberChangeHandler('right');
     }
   }
 
-  render() {
-    const { slideNumber, majorClass } = this.props;
-    return (
-      <div className={`slider ${majorClass}`} aria-label="Блок с переключением слайдеров">
-        <button className="slider__button slider__button--left" type="button" aria-label="Предыдущий слайд" onClick={this.arrowsHandler}>
-          <Arrow />
-        </button>
-        <p className="slider__slide-number">{`0${slideNumber}`}</p>
-        <button className="slider__button slider__button--right" type="button" aria-label="Следующий слайд" onClick={this.arrowsHandler}>
-          <Arrow />
-        </button>
-      </div>
-    );
-  }
+  return (
+    <div className={`slider ${majorClass}`} aria-label="Блок с переключением слайдеров">
+      <button className="slider__button slider__button--left" type="button" aria-label="Предыдущий слайд" onClick={arrowsHandler}>
+        <Arrow />
+      </button>
+      <p className="slider__slide-number">{`0${sliderNumber}`}</p>
+      <button className="slider__button slider__button--right" type="button" aria-label="Следующий слайд" onClick={arrowsHandler}>
+        <Arrow />
+      </button>
+    </div>
+  );
 }
+
+Slider.propTypes = {
+  sliderNumber: PropTypes.number.isRequired,
+  majorClass: PropTypes.string.isRequired,
+  sliderNumberChangeHandler: PropTypes.func.isRequired,
+};

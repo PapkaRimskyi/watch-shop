@@ -1,6 +1,9 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
+import { FavoriteIcon, BasketIcon } from '../../../svg-icons/user-icons';
 
 import '../../../../../img/watch-list/watch_1.png';
 import '../../../../../img/watch-list/watch_2.png';
@@ -14,15 +17,12 @@ import '../../../../../img/watch-list/watch_9.png';
 import '../../../../../img/watch-list/watch_10.png';
 import '../../../../../img/watch-list/watch_11.png';
 
-import { FavoriteIcon, BasketIcon } from '../../../svg-icons/user-icons';
-
 export default function ProductList({ watchInfo, majorClass }) {
-  const classList = classNames(majorClass ? `${majorClass}` : false);
   return (
-    <section className={`product-list ${classList}__list`}>
+    <section className={`product-list ${classNames(majorClass ? `${majorClass}__list` : null)}`}>
       <ul className="product-list__list">
         {watchInfo.map((watch, index) => (
-          <li key={`${watch}-${index}`} className={`product-list__item ${classList}__item`}>
+          <li key={`${watch}-${index}`} className={`product-list__item ${classNames(majorClass ? `${majorClass}__item` : null)}`}>
             <div className="product-list__info-container">
               <p className="product-list__name-and-price">
                 <a href=" " className="product-list__product-name" aria-label="Открыть подробную информацию о товаре">{watch.brandName}</a>
@@ -42,7 +42,7 @@ export default function ProductList({ watchInfo, majorClass }) {
                 </li>
               </ul>
             </div>
-            <figure className={`product-list__watch-img-container ${classList}__watch-img-container`}>
+            <figure className={`product-list__watch-img-container ${classNames(majorClass ? `${majorClass}__watch-img-container` : null)}`}>
               <img src={watch.imgPath} alt="Часы" />
             </figure>
           </li>
@@ -51,3 +51,12 @@ export default function ProductList({ watchInfo, majorClass }) {
     </section>
   );
 }
+
+ProductList.propTypes = {
+  watchInfo: PropTypes.arrayOf(PropTypes.object).isRequired,
+  majorClass: PropTypes.string,
+};
+
+ProductList.defaultProps = {
+  majorClass: null,
+};

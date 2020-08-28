@@ -4,7 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 import UserButton from '../../../../universal-items/universal-buttons/user-button/user-button';
 import SearchSite from '../../../../universal-items/universal-blocks/search-site/search-site';
 
-import userButtonsModel from '../../model/user-button-model';
+import userButtonsModel from './model/user-button-model';
 
 export default function UserButtonPanel() {
   const [siteSearch, setSiteSearch] = useState(false);

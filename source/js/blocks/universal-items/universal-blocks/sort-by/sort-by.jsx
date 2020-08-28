@@ -5,7 +5,9 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import usePopupSwitch from '../../../../custom-hooks/use-popup-switch';
 
-export default function SortBy({ sortType, sortTypeList, sortTypeChange }) {
+import sortTypeList from './model/sort-type-list';
+
+export default function SortBy({ sortType, sortTypeChange }) {
   const { popupStatus, popupButtonHandler, keyDownHandler } = usePopupSwitch('sort-by__type-list');
 
   function optionsHandler(e) {
@@ -37,6 +39,5 @@ export default function SortBy({ sortType, sortTypeList, sortTypeChange }) {
 
 SortBy.propTypes = {
   sortType: PropTypes.string.isRequired,
-  sortTypeList: PropTypes.arrayOf(PropTypes.string).isRequired,
   sortTypeChange: PropTypes.func.isRequired,
 };

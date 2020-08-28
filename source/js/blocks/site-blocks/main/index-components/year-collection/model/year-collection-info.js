@@ -1,4 +1,4 @@
-const collectionInfo = {
+const yearCollectionInfo = {
   collectionName: 'Весна/Лето 2019',
   type: 'Коллекция',
   description: 'Швейцарские часы в наличии в Москве и с доставкой по всему миру',
@@ -6,4 +6,4 @@ const collectionInfo = {
   modelExampleDiameter: '28 мм диаметр',
 };
 
-export default collectionInfo;
+export default yearCollectionInfo;

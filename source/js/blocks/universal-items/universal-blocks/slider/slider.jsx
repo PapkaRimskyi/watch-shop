@@ -1,17 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import useCarousel from '../../../../custom-hooks/use-carousel';
 
 import Arrow from '../../../svg-icons/arrow';
 
 export default function Slider({ sliderNumber, majorClass, sliderNumberChangeHandler }) {
-  function arrowsHandler(e) {
-    e.preventDefault();
-    if (e.target.closest('.slider__button--left')) {
-      sliderNumberChangeHandler('left');
-    } else {
-      sliderNumberChangeHandler('right');
-    }
-  }
+  const arrowsHandler = useCarousel(sliderNumberChangeHandler);
 
   return (
     <div className={`slider ${majorClass}`} aria-label="Блок с переключением слайдеров">

@@ -1,7 +1,7 @@
 /* eslint-disable no-lonely-if */
 import { useState } from 'react';
 
-export default function useSlider(itemList) {
+export default function useSliderNumber(itemList) {
   const DEFAULT_NUMBER = 1;
   const [currentNumber, setCurrentNumber] = useState(DEFAULT_NUMBER);
 

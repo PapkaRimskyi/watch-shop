@@ -3,7 +3,7 @@ import React from 'react';
 
 import WatchAllLink from '../../../../universal-items/universal-buttons/watch-all-link/watch-all-link';
 
-import popularModelsInfo from '../model/popular-models';
+import popularModelsInfo from './model/popular-models-info';
 
 import '../../../../../../img/watch-example/popular-watch-1.png';
 import '../../../../../../img/watch-example/popular-watch-2.png';

@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import siteSectionNavModel from '../../model/site-section-nav-model';
+import siteSectionNavModel from './model/site-section-nav-model';
 
 export default function SiteSectionNav({ popupButtonHandler }) {
   function popupLinkHandler(e) {

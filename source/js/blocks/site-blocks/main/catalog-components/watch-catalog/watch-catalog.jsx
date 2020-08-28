@@ -6,7 +6,6 @@ import FilterAndProduct from '../filter-and-product/filter-and-product';
 import sortProduct from '../../../../../utils/sort-product';
 
 import watchInfo from './model/watch-item-info';
-import sortTypeList from './model/sort-type-list';
 
 export default function WatchCatalog({ catalogName }) {
   const [sortType, setSortType] = useState('популярности');
@@ -20,7 +19,7 @@ export default function WatchCatalog({ catalogName }) {
     <section className="watch-catalog">
       <div className="watch-catalog__catalog-name-and-sort-type">
         <h1 className="headline watch-catalog__catalog-name">{catalogName}</h1>
-        <SortBy popupClassName="sort-by__type-list" sortType={sortType} sortTypeList={sortTypeList} sortTypeChange={sortTypeChange} />
+        <SortBy popupClassName="sort-by__type-list" sortType={sortType} sortTypeChange={sortTypeChange} />
       </div>
       <FilterAndProduct watchInfo={sortProduct.call(null, sortType, watchInfo)} maxProductOnPage={MAX_PRODUCT_ON_PAGE} productLength={watchInfo.length} />
     </section>

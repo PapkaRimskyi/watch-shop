@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import useSlider from '../../../../../custom-hooks/use-slider';
+import useSliderNumber from '../../../../../custom-hooks/use-slider-number';
 
 import Slider from '../../../../universal-items/universal-blocks/slider/slider';
 
-import advantagesInfo from '../model/advantages-info';
+import advantagesInfo from './model/advantages-info';
 
 import '../../../../../../img/decorative-photo/advantages__banner-1.jpg';
 import '../../../../../../img/unique-icon/arrow.svg';
 
 export default function Advantages() {
-  const { currentNumber, sliderNumberChangeHandler } = useSlider(advantagesInfo);
+  const { currentNumber, sliderNumberChangeHandler } = useSliderNumber(advantagesInfo);
   const { imgPath, advantagesName, advantagesDescription } = advantagesInfo[currentNumber - 1];
 
   return (

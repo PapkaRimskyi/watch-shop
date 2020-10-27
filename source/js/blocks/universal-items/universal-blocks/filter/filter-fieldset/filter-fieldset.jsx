@@ -7,9 +7,13 @@ export default function FilterFieldset({ info }) {
   const [menuStatus, setMenuStatus] = useState(info.menuStatus);
   const { ariaLabel, filterName } = info;
 
+  // Обработчик по клику
+
   function menuClickHandler() {
     setMenuStatus((prevState) => !prevState);
   }
+
+  // Слушатель на кнопку Enter.
 
   function menuKeyHandler(e) {
     if (e.key === 'Enter') {

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// SVG с логотипами магазина. Присутствует как дефолтный, так и с инверсией цвета.
+
 export function DefaultLogo({ className }) {
   return (
     <svg className={className || null} width="104" height="26" viewBox="0 0 104 26" fill="none" xmlns="http://www.w3.org/2000/svg">

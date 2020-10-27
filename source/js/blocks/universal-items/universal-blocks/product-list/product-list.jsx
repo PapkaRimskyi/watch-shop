@@ -18,11 +18,13 @@ import '../../../../../img/watch-list/watch_10.png';
 import '../../../../../img/watch-list/watch_11.png';
 
 export default function ProductList({ watchInfo, majorClass }) {
+  // ID у li устанавливается исходя из наличия majorClass. Если он присутствует, то устаналивается буква 'a' (accessories) или устанавливается 'w' (watch).
+  // Если бы данные приходили с сервера, то можно было бы реализовать по другому (например, с сервера приходил бы массив объектов продуктов, в каждом объекте находился бы ID продукта)
   return (
     <section className={`product-list ${classNames(majorClass ? `${majorClass}__list` : null)}`}>
       <ul className="product-list__list">
         {watchInfo.map((watch, index) => (
-          <li key={`${watch}-${index}`} className={`product-list__item ${classNames(majorClass ? `${majorClass}__item` : null)}`}>
+          <li key={`${watch}-${index}`} id={`${majorClass ? 'a' : 'w'}0${index}`} className={`product-list__item ${classNames(majorClass ? `${majorClass}__item` : null)}`}>
             <div className="product-list__info-container">
               <p className="product-list__name-and-price">
                 <a href=" " className="product-list__product-name" aria-label="Открыть подробную информацию о товаре">{watch.brandName}</a>

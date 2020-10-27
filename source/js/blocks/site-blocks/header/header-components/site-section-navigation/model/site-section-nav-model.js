@@ -1,3 +1,4 @@
+// Моковые разделы сайта.
 const siteSectionNavModel = [
   {
     sectionName: 'Каталог',

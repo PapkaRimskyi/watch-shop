@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// SVG со стрелкой.
+
 export default function Arrow({ className }) {
   return (
     <svg className={className || null} width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -11,7 +11,7 @@ export default function Breadcrumbs() {
           <Link to="/" className="breadcrumbs__link">Главная</Link>
         </li>
         <li className="breadcrumbs__item">
-          <Link to=" " className="breadcrumbs__link">Каталог</Link>
+          <Link to="/" className="breadcrumbs__link">Каталог</Link>
         </li>
         <li className="breadcrumbs__item">
           <NavLink activeClassName="breadcrumbs__link--active" to="/catalog" className="breadcrumbs__link">Мужские часы</NavLink>

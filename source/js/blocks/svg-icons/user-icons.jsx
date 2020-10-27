@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// SVG с пользовательскими кнопками.
+
 export function SearchIcon({ className }) {
   return (
     <svg className={className || null} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

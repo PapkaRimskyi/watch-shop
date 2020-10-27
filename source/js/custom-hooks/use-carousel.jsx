@@ -1,5 +1,7 @@
+// Кастомный хук. Создан для слайдеров.
 export default function useCarousel(arrowsHandler) {
-  function carouselHandler(e) {
+  // Возвращается функция-обработчик, которая потом передается кнопкам слайдера.
+  return function carouselHandler(e) {
     e.preventDefault();
     const classListString = e.currentTarget.classList.value;
     if (e.currentTarget.tagName === 'BUTTON') {
@@ -9,7 +11,5 @@ export default function useCarousel(arrowsHandler) {
         arrowsHandler('right');
       }
     }
-  }
-
-  return carouselHandler;
+  };
 }

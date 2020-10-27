@@ -1,3 +1,5 @@
+// Моковые данные для раздела Мужских часов
+
 const watchInfo = [
   {
     brandName: 'techne',

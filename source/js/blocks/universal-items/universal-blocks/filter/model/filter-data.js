@@ -1,3 +1,4 @@
+// Моковые данные для фильтра
 const filterData = [
   {
     menuStatus: true,

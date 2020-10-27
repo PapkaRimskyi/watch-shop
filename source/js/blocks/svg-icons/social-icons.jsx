@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// SVG с социальными сетями.
+
 export function InstagramIcon({ className }) {
   return (
     <svg className={className || null} width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">

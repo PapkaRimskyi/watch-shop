@@ -1,3 +1,4 @@
+// Моковые данные аксессуаров.
 const accessoriesInfo = [
   {
     brandName: 'Georg Jensen',

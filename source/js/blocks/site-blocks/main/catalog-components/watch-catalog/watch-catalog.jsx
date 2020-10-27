@@ -7,10 +7,13 @@ import sortProduct from '../../../../../utils/sort-product';
 
 import watchInfo from './model/watch-item-info';
 
+// Компонент, у котрого внутри присутствует компонент с сортировкой и компонент, который объединяет в себе два других основных компонента - фильтр и секция с часами.
+
 export default function WatchCatalog({ catalogName }) {
   const [sortType, setSortType] = useState('популярности');
   const MAX_PRODUCT_ON_PAGE = 12;
 
+  // Меняет тип сортировки.
   function sortTypeChange(sortName) {
     setSortType(sortName);
   }

@@ -9,6 +9,7 @@ import userButtonsModel from './model/user-button-model';
 export default function UserButtonPanel() {
   const [siteSearch, setSiteSearch] = useState(false);
 
+  // Обработчик по клику на кнопку "поиск по сайту".
   function searchHandler(e) {
     e.preventDefault();
     setSiteSearch((prevState) => !prevState);

@@ -3,7 +3,7 @@ import React from 'react';
 import FilterFieldset from './filter-fieldset/filter-fieldset';
 import filterData from './model/filter-data';
 
-import '../../../../../img/unique-icon/check-mark.svg';
+import '../../../../../../../img/unique-icon/check-mark.svg';
 
 export default function Filter() {
   return (

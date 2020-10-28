@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import useCarousel from '../../../../../custom-hooks/use-carousel';
 import useItemShift from '../../../../../custom-hooks/use-item-shift';
 
-import ProductList from '../../../../universal-items/universal-blocks/product-list/product-list';
+import ProductList from '../filter-and-product/product-list/product-list';
 import WatchAllLink from '../../../../universal-items/universal-buttons/watch-all-link/watch-all-link';
 import ArrowButton from '../../../../universal-items/universal-buttons/arrow-button/arrow-button';
 

@@ -1,4 +1,5 @@
 // Моковые данные раздела "преимущества".
+
 const advantagesInfo = [
   {
     advantagesName: 'Подлинное качество',

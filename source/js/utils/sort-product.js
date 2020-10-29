@@ -1,4 +1,5 @@
 // Сортирует список продуктов по типу сортировки.
+
 export default function sortProduct(sortType, watchItemList) {
   switch (sortType) {
     case 'цене':

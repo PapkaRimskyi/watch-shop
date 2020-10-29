@@ -13,6 +13,8 @@ export default function FilterFieldset({ info }) {
     setMenuStatus((prevState) => !prevState);
   }
 
+  //
+
   // Слушатель на кнопку Enter.
 
   function menuKeyHandler(e) {
@@ -20,6 +22,8 @@ export default function FilterFieldset({ info }) {
       menuClickHandler();
     }
   }
+
+  //
 
   return (
     <fieldset className="filter__fieldset">

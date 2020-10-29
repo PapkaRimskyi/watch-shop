@@ -9,7 +9,10 @@ import sortTypeList from './model/sort-type-list';
 
 export default function SortBy({ sortType, sortTypeChange }) {
   // С помощью деструктуризации, вытаскиваем нужные элементы из объекта, который предоставляет нам usePopupSwitch.
+
   const { popupStatus, popupButtonHandler, keyDownHandler } = usePopupSwitch('sort-by__type-list');
+
+  //
 
   // Делегирование. Вешаю обработчик на ul. Определяю, произошел ли клик по тегу 'A' и если да, то запускаем функцию по смене типа сортировки, а так же функцию, которая закрывает менюшку.
 
@@ -21,7 +24,7 @@ export default function SortBy({ sortType, sortTypeChange }) {
     }
   }
 
-  // Вешаю на input обработчики по клику и по keyDown.
+  //
 
   return (
     <section className="sort-by" aria-label="Варианты сортировки часов">

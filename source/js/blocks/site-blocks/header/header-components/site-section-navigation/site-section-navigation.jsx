@@ -8,11 +8,14 @@ import siteSectionNavModel from './model/site-section-nav-model';
 
 export default function SiteSectionNav({ popupButtonHandler }) {
   // Делегирование. Обработчик вешается на ul.
+
   function popupLinkHandler(e) {
     if (e.target.tagName === 'A') {
       popupButtonHandler(e);
     }
   }
+
+  //
 
   return (
     <nav className="site-section-navigation" aria-label="Навигация по сайту">

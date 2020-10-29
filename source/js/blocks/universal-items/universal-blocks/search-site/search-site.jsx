@@ -9,6 +9,8 @@ export default function SearchSite() {
     searchRef.current.focus();
   }, []);
 
+  //
+
   return (
     <input ref={searchRef} type="text" className="search-site" placeholder="Поиск по сайту" title="Поле для поиска по сайту" />
   );

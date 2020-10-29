@@ -1,7 +1,9 @@
-// Моковые данные для раздела Мужских часов
+// Моковые данные для раздела Мужских часов.
+// Расшифровка записи в ID: m - men, w - watch и цифра в конце.
 
 const watchInfo = [
   {
+    id: 'mw0',
     brandName: 'techne',
     price: '12 700',
     popularity: 1483,
@@ -11,6 +13,7 @@ const watchInfo = [
     imgPath: 'assets/img/watch_1.png',
   },
   {
+    id: 'mw1',
     brandName: 'techne',
     price: '12 700',
     popularity: 905,
@@ -20,6 +23,7 @@ const watchInfo = [
     imgPath: 'assets/img/watch_2.png',
   },
   {
+    id: 'mw2',
     brandName: 'techne',
     price: '15 700',
     popularity: 159,
@@ -29,6 +33,7 @@ const watchInfo = [
     imgPath: 'assets/img/watch_3.png',
   },
   {
+    id: 'mw3',
     brandName: 'techne',
     price: '15 700',
     popularity: 1003,
@@ -38,6 +43,7 @@ const watchInfo = [
     imgPath: 'assets/img/watch_4.png',
   },
   {
+    id: 'mw4',
     brandName: 'techne',
     price: '12 700',
     popularity: 1202,
@@ -47,6 +53,7 @@ const watchInfo = [
     imgPath: 'assets/img/watch_5.png',
   },
   {
+    id: 'mw5',
     brandName: 'techne',
     price: '18 500',
     popularity: 50,
@@ -56,6 +63,7 @@ const watchInfo = [
     imgPath: 'assets/img/watch_6.png',
   },
   {
+    id: 'mw6',
     brandName: 'techne',
     price: '15 700',
     popularity: 606,
@@ -65,6 +73,7 @@ const watchInfo = [
     imgPath: 'assets/img/watch_7.png',
   },
   {
+    id: 'mw7',
     brandName: 'rado',
     price: '14 700',
     popularity: 1001,
@@ -74,6 +83,7 @@ const watchInfo = [
     imgPath: 'assets/img/watch_8.png',
   },
   {
+    id: 'mw8',
     brandName: 'bvlgari',
     price: '72 700',
     popularity: 45,
@@ -83,6 +93,7 @@ const watchInfo = [
     imgPath: 'assets/img/watch_9.png',
   },
   {
+    id: 'mw9',
     brandName: 'techne',
     price: '22 700',
     popularity: 212,
@@ -92,6 +103,7 @@ const watchInfo = [
     imgPath: 'assets/img/watch_10.png',
   },
   {
+    id: 'mw10',
     brandName: 'rado',
     price: '22 000',
     popularity: 999,

@@ -1,15 +1,17 @@
-import { ADD_TO_FAVORITE, ADD_TO_BASKET } from '../../action-names/action-names';
+import { TO_FAVORITE, TO_BASKET } from '../../action-names/action-names';
 
-export function addToFavorite(product) {
+export function addToFavorite(product, actionType) {
   return {
-    type: ADD_TO_FAVORITE,
+    type: TO_FAVORITE,
     product,
+    actionType,
   };
 }
 
-export function addToBasket(product) {
+export function addToBasket(product, actionType) {
   return {
-    type: ADD_TO_BASKET,
+    type: TO_BASKET,
     product,
+    actionType,
   };
 }

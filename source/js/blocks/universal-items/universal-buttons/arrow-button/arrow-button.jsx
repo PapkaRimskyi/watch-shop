@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Arrow from '../../../svg-icons/arrow';
 
-// Компонент для конструкции кнопки для слайдера.
+// Компонент для конструкции кнопки-стрелки для слайдера.
 
 export default function ArrowButton({ ariaLabel, majorClass, arrowsHandler }) {
   return (

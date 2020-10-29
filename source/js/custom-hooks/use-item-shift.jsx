@@ -1,4 +1,5 @@
 // Кастомный хук для карусели. Меняет порядок продуктов.
+
 export default function useItemShift(itemList, setProductList) {
   return function itemShift(side) {
     if (side === 'left') {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
@@ -9,8 +9,6 @@ import FilterAndProduct from '../filter-and-product/filter-and-product';
 import sortProduct from '../../../../../utils/sort-product';
 
 import watchInfo from './model/watch-item-info';
-
-// Компонент, у котрого внутри присутствует компонент с сортировкой и компонент, который объединяет в себе два других основных компонента - фильтр и секция с часами.
 
 function WatchCatalog({ catalogName, sortType, sortTypeChange }) {
   const MAX_PRODUCT_ON_PAGE = 12;

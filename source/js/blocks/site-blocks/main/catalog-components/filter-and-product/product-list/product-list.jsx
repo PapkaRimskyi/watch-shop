@@ -22,27 +22,45 @@ import '../../../../../../../img/watch-list/watch_9.png';
 import '../../../../../../../img/watch-list/watch_10.png';
 import '../../../../../../../img/watch-list/watch_11.png';
 
-function ProductList({ watchInfo, majorClass, toFavorite, toBasket }) {
+function ProductList({ watchInfo, majorClass, userSelectedProducts, toFavorite, toBasket }) {
+  // Поиск продукта среди watchInfo.
+
+  function findProductByID(productCollection, productID) {
+    return productCollection.find((product) => product.id.match(/\d/g).join('') === productID);
+  }
+
+  //
+
+  // Функция, которая проверяет, записан ли этот продукт в коллекцию userSelectedProducts. Возвращает булево значение.
+
+  function isProductAlreadySelected(productID, selectedProductsCollection, buttonType) {
+    return selectedProductsCollection[buttonType].find((product) => product.id.match(/\d/g).join('') === productID);
+  }
+
+  //
+
+  // Делегирование. Использую id у li для хранения id продукта. В зависимости от нажатой кнопки, пушится или в коллекцию избранного или в корзину.
+
   function productSelected(e) {
     e.preventDefault();
     if (e.target.closest('li')) {
       const productID = e.target.closest('.product-list__item').id.match(/\d/g).join('');
       const buttonClassList = Array.from(e.target.closest('button').classList).join(' ');
       if (buttonClassList.includes('favorite')) {
-        toFavorite(watchInfo[productID]);
+        toFavorite(findProductByID(watchInfo, productID), isProductAlreadySelected(productID, userSelectedProducts, 'favorites'));
       } else if (buttonClassList.includes('basket')) {
-        toBasket(watchInfo[productID]);
+        toBasket(findProductByID(watchInfo, productID), isProductAlreadySelected(productID, userSelectedProducts, 'basket'));
       }
     }
   }
 
-  // ID у li устанавливается исходя из наличия majorClass. Если он присутствует, то устаналивается буква 'a' (accessories) или устанавливается 'w' (watch).
-  // Если бы данные приходили с сервера, то можно было бы реализовать по другому (например, с сервера приходил бы массив объектов продуктов, в каждом объекте находился бы ID продукта)
+  //
+
   return (
     <section className={`product-list ${classNames(majorClass ? `${majorClass}__list` : null)}`}>
       <ul className="product-list__list" onClick={productSelected}>
         {watchInfo.map((watch, index) => (
-          <li key={`${watch}-${index}`} id={`${majorClass ? 'a' : 'w'}${index}`} className={`product-list__item ${classNames(majorClass ? `${majorClass}__item` : null)}`}>
+          <li key={`${watch}-${index}`} id={watch.id} className={`product-list__item ${classNames(majorClass ? `${majorClass}__item` : null)}`}>
             <div className="product-list__info-container">
               <p className="product-list__name-and-price">
                 <a href=" " className="product-list__product-name" aria-label="Открыть подробную информацию о товаре">{watch.brandName}</a>
@@ -75,6 +93,7 @@ function ProductList({ watchInfo, majorClass, toFavorite, toBasket }) {
 ProductList.propTypes = {
   watchInfo: PropTypes.arrayOf(PropTypes.object).isRequired,
   majorClass: PropTypes.string,
+  userSelectedProducts: PropTypes.objectOf(PropTypes.array).isRequired,
   toFavorite: PropTypes.func.isRequired,
   toBasket: PropTypes.func.isRequired,
 };
@@ -83,9 +102,15 @@ ProductList.defaultProps = {
   majorClass: null,
 };
 
+function mapStateToProps(state) {
+  return {
+    userSelectedProducts: state.userSelectedProducts,
+  };
+}
+
 const mapDispatchToProps = {
   toFavorite: addToFavorite,
   toBasket: addToBasket,
 };
 
-export default connect(null, mapDispatchToProps)(ProductList);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductList);

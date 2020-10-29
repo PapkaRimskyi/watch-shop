@@ -15,12 +15,16 @@ export default function usePopupSwitch(popupClassName) {
     };
   }, [popupStatus]);
 
+  //
+
   // Обработчик событий по клику на кнопку.
 
   function popupButtonHandler(e) {
     e.preventDefault();
     setPopupStatus((prevState) => !prevState);
   }
+
+  //
 
   // Слушатель по нажатию на Enter.
 
@@ -30,6 +34,8 @@ export default function usePopupSwitch(popupClassName) {
     }
   }
 
+  //
+
   // Если клик был за пределами нашего элемента, то окно с этим элементом закрывается.
 
   function isThatClickBeenOutsideElement(e) {
@@ -37,6 +43,8 @@ export default function usePopupSwitch(popupClassName) {
       setPopupStatus((prevState) => !prevState);
     }
   }
+
+  //
 
   return { popupStatus, popupButtonHandler, keyDownHandler };
 }

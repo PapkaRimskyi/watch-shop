@@ -1,7 +1,9 @@
 import React from 'react';
 
 import { SearchIcon, FavoriteIcon, BasketIcon } from '../../../../../svg-icons/user-icons';
+
 // Пользовательские кнопки.
+
 const userButtonsModel = [
   {
     className: 'search',

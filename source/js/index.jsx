@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -11,8 +11,7 @@ import reducer from './redux/reducers/main-reducer';
 import '../sass/style.scss';
 
 import Header from './blocks/site-blocks/header/header-site';
-import Index from './blocks/site-blocks/main/index';
-import Catalog from './blocks/site-blocks/main/catalog';
+import Main from './blocks/site-blocks/main/main-site';
 import Footer from './blocks/site-blocks/footer/footer-site';
 
 const root = document.getElementById('root');
@@ -23,14 +22,7 @@ function MainWrapper() {
     <Provider store={store}>
       <HashRouter>
         <Header popupClassName="site-section-navigation" />
-        <Switch>
-          <Route path="/catalog">
-            <Catalog />
-          </Route>
-          <Route exact path="/">
-            <Index />
-          </Route>
-        </Switch>
+        <Main />
         <Footer />
       </HashRouter>
     </Provider>

@@ -1,6 +1,7 @@
 .main-site {
   margin: $margin-auto;
   width: $mobile-width;
+  flex: 1 0 auto;
 }
 
 @media screen and (min-width: $tablet-width) {

@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 
-import { connect } from 'react-redux';
-
 import UserButton from '../../../../universal-items/universal-buttons/user-button/user-button';
 import SearchSite from '../../../../universal-items/universal-blocks/search-site/search-site';
 
 import userButtonsModel from './model/user-button-model';
 
-function UserButtonPanel({ favoritesCount }) {
+export default function UserButtonPanel({ favoritesCount }) {
   const [siteSearch, setSiteSearch] = useState(false);
 
   // Обработчик по клику на кнопку "поиск по сайту".
@@ -34,11 +32,3 @@ function UserButtonPanel({ favoritesCount }) {
 UserButtonPanel.propTypes = {
   favoritesCount: PropTypes.number.isRequired,
 };
-
-function mapStateToProps(state) {
-  return {
-    favoritesCount: state.userSelectedProducts.favorites.length,
-  };
-}
-
-export default connect(mapStateToProps)(UserButtonPanel);

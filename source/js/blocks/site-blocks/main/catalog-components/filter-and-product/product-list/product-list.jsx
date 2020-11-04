@@ -26,7 +26,7 @@ function ProductList({ watchInfo, majorClass, userSelectedProducts, toFavorite, 
   // Поиск продукта среди watchInfo.
 
   function findProductByID(productCollection, productID) {
-    return productCollection.find((product) => product.id.match(/\d/g).join('') === productID);
+    return productCollection.find((product) => product.id === productID);
   }
 
   //
@@ -34,7 +34,7 @@ function ProductList({ watchInfo, majorClass, userSelectedProducts, toFavorite, 
   // Функция, которая проверяет, записан ли этот продукт в коллекцию userSelectedProducts. Возвращает булево значение.
 
   function isProductAlreadySelected(productID, selectedProductsCollection, buttonType) {
-    return selectedProductsCollection[buttonType].find((product) => product.id.match(/\d/g).join('') === productID);
+    return selectedProductsCollection[buttonType].find((product) => product.id === productID);
   }
 
   //
@@ -44,7 +44,7 @@ function ProductList({ watchInfo, majorClass, userSelectedProducts, toFavorite, 
   function productSelected(e) {
     e.preventDefault();
     if (e.target.closest('li')) {
-      const productID = e.target.closest('.product-list__item').id.match(/\d/g).join('');
+      const productID = e.target.closest('.product-list__item').id;
       const buttonClassList = Array.from(e.target.closest('button').classList).join(' ');
       if (buttonClassList.includes('favorite')) {
         toFavorite(findProductByID(watchInfo, productID), isProductAlreadySelected(productID, userSelectedProducts, 'favorites'));
@@ -65,7 +65,7 @@ function ProductList({ watchInfo, majorClass, userSelectedProducts, toFavorite, 
               <p className="product-list__name-and-price">
                 <a href=" " className="product-list__product-name" aria-label="Открыть подробную информацию о товаре">{watch.brandName}</a>
                 <br />
-                <span className="product-list__price-name">{watch.price} &#8381;</span>
+                <span className="product-list__price-name">{watch.price}</span>
               </p>
               <ul className="product-list__interaction-list">
                 <li className="product-list__interaction-item">

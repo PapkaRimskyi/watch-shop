@@ -23,6 +23,21 @@ function PopupWithProducts({ sectionType, getProductDataByType }) {
 
   //
 
+  // Определение типа товара по его кодировке.
+
+  function defineProductType(productType) {
+    switch (productType.match(/\D/g).join('')) {
+      case 'mw':
+        return 'мужские часы';
+      case 'wa(s)':
+        return 'ремешок для мужских часов';
+      default:
+        return 'тип товара';
+    }
+  }
+
+  //
+
   // В зависимости от названия sectionType возвращается нужный текст.
 
   function getSectionName() {
@@ -30,7 +45,7 @@ function PopupWithProducts({ sectionType, getProductDataByType }) {
       case 'favorite':
         return 'Ваши избранные товары:';
       case 'basket':
-        return 'Товары, которые вы решили купить:';
+        return 'Товары в корзине:';
       default:
         return 'Выбранные вами товары:';
     }
@@ -43,22 +58,33 @@ function PopupWithProducts({ sectionType, getProductDataByType }) {
       <h2 className="popup-with-products__popup-name">{getSectionName(sectionType)}</h2>
       {popupProductData.length !== 0
         ? (
-          <ul className="popup-with-products__list">
-            {popupProductData.map((product) => (
-              <li className="popup-with-products__item">
-                <figure className="popup-with-products__img-container">
-                  <img src={product.imgPath} alt="Выбранный товар" />
-                </figure>
-                <ul className="popup-with-products__info-container">
-                  <li className="popup-with-products__product-info">Имя товара: {product.brandName}</li>
-                  <li className="popup-with-products__product-info">Тип товара:</li>
-                  <li className="popup-with-products__product-info">Стоимость товара: {product.price}</li>
-                </ul>
-              </li>
-            ))}
-          </ul>
+          <>
+            <ul className="popup-with-products__list">
+              {popupProductData.map((product) => (
+                <li key={product.id} className="popup-with-products__item">
+                  <figure className="popup-with-products__img-container">
+                    <img src={product.imgPath} alt="Выбранный товар" />
+                  </figure>
+                  <ul className="popup-with-products__info-list">
+                    <li className="popup-with-products__info-item">
+                      <p className="popup-with-products__product-info">Имя товара: <span>{product.brandName.toUpperCase()}</span></p>
+                    </li>
+                    <li className="popup-with-products__info-item">
+                      <p className="popup-with-products__product-info">Тип товара: <span>{defineProductType(product.id)}</span></p>
+                    </li>
+                    <li className="popup-with-products__info-item">
+                      <p className="popup-with-products__product-info">Стоимость товара: <span>{product.price}</span></p>
+                    </li>
+                  </ul>
+                </li>
+              ))}
+            </ul>
+            {sectionType === 'basket'
+              ? <p className="popup-with-products__products-sum">Общая сумма: {popupProductData.map((item) => item.price.match(/\d/g).join('')).reduce((prev, current) => +prev + +current)} ₽</p>
+              : null}
+          </>
         )
-        : <p className="popup-with-products__no-products">А тут пусто. Может, что нибудь добавите?</p>}
+        : <p className="popup-with-products__no-products">А тут пусто. Может, что-нибудь добавите?</p>}
     </section>
   );
 }

@@ -15,7 +15,10 @@ export default function DetailedInformation() {
           <ul className="detailed-information__list" key={`list-${index}`}>
             {section.map(({ type, href, text, logo: Logo }) => (
               <li className="detailed-information__item" key={text}>
-                {type === 'logo' ? <Logo className="detailed-information__logo" /> : type === 'link' ? <Link to={href} className="detailed-information__link">{text}</Link> : <p className="detailed-information__list-headline">{text}</p>}
+                {type === 'logo'
+                  ? <Logo className="detailed-information__logo" />
+                  : type === 'link' ? <Link to={href} className="detailed-information__link">{text}</Link>
+                    : <p className="detailed-information__list-headline">{text}</p>}
               </li>
             ))}
           </ul>

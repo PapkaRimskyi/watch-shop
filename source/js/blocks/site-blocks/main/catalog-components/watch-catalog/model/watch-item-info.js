@@ -5,7 +5,7 @@ const watchInfo = [
   {
     id: 'mw0',
     brandName: 'techne',
-    price: '12 700',
+    price: '12 700 ₽',
     popularity: 1483,
     mechType: 'Механические',
     material: 'Сталь',
@@ -15,7 +15,7 @@ const watchInfo = [
   {
     id: 'mw1',
     brandName: 'techne',
-    price: '12 700',
+    price: '12 700 ₽',
     popularity: 905,
     mechType: 'Механические',
     material: 'Сталь',
@@ -25,7 +25,7 @@ const watchInfo = [
   {
     id: 'mw2',
     brandName: 'techne',
-    price: '15 700',
+    price: '15 700 ₽',
     popularity: 159,
     mechType: 'Механические',
     material: 'Сталь',
@@ -35,7 +35,7 @@ const watchInfo = [
   {
     id: 'mw3',
     brandName: 'techne',
-    price: '15 700',
+    price: '15 700 ₽',
     popularity: 1003,
     mechType: 'Механические',
     material: 'Сталь',
@@ -45,7 +45,7 @@ const watchInfo = [
   {
     id: 'mw4',
     brandName: 'techne',
-    price: '12 700',
+    price: '12 700 ₽',
     popularity: 1202,
     mechType: 'Механические',
     material: 'Сталь',
@@ -55,7 +55,7 @@ const watchInfo = [
   {
     id: 'mw5',
     brandName: 'techne',
-    price: '18 500',
+    price: '18 500 ₽',
     popularity: 50,
     mechType: 'Механические',
     material: 'Титан',
@@ -65,7 +65,7 @@ const watchInfo = [
   {
     id: 'mw6',
     brandName: 'techne',
-    price: '15 700',
+    price: '15 700 ₽',
     popularity: 606,
     mechType: 'Механические',
     material: 'Титан',
@@ -75,7 +75,7 @@ const watchInfo = [
   {
     id: 'mw7',
     brandName: 'rado',
-    price: '14 700',
+    price: '14 700 ₽',
     popularity: 1001,
     mechType: 'Кварцевые',
     material: 'Сталь',
@@ -85,7 +85,7 @@ const watchInfo = [
   {
     id: 'mw8',
     brandName: 'bvlgari',
-    price: '72 700',
+    price: '72 700 ₽',
     popularity: 45,
     mechType: 'Механические',
     material: 'Титан',
@@ -95,7 +95,7 @@ const watchInfo = [
   {
     id: 'mw9',
     brandName: 'techne',
-    price: '22 700',
+    price: '22 700 ₽',
     popularity: 212,
     mechType: 'Кварцевые',
     material: 'Сталь',
@@ -105,7 +105,7 @@ const watchInfo = [
   {
     id: 'mw10',
     brandName: 'rado',
-    price: '22 000',
+    price: '22 000 ₽',
     popularity: 999,
     mechType: 'Кварцевые',
     material: 'Сталь',

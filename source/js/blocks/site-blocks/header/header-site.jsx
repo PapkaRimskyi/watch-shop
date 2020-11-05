@@ -32,7 +32,7 @@ Header.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    favoritesCount: state.userSelectedProducts.favorites.length,
+    favoritesCount: state.userSelectedProducts.favorite.length,
   };
 }
 

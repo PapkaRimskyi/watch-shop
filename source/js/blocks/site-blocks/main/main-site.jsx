@@ -1,5 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
+
+import { connect } from 'react-redux';
+import { addToFavorite, addToBasket } from '../../../redux/actions/basket-and-favorite/basket-and-favorite';
 
 // Импорты главной страницы
 
@@ -25,7 +29,9 @@ import PopupWithProducts from '../../universal-items/universal-blocks/popup-with
 
 //
 
-export default function Main() {
+import { FAVORITE, BASKET } from '../../../variables/variables';
+
+function Main({ favorite, basket, toFavorite, toBasket }) {
   return (
     <main className="main-site">
       <Switch>
@@ -36,10 +42,10 @@ export default function Main() {
           <Accessories />
         </Route>
         <Route path="/favorite-list">
-          <PopupWithProducts sectionType="favorite" />
+          <PopupWithProducts sectionType={FAVORITE} popupProductData={favorite} workWithStorage={toFavorite} />
         </Route>
         <Route path="/basket-list">
-          <PopupWithProducts sectionType="basket" />
+          <PopupWithProducts sectionType={BASKET} popupProductData={basket} workWithStorage={toBasket} />
         </Route>
         <Route exact path="/">
           <YearCollection />
@@ -51,3 +57,29 @@ export default function Main() {
     </main>
   );
 }
+
+Main.propTypes = {
+  favorite: PropTypes.arrayOf(PropTypes.object),
+  basket: PropTypes.arrayOf(PropTypes.object),
+  toFavorite: PropTypes.func.isRequired,
+  toBasket: PropTypes.func.isRequired,
+};
+
+Main.defaultProps = {
+  favorite: [],
+  basket: [],
+};
+
+function mapStateToProps(state) {
+  return {
+    favorite: state.userSelectedProducts.favorite,
+    basket: state.userSelectedProducts.basket,
+  };
+}
+
+const mapDispatchToProps = {
+  toFavorite: addToFavorite,
+  toBasket: addToBasket,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

@@ -56,12 +56,18 @@
       transition: all .4s ease-in-out;
     }
 
-    &--favorite:hover > svg > path {
-      stroke: #D75A4A;
+    &--favorite {
+      &-active > svg > path,
+      &:hover > svg > path {
+        stroke: #D75A4A;
+      }
     }
 
-    &--basket:hover > svg > path {
-      fill: #afa45d;
+    &--basket {
+      &-active > svg > path,
+      &:hover > svg > path {
+        fill: #afa45d;
+      }
     }
   }
 

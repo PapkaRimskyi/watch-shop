@@ -10,6 +10,8 @@ import { addToFavorite, addToBasket } from '../../../../../../redux/actions/bask
 
 import { FavoriteIcon, BasketIcon } from '../../../../../svg-icons/user-icons';
 
+import { FAVORITE, BASKET } from '../../../../../../variables/variables';
+
 import '../../../../../../../img/watch-list/watch_1.png';
 import '../../../../../../../img/watch-list/watch_2.png';
 import '../../../../../../../img/watch-list/watch_3.png';
@@ -45,12 +47,27 @@ function ProductList({ watchInfo, majorClass, userSelectedProducts, toFavorite, 
     e.preventDefault();
     if (e.target.closest('li')) {
       const productID = e.target.closest('.product-list__item').id;
-      const buttonClassList = Array.from(e.target.closest('button').classList).join(' ');
-      if (buttonClassList.includes('favorite')) {
-        toFavorite(findProductByID(watchInfo, productID), isProductAlreadySelected(productID, userSelectedProducts, 'favorites'));
-      } else if (buttonClassList.includes('basket')) {
-        toBasket(findProductByID(watchInfo, productID), isProductAlreadySelected(productID, userSelectedProducts, 'basket'));
+      const buttonClassList = e.target.closest('button') ? Array.from(e.target.closest('button').classList).join(' ') : '';
+      if (buttonClassList.includes(FAVORITE)) {
+        toFavorite(findProductByID(watchInfo, productID), isProductAlreadySelected(productID, userSelectedProducts, FAVORITE));
+      } else if (buttonClassList.includes(BASKET)) {
+        toBasket(findProductByID(watchInfo, productID), isProductAlreadySelected(productID, userSelectedProducts, BASKET));
       }
+    }
+  }
+
+  //
+
+  // Добавляем соответствующий класс к кнопке при добавлении товара в корзину или избранное.
+
+  function getActiveButtonStyle(buttonType, productID, selectedProductsCollection) {
+    const partOfClass = 'product-list__interaction-button';
+    switch (buttonType) {
+      case FAVORITE:
+      case BASKET:
+        return classNames(isProductAlreadySelected(productID, selectedProductsCollection, buttonType) ? ` ${partOfClass}--${buttonType}-active` : null);
+      default:
+        return null;
     }
   }
 
@@ -69,19 +86,19 @@ function ProductList({ watchInfo, majorClass, userSelectedProducts, toFavorite, 
               </p>
               <ul className="product-list__interaction-list">
                 <li className="product-list__interaction-item">
-                  <button className="product-list__interaction-button product-list__interaction-button--favorite" type="button" aria-label="Добавить в избранное">
+                  <button className={`product-list__interaction-button product-list__interaction-button--favorite${getActiveButtonStyle(FAVORITE, watch.id, userSelectedProducts)}`} type="button" aria-label="Добавить в избранное">
                     <FavoriteIcon />
                   </button>
                 </li>
                 <li className="product-list__interaction-item">
-                  <button className="product-list__interaction-button product-list__interaction-button--basket" type="button" aria-label="Добавить в корзину">
+                  <button className={`product-list__interaction-button product-list__interaction-button--basket${getActiveButtonStyle(BASKET, watch.id, userSelectedProducts)}`} type="button" aria-label="Добавить в корзину">
                     <BasketIcon />
                   </button>
                 </li>
               </ul>
             </div>
             <figure className={`product-list__watch-img-container ${classNames(majorClass ? `${majorClass}__watch-img-container` : null)}`}>
-              <img src={watch.imgPath} alt="Часы" />
+              <img src={watch.imgPath} alt="Продукт магазина" />
             </figure>
           </li>
         ))}

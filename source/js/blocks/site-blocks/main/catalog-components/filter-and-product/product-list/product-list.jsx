@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -25,6 +26,12 @@ import '../../../../../../../img/watch-list/watch_10.png';
 import '../../../../../../../img/watch-list/watch_11.png';
 
 function ProductList({ watchInfo, majorClass, userSelectedProducts, toFavorite, toBasket }) {
+  // Пользуюсь хуком для составления ссылки на страницу подробной информации о товаре.
+
+  const location = useLocation();
+
+  //
+
   // Поиск продукта среди watchInfo.
 
   function findProductByID(productCollection, productID) {
@@ -80,7 +87,7 @@ function ProductList({ watchInfo, majorClass, userSelectedProducts, toFavorite, 
           <li key={`${watch}-${index}`} id={watch.id} className={`product-list__item ${classNames(majorClass ? `${majorClass}__item` : null)}`}>
             <div className="product-list__info-container">
               <p className="product-list__name-and-price">
-                <a href=" " className="product-list__product-name" aria-label="Открыть подробную информацию о товаре">{watch.brandName}</a>
+                <NavLink to={`${location.pathname}/:${watch.id}`} className="product-list__product-name" aria-label="Открыть подробную информацию о товаре">{watch.brandName}</NavLink>
                 <br />
                 <span className="product-list__price-name">{watch.price}</span>
               </p>

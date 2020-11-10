@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import useCarousel from '../../../../custom-hooks/use-carousel';
 
-import Arrow from '../../../svg-icons/arrow';
+import ArrowButton from '../../universal-buttons/arrow-button/arrow-button';
 
 export default function Slider({ sliderNumber, majorClass, sliderNumberChangeHandler }) {
   // Создаем копию обработчика слайдера. В arrowsHandler находится возвращенная функция из useCarousel.
@@ -12,13 +12,9 @@ export default function Slider({ sliderNumber, majorClass, sliderNumberChangeHan
   //
   return (
     <div className={`slider ${majorClass}`} aria-label="Блок с переключением слайдеров">
-      <button className="slider__button slider__button--left" type="button" aria-label="Предыдущий слайд" onClick={arrowsHandler}>
-        <Arrow />
-      </button>
+      <ArrowButton majorClass="slider__button slider__button--left" ariaLabel="Предыдущий слайд" arrowsHandler={arrowsHandler} />
       <p className="slider__slide-number">{`0${sliderNumber}`}</p>
-      <button className="slider__button slider__button--right" type="button" aria-label="Следующий слайд" onClick={arrowsHandler}>
-        <Arrow />
-      </button>
+      <ArrowButton majorClass="slider__button slider__button--right" ariaLabel="Следующий слайд" arrowsHandler={arrowsHandler} />
     </div>
   );
 }

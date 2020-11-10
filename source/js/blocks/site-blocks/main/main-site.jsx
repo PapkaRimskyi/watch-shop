@@ -29,6 +29,12 @@ import PopupWithProducts from '../../universal-items/universal-blocks/popup-with
 
 //
 
+// Импорт продуктовой карты
+
+import ProductCard from './catalog-components/filter-and-product/product-card/product-card';
+
+//
+
 import { FAVORITE, BASKET } from '../../../variables/variables';
 
 function Main({ favorite, basket, toFavorite, toBasket }) {
@@ -36,10 +42,17 @@ function Main({ favorite, basket, toFavorite, toBasket }) {
     <main className="main-site">
       <Switch>
         <Route path="/catalog">
-          <Breadcrumbs />
-          <WatchCatalog catalogName="Мужские часы" />
-          <Subscribe />
-          <Accessories />
+          <Switch>
+            <Route path="/catalog/:id">
+              <ProductCard />
+            </Route>
+            <Route>
+              <Breadcrumbs />
+              <WatchCatalog catalogName="Мужские часы" />
+              <Subscribe />
+              <Accessories />
+            </Route>
+          </Switch>
         </Route>
         <Route path="/favorite-list">
           <PopupWithProducts sectionType={FAVORITE} popupProductData={favorite} workWithStorage={toFavorite} />

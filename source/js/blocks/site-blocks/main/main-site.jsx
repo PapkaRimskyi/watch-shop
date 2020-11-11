@@ -43,10 +43,8 @@ function Main({ favorite, basket, toFavorite, toBasket }) {
       <Switch>
         <Route path="/catalog">
           <Switch>
-            <Route path="/catalog/:id">
-              <ProductCard />
-            </Route>
-            <Route>
+            <Route path="/catalog/:id" component={ProductCard} />
+            <Route path="/catalog">
               <Breadcrumbs />
               <WatchCatalog catalogName="Мужские часы" />
               <Subscribe />

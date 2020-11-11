@@ -14,6 +14,7 @@ import '../../../../../../img/accessories/band_3.png';
 
 export default function Accessories() {
   const [productList, setProductList] = useState(accessoriesInfo);
+
   // Обработчик для кнопок карусели.
 
   const carouselHandler = useCarousel(useItemShift(productList, setProductList));

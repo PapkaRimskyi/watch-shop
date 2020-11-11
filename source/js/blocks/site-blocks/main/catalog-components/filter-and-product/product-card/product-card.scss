@@ -34,6 +34,14 @@
     display: none;
   }
 
+  &__img-item {
+    background-color: rgba(100, 100, 100, 0.15);
+
+    &--active {
+      background-color: $white-color;
+    }
+  }
+
   &__info-container {
     background-color: #FDFDFB;
   }
@@ -100,10 +108,11 @@
   }
 
   &__detailed-info-container {
-    margin-bottom: 25px;
+    margin-bottom: 40px;
   }
 
-  &__detailed-info {
+  &__detailed-info,
+  &__tech-info {
     font: {
       family: $roboto;
       weight: 300;
@@ -111,6 +120,19 @@
     }
     line-height: 23px;
     color: $black-color;
+  }
+
+  &__detailed-info {
+    margin-bottom: 15px;
+  }
+
+  &__tech-list {
+    padding-left: 15px;
+    list-style-type: disc;
+  }
+
+  &__tech-item {
+    margin-bottom: 10px;
   }
 
   &__get-in-basket {
@@ -132,7 +154,7 @@
 
     &__imgs-list {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
     }
 
     &__img {
@@ -144,7 +166,7 @@
     }
 
     &__info-container {
-      padding: 40px 26px;
+      padding: 20px 26px;
       align-self: flex-end;
       width: 40%;
     }
@@ -159,8 +181,12 @@
       width: 45%;
     }
 
+    &__img {
+      padding: 10px 25px;
+    }
+
     &__info-container {
-      padding: 40px 35px;
+      padding: 20px 35px;
       width: 45%;
     }
 

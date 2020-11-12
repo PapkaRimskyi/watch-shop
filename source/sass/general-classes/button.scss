@@ -26,4 +26,9 @@
     color: $main-color;
     box-shadow: inset 1px 1px 10px #464444;
   }
+
+  &:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+  }
 }

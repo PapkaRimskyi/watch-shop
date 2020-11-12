@@ -13,6 +13,8 @@ import { FavoriteIcon, BasketIcon } from '../../../../../svg-icons/user-icons';
 
 import { FAVORITE, BASKET } from '../../../../../../variables/variables';
 
+import isProductAlreadySelected from '../../../../../../utils/is-product-alerady-selected';
+
 import '../../../../../../../img/watch-list/watch_1.png';
 import '../../../../../../../img/watch-list/watch_2.png';
 import '../../../../../../../img/watch-list/watch_3.png';
@@ -36,14 +38,6 @@ function ProductList({ watchInfo, majorClass, userSelectedProducts, toFavorite, 
 
   function findProductByID(productCollection, productID) {
     return productCollection.find((product) => product.id === productID);
-  }
-
-  //
-
-  // Функция, которая проверяет, записан ли этот продукт в коллекцию userSelectedProducts. Возвращает булево значение.
-
-  function isProductAlreadySelected(productID, selectedProductsCollection, buttonType) {
-    return selectedProductsCollection[buttonType].find((product) => product.id === productID);
   }
 
   //

@@ -5,26 +5,27 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+import { connect } from 'react-redux';
+import { addToFavorite, addToBasket } from '../../../../../../redux/actions/basket-and-favorite/basket-and-favorite';
+
 import useCarousel from '../../../../../../custom-hooks/use-carousel';
 import useSliderNumber from '../../../../../../custom-hooks/use-slider-number';
 
 import Description from './description/description';
 import Tech from './tech/tech';
 
-import { DESCRIPTION, TECH } from '../../../../../../variables/variables';
+import { DESCRIPTION, TECH, FAVORITE, BASKET } from '../../../../../../variables/variables';
 
 import ArrowButton from '../../../../../universal-items/universal-buttons/arrow-button/arrow-button';
+import { FavoriteIcon } from '../../../../../svg-icons/user-icons';
 
-import '../../../../../../../img/watch-list/watch_1.png';
+import isProductAlreadySelected from '../../../../../../utils/is-product-alerady-selected';
 
-export default function ProductCard({ location }) {
+function ProductCard({ location, userSelectedProducts, toFavorite, toBasket }) {
   const { product } = location;
-
-  // Стейт для определения, какое меню с подробной информацией открыто в данный момент.
-
   const [sectionInformation, setSectionInformation] = useState(DESCRIPTION);
-
-  //
+  const [favoriteStatus, setFavoriteStatus] = useState(!!isProductAlreadySelected(product.id, userSelectedProducts, FAVORITE));
+  const [basketStatus, setBasketStatus] = useState(!!isProductAlreadySelected(product.id, userSelectedProducts, BASKET));
 
   // Создаю счетчик слайдера на основе количества картинок в свойстве extraImgs.
 
@@ -44,6 +45,26 @@ export default function ProductCard({ location }) {
     e.preventDefault();
     if (e.target.tagName === 'BUTTON' && e.target.id !== sectionInformation) {
       setSectionInformation(e.target.id);
+    }
+  }
+
+  //
+
+  //
+
+  function getInUserProductCollection(e) {
+    e.preventDefault();
+    switch (e.currentTarget.id) {
+      case FAVORITE:
+        toFavorite(product);
+        setFavoriteStatus(true);
+        break;
+      case BASKET:
+        toBasket(product);
+        setBasketStatus(true);
+        break;
+      default:
+        break;
     }
   }
 
@@ -73,6 +94,9 @@ export default function ProductCard({ location }) {
         <div className="product-card__name-and-price">
           <p className="product-card__name">{product.brandName.toUpperCase()}</p>
           <p className="product-card__price">{product.price}</p>
+          <button className="product-card__get-in-favorite" id="favorite" type="button" onClick={getInUserProductCollection} disabled={favoriteStatus} aria-label="Добавить в избранное">
+            <FavoriteIcon />
+          </button>
         </div>
         <ul className="product-card__detailed-buttons-list" onClick={switchSectionInformation}>
           <li className="product-card__button-item">
@@ -83,7 +107,7 @@ export default function ProductCard({ location }) {
           </li>
         </ul>
         {sectionInformation === DESCRIPTION ? <Description description={product.description} /> : <Tech techInfo={Object.values(product.techInfo)} />}
-        <button className="button product-card__get-in-basket" type="button">В корзину</button>
+        <button className="button product-card__get-in-basket" id="basket" type="button" onClick={getInUserProductCollection} disabled={basketStatus}>В корзину</button>
       </div>
     </section>
   );
@@ -91,4 +115,20 @@ export default function ProductCard({ location }) {
 
 ProductCard.propTypes = {
   location: PropTypes.objectOf().isRequired,
+  userSelectedProducts: PropTypes.objectOf(PropTypes.array).isRequired,
+  toFavorite: PropTypes.func.isRequired,
+  toBasket: PropTypes.func.isRequired,
 };
+
+function mapStateToProps(state) {
+  return {
+    userSelectedProducts: state.userSelectedProducts,
+  };
+}
+
+const mapDispatchToProps = {
+  toFavorite: addToFavorite,
+  toBasket: addToBasket,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductCard);

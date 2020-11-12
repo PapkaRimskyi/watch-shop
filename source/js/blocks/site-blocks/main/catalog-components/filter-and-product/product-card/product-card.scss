@@ -47,6 +47,7 @@
   }
 
   &__name-and-price {
+    position: relative;
     margin-bottom: 15px;
     padding-right: 40px;
   }
@@ -71,6 +72,16 @@
     font-size: 24px;
     line-height: 28px;
     color: #686868;
+  }
+
+  &__get-in-favorite {
+    position: absolute;
+    right: 0;
+    top: 8px;
+
+    &:disabled {
+      opacity: .5;
+    }
   }
 
   &__button-item {

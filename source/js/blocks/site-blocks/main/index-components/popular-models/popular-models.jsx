@@ -5,10 +5,10 @@ import WatchAllLink from '../../../../universal-items/universal-buttons/watch-al
 
 import popularModelsInfo from './model/popular-models-info';
 
-import '../../../../../../img/watch-example/popular-watch-1.png';
-import '../../../../../../img/watch-example/popular-watch-2.png';
-import '../../../../../../img/watch-example/popular-watch-3.png';
-import '../../../../../../img/watch-example/popular-watch-4.png';
+import '../../../../../../img/watch-example/popular_watch_1.png';
+import '../../../../../../img/watch-example/popular_watch_2.png';
+import '../../../../../../img/watch-example/popular_watch_3.png';
+import '../../../../../../img/watch-example/popular_watch_4.png';
 
 export default function PopularModels() {
   return (

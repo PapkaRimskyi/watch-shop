@@ -8,9 +8,9 @@ import ArrowButton from '../../../../universal-items/universal-buttons/arrow-but
 
 import accessoriesInfo from './model/accessories-info';
 
-import '../../../../../../img/accessories/band_1.png';
-import '../../../../../../img/accessories/band_2.png';
-import '../../../../../../img/accessories/band_3.png';
+import '../../../../../../img/accessories/watch_strap_1.png';
+import '../../../../../../img/accessories/watch_strap_2.png';
+import '../../../../../../img/accessories/watch_strap_3.png';
 
 export default function Accessories() {
   const [productList, setProductList] = useState(accessoriesInfo);

@@ -31,6 +31,13 @@
     flex-direction: column;
     background-color: $fdfdfb-color;
     overflow: hidden;
+
+    &:first-of-type img,
+    &:nth-of-type(2) img {
+      top: 12%;
+      left: 20%;
+      width: 60%;
+    }
   }
 
   &__model-name,
@@ -41,6 +48,7 @@
   }
 
   &__model-name {
+    margin-bottom: 3px;
     width: 40%;
     font-weight: 700;
     letter-spacing: .03em;
@@ -60,9 +68,8 @@
 
   &__model-img {
     position: absolute;
-    top: 10%;
-    left: 0;
-    width: 100%;
+    top: 24%;
+    left: 35%;
     z-index: 1;
   }
 
@@ -118,43 +125,46 @@
 
     &__item {
       margin-bottom: 0;
-    }
 
-    &__item:first-of-type {
-      grid-area: first-item;
+      &:first-of-type {
+        grid-area: first-item;
 
-      & > img {
-        top: 15%;
-        width: 90%;
+        & img {
+          top: 24%;
+          width: 55%;
+        }
       }
-    }
 
-    &__item:nth-of-type(2) {
-      grid-area: second-item;
+      &:nth-of-type(2) {
+        grid-area: second-item;
 
-      & > img {
-        top: 5%;
-        left: 25%;
-        width: 75%;
+        & img {
+          top: 3%;
+          width: 50%;
+        }
       }
-    }
 
-    &__item:nth-of-type(3) {
-      grid-area: third-item;
-    }
+      &:first-of-type img,
+      &:nth-of-type(2) img {
+        left: 24%;
+      }
 
-    &__item:last-of-type {
-      grid-area: fourth-item;
-    }
+      &:nth-of-type(3) {
+        grid-area: third-item;
+      }
 
-    &__item:nth-of-type(3),
-    &__item:last-of-type {
-      min-height: 220px;
+      &:last-of-type {
+        grid-area: fourth-item;
+      }
 
-      & > img {
-        top: 2%;
-        left: 34%;
-        width: 60%;
+      &:nth-of-type(3),
+      &:last-of-type {
+        min-height: 220px;
+
+        & img {
+          top: 10%;
+          left: 55%;
+        }
       }
     }
   }
@@ -186,24 +196,37 @@
       line-height: 22px;
     }
 
-    &__item:first-of-type {
-      padding: 39px;
+    &__item {
 
-      & img {
-        top: 15.9%;
-        left: 8.7%;
-        width: 82%;
+      &:first-of-type {
+        padding: 39px;
+
+        & img {
+          top: 20%;
+          left: 23%;
+          width: 52%;
+        }
       }
-    }
 
-    &__item:nth-of-type(2) {
-      padding: 53px;
-      min-height: 474px;
+      &:nth-of-type(2) {
+        padding: 53px;
+        min-height: 474px;
 
-      & img {
-        top: 0;
-        left: 29%;
-        width: 65%;
+        & img {
+          top: 3%;
+          left: 42%;
+          width: 38%;
+        }
+      }
+
+      &:nth-of-type(3),
+      &:last-of-type {
+        padding: 40px;
+
+        & img {
+          top: 9%;
+          left: 51%;
+        }
       }
     }
 
@@ -213,17 +236,6 @@
       &::before {
         left: -84%;
         width: 50px;
-      }
-    }
-
-    &__item:nth-of-type(3),
-    &__item:last-of-type {
-      padding: 40px;
-
-      & img {
-        top: -2%;
-        left: 39%;
-        width: 43%;
       }
     }
 

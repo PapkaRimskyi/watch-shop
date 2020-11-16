@@ -1,5 +1,6 @@
 .product-card {
   margin: $margin-auto;
+  margin-bottom: 20px;
   width: $mobile-container-width;
 
   &__imgs-container {
@@ -163,16 +164,24 @@
       width: 55%;
     }
 
+    &__main-img-container {
+      margin-bottom: 35px;
+    }
+
     &__imgs-list {
       display: flex;
       justify-content: space-around;
     }
 
+    &__img-item {
+      padding: 10px 23px;
+    }
+
     &__img {
       margin: 0;
 
-      & > img {
-        width: 80px;
+      & img {
+        width: 45px;
       }
     }
 
@@ -188,12 +197,17 @@
   .product-card {
     width: $desktop-container-width;
 
+    &__main-img img {
+      width: 180px;
+      height: 300px;
+    }
+
     &__imgs-container {
       width: 45%;
     }
 
-    &__img {
-      padding: 10px 25px;
+    &__img img {
+      width: 70px;
     }
 
     &__info-container {

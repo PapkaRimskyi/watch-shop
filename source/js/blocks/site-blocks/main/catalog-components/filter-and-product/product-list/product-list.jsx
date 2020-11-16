@@ -81,7 +81,7 @@ function ProductList({ watchInfo, majorClass, userSelectedProducts, toFavorite, 
           <li key={`${watch}-${index}`} id={watch.id} className={`product-list__item ${classNames(majorClass ? `${majorClass}__item` : null)}`}>
             <div className="product-list__info-container">
               <p className="product-list__name-and-price">
-                <Link to={{ pathname: `${location.pathname}/:${watch.id}`, product: findProductByID(watchInfo, watch.id) }} className="product-list__product-name" aria-label="Открыть подробную информацию о товаре">{watch.brandName}</Link>
+                <Link to={{ pathname: `${location.pathname}/${watch.id}`, product: findProductByID(watchInfo, watch.id) }} className="product-list__product-name" aria-label="Открыть подробную информацию о товаре">{watch.brandName}</Link>
                 <br />
                 <span className="product-list__price-name">{watch.price}</span>
               </p>

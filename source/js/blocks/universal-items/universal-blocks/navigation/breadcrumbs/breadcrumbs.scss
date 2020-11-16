@@ -1,6 +1,5 @@
 .breadcrumbs {
-  margin: $margin-auto;
-  margin-bottom: 30px;
+  margin: 30px auto;
   width: $mobile-container-width;
 
   &__list {
@@ -61,6 +60,7 @@
 
 @media screen and (min-width: $desktop-width) and (orientation: landscape) {
   .breadcrumbs {
+    margin-top: 45px;
     margin-bottom: 36px;
     width: $desktop-container-width;
 

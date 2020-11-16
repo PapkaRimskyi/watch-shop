@@ -16,6 +16,8 @@ import Tech from './tech/tech';
 
 import { DESCRIPTION, TECH, FAVORITE, BASKET } from '../../../../../../variables/variables';
 
+import BreadCrumbs from '../../../../../universal-items/universal-blocks/navigation/breadcrumbs/breadcrumbs';
+
 import ArrowButton from '../../../../../universal-items/universal-buttons/arrow-button/arrow-button';
 import { FavoriteIcon } from '../../../../../svg-icons/user-icons';
 
@@ -71,45 +73,48 @@ function ProductCard({ location, userSelectedProducts, toFavorite, toBasket }) {
   //
 
   return (
-    <section className="product-card">
-      <div className="product-card__imgs-container">
-        <div className="product-card__main-img-container">
-          <ArrowButton majorClass="product-card__switch-img product-card__switch-img--left" ariaLabel="Предыдущий слайд" arrowsHandler={arrowsHandler} />
-          <figure className="product-card__main-img">
-            <img src={product.extraImgs[currentNumber - 1]} alt="Продукт" />
-          </figure>
-          <ArrowButton majorClass="product-card__switch-img product-card__switch-img--right" ariaLabel="Следующий слайд" arrowsHandler={arrowsHandler} />
+    <>
+      <BreadCrumbs />
+      <section className="product-card">
+        <div className="product-card__imgs-container">
+          <div className="product-card__main-img-container">
+            <ArrowButton majorClass="product-card__switch-img product-card__switch-img--left" ariaLabel="Предыдущий слайд" arrowsHandler={arrowsHandler} />
+            <figure className="product-card__main-img">
+              <img src={product.extraImgs[currentNumber - 1]} alt="Продукт" />
+            </figure>
+            <ArrowButton majorClass="product-card__switch-img product-card__switch-img--right" ariaLabel="Следующий слайд" arrowsHandler={arrowsHandler} />
+          </div>
+          <ul className="product-card__imgs-list">
+            {product.extraImgs.map((imgPath, index) => (
+              <li key={index} className={`product-card__img-item${classNames(currentNumber - 1 === index ? ' product-card__img-item--active' : null)}`}>
+                <figure className="product-card__img">
+                  <img src={imgPath} alt="Продукт" />
+                </figure>
+              </li>
+            ))}
+          </ul>
         </div>
-        <ul className="product-card__imgs-list">
-          {product.extraImgs.map((imgPath, index) => (
-            <li key={index} className={`product-card__img-item${classNames(currentNumber - 1 === index ? ' product-card__img-item--active' : null)}`}>
-              <figure className="product-card__img">
-                <img src={imgPath} alt="Продукт" />
-              </figure>
+        <div className="product-card__info-container">
+          <div className="product-card__name-and-price">
+            <p className="product-card__name">{product.brandName.toUpperCase()}</p>
+            <p className="product-card__price">{product.price}</p>
+            <button className="product-card__get-in-favorite" id="favorite" type="button" onClick={getInUserProductCollection} disabled={favoriteStatus} aria-label="Добавить в избранное">
+              <FavoriteIcon />
+            </button>
+          </div>
+          <ul className="product-card__detailed-buttons-list" onClick={switchSectionInformation}>
+            <li className="product-card__button-item">
+              <button className={`product-card__detailed-button${classNames(sectionInformation === DESCRIPTION ? ' product-card__detailed-button--active' : null)}`} id={DESCRIPTION} type="button">Описание</button>
             </li>
-          ))}
-        </ul>
-      </div>
-      <div className="product-card__info-container">
-        <div className="product-card__name-and-price">
-          <p className="product-card__name">{product.brandName.toUpperCase()}</p>
-          <p className="product-card__price">{product.price}</p>
-          <button className="product-card__get-in-favorite" id="favorite" type="button" onClick={getInUserProductCollection} disabled={favoriteStatus} aria-label="Добавить в избранное">
-            <FavoriteIcon />
-          </button>
+            <li className="product-card__button-item">
+              <button className={`product-card__detailed-button${classNames(sectionInformation === TECH ? ' product-card__detailed-button--active' : null)}`} id={TECH} type="button">Технические характеристики</button>
+            </li>
+          </ul>
+          {sectionInformation === DESCRIPTION ? <Description description={product.description} /> : <Tech techInfo={Object.values(product.techInfo)} />}
+          <button className="button product-card__get-in-basket" id="basket" type="button" onClick={getInUserProductCollection} disabled={basketStatus}>В корзину</button>
         </div>
-        <ul className="product-card__detailed-buttons-list" onClick={switchSectionInformation}>
-          <li className="product-card__button-item">
-            <button className={`product-card__detailed-button${classNames(sectionInformation === DESCRIPTION ? ' product-card__detailed-button--active' : null)}`} id={DESCRIPTION} type="button">Описание</button>
-          </li>
-          <li className="product-card__button-item">
-            <button className={`product-card__detailed-button${classNames(sectionInformation === TECH ? ' product-card__detailed-button--active' : null)}`} id={TECH} type="button">Технические характеристики</button>
-          </li>
-        </ul>
-        {sectionInformation === DESCRIPTION ? <Description description={product.description} /> : <Tech techInfo={Object.values(product.techInfo)} />}
-        <button className="button product-card__get-in-basket" id="basket" type="button" onClick={getInUserProductCollection} disabled={basketStatus}>В корзину</button>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 

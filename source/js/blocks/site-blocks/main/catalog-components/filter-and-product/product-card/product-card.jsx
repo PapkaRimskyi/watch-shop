@@ -6,25 +6,25 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import { connect } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import { addToFavorite, addToBasket } from '../../../../../../redux/actions/basket-and-favorite/basket-and-favorite';
 
 import useCarousel from '../../../../../../custom-hooks/use-carousel';
 import useSliderNumber from '../../../../../../custom-hooks/use-slider-number';
 
+import BreadCrumbs from '../../../../../universal-items/universal-blocks/navigation/breadcrumbs/breadcrumbs';
 import Description from './description/description';
 import Tech from './tech/tech';
-
-import { DESCRIPTION, TECH, FAVORITE, BASKET } from '../../../../../../variables/variables';
-
-import BreadCrumbs from '../../../../../universal-items/universal-blocks/navigation/breadcrumbs/breadcrumbs';
 
 import ArrowButton from '../../../../../universal-items/universal-buttons/arrow-button/arrow-button';
 import { FavoriteIcon } from '../../../../../svg-icons/user-icons';
 
+import { DESCRIPTION, TECH, FAVORITE, BASKET } from '../../../../../../variables/variables';
+
 import isProductAlreadySelected from '../../../../../../utils/is-product-alerady-selected';
 
-function ProductCard({ location, userSelectedProducts, toFavorite, toBasket }) {
-  const { product } = location;
+function ProductCard({ userSelectedProducts, toFavorite, toBasket }) {
+  const { product } = useLocation();
   const [sectionInformation, setSectionInformation] = useState(DESCRIPTION);
   const [favoriteStatus, setFavoriteStatus] = useState(!!isProductAlreadySelected(product.id, userSelectedProducts, FAVORITE));
   const [basketStatus, setBasketStatus] = useState(!!isProductAlreadySelected(product.id, userSelectedProducts, BASKET));
@@ -52,7 +52,7 @@ function ProductCard({ location, userSelectedProducts, toFavorite, toBasket }) {
 
   //
 
-  //
+  // Добавляет продукт в корзину/избранное и блокирует соответствующие кнопки.
 
   function getInUserProductCollection(e) {
     e.preventDefault();
@@ -119,7 +119,6 @@ function ProductCard({ location, userSelectedProducts, toFavorite, toBasket }) {
 }
 
 ProductCard.propTypes = {
-  location: PropTypes.objectOf().isRequired,
   userSelectedProducts: PropTypes.objectOf(PropTypes.array).isRequired,
   toFavorite: PropTypes.func.isRequired,
   toBasket: PropTypes.func.isRequired,

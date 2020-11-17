@@ -1,7 +1,10 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+// Использую HashRouter из-за того, что страница проекта размещена на github-pages.
 import { HashRouter } from 'react-router-dom';
+//
 
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -21,7 +24,7 @@ function MainWrapper() {
   return (
     <Provider store={store}>
       <HashRouter>
-        <Header popupClassName="site-section-navigation" />
+        <Header />
         <Main />
         <Footer />
       </HashRouter>

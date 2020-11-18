@@ -23,7 +23,7 @@ export default function Advantages() {
           <div className="advantages__description-container">
             <h3 className="headline advantages__advantages-name">{advantagesName}</h3>
             <p className="advantages__advantages-description">{advantagesDescription}</p>
-            <Link to="/catalog" className="button advantages__see-catalog">Смотреть каталог</Link>
+            <Link to="/catalog/mens-watch" className="button advantages__see-catalog">Смотреть каталог</Link>
           </div>
         </li>
       </ul>

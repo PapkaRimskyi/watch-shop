@@ -6,8 +6,11 @@ import ReactDOM from 'react-dom';
 import { HashRouter } from 'react-router-dom';
 //
 
-import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+// Перематывает страницу в начало, когда адрес в браузере меняется.
+import ScrollToTop from './utils/scroll-to-top';
+//
 
 import reducer from './redux/reducers/main-reducer';
 
@@ -24,6 +27,7 @@ function MainWrapper() {
   return (
     <Provider store={store}>
       <HashRouter>
+        <ScrollToTop />
         <Header />
         <Main />
         <Footer />

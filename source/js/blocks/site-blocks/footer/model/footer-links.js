@@ -50,7 +50,7 @@ const footerLinks = [
     },
     {
       type: 'link',
-      href: '/catalog',
+      href: '/catalog/mens-watch',
       text: 'Каталог товаров',
     },
     {

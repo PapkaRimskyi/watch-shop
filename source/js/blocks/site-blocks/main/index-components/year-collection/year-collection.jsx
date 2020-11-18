@@ -17,7 +17,7 @@ export default function YearCollection() {
         <h1 className="year-collection__collection-name">{yearCollectionInfo.collectionName}</h1>
         <p className="year-collection__type">{yearCollectionInfo.type}</p>
         <p className="year-collection__description">{yearCollectionInfo.description}</p>
-        <Link to="/catalog" className="button year-collection__see-catalog">Смотреть каталог</Link>
+        <Link to="/catalog/mens-watch" className="button year-collection__see-catalog">Смотреть каталог</Link>
       </div>
       <ExampleOfWatch modelExamplePrice={yearCollectionInfo.modelExamplePrice} modelExampleDiameter={yearCollectionInfo.modelExampleDiameter} />
     </section>

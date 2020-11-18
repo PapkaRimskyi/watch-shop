@@ -2,7 +2,7 @@
 const siteSectionNavModel = [
   {
     sectionName: 'Каталог',
-    path: '/catalog',
+    path: '/catalog/mens-watch',
   },
   {
     sectionName: 'Акции',

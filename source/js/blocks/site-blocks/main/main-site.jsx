@@ -42,15 +42,18 @@ function Main({ favorite, basket, toFavorite, toBasket }) {
     <main className="main-site">
       <Switch>
         <Route path="/catalog">
+          <Breadcrumbs />
           <Switch>
-            <Route path="/catalog/:id">
+            <Route path="/catalog/:catalogName/:id">
               <ProductCard />
             </Route>
-            <Route path="/catalog">
-              <Breadcrumbs />
+            <Route path="/catalog/:catalogName">
               <WatchCatalog catalogName="Мужские часы" />
               <Subscribe />
               <Accessories />
+            </Route>
+            <Route>
+              <div style={{ fontSize: '24px', textAlign: 'center' }}>А здесь должен быть список каталогов. Но его нет!</div>
             </Route>
           </Switch>
         </Route>
@@ -65,6 +68,9 @@ function Main({ favorite, basket, toFavorite, toBasket }) {
           <PopularModels />
           <Advantages />
           <OurNews />
+        </Route>
+        <Route>
+          <div style={{ fontSize: '24px', textAlign: 'center' }}>Опаньки! А такого пути не существует.</div>
         </Route>
       </Switch>
     </main>

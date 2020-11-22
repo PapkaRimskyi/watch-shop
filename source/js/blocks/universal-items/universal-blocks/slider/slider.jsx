@@ -12,9 +12,9 @@ export default function Slider({ sliderNumber, majorClass, sliderNumberChangeHan
   //
   return (
     <div className={`slider ${majorClass}`} aria-label="Блок с переключением слайдеров">
-      <ArrowButton majorClass="slider__button slider__button--left" ariaLabel="Предыдущий слайд" arrowsHandler={arrowsHandler} />
+      <ArrowButton majorClass="arrow-button slider__button slider__button--left" ariaLabel="Предыдущий слайд" arrowsHandler={arrowsHandler} />
       <p className="slider__slide-number">{`0${sliderNumber}`}</p>
-      <ArrowButton majorClass="slider__button slider__button--right" ariaLabel="Следующий слайд" arrowsHandler={arrowsHandler} />
+      <ArrowButton majorClass="arrow-button slider__button slider__button--right" ariaLabel="Следующий слайд" arrowsHandler={arrowsHandler} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { DefaultLogo } from '../../../svg-icons/watch-shop-logo';
+import { DefaultLogo } from '../../../svg-icons/watch-shop-logo/watch-shop-logo';
 
 export default function Logo() {
   return (

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Arrow from '../../../../svg-icons/arrow';
+import ArrowButton from '../../../universal-buttons/arrow-button/arrow-button';
 
-function sectionPage(productLength, maxProductOnPage) {
+function sectionPage(maxProductOnPage, productLength) {
   const quantityOfPageArray = [];
   for (let i = 1; i <= Math.ceil(productLength / maxProductOnPage); i += 1) {
     quantityOfPageArray.push(i);
@@ -17,19 +17,15 @@ export default function Pagination({ maxProductOnPage, productLength }) {
   }
   return (
     <div className="pagination">
-      <button className="pagination__button pagination__button--prev" type="button" aria-label="Предыдущая страница">
-        <Arrow />
-      </button>
+      <ArrowButton majorClass="arrow-button pagination__button pagination__button--left" ariaLabel="Предыдущая страница" />
       <ul className="pagination__page-list" aria-label="Список страниц">
-        {sectionPage(productLength, maxProductOnPage).map((page) => (
+        {sectionPage(maxProductOnPage, productLength).map((page) => (
           <li key={page} className="pagination__page-item">
             <a href=" " className="pagination__page-link" aria-label={`Страница ${page}`}>{page}</a>
           </li>
         ))}
       </ul>
-      <button className="pagination__button pagination__button--next" type="button" aria-label="Следующая страница">
-        <Arrow />
-      </button>
+      <ArrowButton majorClass="arrow-button pagination__button pagination__button--right" ariaLabel="Следующая страница" />
     </div>
   );
 }

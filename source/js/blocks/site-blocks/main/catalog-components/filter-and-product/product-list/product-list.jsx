@@ -9,7 +9,7 @@ import classNames from 'classnames';
 import { connect } from 'react-redux';
 import { addToFavorite, addToBasket } from '../../../../../../redux/actions/basket-and-favorite/basket-and-favorite';
 
-import { FavoriteIcon, BasketIcon } from '../../../../../svg-icons/user-icons';
+import { FavoriteIcon, BasketIcon } from '../../../../../svg-icons/user-icons/user-icons';
 
 import { FAVORITE, BASKET } from '../../../../../../variables/variables';
 
@@ -59,10 +59,10 @@ function ProductList({ watchInfo, majorClass, userSelectedProducts, toFavorite, 
 
   //
 
-  // Добавляем соответствующий класс к кнопке при добавлении товара в корзину или избранное.
+  // Добавляем соответствующий класс к кнопке при добавлении товара в корзину или избранное. Если товар уже выбран, значит происходит его удаление и класс удаляется.
 
   function getActiveButtonStyle(buttonType, productID, selectedProductsCollection) {
-    const partOfClass = 'product-list__interaction-button';
+    const partOfClass = 'user-icons';
     switch (buttonType) {
       case FAVORITE:
       case BASKET:
@@ -75,10 +75,11 @@ function ProductList({ watchInfo, majorClass, userSelectedProducts, toFavorite, 
   //
 
   return (
-    <section className={`product-list ${classNames(majorClass ? `${majorClass}__list` : null)}`}>
+    <section className={`product-list${classNames(majorClass ? ` ${majorClass}__list` : null)}`}>
+      <h2 className="visually-hidden">Список товаров</h2>
       <ul className="product-list__list" onClick={productSelected}>
         {watchInfo.map((watch, index) => (
-          <li key={`${watch}-${index}`} id={watch.id} className={`product-list__item ${classNames(majorClass ? `${majorClass}__item` : null)}`}>
+          <li key={`${watch}-${index}`} id={watch.id} className={`product-list__item${classNames(majorClass ? ` ${majorClass}__item` : null)}`}>
             <div className="product-list__info-container">
               <p className="product-list__name-and-price">
                 <Link to={{ pathname: `${location.pathname}/${watch.id}`, product: findProductByID(watchInfo, watch.id) }} className="product-list__product-name" aria-label="Открыть подробную информацию о товаре">{watch.brandName}</Link>
@@ -87,18 +88,18 @@ function ProductList({ watchInfo, majorClass, userSelectedProducts, toFavorite, 
               </p>
               <ul className="product-list__interaction-list">
                 <li className="product-list__interaction-item">
-                  <button className={`product-list__interaction-button product-list__interaction-button--favorite${getActiveButtonStyle(FAVORITE, watch.id, userSelectedProducts)}`} type="button" aria-label="Добавить в избранное">
+                  <button className={`user-icons user-icons--favorite${getActiveButtonStyle(FAVORITE, watch.id, userSelectedProducts)}`} type="button" aria-label="Добавить в избранное">
                     <FavoriteIcon />
                   </button>
                 </li>
                 <li className="product-list__interaction-item">
-                  <button className={`product-list__interaction-button product-list__interaction-button--basket${getActiveButtonStyle(BASKET, watch.id, userSelectedProducts)}`} type="button" aria-label="Добавить в корзину">
+                  <button className={`user-icons user-icons--basket${getActiveButtonStyle(BASKET, watch.id, userSelectedProducts)}`} type="button" aria-label="Добавить в корзину">
                     <BasketIcon />
                   </button>
                 </li>
               </ul>
             </div>
-            <figure className={`product-list__watch-img-container ${classNames(majorClass ? `${majorClass}__watch-img-container` : null)}`}>
+            <figure className={`product-list__img-container${classNames(majorClass ? ` ${majorClass}__img-container` : null)}`}>
               <img src={watch.imgPath} alt="Продукт магазина" />
             </figure>
           </li>

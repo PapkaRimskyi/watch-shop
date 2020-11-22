@@ -11,3 +11,9 @@ export const DESCRIPTION = 'description';
 export const TECH = 'tech';
 
 //
+
+// Максимум карточек на одной странице
+
+export const MAX_PRODUCT_ON_PAGE = 12;
+
+//

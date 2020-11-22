@@ -17,15 +17,15 @@
   &__list {
     margin-bottom: 42px;
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
+    justify-content: space-between;
     flex-wrap: wrap;
   }
 
   &__item {
     position: relative;
-    padding: 15px;
     margin-bottom: 38px;
+    padding: 15px;
     min-height: 363px;
     display: flex;
     flex-direction: column;

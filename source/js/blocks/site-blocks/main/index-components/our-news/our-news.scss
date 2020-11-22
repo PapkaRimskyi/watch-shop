@@ -16,8 +16,8 @@
     margin-bottom: 35px;
     font: {
       family: $roboto;
-      weight: 300;
       size: 16px;
+      weight: 300;
     }
     line-height: 27px;
     color: #444240;
@@ -26,7 +26,7 @@
   &__social {
     width: 35%;
 
-    & > ul {
+    & ul {
       display: flex;
       justify-content: space-between;
     }
@@ -47,8 +47,8 @@
 
     &__container {
       margin: $margin-auto;
-      width: $tablet-container-width;
       padding-bottom: 81px;
+      width: $tablet-container-width;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -133,7 +133,7 @@
       margin: 0;
 
       &--1 img,
-      &--2 img ,
+      &--2 img,
       &--3 img {
         width: auto;
         height: auto;

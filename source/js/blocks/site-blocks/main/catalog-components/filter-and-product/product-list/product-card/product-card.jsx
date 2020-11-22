@@ -7,20 +7,20 @@ import classNames from 'classnames';
 
 import { connect } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { addToFavorite, addToBasket } from '../../../../../../redux/actions/basket-and-favorite/basket-and-favorite';
+import { addToFavorite, addToBasket } from '../../../../../../../redux/actions/basket-and-favorite/basket-and-favorite';
 
-import useCarousel from '../../../../../../custom-hooks/use-carousel';
-import useSliderNumber from '../../../../../../custom-hooks/use-slider-number';
+import useCarousel from '../../../../../../../custom-hooks/use-carousel';
+import useSliderNumber from '../../../../../../../custom-hooks/use-slider-number';
 
 import Description from './description/description';
 import Tech from './tech/tech';
 
-import ArrowButton from '../../../../../universal-items/universal-buttons/arrow-button/arrow-button';
-import { FavoriteIcon } from '../../../../../svg-icons/user-icons';
+import ArrowButton from '../../../../../../universal-items/universal-buttons/arrow-button/arrow-button';
+import { FavoriteIcon } from '../../../../../../svg-icons/user-icons/user-icons';
 
-import { DESCRIPTION, TECH, FAVORITE, BASKET } from '../../../../../../variables/variables';
+import { DESCRIPTION, TECH, FAVORITE, BASKET } from '../../../../../../../variables/variables';
 
-import isProductAlreadySelected from '../../../../../../utils/is-product-alerady-selected';
+import isProductAlreadySelected from '../../../../../../../utils/is-product-alerady-selected';
 
 function ProductCard({ userSelectedProducts, toFavorite, toBasket }) {
   const { product } = useLocation();
@@ -73,13 +73,14 @@ function ProductCard({ userSelectedProducts, toFavorite, toBasket }) {
 
   return (
     <section className="product-card">
+      <h2 className="visually-hidden">Страница с подробной информацией о товаре</h2>
       <div className="product-card__imgs-container">
         <div className="product-card__main-img-container">
-          <ArrowButton majorClass="product-card__switch-img product-card__switch-img--left" ariaLabel="Предыдущий слайд" arrowsHandler={arrowsHandler} />
+          <ArrowButton majorClass="arrow-button product-card__switch-img product-card__switch-img--left" ariaLabel="Предыдущий слайд" arrowsHandler={arrowsHandler} />
           <figure className="product-card__main-img">
             <img src={product.extraImgs[currentNumber - 1]} alt="Продукт" />
           </figure>
-          <ArrowButton majorClass="product-card__switch-img product-card__switch-img--right" ariaLabel="Следующий слайд" arrowsHandler={arrowsHandler} />
+          <ArrowButton majorClass="arrow-button product-card__switch-img product-card__switch-img--right" ariaLabel="Следующий слайд" arrowsHandler={arrowsHandler} />
         </div>
         <ul className="product-card__imgs-list">
           {product.extraImgs.map((imgPath, index) => (
@@ -95,7 +96,7 @@ function ProductCard({ userSelectedProducts, toFavorite, toBasket }) {
         <div className="product-card__name-and-price">
           <p className="product-card__name">{product.brandName.toUpperCase()}</p>
           <p className="product-card__price">{product.price}</p>
-          <button className="product-card__get-in-favorite" id="favorite" type="button" onClick={getInUserProductCollection} disabled={favoriteStatus} aria-label="Добавить в избранное">
+          <button className="user-icons user-icons--favorite product-card__favorite" id="favorite" type="button" onClick={getInUserProductCollection} disabled={favoriteStatus} aria-label="Добавить в избранное">
             <FavoriteIcon />
           </button>
         </div>
@@ -108,7 +109,7 @@ function ProductCard({ userSelectedProducts, toFavorite, toBasket }) {
           </li>
         </ul>
         {sectionInformation === DESCRIPTION ? <Description description={product.description} /> : <Tech techInfo={Object.values(product.techInfo)} />}
-        <button className="button product-card__get-in-basket" id="basket" type="button" onClick={getInUserProductCollection} disabled={basketStatus}>В корзину</button>
+        <button className="button product-card__basket" id="basket" type="button" onClick={getInUserProductCollection} disabled={basketStatus}>В корзину</button>
       </div>
     </section>
   );

@@ -31,7 +31,7 @@ import PopupWithProducts from '../../universal-items/universal-blocks/popup-with
 
 // Импорт продуктовой карты
 
-import ProductCard from './catalog-components/filter-and-product/product-card/product-card';
+import ProductCard from './catalog-components/filter-and-product/product-list/product-card/product-card';
 
 //
 

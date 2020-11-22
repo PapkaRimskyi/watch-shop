@@ -15,6 +15,7 @@ export default function Advantages() {
 
   return (
     <section className="advantages">
+      <h2 className="visually-hidden">Преимущества часов</h2>
       <ul className="advantages__list">
         <li className="advantages__item">
           <figure className="advantages__illustration-container">

@@ -11,7 +11,8 @@ export default function Breadcrumbs() {
   const pathNameCollection = pathname.split('/').filter((item) => item);
   return (
     <section className="breadcrumbs">
-      <ul className="breadcrumbs__list" aria-label="Навигационная цепочка">
+      <h2 className="visually-hidden">Навигационная цепочка</h2>
+      <ul className="breadcrumbs__list">
         <li className="breadcrumbs__item">
           <Link to="/" className="breadcrumbs__link">Главная</Link>
         </li>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import RangeCost from '../range-cost/range-cost';
+import RangeCost from './range-cost/range-cost';
 
 export default function FilterFieldset({ info }) {
   const [menuStatus, setMenuStatus] = useState(info.menuStatus);

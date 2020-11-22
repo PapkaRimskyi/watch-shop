@@ -1,5 +1,6 @@
 .accessories {
   margin: $margin-auto;
+  margin-bottom: 20px;
   width: $mobile-container-width;
 
   &__section-name {
@@ -15,31 +16,36 @@
   }
 
   &__slide-button {
-    display: none;
 
-    &:hover {
-      opacity: .6;
-    }
-
-    &:active {
-      opacity: .3;
-    }
-
-    & > svg {
+    & svg {
       width: 17px;
       height: 38px;
     }
-
-    &--right > svg {
-      transform: rotate(180deg);
-    }
   }
 
-  &__watch-img-container {
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__list {
+    order: -1;
+  }
+
+  &__item {
+    margin-bottom: 10px;
+  }
+
+  &__item:not(:first-of-type) {
+    display: none;
+  }
+
+  &__img-container {
     left: 38%;
 
     & img {
       min-width: 70px;
+      max-width: 82px;
     }
   }
 }
@@ -59,16 +65,18 @@
 
     &__container {
       margin: $margin-auto;
-      display: flex;
+      flex-direction: row;
       justify-content: space-between;
       align-items: center;
     }
 
     &__list {
       width: $tablet-container-width - 20px;
+      order: 0;
     }
 
-    &__item {
+    &__item:nth-of-type(n) {
+      display: list-item;
       width: 31%;
     }
   }
@@ -76,7 +84,7 @@
 
 @media screen and (min-width: $desktop-width) and (orientation: landscape) {
   .accessories {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     width: $desktop-width;
 
     &__section-name {

@@ -50,28 +50,7 @@
     justify-content: space-between;
   }
 
-  &__interaction-button {
-
-    & > svg > path {
-      transition: all .4s ease-in-out;
-    }
-
-    &--favorite {
-      &-active > svg > path,
-      &:hover > svg > path {
-        stroke: #D75A4A;
-      }
-    }
-
-    &--basket {
-      &-active > svg > path,
-      &:hover > svg > path {
-        fill: #afa45d;
-      }
-    }
-  }
-
-  &__watch-img-container {
+  &__img-container {
     position: absolute;
     margin: 0;
     top: 55px;

@@ -1,0 +1,57 @@
+// Класс для тега, в котором будет содержаться svg иконка (поиск, сердце или тележка).
+
+.user-icons {
+  & svg path {
+    transition: all .4s ease-in-out;
+  }
+
+  &--search {
+    &:hover svg path {
+      opacity: .6;
+    }
+
+    &:active svg path {
+      opacity: .3;
+    }
+  }
+
+  &--favorite {
+    &-active svg path,
+    &:hover svg path {
+      stroke: $like-color;
+    }
+
+    &:active svg path {
+      stroke: $like-color-active;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+
+      & svg path {
+        stroke: $like-color;
+        opacity: .5;
+      }
+    }
+  }
+
+  &--basket {
+    &-active svg path,
+    &:hover svg path {
+      fill: $basket-color;
+    }
+
+    &:active svg path {
+      fill: $basket-color-active;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+
+      & svg path {
+        opacity: .5;
+        fill: $basket-color;
+      }
+    }
+  }
+}

@@ -15,12 +15,18 @@ export default function UserButton({ buttonInfo, favoritesCount, handler }) {
 
   // Если ariaLabel === 'Избранное', то в button добавляется элемент counter, который показывает, сколько продуктов пользователь добавил в избранное.
 
-  return (
-    <Link to={href} className={`user-button ${className}-button`} aria-label={ariaLabel} onClick={handler}>
-      {ariaLabel === 'Избранное' ? counter : ''}
-      {icon}
-    </Link>
-  );
+  return className === 'search'
+    ? (
+      <button type="button" className={`user-icons user-icons--${className} ${className}-button`} aria-label={ariaLabel} onClick={handler}>
+        {icon}
+      </button>
+    )
+    : (
+      <Link to={href} className={`user-icons user-icons--${className} ${className}-button`} aria-label={ariaLabel} onClick={handler}>
+        {ariaLabel === 'Избранное' ? counter : ''}
+        {icon}
+      </Link>
+    );
 }
 
 UserButton.propTypes = {

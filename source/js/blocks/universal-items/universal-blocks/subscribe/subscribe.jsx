@@ -2,7 +2,8 @@ import React from 'react';
 
 export default function Subscribe() {
   return (
-    <section className="subscribe" aria-label="Блок с подпиской на рассылку">
+    <section className="subscribe">
+      <h2 className="visually-hidden">Блок с подпиской на рассылку</h2>
       <div className="subscribe__info-container">
         <div className="subscribe__condition-container">
           <p className="subscribe__condition">Подписка на рассылку</p>

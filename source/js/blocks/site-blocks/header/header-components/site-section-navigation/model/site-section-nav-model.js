@@ -6,15 +6,15 @@ const siteSectionNavModel = [
   },
   {
     sectionName: 'Акции',
-    path: '/',
+    path: '#',
   },
   {
     sectionName: 'Доставка',
-    path: '/',
+    path: '#',
   },
   {
     sectionName: 'Контакты',
-    path: '/',
+    path: '#',
   },
 ];
 

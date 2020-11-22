@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Arrow from '../../../svg-icons/arrow';
+import Arrow from '../../../svg-icons/arrow/arrow';
 
 // Компонент для конструкции кнопки-стрелки для слайдера.
 

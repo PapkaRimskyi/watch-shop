@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
 
-  & > a {
+  & a {
     display: none;
   }
 }
@@ -12,8 +12,8 @@
   .burger-and-logo {
     width: 20%;
 
-    & > a {
-      display: inline;
+    & a {
+      display: flex;
     }
   }
 }

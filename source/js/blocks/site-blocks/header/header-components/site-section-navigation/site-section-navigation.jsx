@@ -2,11 +2,12 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
 import siteSectionNavModel from './model/site-section-nav-model';
 
 export default function SiteSectionNav({ popupButtonHandler }) {
+  const { pathname } = useLocation();
   // Делегирование. Обработчик вешается на ul.
 
   function popupLinkHandler(e) {
@@ -22,7 +23,12 @@ export default function SiteSectionNav({ popupButtonHandler }) {
       <ul className="site-section-navigation__list" onClick={popupLinkHandler}>
         {siteSectionNavModel.map(({ sectionName, path }) => (
           <li className="site-section-navigation__item" key={sectionName}>
-            <Link to={path} className="site-section-navigation__link" aria-label={`Ссылка в раздел ${sectionName}`}>{sectionName}</Link>
+            {pathname === path
+              ? (
+                <NavLink to={path} activeClassName="site-section-navigation__link--active" className="site-section-navigation__link" aria-label={`Ссылка в раздел ${sectionName}`}>{sectionName}</NavLink>
+              ) : (
+                <Link to={path} className="site-section-navigation__link" aria-label={`Ссылка в раздел ${sectionName}`}>{sectionName}</Link>
+              )}
           </li>
         ))}
       </ul>

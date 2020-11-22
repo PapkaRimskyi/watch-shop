@@ -42,7 +42,8 @@
     cursor: pointer;
 
     &:hover {
-      color: #65370c;
+      color: $element-color-hover;
+      font-size: 12.5px;
     }
 
     &:active {

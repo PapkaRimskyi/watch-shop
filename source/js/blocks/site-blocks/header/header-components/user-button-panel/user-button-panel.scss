@@ -5,11 +5,14 @@
   justify-content: space-between;
   align-items: center;
   z-index: 2;
+
+  & > * {
+    display: flex;
+  }
 }
 
 @media screen and (min-width: $tablet-width) {
   .user-button-panel {
-    padding-top: 6px;
     width: 15%;
   }
 }

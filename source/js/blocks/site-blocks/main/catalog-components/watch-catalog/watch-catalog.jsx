@@ -6,13 +6,13 @@ import getSortType from '../../../../../redux/actions/get-sort-type/get-sort-typ
 
 import SortBy from '../sort-by/sort-by';
 import FilterAndProduct from '../filter-and-product/filter-and-product';
-import sortProduct from '../../../../../utils/sort-product';
 
 import watchInfo from './model/watch-item-info';
+import { MAX_PRODUCT_ON_PAGE } from '../../../../../variables/variables';
+
+import sortProduct from '../../../../../utils/sort-product';
 
 function WatchCatalog({ catalogName, sortType, sortTypeChange }) {
-  const MAX_PRODUCT_ON_PAGE = 12;
-
   return (
     <section className="watch-catalog">
       <div className="watch-catalog__catalog-name-and-sort-type">

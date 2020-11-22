@@ -9,6 +9,7 @@ import '../../../../../../img/decorative-photo/news-decorative-photo-3.jpg';
 export default function OurNews() {
   return (
     <section className="our-news">
+      <h2 className="visually-hidden">Наши социальные сети</h2>
       <div className="our-news__container">
         <section className="our-news__news-container">
           <h3 className="headline our-news__headline">Следите за нашими новостями</h3>

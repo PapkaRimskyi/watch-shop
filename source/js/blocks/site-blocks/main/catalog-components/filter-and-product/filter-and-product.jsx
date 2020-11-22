@@ -8,6 +8,7 @@ import ProductList from './product-list/product-list';
 export default function FilterAndProduct({ watchInfo, maxProductOnPage, productLength }) {
   return (
     <section className="filter-and-product">
+      <h2 className="visually-hidden">Фильтры и товары</h2>
       <Filter />
       <ProductList watchInfo={watchInfo} />
       <Pagination maxProductOnPage={maxProductOnPage} productLength={productLength} />

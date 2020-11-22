@@ -23,14 +23,15 @@ export default function Accessories() {
 
   return (
     <section className="accessories">
+      <h2 className="visually-hidden">Аксессуары</h2>
       <div className="accessories__section-name">
         <h2 className="headline accessorites__product-name">Ремешки</h2>
         <WatchAllLink href="/" majorClass="accessories" />
       </div>
       <div className="accessories__container">
-        <ArrowButton majorClass="accessories__slide-button accessories__slide-button--left" ariaLabel="Предыдущий слайд" arrowsHandler={carouselHandler} />
+        <ArrowButton majorClass="arrow-button accessories__slide-button accessories__slide-button--left" ariaLabel="Предыдущий слайд" arrowsHandler={carouselHandler} />
         <ProductList watchInfo={productList} majorClass="accessories" />
-        <ArrowButton majorClass="accessories__slide-button accessories__slide-button--right" ariaLabel="Следующий слайд" arrowsHandler={carouselHandler} />
+        <ArrowButton majorClass="arrow-button accessories__slide-button accessories__slide-button--right" ariaLabel="Следующий слайд" arrowsHandler={carouselHandler} />
       </div>
     </section>
   );

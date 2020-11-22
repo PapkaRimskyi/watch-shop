@@ -1,8 +1,7 @@
 .burger-button {
-  margin-bottom: 5px;
   transition: transform .4s ease;
 
-  & > svg > path {
+  & svg path {
     transition: stroke .2s ease-in;
   }
 

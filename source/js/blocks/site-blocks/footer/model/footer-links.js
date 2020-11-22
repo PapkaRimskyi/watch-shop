@@ -1,4 +1,4 @@
-import { InverseColorLogo } from '../../../svg-icons/watch-shop-logo';
+import { InverseColorLogo } from '../../../svg-icons/watch-shop-logo/watch-shop-logo';
 
 const footerLinks = [
   [

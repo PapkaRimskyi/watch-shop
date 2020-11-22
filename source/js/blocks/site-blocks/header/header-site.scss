@@ -1,19 +1,18 @@
 .header-site {
   margin: $margin-auto;
-  padding: 30px 12px 0;
-  width: $mobile-width;
+  padding-top: 30px;
+  width: $mobile-container-width;
 }
 
 @media screen and (min-width: $tablet-width) {
   .header-site {
-    padding: 30px 32px 0;
+    padding-right: 9px;
     width: $tablet-width;
   }
 }
 
 @media screen and (min-width: $desktop-width) and (orientation: landscape) {
   .header-site {
-    padding: 30px 52px 0;
     width: $desktop-width;
     display: flex;
     flex-direction: column;

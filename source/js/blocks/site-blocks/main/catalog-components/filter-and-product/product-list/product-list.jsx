@@ -26,6 +26,7 @@ import '../../../../../../../img/watch-list/watch_8.png';
 import '../../../../../../../img/watch-list/watch_9.png';
 import '../../../../../../../img/watch-list/watch_10.png';
 import '../../../../../../../img/watch-list/watch_11.png';
+import '../../../../../../../img/watch-list/watch_12.png';
 
 function ProductList({ watchInfo, majorClass, userSelectedProducts, toFavorite, toBasket }) {
   // Пользуюсь хуком для составления ссылки на страницу подробной информации о товаре.

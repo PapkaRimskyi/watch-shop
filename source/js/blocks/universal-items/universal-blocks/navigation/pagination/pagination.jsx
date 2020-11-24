@@ -1,5 +1,8 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import ArrowButton from '../../../universal-buttons/arrow-button/arrow-button';
 
@@ -11,26 +14,36 @@ function sectionPage(maxProductOnPage, productLength) {
   return quantityOfPageArray;
 }
 
-export default function Pagination({ maxProductOnPage, productLength }) {
-  if (productLength <= maxProductOnPage) {
-    return null;
+export default function Pagination({ maxProductOnPage, productLength, currentPage, setCurrentPage, changePaginationNumber }) {
+  function pageButtonHandler(e) {
+    e.preventDefault();
+    if (e.target.tagName === 'BUTTON') {
+      window.scrollTo(0, 0);
+      setCurrentPage(+e.target.textContent);
+    }
   }
-  return (
-    <div className="pagination">
-      <ArrowButton majorClass="arrow-button pagination__button pagination__button--left" ariaLabel="Предыдущая страница" />
-      <ul className="pagination__page-list" aria-label="Список страниц">
-        {sectionPage(maxProductOnPage, productLength).map((page) => (
-          <li key={page} className="pagination__page-item">
-            <a href=" " className="pagination__page-link" aria-label={`Страница ${page}`}>{page}</a>
-          </li>
-        ))}
-      </ul>
-      <ArrowButton majorClass="arrow-button pagination__button pagination__button--right" ariaLabel="Следующая страница" />
-    </div>
-  );
+
+  return productLength <= maxProductOnPage
+    ? null
+    : (
+      <div className="pagination">
+        <ArrowButton majorClass="arrow-button pagination__button pagination__button--left" arrowsHandler={changePaginationNumber} ariaLabel="Предыдущая страница" />
+        <ul className="pagination__page-list" aria-label="Список страниц" onClick={pageButtonHandler}>
+          {sectionPage(maxProductOnPage, productLength).map((page) => (
+            <li key={page} className="pagination__page-item">
+              <button className={`pagination__page-link${classNames(page === currentPage ? ' pagination__page-link--active' : null)}`} aria-label={page === currentPage ? `Текущая страница: ${currentPage}` : `На страницу ${page}`} type="button">{page}</button>
+            </li>
+          ))}
+        </ul>
+        <ArrowButton majorClass="arrow-button pagination__button pagination__button--right" arrowsHandler={changePaginationNumber} ariaLabel="Следующая страница" />
+      </div>
+    );
 }
 
 Pagination.propTypes = {
   maxProductOnPage: PropTypes.number.isRequired,
   productLength: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  setCurrentPage: PropTypes.func.isRequired,
+  changePaginationNumber: PropTypes.func.isRequired,
 };

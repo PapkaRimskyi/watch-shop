@@ -23,7 +23,13 @@
     color: #b6b6b6;
     transition: font-size, .2s ease-out;
 
-    &:hover {
+    &--active {
+      color: #a69876;
+      font-size: 18px;
+    }
+
+    &:hover,
+    &:focus {
       font-size: 16px;
     }
 

@@ -1,10 +1,10 @@
 .site-section-navigation {
   position: absolute;
-  top: 100%;
+  top: 130%;
   left: 0;
   width: 40%;
   background-color: $white-color;
-  box-shadow: 0 4px 4px rgba(0,0,0,.25);
+  box-shadow: 0 1px 4px rgba(0,0,0,.25);
   z-index: 50;
 
   &__list {
@@ -53,7 +53,7 @@
 
 @media screen and (min-width: $desktop-width) and (orientation: landscape) {
   .site-section-navigation {
-    top: 95%;
+    top: 110%;
     width: 15%;
 
     &__link {

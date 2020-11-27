@@ -1,10 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
-export default function RangeCost({ menuStatus }) {
+export default function RangeCost() {
   return (
-    <div className={classNames('range-cost', !menuStatus ? 'range-cost--closed' : null)} aria-label="Ползунки для изменения диапазона цены">
+    <div className="range-cost" aria-label="Ползунки для изменения диапазона цены">
       <div className="range-cost__range-line">
         <div className="range-cost__range-button range-cost__range-button--from" tabIndex="0" role="presentation">
           <span className="range-cost__range-price range-cost__range-price--from">0</span>
@@ -17,7 +15,3 @@ export default function RangeCost({ menuStatus }) {
     </div>
   );
 }
-
-RangeCost.propTypes = {
-  menuStatus: PropTypes.bool.isRequired,
-};

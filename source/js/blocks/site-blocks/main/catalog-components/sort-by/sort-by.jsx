@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { CSSTransition } from 'react-transition-group';
 import usePopupSwitch from '../../../../../custom-hooks/use-popup-switch';
 
 import sortTypeList from './model/sort-type-list';
@@ -31,7 +32,7 @@ export default function SortBy({ sortType, sortTypeChange }) {
       <p className={`sort-by__type${classNames(popupStatus ? ' sort-by__type--active' : null)}`}>Сортировать по:
         <input type="text" className="sort-by__active-type" aria-label={`Текущая сортировка: по ${sortType}`} onClick={popupButtonHandler} onKeyDown={keyDownHandler} name="active-sort-type" value={sortType} readOnly />
       </p>
-      {popupStatus ? (
+      <CSSTransition in={popupStatus} classNames="fade" timeout={300} unmountOnExit>
         <ul className="sort-by__type-list" aria-label="Список доступных сортировок" onClick={optionsHandler}>
           {sortTypeList.map((type) => (
             <li key={type} className="sort-by__type-element">
@@ -39,8 +40,7 @@ export default function SortBy({ sortType, sortTypeChange }) {
             </li>
           ))}
         </ul>
-      )
-        : null}
+      </CSSTransition>
     </section>
   );
 }

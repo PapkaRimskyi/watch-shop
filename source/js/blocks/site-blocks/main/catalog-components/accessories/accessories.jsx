@@ -30,7 +30,7 @@ export default function Accessories() {
       </div>
       <div className="accessories__container">
         <ArrowButton majorClass="arrow-button accessories__slide-button accessories__slide-button--left" ariaLabel="Предыдущий слайд" arrowsHandler={carouselHandler} />
-        <ProductList watchInfo={productList} majorClass="accessories" />
+        <ProductList productInfo={productList} majorClass="accessories" />
         <ArrowButton majorClass="arrow-button accessories__slide-button accessories__slide-button--right" ariaLabel="Следующий слайд" arrowsHandler={carouselHandler} />
       </div>
     </section>

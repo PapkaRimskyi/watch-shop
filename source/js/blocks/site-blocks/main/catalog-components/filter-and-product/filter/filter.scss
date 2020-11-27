@@ -20,9 +20,8 @@
       color: $black-color;
     }
 
-    &--active::after,
-    &--closed::after,
-    &--closed::before {
+    &::after,
+    &::before {
       position: absolute;
       content: "";
       top: 5px;
@@ -32,8 +31,12 @@
       background-color: $main-color;
     }
 
-    &--closed::before {
+    &::before {
       transform: rotate(90deg);
+    }
+
+    &--active::before {
+      transform: rotate(0);
     }
   }
 
@@ -44,10 +47,6 @@
   &__option-list {
     margin-bottom: 28px;
     padding-left: 29px;
-
-    &--closed {
-      display: none;
-    }
   }
 
   &__checkbox-option {

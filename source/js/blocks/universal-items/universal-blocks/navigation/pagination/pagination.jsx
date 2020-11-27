@@ -15,6 +15,8 @@ function sectionPage(maxProductOnPage, productLength) {
 }
 
 export default function Pagination({ maxProductOnPage, productLength, currentPage, setCurrentPage, changePaginationNumber }) {
+  // При клике на кнопку страницы, происходит перемотка страницы наверх и меняется текущая страница.
+
   function pageButtonHandler(e) {
     e.preventDefault();
     if (e.target.tagName === 'BUTTON') {
@@ -22,6 +24,8 @@ export default function Pagination({ maxProductOnPage, productLength, currentPag
       setCurrentPage(+e.target.textContent);
     }
   }
+
+  //
 
   return productLength <= maxProductOnPage
     ? null

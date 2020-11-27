@@ -1,0 +1,16 @@
+// Анимация для слайдеров.
+.swipe-slider-enter {
+  transform: scale(0) rotate(180deg);
+  opacity: 0;
+
+  &-active {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+    transition: scale, rotate, opacity, .3s linear;
+  }
+}
+
+.swipe-slider-exit {
+  position: absolute;
+  opacity: 0;
+}

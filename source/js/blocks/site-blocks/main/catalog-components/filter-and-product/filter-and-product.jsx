@@ -8,21 +8,21 @@ import ProductList from './product-list/product-list';
 import usePaginationChange from '../../../../../custom-hooks/use-pagination-change';
 import { MAX_PRODUCT_ON_PAGE } from '../../../../../variables/variables';
 
-export default function FilterAndProduct({ watchInfo, maxProductOnPage, productLength }) {
-  const { currentPage, setCurrentPage, changePaginationNumber } = usePaginationChange(watchInfo.length, MAX_PRODUCT_ON_PAGE);
+export default function FilterAndProduct({ productInfo, maxProductOnPage, productLength }) {
+  const { currentPage, setCurrentPage, changePaginationNumber } = usePaginationChange(productInfo.length, MAX_PRODUCT_ON_PAGE);
 
   return (
     <section className="filter-and-product">
       <h2 className="visually-hidden">Фильтры и товары</h2>
       <Filter />
-      <ProductList watchInfo={watchInfo.slice((currentPage - 1) * MAX_PRODUCT_ON_PAGE, MAX_PRODUCT_ON_PAGE * currentPage)} />
+      <ProductList productInfo={productInfo.slice((currentPage - 1) * MAX_PRODUCT_ON_PAGE, MAX_PRODUCT_ON_PAGE * currentPage)} />
       <Pagination maxProductOnPage={maxProductOnPage} productLength={productLength} currentPage={currentPage} setCurrentPage={setCurrentPage} changePaginationNumber={changePaginationNumber} />
     </section>
   );
 }
 
 FilterAndProduct.propTypes = {
-  watchInfo: PropTypes.arrayOf(PropTypes.object).isRequired,
+  productInfo: PropTypes.arrayOf(PropTypes.object).isRequired,
   maxProductOnPage: PropTypes.number.isRequired,
   productLength: PropTypes.number.isRequired,
 };

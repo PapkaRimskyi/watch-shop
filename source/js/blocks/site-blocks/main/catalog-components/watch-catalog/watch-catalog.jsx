@@ -19,7 +19,7 @@ function WatchCatalog({ catalogName, sortType, sortTypeChange }) {
         <h1 className="headline watch-catalog__catalog-name">{catalogName}</h1>
         <SortBy popupClassName="sort-by__type-list" sortType={sortType} sortTypeChange={sortTypeChange} />
       </div>
-      <FilterAndProduct watchInfo={sortProduct.call(null, sortType, watchInfo)} maxProductOnPage={MAX_PRODUCT_ON_PAGE} productLength={watchInfo.length} />
+      <FilterAndProduct productInfo={sortProduct.call(null, sortType, watchInfo)} maxProductOnPage={MAX_PRODUCT_ON_PAGE} productLength={watchInfo.length} />
     </section>
   );
 }

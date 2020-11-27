@@ -17,7 +17,7 @@ function Header({ favoritesCount }) {
     <header className="header-site">
       <section className="top-bar-site">
         <BurgerAndLogo popupButtonHandler={popupButtonHandler} />
-        <CSSTransition in={popupStatus} classNames="animate" timeout={300} unmountOnExit>
+        <CSSTransition in={popupStatus} classNames="fade" timeout={300} unmountOnExit>
           <SiteSectionNav popupButtonHandler={popupButtonHandler} />
         </CSSTransition>
         <UserButtonPanel favoritesCount={favoritesCount} />

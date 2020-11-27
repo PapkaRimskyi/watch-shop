@@ -22,7 +22,7 @@ export default function UserButtonPanel({ favoritesCount }) {
   return (
     <nav className="user-button-panel" aria-label="Пользовательские кнопки">
       {userButtonsModel.map((buttonInfo) => <UserButton key={buttonInfo.ariaLabel} favoritesCount={buttonInfo.className === 'favorite' ? favoritesCount : null} buttonInfo={buttonInfo} handler={buttonInfo.className === 'search' ? searchHandler : null} />)}
-      <CSSTransition in={siteSearch} classNames="animate" timeout={200} unmountOnExit>
+      <CSSTransition in={siteSearch} classNames="fade" timeout={200} unmountOnExit>
         <SearchSite />
       </CSSTransition>
     </nav>

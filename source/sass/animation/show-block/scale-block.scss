@@ -1,0 +1,27 @@
+// Для менюшек фильтра.
+.scale-block-enter {
+  display: block;
+
+  &-active {
+    transform: scale(0);
+  }
+
+  &-done {
+    transform: scale(1);
+    transition: scale, .3s ease-in;
+  }
+}
+
+.scale-block-exit {
+  transform: scale(1);
+
+  &-active {
+    transform: scale(0);
+    transition: scale, .3s ease-out;
+  }
+
+  &-done {
+    display: none;
+    transition: display, .1s linear;
+  }
+}

@@ -46,7 +46,7 @@
 
     &__social {
       position: absolute;
-      top: 40%;
+      top: 39.8%;
       left: 4%;
       display: block;
       z-index: 3;
@@ -78,7 +78,7 @@
 @media screen and (min-width: $desktop-width) and (orientation: landscape) {
   .year-collection {
     margin-bottom: 78px;
-    padding: 180px 0 237px 0;
+    padding: 164px 0 236px 0;
     box-shadow: 0px 8px 5px -4px rgba(0, 0, 0, 0.25);
 
     &__container {

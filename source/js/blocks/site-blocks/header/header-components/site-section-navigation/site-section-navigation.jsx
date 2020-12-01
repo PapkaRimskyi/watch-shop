@@ -2,12 +2,14 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 
 import siteSectionNavModel from './model/site-section-nav-model';
 
-export default function SiteSectionNav({ popupButtonHandler }) {
+export default function SiteSectionNav({ popupStatus, popupButtonHandler }) {
   const { pathname } = useLocation();
+
   // Делегирование. Обработчик вешается на ul.
 
   function popupLinkHandler(e) {
@@ -19,7 +21,7 @@ export default function SiteSectionNav({ popupButtonHandler }) {
   //
 
   return (
-    <nav className="site-section-navigation" aria-label="Навигация по сайту">
+    <nav className={`site-section-navigation${classNames(pathname !== '/' ? ' site-section-navigation--other-page' : null, popupStatus && ' site-section-navigation--visible')}`} aria-label="Навигация по сайту">
       <ul className="site-section-navigation__list" onClick={popupLinkHandler}>
         {siteSectionNavModel.map(({ sectionName, path }) => (
           <li className="site-section-navigation__item" key={sectionName}>
@@ -38,4 +40,5 @@ export default function SiteSectionNav({ popupButtonHandler }) {
 
 SiteSectionNav.propTypes = {
   popupButtonHandler: PropTypes.func.isRequired,
+  popupStatus: PropTypes.bool.isRequired,
 };

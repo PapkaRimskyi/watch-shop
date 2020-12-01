@@ -2,10 +2,15 @@
   position: absolute;
   top: 130%;
   left: 0;
+  display: none;
   width: 40%;
   background-color: $white-color;
   box-shadow: 0 1px 4px rgba(0,0,0,.25);
   z-index: 50;
+
+  &--visible {
+    display: block;
+  }
 
   &__list {
     padding: 15px 16px;
@@ -53,11 +58,29 @@
 
 @media screen and (min-width: $desktop-width) and (orientation: landscape) {
   .site-section-navigation {
-    top: 110%;
-    width: 15%;
+    position: relative;
+    margin-right: 19%;
+    display: block;
+    width: 30%;
+    background-color: transparent;
+    box-shadow: none;
+
+    &--other-page {
+      margin-right: 0;
+    }
+
+    &__list {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__item:nth-child(n) {
+      margin-bottom: 0;
+    }
 
     &__link {
-      font-size: 22px;
+      font-size: 14px;
     }
   }
 }

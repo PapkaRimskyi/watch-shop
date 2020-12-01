@@ -21,7 +21,7 @@ export default function usePopupSwitch(popupClassName) {
 
   function popupButtonHandler(e) {
     e.preventDefault();
-    setPopupStatus((prevState) => !prevState);
+    setPopupStatus(!popupStatus);
   }
 
   //
@@ -40,7 +40,7 @@ export default function usePopupSwitch(popupClassName) {
 
   function isThatClickBeenOutsideElement(e) {
     if (!e.target.closest(`.${popupClassName}`)) {
-      setPopupStatus((prevState) => !prevState);
+      setPopupStatus(!popupStatus);
     }
   }
 

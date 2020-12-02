@@ -30,14 +30,14 @@ import '../../../../../../../img/watch-list/watch_10.png';
 import '../../../../../../../img/watch-list/watch_11.png';
 import '../../../../../../../img/watch-list/watch_12.png';
 
-function ProductList({ productInfo, majorClass, userSelectedProducts, toFavorite, toBasket }) {
+function ProductList({ productInfo, linkToList, majorClass, userSelectedProducts, toFavorite, toBasket }) {
   // Пользуюсь хуком для составления ссылки на страницу подробной информации о товаре.
 
   const location = useLocation();
 
   //
 
-  // Поиск продукта среди watchInfo.
+  // Поиск продукта среди productInfo.
 
   function findProductByID(productCollection, productID) {
     return productCollection.find((product) => product.id === productID);
@@ -80,7 +80,7 @@ function ProductList({ productInfo, majorClass, userSelectedProducts, toFavorite
   return (
     <section className={`product-list${classNames(majorClass ? ` ${majorClass}__list` : null)}`}>
       <h2 className="visually-hidden">Список товаров</h2>
-      <ul className="product-list__list" onClick={productSelected}>
+      <ul ref={linkToList} className="product-list__list" onClick={productSelected}>
         <TransitionGroup component={null}>
           {productInfo.map((watch) => (
             <CSSTransition key={watch.id} timeout={300} classNames="fade">
@@ -118,6 +118,7 @@ function ProductList({ productInfo, majorClass, userSelectedProducts, toFavorite
 
 ProductList.propTypes = {
   productInfo: PropTypes.arrayOf(PropTypes.object).isRequired,
+  linkToList: PropTypes.objectOf(PropTypes.object),
   majorClass: PropTypes.string,
   userSelectedProducts: PropTypes.objectOf(PropTypes.array).isRequired,
   toFavorite: PropTypes.func.isRequired,
@@ -126,6 +127,7 @@ ProductList.propTypes = {
 
 ProductList.defaultProps = {
   majorClass: null,
+  linkToList: null,
 };
 
 function mapStateToProps(state) {

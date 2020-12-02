@@ -14,4 +14,9 @@
   &:active svg path {
     stroke: $arrow-active;
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .5;
+  }
 }

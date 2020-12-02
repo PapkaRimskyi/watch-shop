@@ -21,7 +21,7 @@ export default function SiteSectionNav({ popupStatus, popupButtonHandler }) {
   //
 
   return (
-    <nav className={`site-section-navigation${classNames(pathname !== '/' ? ' site-section-navigation--other-page' : null, popupStatus && ' site-section-navigation--visible')}`} aria-label="Навигация по сайту">
+    <nav className={`site-section-navigation${classNames(pathname !== '/' ? ' site-section-navigation--other-page' : null, ` site-section-navigation--${popupStatus ? 'visible' : 'hidden'}`)}`} aria-label="Навигация по сайту">
       <ul className="site-section-navigation__list" onClick={popupLinkHandler}>
         {siteSectionNavModel.map(({ sectionName, path }) => (
           <li className="site-section-navigation__item" key={sectionName}>

@@ -3,9 +3,9 @@
 export default function useItemShift(itemList, setProductList) {
   return function itemShift(side) {
     if (side === 'left') {
-      setProductList([].concat([...itemList.slice(1)], itemList[0]));
+      setProductList([...itemList.slice(1), ...itemList.slice(0, 1)]);
     } else {
-      setProductList([].concat(itemList[itemList.length - 1], [...itemList.slice(0, itemList.length - 1)]));
+      setProductList([itemList[itemList.length - 1], ...itemList.slice(0, itemList.length - 1)]);
     }
   };
 }

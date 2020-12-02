@@ -6,6 +6,8 @@ import classNames from 'classnames';
 
 import ArrowButton from '../../../universal-buttons/arrow-button/arrow-button';
 
+import elementCoords from '../../../../../utils/element-coords';
+
 function sectionPage(maxProductOnPage, productLength) {
   const quantityOfPageArray = [];
   for (let i = 1; i <= Math.ceil(productLength / maxProductOnPage); i += 1) {
@@ -14,13 +16,14 @@ function sectionPage(maxProductOnPage, productLength) {
   return quantityOfPageArray;
 }
 
-export default function Pagination({ maxProductOnPage, productLength, currentPage, setCurrentPage, changePaginationNumber }) {
-  // При клике на кнопку страницы, происходит перемотка страницы наверх и меняется текущая страница.
+export default function Pagination({ maxProductOnPage, productLength, currentPage, setCurrentPage, changePaginationNumber, linkToList }) {
+  // При клике на кнопку страницы, происходит перемотка наверх и меняется текущая страница с товарами.
 
   function pageButtonHandler(e) {
     e.preventDefault();
     if (e.target.tagName === 'BUTTON') {
-      window.scrollTo(0, 0);
+      const { top, left } = elementCoords(linkToList.current);
+      window.scrollTo(top, left);
       setCurrentPage(+e.target.textContent);
     }
   }
@@ -31,7 +34,7 @@ export default function Pagination({ maxProductOnPage, productLength, currentPag
     ? null
     : (
       <div className="pagination">
-        <ArrowButton majorClass="arrow-button pagination__button pagination__button--left" arrowsHandler={changePaginationNumber} ariaLabel="Предыдущая страница" />
+        <ArrowButton majorClass="arrow-button pagination__button pagination__button--left" arrowsHandler={changePaginationNumber} ariaLabel="Предыдущая страница" disabledStatus={currentPage === 1} />
         <ul className="pagination__page-list" aria-label="Список страниц" onClick={pageButtonHandler}>
           {sectionPage(maxProductOnPage, productLength).map((page) => (
             <li key={page} className="pagination__page-item">
@@ -39,7 +42,7 @@ export default function Pagination({ maxProductOnPage, productLength, currentPag
             </li>
           ))}
         </ul>
-        <ArrowButton majorClass="arrow-button pagination__button pagination__button--right" arrowsHandler={changePaginationNumber} ariaLabel="Следующая страница" />
+        <ArrowButton majorClass="arrow-button pagination__button pagination__button--right" arrowsHandler={changePaginationNumber} ariaLabel="Следующая страница" disabledStatus={currentPage === Math.ceil(productLength / maxProductOnPage)} />
       </div>
     );
 }
@@ -50,4 +53,9 @@ Pagination.propTypes = {
   currentPage: PropTypes.number.isRequired,
   setCurrentPage: PropTypes.func.isRequired,
   changePaginationNumber: PropTypes.func.isRequired,
+  linkToList: PropTypes.objectOf(PropTypes.object),
+};
+
+Pagination.defaultProps = {
+  linkToList: null,
 };

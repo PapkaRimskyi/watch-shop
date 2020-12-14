@@ -8,23 +8,24 @@ import SortBy from '../sort-by/sort-by';
 import FilterAndProduct from '../filter-and-product/filter-and-product';
 
 import watchInfo from './model/watch-item-info';
-import { MAX_PRODUCT_ON_PAGE } from '../../../../../variables/variables';
 
 import sortProduct from '../../../../../utils/sort-product';
+import { getActiveFiltersCollection, filterProducts } from '../../../../../utils/filter-products';
 
-function WatchCatalog({ catalogName, sortType, sortTypeChange }) {
+function WatchCatalog({ filters, catalogName, sortType, sortTypeChange }) {
   return (
     <section className="watch-catalog">
       <div className="watch-catalog__catalog-name-and-sort-type">
         <h1 className="headline watch-catalog__catalog-name">{catalogName}</h1>
         <SortBy popupClassName="sort-by__type-list" sortType={sortType} sortTypeChange={sortTypeChange} />
       </div>
-      <FilterAndProduct productInfo={sortProduct.call(null, sortType, watchInfo)} maxProductOnPage={MAX_PRODUCT_ON_PAGE} productLength={watchInfo.length} />
+      <FilterAndProduct productInfo={sortProduct.call(null, sortType, getActiveFiltersCollection(filters).length ? filterProducts(watchInfo, filters) : watchInfo)} />
     </section>
   );
 }
 
 WatchCatalog.propTypes = {
+  filters: PropTypes.arrayOf(PropTypes.object).isRequired,
   catalogName: PropTypes.string.isRequired,
   sortType: PropTypes.string.isRequired,
   sortTypeChange: PropTypes.func.isRequired,
@@ -33,6 +34,7 @@ WatchCatalog.propTypes = {
 function mapStateToProps(state) {
   return {
     sortType: state.sortType,
+    filters: state.filters,
   };
 }
 

@@ -7,7 +7,7 @@ import { CSSTransition } from 'react-transition-group';
 import RangeCost from './range-cost/range-cost';
 import FilterList from './filter-list/filter-list';
 
-export default function FilterFieldset({ info }) {
+export default function FilterFieldset({ info, changeSomeFilter }) {
   const [menuStatus, setMenuStatus] = useState(true);
   const { ariaLabel, filterName } = info;
 
@@ -44,7 +44,7 @@ export default function FilterFieldset({ info }) {
       <CSSTransition in={menuStatus} timeout={300} classNames="scale-block">
         {filterName === 'Стоимость'
           ? <RangeCost menuStatus={menuStatus} />
-          : <FilterList options={info.options} />}
+          : <FilterList options={info.options} inputType={info.inputType} changeSomeFilter={changeSomeFilter} />}
       </CSSTransition>
     </fieldset>
   );
@@ -54,6 +54,8 @@ FilterFieldset.propTypes = {
   info: PropTypes.shape({
     filterName: PropTypes.string.isRequired,
     ariaLabel: PropTypes.string.isRequired,
-    options: PropTypes.arrayOf(PropTypes.string),
+    inputType: PropTypes.string.isRequired,
+    options: PropTypes.arrayOf(PropTypes.object),
   }).isRequired,
+  changeSomeFilter: PropTypes.func.isRequired,
 };

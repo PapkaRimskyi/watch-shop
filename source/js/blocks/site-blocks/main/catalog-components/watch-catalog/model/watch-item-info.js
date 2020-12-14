@@ -9,7 +9,7 @@ const watchInfo = [
     popularity: 1483,
     imgPath: 'assets/img/watch_1.png',
     extraImgs: ['assets/img/watch_1.png', 'assets/img/watch_1.png', 'assets/img/watch_1.png', 'assets/img/watch_1.png'],
-    techInfo: { mechType: 'Механические', material: 'Сталь', color: 'Белый' },
+    techInfo: { mechType: 'Mechanical', material: 'Steel', color: 'White' },
     description: [
       'Наручные часы, разработанные датским дизайнером Хэннингом Коппелем, были выпущены в 1982 году. Они были встречены аплодисментами, а дизайн считался революционным.',
       'Общая эстетика минималистична, а острые, плавные линии корпуса стали легендарными. Механизм Swiss Made обеспечивает высокий уровень технических характеристик.',
@@ -23,7 +23,7 @@ const watchInfo = [
     popularity: 905,
     imgPath: 'assets/img/watch_2.png',
     extraImgs: ['assets/img/watch_2.png', 'assets/img/watch_2.png', 'assets/img/watch_2.png'],
-    techInfo: { mechType: 'Механические', material: 'Сталь', color: 'Чёрный' },
+    techInfo: { mechType: 'Mechanical', material: 'Steel', color: 'Black' },
     description: [
       'Наручные часы, разработанные датским дизайнером Хэннингом Коппелем, были выпущены в 1982 году. Они были встречены аплодисментами, а дизайн считался революционным.',
       'Общая эстетика минималистична, а острые, плавные линии корпуса стали легендарными. Механизм Swiss Made обеспечивает высокий уровень технических характеристик.',
@@ -37,7 +37,7 @@ const watchInfo = [
     popularity: 159,
     imgPath: 'assets/img/watch_3.png',
     extraImgs: ['assets/img/watch_3.png', 'assets/img/watch_3.png', 'assets/img/watch_3.png'],
-    techInfo: { mechType: 'Механические', material: 'Сталь', color: 'Чёрный' },
+    techInfo: { mechType: 'Mechanical', material: 'Steel', color: 'Black' },
     description: [
       'Наручные часы, разработанные датским дизайнером Хэннингом Коппелем, были выпущены в 1982 году. Они были встречены аплодисментами, а дизайн считался революционным.',
       'Общая эстетика минималистична, а острые, плавные линии корпуса стали легендарными. Механизм Swiss Made обеспечивает высокий уровень технических характеристик.',
@@ -51,7 +51,7 @@ const watchInfo = [
     popularity: 1003,
     imgPath: 'assets/img/watch_4.png',
     extraImgs: ['assets/img/watch_4.png', 'assets/img/watch_4.png'],
-    techInfo: { mechType: 'Механические', material: 'Сталь', color: 'Белый' },
+    techInfo: { mechType: 'Mechanical', material: 'Steel', color: 'White' },
     description: [
       'Наручные часы, разработанные датским дизайнером Хэннингом Коппелем, были выпущены в 1982 году. Они были встречены аплодисментами, а дизайн считался революционным.',
       'Общая эстетика минималистична, а острые, плавные линии корпуса стали легендарными. Механизм Swiss Made обеспечивает высокий уровень технических характеристик.',
@@ -65,7 +65,7 @@ const watchInfo = [
     popularity: 1202,
     imgPath: 'assets/img/watch_5.png',
     extraImgs: ['assets/img/watch_5.png', 'assets/img/watch_5.png'],
-    techInfo: { mechType: 'Механические', material: 'Сталь', color: 'Чёрный' },
+    techInfo: { mechType: 'Mechanical', material: 'Steel', color: 'Black' },
     description: [
       'Наручные часы, разработанные датским дизайнером Хэннингом Коппелем, были выпущены в 1982 году. Они были встречены аплодисментами, а дизайн считался революционным.',
       'Общая эстетика минималистична, а острые, плавные линии корпуса стали легендарными. Механизм Swiss Made обеспечивает высокий уровень технических характеристик.',
@@ -79,7 +79,7 @@ const watchInfo = [
     popularity: 50,
     imgPath: 'assets/img/watch_6.png',
     extraImgs: ['assets/img/watch_6.png', 'assets/img/watch_6.png', 'assets/img/watch_6.png'],
-    techInfo: { mechType: 'Механические', material: 'Титан', color: 'Белый' },
+    techInfo: { mechType: 'Mechanical', material: 'Titanium', color: 'White' },
     description: [
       'Наручные часы, разработанные датским дизайнером Хэннингом Коппелем, были выпущены в 1982 году. Они были встречены аплодисментами, а дизайн считался революционным.',
       'Общая эстетика минималистична, а острые, плавные линии корпуса стали легендарными. Механизм Swiss Made обеспечивает высокий уровень технических характеристик.',
@@ -93,7 +93,7 @@ const watchInfo = [
     popularity: 606,
     imgPath: 'assets/img/watch_7.png',
     extraImgs: ['assets/img/watch_7.png', 'assets/img/watch_7.png', 'assets/img/watch_7.png'],
-    techInfo: { mechType: 'Механические', material: 'Титан', color: 'Белый' },
+    techInfo: { mechType: 'Mechanical', material: 'Titanium', color: 'White' },
     description: [
       'Наручные часы, разработанные датским дизайнером Хэннингом Коппелем, были выпущены в 1982 году. Они были встречены аплодисментами, а дизайн считался революционным.',
       'Общая эстетика минималистична, а острые, плавные линии корпуса стали легендарными. Механизм Swiss Made обеспечивает высокий уровень технических характеристик.',
@@ -107,7 +107,7 @@ const watchInfo = [
     popularity: 1001,
     imgPath: 'assets/img/watch_8.png',
     extraImgs: ['assets/img/watch_8.png', 'assets/img/watch_8.png', 'assets/img/watch_8.png', 'assets/img/watch_8.png'],
-    techInfo: { mechType: 'Кварцевые', material: 'Сталь', color: 'Белые' },
+    techInfo: { mechType: 'Quartz', material: 'Steel', color: 'White' },
     description: [
       'Наручные часы, разработанные датским дизайнером Хэннингом Коппелем, были выпущены в 1982 году. Они были встречены аплодисментами, а дизайн считался революционным.',
       'Общая эстетика минималистична, а острые, плавные линии корпуса стали легендарными. Механизм Swiss Made обеспечивает высокий уровень технических характеристик.',
@@ -121,7 +121,7 @@ const watchInfo = [
     popularity: 45,
     imgPath: 'assets/img/watch_9.png',
     extraImgs: ['assets/img/watch_9.png', 'assets/img/watch_9.png', 'assets/img/watch_9.png', 'assets/img/watch_9.png'],
-    techInfo: { mechType: 'Механические', material: 'Титан', color: 'Белый' },
+    techInfo: { mechType: 'Mechanical', material: 'Titanium', color: 'White' },
     description: [
       'Наручные часы, разработанные датским дизайнером Хэннингом Коппелем, были выпущены в 1982 году. Они были встречены аплодисментами, а дизайн считался революционным.',
       'Общая эстетика минималистична, а острые, плавные линии корпуса стали легендарными. Механизм Swiss Made обеспечивает высокий уровень технических характеристик.',
@@ -135,7 +135,7 @@ const watchInfo = [
     popularity: 212,
     imgPath: 'assets/img/watch_10.png',
     extraImgs: ['assets/img/watch_10.png', 'assets/img/watch_10.png', 'assets/img/watch_10.png', 'assets/img/watch_10.png'],
-    techInfo: { mechType: 'Кварцевые', material: 'Сталь', color: 'Белый' },
+    techInfo: { mechType: 'Quartz', material: 'Steel', color: 'White' },
     description: [
       'Наручные часы, разработанные датским дизайнером Хэннингом Коппелем, были выпущены в 1982 году. Они были встречены аплодисментами, а дизайн считался революционным.',
       'Общая эстетика минималистична, а острые, плавные линии корпуса стали легендарными. Механизм Swiss Made обеспечивает высокий уровень технических характеристик.',
@@ -149,7 +149,7 @@ const watchInfo = [
     popularity: 999,
     imgPath: 'assets/img/watch_11.png',
     extraImgs: ['assets/img/watch_11.png', 'assets/img/watch_11.png'],
-    techInfo: { mechType: 'Кварцевые', material: 'Сталь', color: 'Белый' },
+    techInfo: { mechType: 'Quartz', material: 'Steel', color: 'White' },
     description: [
       'Наручные часы, разработанные датским дизайнером Хэннингом Коппелем, были выпущены в 1982 году. Они были встречены аплодисментами, а дизайн считался революционным.',
       'Общая эстетика минималистична, а острые, плавные линии корпуса стали легендарными. Механизм Swiss Made обеспечивает высокий уровень технических характеристик.',
@@ -163,7 +163,7 @@ const watchInfo = [
     popularity: 564,
     imgPath: 'assets/img/watch_12.png',
     extraImgs: ['assets/img/watch_12.png', 'assets/img/watch_12.png'],
-    techInfo: { mechType: 'Кварцевые', material: 'Сталь', color: 'Чёрный' },
+    techInfo: { mechType: 'Quartz', material: 'Steel', color: 'Black' },
     description: [
       'Наручные часы, разработанные датским дизайнером Хэннингом Коппелем, были выпущены в 1982 году. Они были встречены аплодисментами, а дизайн считался революционным.',
       'Общая эстетика минималистична, а острые, плавные линии корпуса стали легендарными. Механизм Swiss Made обеспечивает высокий уровень технических характеристик.',
@@ -177,7 +177,7 @@ const watchInfo = [
     popularity: 601,
     imgPath: 'assets/img/watch_7.png',
     extraImgs: ['assets/img/watch_7.png', 'assets/img/watch_7.png', 'assets/img/watch_7.png'],
-    techInfo: { mechType: 'Механические', material: 'Титан', color: 'Белый' },
+    techInfo: { mechType: 'Mechanical', material: 'Titanium', color: 'White' },
     description: [
       'Наручные часы, разработанные датским дизайнером Хэннингом Коппелем, были выпущены в 1982 году. Они были встречены аплодисментами, а дизайн считался революционным.',
       'Общая эстетика минималистична, а острые, плавные линии корпуса стали легендарными. Механизм Swiss Made обеспечивает высокий уровень технических характеристик.',

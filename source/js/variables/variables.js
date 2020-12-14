@@ -17,3 +17,9 @@ export const TECH = 'tech';
 export const MAX_PRODUCT_ON_PAGE = 12;
 
 //
+
+// keyCode у клавиши Space
+
+export const SPACE_KEY_CODE = 32;
+
+//

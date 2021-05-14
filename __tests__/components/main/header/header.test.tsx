@@ -6,7 +6,7 @@ import Header from '../../../../source/js/components/main/header/header';
 
 describe('Testing <Header /> component', () => {
   test('Should successfully render a <Header /> component', () => {
-    const { getByText } = render(<Header />);
-    expect(getByText('Text')).toBeInTheDocument();
+    const { getByRole } = render(<Header />);
+    expect(getByRole('banner')).toBeInTheDocument();
   });
 });

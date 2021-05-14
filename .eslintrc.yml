@@ -15,9 +15,10 @@ plugins: ["@typescript-eslint"]
 rules: {
   react/jsx-one-expression-per-line: 'off',
   react/button-has-type: 'off',
+  react/destructuring-assignment: [0],
+  react/prop-types: 'off',
   jsx-a11y/no-noninteractive-tabindex: 'off',
   import/extensions: 'off',
-  react/destructuring-assignment: [0],
   object-curly-newline: 'off',
   no-use-before-define: 'off',
   "@typescript-eslint/no-use-before-define": ["error"],

@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-import { MEDIA_SIZES } from '../../../../styles/variables';
+import { MEDIA_SIZES, PLAYFAIR_DISPLAY_FONT } from '../../../../styles/variables';
 
 export const Section = styled.section`
+  position: relative;
   padding: 50px 25px 0;
   display: flex;
   justify-content: center;
@@ -31,6 +32,10 @@ export const MainHeadline = styled.h1`
 `;
 
 export const DescriptionContainer = styled.div`
+  @media (min-width: ${MEDIA_SIZES.tablet}px) {
+    padding-left: 30px;
+  }
+
   @media (min-width: ${MEDIA_SIZES.desktop}px) {
     margin-bottom: 150px;
     padding-left: 70px;
@@ -39,6 +44,7 @@ export const DescriptionContainer = styled.div`
 
 export const CollectionHeadline = styled.h2`
   margin-bottom: 16px;
+  font-family: ${PLAYFAIR_DISPLAY_FONT};
   font-size: 2.8rem;
   font-weight: 400;
   line-height: 2.5rem;
@@ -62,6 +68,7 @@ export const CollectionHeadline = styled.h2`
 export const Type = styled.span`
   margin-bottom: 39px;
   display: inline-block;
+  font-family: ${PLAYFAIR_DISPLAY_FONT};
   font-size: 1.9rem;
   line-height: 1.7rem;
 `;

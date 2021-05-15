@@ -11,6 +11,8 @@ export const Header = styled.header`
 `;
 
 export const ContainerBlock = styled.div`
+  z-index: 101;
+
   @media (min-width: ${MEDIA_SIZES.tablet}px) {
     display: flex;
     justify-content: space-between;

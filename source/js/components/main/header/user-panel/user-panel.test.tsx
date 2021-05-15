@@ -1,17 +1,14 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { render, within, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect';
 
-import UserPanel from '../../../../../source/js/components/main/header/user-panel/user-panel';
+import UserPanel from './user-panel';
 
 describe('Testing <UserPanel /> component', () => {
   beforeEach(() => {
     render(<UserPanel />);
-  });
-
-  test('Should successfully render a <UserPanel /> component', () => {
-    expect(screen.getByRole('list')).toBeInTheDocument();
   });
 
   test('Checking count elements of <li> inside a <ul>', () => {

@@ -9,7 +9,6 @@ const PATHS = {
   build: path.resolve(__dirname, './docs'),
   assets: 'assets/',
 };
-
 module.exports = {
   entry: `${PATHS.src}/js/index.tsx`,
   output: {
@@ -20,7 +19,7 @@ module.exports = {
     rules: [
       {
         test: /\.(ts|tsx)$/,
-        exclude: [/node_modules/, /__tests__/],
+        exclude: [/node_modules/],
         resolve: {
           extensions: ['.ts', '.tsx'],
         },
@@ -61,6 +60,18 @@ module.exports = {
                   },
                 ],
               },
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(eot|woff|woff2|ttf)([?]?.*)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
             },
           },
         ],

@@ -1,10 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable @typescript-eslint/no-empty-function */
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import userEvent from '@testing-library/user-event';
 
-import Burger from '../../../../../source/js/components/main/header/burger/burger';
+import Burger from './burger';
 
 describe('Testing <Burger /> component', () => {
   const state = { isOpen: false };

@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 
+import SocialLinks from '../../../other/blocks/social-links/social-links';
+
 import { Section, MainHeadline, DescriptionContainer, CollectionHeadline, Type, Description, ExampleWatchContainer, ExampleImg } from './s-collection';
 import Button from '../../../../styles/common/button/s-button';
 
@@ -9,6 +11,7 @@ import '../../../../../img/decorative-elements/ellipse.png';
 const Collection: FC = () => (
   <Section>
     <MainHeadline>Магазин часов</MainHeadline>
+    <SocialLinks />
     <DescriptionContainer>
       <CollectionHeadline>Весна/Лето 2019</CollectionHeadline>
       <Type>Коллекция</Type>

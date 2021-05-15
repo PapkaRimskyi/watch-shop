@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { MEDIA_SIZES } from '../../../../styles/variables';
+import { MEDIA_SIZES, USER_NAVIGATION_LINK_COLOR } from '../../../../styles/variables';
 
 export const Navigation = styled.nav`
   position: absolute;
@@ -15,10 +15,15 @@ export const Navigation = styled.nav`
 
   @media (min-width: ${MEDIA_SIZES.mobileToTablet}px) {
     position: static;
+    margin-right: auto;
     padding: 0;
     width: auto;
     display: block;
     background-color: transparent;
+  }
+
+  @media (min-width: ${MEDIA_SIZES.tablet}px) {
+    margin: 0;
   }
 `;
 
@@ -29,15 +34,19 @@ export const List = styled.ul`
   flex-wrap: wrap;
 
   @media (min-width: ${MEDIA_SIZES.mobileToTablet}px) {
-    max-width: 360px;
+    max-width: 420px;
     flex-direction: row;
     justify-content: space-between;
   }
 `;
 
 export const Item = styled.li`
-  margin: 0 15px;
+  margin: 0 20px;
   margin-bottom: 15px;
+
+  & a {
+    color: ${USER_NAVIGATION_LINK_COLOR};
+  }
 
   @media (min-width: ${MEDIA_SIZES.mobileToTablet}px) {
     margin-bottom: 0;

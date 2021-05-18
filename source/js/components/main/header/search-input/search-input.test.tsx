@@ -1,24 +1,23 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import SearchInput from './search-input';
 
 describe('Testing <SearchInput /> component', () => {
-  let input: HTMLInputElement;
   beforeEach(() => {
-    const { getByRole } = render(<SearchInput />);
-    input = getByRole('textbox') as HTMLInputElement;
+    render(<SearchInput />);
   });
 
   test('Input should have empty value by default', () => {
-    expect(input.value).toEqual('');
+    expect(screen.getByDisplayValue('')).toBeInTheDocument();
   });
 
-  test('Change input value', () => {
+  test('Change input value', async () => {
     const someText = 'someText';
-    fireEvent.change(input, { target: { value: someText } });
+    fireEvent.change(screen.getByDisplayValue(''), { target: { value: someText } });
+    const input = await screen.findByDisplayValue(`${someText}`) as HTMLInputElement;
     expect(input.value).toEqual(someText);
   });
 });

@@ -7,7 +7,7 @@ import { Container, PanelList, SearchButton } from './s-user-panel';
 const UserPanel: React.FC = () => {
   const [searchStatus, setSearchStatus] = useState(false);
 
-  const searchInputHandler = (e: MouseEvent) => {
+  const searchInputHandler = (e: React.MouseEvent) => {
     e.preventDefault();
     setSearchStatus((prevState) => !prevState);
   };

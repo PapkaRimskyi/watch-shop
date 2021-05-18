@@ -26,6 +26,6 @@ describe('Testing <UserPanel /> component', () => {
     const button = screen.getByTitle('Кнопка для вызова поля поиска');
     expect(screen.queryByPlaceholderText('Поиск...')).not.toBeInTheDocument();
     userEvent.click(button);
-    expect(screen.queryByPlaceholderText('Поиск...')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('Поиск...')).toBeInTheDocument();
   });
 });

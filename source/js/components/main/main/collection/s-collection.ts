@@ -4,6 +4,7 @@ import { MEDIA_SIZES, PLAYFAIR_DISPLAY_FONT } from '../../../../styles/variables
 
 export const Section = styled.section`
   position: relative;
+  margin-bottom: 50px;
   padding: 50px 25px 0;
   display: flex;
   justify-content: center;
@@ -121,7 +122,7 @@ export const ExampleWatchContainer = styled.div`
       position: absolute;
       content: "";
       top: 50%;
-      width: 50px;
+      width: 35px;
       height: 0;
       transform: translateY(-50%);
       border: 1px solid #8B8371;
@@ -150,7 +151,6 @@ export const ExampleWatchContainer = styled.div`
 export const ExampleImg = styled.img`
   margin-bottom: -18px;
   width: 180px;
-  object-fit: contain;
 
   @media (min-width: ${MEDIA_SIZES.tablet}px) {
     margin-bottom: -25px;

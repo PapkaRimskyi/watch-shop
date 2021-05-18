@@ -9,7 +9,7 @@
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack serve --config webpack.dev.js",
     "type-test": "tsc",
-    "jest": "jest --coverage",
+    "jest": "jest --coverage --detectOpenHandles",
     "css-test": "stylelint './source/js/**/*.js'",
     "svgo": "svgo -r -f source/img/"
   },

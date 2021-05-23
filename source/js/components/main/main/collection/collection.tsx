@@ -2,8 +2,20 @@ import React, { FC } from 'react';
 
 import SocialLinks from '../../../other/blocks/social-links/social-links';
 
-import { Section, MainHeadline, DescriptionContainer, CollectionHeadline, Type, Description, ExampleWatchContainer, ExampleImg } from './s-collection';
-import Button from '../../../../styles/common/button/s-button';
+import {
+  Section,
+  MainHeadline,
+  DescriptionContainer,
+  CollectionHeadline,
+  Type,
+  Description,
+  CatalogLink,
+  ExampleWatchContainer,
+  ExampleImg,
+  ModifiedSocialLinksSection,
+  ModifiedSocialLinksList,
+  ModifiedSocialLinksToSocial,
+} from './s-collection';
 
 import '../../../../../img/watch-example/watch_example.png';
 import '../../../../../img/decorative-elements/ellipse.png';
@@ -11,12 +23,12 @@ import '../../../../../img/decorative-elements/ellipse.png';
 const Collection: FC = () => (
   <Section>
     <MainHeadline>Магазин часов</MainHeadline>
-    <SocialLinks />
+    <SocialLinks modifiedComponents={{ Section: ModifiedSocialLinksSection, List: ModifiedSocialLinksList, LinkToSocial: ModifiedSocialLinksToSocial }} />
     <DescriptionContainer>
       <CollectionHeadline>Весна/Лето 2019</CollectionHeadline>
       <Type>Коллекция</Type>
       <Description>Швейцарские часы в наличии в Москве и с доставкой по всему миру</Description>
-      <Button type="button">Смотреть каталог</Button>
+      <CatalogLink href="/catalog" as="a">Смотреть каталог</CatalogLink>
     </DescriptionContainer>
     <ExampleWatchContainer>
       <p>22 000 &#8381;</p>

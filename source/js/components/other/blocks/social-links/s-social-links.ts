@@ -1,23 +1,22 @@
 import styled from 'styled-components';
-import { MEDIA_SIZES } from '../../../../styles/variables';
 
-export const Section = styled.section`
-  position: absolute;
-  top: 45%;
-  left: 5px;
-  transform: translateY(-50%);
-`;
+export const Section = styled.section``;
 
 export const List = styled.ul`
-  display: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 
-  @media (min-width: ${MEDIA_SIZES.tablet}px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  & li {
+    margin-right: 10px;
+  }
+`;
 
-    & li {
-      margin-bottom: 10px;
-    }
+export const LinkToSocial = styled.a`
+  display: flex;
+
+  & svg {
+    width: 25px;
+    height: 25px;
   }
 `;

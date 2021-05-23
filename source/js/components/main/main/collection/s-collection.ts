@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-import { MEDIA_SIZES, PLAYFAIR_DISPLAY_FONT } from '../../../../styles/variables';
+import Button from '../../../../styles/common/button/s-button';
+
+import { Section as SocialLinksSection, List as SocialLinksList, LinkToSocial as SocialLinkToSocial } from '../../../other/blocks/social-links/s-social-links';
+
+import { MEDIA_SIZES, PLAYFAIR_DISPLAY_FONT, WHITE_COLOR } from '../../../../styles/variables';
 
 export const Section = styled.section`
   position: relative;
@@ -30,6 +34,34 @@ export const MainHeadline = styled.h1`
   padding: 0;
   clip: rect(0 0 0 0);
   overflow: hidden;
+`;
+
+export const ModifiedSocialLinksSection = styled(SocialLinksSection)`
+  position: absolute;
+  top: 45%;
+  left: 5px;
+  display: none;
+  transform: translateY(-50%);
+
+  @media (min-width: ${MEDIA_SIZES.tablet}px) {
+    display: block;
+  }
+`;
+
+export const ModifiedSocialLinksList = styled(SocialLinksList)`
+  flex-direction: column;
+
+  & li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+`;
+
+export const ModifiedSocialLinksToSocial = styled(SocialLinkToSocial)`
+  & svg {
+    width: 20px;
+    height: 20px;
+  }
 `;
 
 export const DescriptionContainer = styled.div`
@@ -78,6 +110,11 @@ export const Description = styled.p`
   margin-bottom: 64px;
   max-width: 280px;
   color: rgba(27, 26, 23, .8);
+`;
+
+export const CatalogLink = styled(Button)`
+  color: ${WHITE_COLOR};
+  background-color: #444240;
 `;
 
 export const ExampleWatchContainer = styled.div`

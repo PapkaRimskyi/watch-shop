@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable @typescript-eslint/no-empty-function */
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import userEvent from '@testing-library/user-event';
 
@@ -14,16 +14,9 @@ describe('Testing <Burger /> component', () => {
   };
   const mockFunc = jest.fn(changeStateImplement);
 
-  beforeEach(() => {
-    render(<Burger changePopupStatus={mockFunc} />);
-  });
-
-  test('Should successfully render a <Burger /> component', () => {
-    expect(screen.getByTitle('Бургерное меню')).toBeInTheDocument();
-  });
-
   test('Change state after click on burger button', () => {
-    const burgerButton = screen.getByTitle('Бургерное меню');
+    const { getByTitle } = render(<Burger changePopupStatus={mockFunc} />);
+    const burgerButton = getByTitle('Бургерное меню');
     userEvent.click(burgerButton);
 
     expect(state.isOpen).toBeTruthy();

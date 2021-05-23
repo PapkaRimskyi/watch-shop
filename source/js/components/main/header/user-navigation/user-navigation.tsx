@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Navigation, List, Item } from './s-user-navigation';
 
+import data from './data/data';
+
 interface IUserNavigationProps {
   isOpen: boolean,
 }
@@ -9,18 +11,11 @@ interface IUserNavigationProps {
 const UserNavigation: React.FC<IUserNavigationProps> = ({ isOpen }) => (
   <Navigation isOpen={isOpen}>
     <List>
-      <Item>
-        <a href="/catalog">Каталог</a>
-      </Item>
-      <Item>
-        <a href="/promotions">Акции</a>
-      </Item>
-      <Item>
-        <a href="/delivery">Доставка</a>
-      </Item>
-      <Item>
-        <a href="/contacts">Контакты</a>
-      </Item>
+      {data.map((link) => (
+        <Item key={link.name}>
+          <a href={link.linkTo}>{link.name}</a>
+        </Item>
+      ))}
     </List>
   </Navigation>
 );

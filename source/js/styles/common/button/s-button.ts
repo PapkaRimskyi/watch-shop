@@ -1,6 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const Button = styled.button`
+import { MAIN_COLOR, transitionTemplate } from '../../variables';
+
+export const Button = styled.button`
   padding: 25px 35px;
   display: inline-block;
   font-weight: 500;
@@ -10,4 +12,18 @@ const Button = styled.button`
   text-transform: uppercase;
 `;
 
-export default Button;
+export const DefaultButtonInteractiveStyles = css`
+  transition: ${transitionTemplate(['color', 'background-color', 'box-shadow'])};
+
+  &:hover,
+  &:focus-visible {
+    color: ${MAIN_COLOR};
+    background-color: #c7c7c7;
+  }
+
+  &:active {
+    background-color: #c7c7c7;
+    color: ${MAIN_COLOR};
+    box-shadow: inset 1px 1px 10px #464444;
+  }
+`;

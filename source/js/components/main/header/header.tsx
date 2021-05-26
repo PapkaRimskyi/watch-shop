@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 
 import Burger from './burger/burger';
 import Logo from './logo/logo';
@@ -7,7 +7,7 @@ import UserPanel from './user-panel/user-panel';
 
 import { Header as HeaderTag, ContainerBlock } from './s-header';
 
-const Header: React.FC = () => {
+const Header: FC = () => {
   const [popupStatus, setPopupStatus] = useState(false);
 
   const changePopupStatus = (e: React.MouseEvent) => {

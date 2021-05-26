@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
-import { MEDIA_SIZES, USER_NAVIGATION_LINK_COLOR } from '../../../../styles/variables';
+import IUserNavigationProps from './interface';
 
-export const Navigation = styled.nav`
+import { MEDIA_SIZES, transitionTemplate, USER_NAVIGATION_ACTIVE_LINK_COLOR, USER_NAVIGATION_LINK_COLOR } from '../../../../styles/variables';
+
+export const Navigation = styled.nav<IUserNavigationProps>`
   position: absolute;
   top: 0;
   left: 0;
@@ -30,13 +32,14 @@ export const Navigation = styled.nav`
 export const List = styled.ul`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   flex-wrap: wrap;
 
   @media (min-width: ${MEDIA_SIZES.mobileToTablet}px) {
     max-width: 420px;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
   }
 `;
 
@@ -44,11 +47,21 @@ export const Item = styled.li`
   margin: 0 20px;
   margin-bottom: 15px;
 
-  & a {
-    color: ${USER_NAVIGATION_LINK_COLOR};
-  }
-
   @media (min-width: ${MEDIA_SIZES.mobileToTablet}px) {
     margin-bottom: 0;
+  }
+`;
+
+export const LinkToSections = styled.a`
+  color: ${USER_NAVIGATION_LINK_COLOR};
+  transition: ${transitionTemplate(['color, opacity'])};
+
+  &:hover {
+    color: ${USER_NAVIGATION_ACTIVE_LINK_COLOR};
+  }
+
+  &:active,
+  &:focus-visible {
+    opacity: .6;
   }
 `;

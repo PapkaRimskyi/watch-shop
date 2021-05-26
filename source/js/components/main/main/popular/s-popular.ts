@@ -1,5 +1,8 @@
 import styled from 'styled-components';
-import { MEDIA_SIZES, PLAYFAIR_DISPLAY_FONT } from '../../../../styles/variables';
+
+import DefaultHeadline from '../../../../styles/common/headline/s-headline';
+
+import { MEDIA_SIZES, PLAYFAIR_DISPLAY_FONT, transitionTemplate } from '../../../../styles/variables';
 
 export const Section = styled.section`
   margin-bottom: 50px;
@@ -14,16 +17,24 @@ export const WatchMoreLink = styled.a`
   font-weight: 700;
   color: #444240;
   border-bottom: 1px solid #C4C0B6;
+  transition: ${transitionTemplate(['opacity', 'border'])};
+
+  &:hover,
+  &:focus-visible {
+    opacity: .6;
+    border-bottom-color: transparent;
+  }
+
+  &:active {
+    opacity: .3;
+  }
 `;
 
 export const PopularHeadline = styled.h2`
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   padding: 0 15px;
-  font-family: ${PLAYFAIR_DISPLAY_FONT};
-  font-weight: 400;
-  font-size: 1.8rem;
-  line-height: 1.8rem;
   text-align: center;
+  ${DefaultHeadline}
 `;
 
 export const ListItem = styled.li`
@@ -127,6 +138,16 @@ export const Link = styled.a`
   position: relative;
   margin-top: auto;
   padding-left: 45px;
+  transition: ${transitionTemplate(['scale, opacity'])};
+
+  &:hover,
+  &:focus-visible {
+    transform: scale(.8);
+  }
+
+  &:active {
+    opacity: .6;
+  }
 
   &::before {
     position: absolute;

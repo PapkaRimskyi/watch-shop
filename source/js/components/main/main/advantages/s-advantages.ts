@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Button from '../../../../styles/common/button/s-button';
+import { Button, DefaultButtonInteractiveStyles } from '../../../../styles/common/button/s-button';
 
 import HeadlineStyles from '../../../../styles/common/headline/s-headline';
 
@@ -93,4 +93,5 @@ export const SliderText = styled.p`
 export const CatalogLink = styled(Button)`
   color: ${WHITE_COLOR};
   background-color: #D4B098;
+  ${DefaultButtonInteractiveStyles};
 `;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Button from '../../../../styles/common/button/s-button';
+import { Button, DefaultButtonInteractiveStyles } from '../../../../styles/common/button/s-button';
 
 import { Section as SocialLinksSection, List as SocialLinksList, LinkToSocial as SocialLinkToSocial } from '../../../other/blocks/social-links/s-social-links';
 
@@ -115,6 +115,7 @@ export const Description = styled.p`
 export const CatalogLink = styled(Button)`
   color: ${WHITE_COLOR};
   background-color: #444240;
+  ${DefaultButtonInteractiveStyles};
 `;
 
 export const ExampleWatchContainer = styled.div`

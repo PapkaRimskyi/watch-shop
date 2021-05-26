@@ -1,19 +1,16 @@
-import React from 'react';
+import React, { FC } from 'react';
+import IUserNavigationProps from './interface';
 
-import { Navigation, List, Item } from './s-user-navigation';
+import { Navigation, List, Item, LinkToSections } from './s-user-navigation';
 
 import data from './data/data';
 
-interface IUserNavigationProps {
-  isOpen: boolean,
-}
-
-const UserNavigation: React.FC<IUserNavigationProps> = ({ isOpen }) => (
+const UserNavigation: FC<IUserNavigationProps> = ({ isOpen }) => (
   <Navigation isOpen={isOpen}>
     <List>
       {data.map((link) => (
         <Item key={link.name}>
-          <a href={link.linkTo}>{link.name}</a>
+          <LinkToSections href={link.linkTo}>{link.name}</LinkToSections>
         </Item>
       ))}
     </List>

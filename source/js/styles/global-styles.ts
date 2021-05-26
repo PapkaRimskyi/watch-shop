@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
     @font-face {
     font-family: 'Roboto';
     src: local('Roboto-Light'),
-    url('fonts/Roboto-Light.woff') format('woff');
+      url('fonts/Roboto-Light.woff') format('woff');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -21,7 +21,7 @@ const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'Roboto';
     src: local('Roboto-Regular'),
-    url('fonts/Roboto-Regular.woff') format('woff');
+      url('fonts/Roboto-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -30,7 +30,7 @@ const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'Roboto';
     src: local('Roboto-Bold'),
-    url('fonts/Roboto-Bold.woff') format('woff');
+      url('fonts/Roboto-Bold.woff') format('woff');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -39,7 +39,7 @@ const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'PlayfairDisplay';
     src: local('PlayfairDisplay-Regular'),
-    url('fonts/PlayfairDisplay-Regular.woff') format('woff');
+      url('fonts/PlayfairDisplay-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -48,7 +48,7 @@ const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'PlayfairDisplay';
     src: local('PlayfairDisplay-Bold'),
-    url('fonts/PlayfairDisplay-Bold.woff') format('woff');
+      url('fonts/PlayfairDisplay-Bold.woff') format('woff');
     font-weight: 700;
     font-style: normal;
     font-display: swap;

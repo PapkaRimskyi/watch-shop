@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { MEDIA_SIZES, WHITE_COLOR } from '../../../../styles/variables';
+import { MEDIA_SIZES, transitionTemplate, WHITE_COLOR } from '../../../../styles/variables';
 
 export const Section = styled.section`
   padding: 50px 0 69px;
@@ -69,5 +69,18 @@ export const SubListItem = styled.li`
 
   &:not(:last-child) {
     margin-bottom: 10px;
+  }
+
+  & a {
+    transition: ${transitionTemplate(['color', 'opacity'])};
+
+    &:hover,
+    &:focus-visible {
+      color: ${WHITE_COLOR};
+    }
+
+    &:active {
+      opacity: .3;
+    }
   }
 `;

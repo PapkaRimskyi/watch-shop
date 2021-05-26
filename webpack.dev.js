@@ -9,6 +9,7 @@ module.exports = merge(common, {
     host: 'localhost',
     port: 8080,
     open: true,
+    historyApiFallback: true,
   },
   target: 'web',
   devtool: 'inline-source-map',

@@ -9,7 +9,7 @@ import UserPanel from './user-panel';
 describe('Testing <UserPanel /> component', () => {
   test('Should show input field, when click was on search button', () => {
     const { getByTitle, queryByPlaceholderText, getByPlaceholderText } = render(<UserPanel />);
-    const button = getByTitle('Кнопка для вызова поля поиска');
+    const button = getByTitle('Поиск');
     expect(queryByPlaceholderText('Поиск...')).not.toBeInTheDocument();
     userEvent.click(button);
     expect(getByPlaceholderText('Поиск...')).toBeInTheDocument();

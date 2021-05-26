@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Switch, Route } from 'react-router-dom';
 
 import MainTag from './s-main';
 
@@ -9,10 +10,17 @@ import Subscription from './subscription/subscription';
 
 const Main: FC = () => (
   <MainTag>
-    <Collection />
-    <Popular />
-    <Advantages />
-    <Subscription />
+    <Switch>
+      <Route exact path="/">
+        <Collection />
+        <Popular />
+        <Advantages />
+        <Subscription />
+      </Route>
+      <Route exact path="/catalog">
+        <div>test</div>
+      </Route>
+    </Switch>
   </MainTag>
 );
 

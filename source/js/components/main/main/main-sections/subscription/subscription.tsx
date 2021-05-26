@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 
-import SocialLinks from '../../../other/blocks/social-links/social-links';
+import SocialLinks from '../../../../other/blocks/social-links/social-links';
 
 import { Section, InformationContainer, SectionHeadline, SocialAndNewsText, List, Li } from './s-subscription';
 
-import '../../../../../img/decorative-photo/news-decorative-photo-1.jpg';
-import '../../../../../img/decorative-photo/news-decorative-photo-2.jpg';
-import '../../../../../img/decorative-photo/news-decorative-photo-3.jpg';
+import '../../../../../../img/decorative-photo/news-decorative-photo-1.jpg';
+import '../../../../../../img/decorative-photo/news-decorative-photo-2.jpg';
+import '../../../../../../img/decorative-photo/news-decorative-photo-3.jpg';
 
 const Subscription: FC = () => (
   <Section>

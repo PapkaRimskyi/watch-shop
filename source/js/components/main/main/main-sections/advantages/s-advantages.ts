@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import { Button, DefaultButtonInteractiveStyles } from '../../../../styles/common/button/s-button';
+import { Button, DefaultButtonInteractiveStyles } from '../../../../../styles/common/button/s-button';
 
-import HeadlineStyles from '../../../../styles/common/headline/s-headline';
+import HeadlineStyles from '../../../../../styles/common/headline/s-headline';
 
-import { MARGIN_AUTO, MEDIA_SIZES, WHITE_COLOR } from '../../../../styles/variables';
+import { MARGIN_AUTO, MEDIA_SIZES, WHITE_COLOR } from '../../../../../styles/variables';
 
 export const Section = styled.section`
   margin-bottom: 45px;

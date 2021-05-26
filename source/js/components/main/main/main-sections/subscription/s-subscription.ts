@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import HeadlineStyles from '../../../../styles/common/headline/s-headline';
+import HeadlineStyles from '../../../../../styles/common/headline/s-headline';
 
-import { MEDIA_SIZES } from '../../../../styles/variables';
+import { MEDIA_SIZES } from '../../../../../styles/variables';
 
 export const Section = styled.section`
   margin-bottom: 60px;

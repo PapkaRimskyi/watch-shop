@@ -124,8 +124,11 @@ const GlobalStyles = createGlobalStyle`
 
   #root {
     margin: ${MARGIN_AUTO};
-    width: 100%;
     max-width: ${MEDIA_SIZES.largeDesktop}px;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 `;
 

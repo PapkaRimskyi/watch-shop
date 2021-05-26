@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import DefaultHeadline from '../../../../styles/common/headline/s-headline';
+import DefaultHeadline from '../../../../../styles/common/headline/s-headline';
 
-import { MEDIA_SIZES, PLAYFAIR_DISPLAY_FONT, transitionTemplate } from '../../../../styles/variables';
+import { MEDIA_SIZES, PLAYFAIR_DISPLAY_FONT, transitionTemplate } from '../../../../../styles/variables';
 
 export const Section = styled.section`
   margin-bottom: 50px;

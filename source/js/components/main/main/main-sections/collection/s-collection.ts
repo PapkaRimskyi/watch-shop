@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
-import { Button, DefaultButtonInteractiveStyles } from '../../../../styles/common/button/s-button';
+import { Button, DefaultButtonInteractiveStyles } from '../../../../../styles/common/button/s-button';
 
-import { Section as SocialLinksSection, List as SocialLinksList, LinkToSocial as SocialLinkToSocial } from '../../../other/blocks/social-links/s-social-links';
+import { Section as SocialLinksSection, List as SocialLinksList, LinkToSocial as SocialLinkToSocial } from '../../../../other/blocks/social-links/s-social-links';
 
-import { MEDIA_SIZES, PLAYFAIR_DISPLAY_FONT, WHITE_COLOR } from '../../../../styles/variables';
+import { MEDIA_SIZES, PLAYFAIR_DISPLAY_FONT, WHITE_COLOR } from '../../../../../styles/variables';
 
 export const Section = styled.section`
   position: relative;
   margin-bottom: 50px;
-  padding: 50px 25px 0;
+  padding: 0 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +21,7 @@ export const Section = styled.section`
   }
 
   @media (min-width: ${MEDIA_SIZES.tablet}px) {
-    padding: 50px 50px 0;
+    padding: 0 50px;
   }
 `;
 

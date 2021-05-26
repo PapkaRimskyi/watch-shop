@@ -3,6 +3,7 @@ import { MEDIA_SIZES } from '../../../styles/variables';
 
 export const Header = styled.header`
   position: relative;
+  margin-bottom: 50px;
   padding: 25px 10px 0;
   width: 100%;
   display: flex;

@@ -3,10 +3,12 @@ import { Switch, Route } from 'react-router-dom';
 
 import MainTag from './s-main';
 
-import Collection from './collection/collection';
-import Popular from './popular/popular';
-import Advantages from './advantages/advantages';
-import Subscription from './subscription/subscription';
+import Collection from './main-sections/collection/collection';
+import Popular from './main-sections/popular/popular';
+import Advantages from './main-sections/advantages/advantages';
+import Subscription from './main-sections/subscription/subscription';
+
+import Catalog from './catalog-sections/catalog';
 
 const Main: FC = () => (
   <MainTag>
@@ -18,7 +20,7 @@ const Main: FC = () => (
         <Subscription />
       </Route>
       <Route exact path="/catalog">
-        <div>test</div>
+        <Catalog />
       </Route>
     </Switch>
   </MainTag>

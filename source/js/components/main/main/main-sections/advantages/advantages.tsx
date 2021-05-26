@@ -1,16 +1,16 @@
 import React, { FC } from 'react';
 
-import Slider from '../../../other/blocks/slider/slider';
+import Slider from '../../../../other/blocks/slider/slider';
 
-import VisuallyHidden from '../../../../styles/visually-hidden';
+import VisuallyHidden from '../../../../../styles/visually-hidden';
 
-import useSliderCount from '../../../../hooks/use-slider-count/use-slider-count';
+import useSliderCount from '../../../../../hooks/use-slider-count/use-slider-count';
 
 import { Section, Wrapper, SliderContainer, SliderInformationContainer, ImageContainer, SliderHeadline, SliderText, CatalogLink } from './s-advantages';
 
 import data from './data/data';
 
-import '../../../../../img/decorative-photo/advantages__banner-1.jpg';
+import '../../../../../../img/decorative-photo/advantages__banner-1.jpg';
 
 const Advantages: FC = () => {
   const { counter, increment, decrement } = useSliderCount(1, data.length);

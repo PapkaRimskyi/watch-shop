@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import SocialLinks from '../../../other/blocks/social-links/social-links';
+import SocialLinks from '../../../../other/blocks/social-links/social-links';
 
 import {
   Section,
@@ -17,8 +17,8 @@ import {
   ModifiedSocialLinksToSocial,
 } from './s-collection';
 
-import '../../../../../img/watch-example/watch_example.png';
-import '../../../../../img/decorative-elements/ellipse.png';
+import '../../../../../../img/watch-example/watch_example.png';
+import '../../../../../../img/decorative-elements/ellipse.png';
 
 const Collection: FC = () => (
   <Section>

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 import IUserNavigationProps from './interface';
 
@@ -52,9 +53,13 @@ export const Item = styled.li`
   }
 `;
 
-export const LinkToSections = styled.a`
+export const LinkToSections = styled(NavLink)`
   color: ${USER_NAVIGATION_LINK_COLOR};
   transition: ${transitionTemplate(['color, opacity'])};
+
+  &.active {
+    color: #A69876;
+  }
 
   &:hover {
     color: ${USER_NAVIGATION_ACTIVE_LINK_COLOR};

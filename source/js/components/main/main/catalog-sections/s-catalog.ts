@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 import DefaultHeadlineStyle from '../../../../styles/common/headline/s-headline';
+import LearnMoreLink from '../../../../styles/common/learn-more-link/learn-more-link';
+
 import { MEDIA_SIZES, transitionTemplate } from '../../../../styles/variables';
 
 export const Section = styled.section`
@@ -51,7 +53,7 @@ export const Li = styled.li<{ backgroundImagePaths: string[] }>`
 export const CatalogHeadline = styled.h2`
   padding: 10px;
   text-align: center;
-  background-color: #f5f5f5;
+  background-color: rgba(245, 245, 245, .8);
 `;
 
 export const CatalogInformationContainer = styled.div`
@@ -66,6 +68,7 @@ export const CatalogInformationContainer = styled.div`
   }
 `;
 
-export const LinkToSection = styled.a`
+export const LinkToSection = styled(LearnMoreLink)`
   margin-left: auto;
+  padding-left: 40px;
 `;

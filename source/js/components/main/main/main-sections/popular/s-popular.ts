@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 import DefaultHeadline from '../../../../../styles/common/headline/s-headline';
 
+import LearnMoreLink from '../../../../../styles/common/learn-more-link/learn-more-link';
+
 import { MEDIA_SIZES, PLAYFAIR_DISPLAY_FONT, transitionTemplate } from '../../../../../styles/variables';
 
 export const Section = styled.section`
@@ -134,30 +136,9 @@ export const ProductPrice = styled.p`
   }
 `;
 
-export const Link = styled.a`
-  position: relative;
+export const Link = styled(LearnMoreLink)`
   margin-top: auto;
   padding-left: 45px;
-  transition: ${transitionTemplate(['scale, opacity'])};
-
-  &:hover,
-  &:focus-visible {
-    transform: scale(.8);
-  }
-
-  &:active {
-    opacity: .6;
-  }
-
-  &::before {
-    position: absolute;
-    content: "";
-    top: 50%;
-    left: 0;
-    width: 30px;
-    transform: translateY(-50%);
-    border: 1px solid #8B8371;
-  }
 
   @media (min-width: ${MEDIA_SIZES.tablet}px) {
     align-self: flex-start;

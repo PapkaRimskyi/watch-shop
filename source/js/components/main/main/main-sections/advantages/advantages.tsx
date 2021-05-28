@@ -2,11 +2,10 @@ import React, { FC } from 'react';
 
 import Slider from '../../../../other/blocks/slider/slider';
 
-import VisuallyHidden from '../../../../../styles/visually-hidden';
-
 import useSliderCount from '../../../../../hooks/use-slider-count/use-slider-count';
 
-import { Section, Wrapper, SliderContainer, SliderInformationContainer, ImageContainer, SliderHeadline, SliderText, CatalogLink } from './s-advantages';
+import { Section, List, Li, ImageContainer, InformationContainer, SliderHeadline, SliderText, CatalogLink } from './s-advantages';
+import VisuallyHidden from '../../../../../styles/visually-hidden';
 
 import data from './data/data';
 
@@ -18,20 +17,20 @@ const Advantages: FC = () => {
   return (
     <Section>
       <VisuallyHidden>Преимущества наших часов</VisuallyHidden>
-      <Wrapper>
-        {data.map((slider) => (
-          <SliderContainer key={slider.sliderHeadline}>
+      <List counter={counter}>
+        {data.map((slider, index) => (
+          <Li key={slider.sliderHeadline}>
             <ImageContainer>
               <img src={slider.imgSrc} alt=" " />
             </ImageContainer>
-            <SliderInformationContainer>
+            <InformationContainer>
               <SliderHeadline>{slider.sliderHeadline}</SliderHeadline>
               <SliderText>{slider.sliderText}</SliderText>
-              <CatalogLink href="/catalog" as="a">Смотреть каталог</CatalogLink>
-            </SliderInformationContainer>
-          </SliderContainer>
+              <CatalogLink href="/catalog" as="a" tabIndex={index + 1 !== counter ? '-1' : '0'}>Смотреть каталог</CatalogLink>
+            </InformationContainer>
+          </Li>
         ))}
-      </Wrapper>
+      </List>
       <Slider counter={counter} increment={increment} decrement={decrement} />
     </Section>
   );

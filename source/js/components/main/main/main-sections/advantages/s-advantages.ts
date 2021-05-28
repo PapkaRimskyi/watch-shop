@@ -4,36 +4,38 @@ import { Button, DefaultButtonInteractiveStyles } from '../../../../../styles/co
 
 import HeadlineStyles from '../../../../../styles/common/headline/s-headline';
 
-import { MARGIN_AUTO, MEDIA_SIZES, WHITE_COLOR } from '../../../../../styles/variables';
+import { MEDIA_SIZES, transitionTemplate, WHITE_COLOR } from '../../../../../styles/variables';
 
 export const Section = styled.section`
   margin-bottom: 45px;
-  padding: 15px 10px;
   background: linear-gradient(90deg,#f7f5ef 34%,#fdfdfb 0);
-
-  @media (min-width: ${MEDIA_SIZES.tablet}px) {
-    padding: 25px 35px;
-    padding-top: 40px;
-  }
+  overflow-x: hidden;
 `;
 
-export const Wrapper = styled.div`
+export const List = styled.ul<{ counter: number }>`
+  position: relative;
   margin-bottom: 40px;
+  display: flex;
+  transition: ${transitionTemplate(['translateX'])};
+  transform: ${((props) => `translateX(${(props.counter - 1) * -100}%)`)};
 
   @media (min-width: ${MEDIA_SIZES.tablet}px) {
     margin-bottom: 25px;
   }
 `;
 
-export const SliderContainer = styled.div`
-  margin: ${MARGIN_AUTO};
-  max-width: 400px;
+export const Li = styled.li`
+  padding: 15px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 0 100%;
 
   @media (min-width: ${MEDIA_SIZES.tablet}px) {
-    max-width: none;
-    display: flex;
+    padding: 25px 35px;
+    padding-top: 40px;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
   }
 
   @media (min-width: ${MEDIA_SIZES.desktop}px) {
@@ -67,7 +69,7 @@ export const ImageContainer = styled.figure`
   }
 `;
 
-export const SliderInformationContainer = styled.div`
+export const InformationContainer = styled.div`
   max-width: 400px;
 
   @media (min-width: ${MEDIA_SIZES.tablet}px) {
@@ -90,7 +92,7 @@ export const SliderText = styled.p`
   color: '#444240';
 `;
 
-export const CatalogLink = styled(Button)`
+export const CatalogLink = styled(Button) <{ tabIndex: string }>`
   color: ${WHITE_COLOR};
   background-color: #D4B098;
   ${DefaultButtonInteractiveStyles};

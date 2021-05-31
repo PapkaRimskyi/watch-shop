@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 import { transitionTemplate } from '../../variables';
 
-const LearnMoreLink = styled.a`
+const LearnMoreLink = styled(NavLink)`
   position: relative;
   transition: ${transitionTemplate(['scale, opacity'])};
 

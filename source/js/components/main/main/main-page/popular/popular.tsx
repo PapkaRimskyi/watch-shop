@@ -24,7 +24,7 @@ const Popular: FC = () => (
           <ProductImgContainer>
             <img src={`${product.imgSrc}`} alt={`${product.placeholderText}`} />
           </ProductImgContainer>
-          <Link href=" ">Подробнее</Link>
+          <Link to=" ">Подробнее</Link>
         </ListItem>
       ))}
     </List>

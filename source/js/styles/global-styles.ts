@@ -99,20 +99,16 @@ const GlobalStyles = createGlobalStyle`
 
   input {
     border: none;
-    font: {
-      family: inherit;
-      size: inherit;
-    }
+    font-family: inherit;
+    font-size: inherit;
     color: inherit;
     background-color: inherit;
   }
 
   button {
     padding: 0;
-    font: {
-      family: inherit;
-      size: inherit;
-    }
+    font-family: inherit;
+    font-size: inherit;
     border: none;
     background-color: transparent;
     cursor: pointer;

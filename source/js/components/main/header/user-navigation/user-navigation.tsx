@@ -10,7 +10,7 @@ const UserNavigation: FC<IUserNavigationProps> = ({ isOpen }) => (
     <List>
       {data.map((link) => (
         <Item key={link.name}>
-          <LinkToSections to={link.linkTo}>{link.name}</LinkToSections>
+          <LinkToSections exact to={link.linkTo}>{link.name}</LinkToSections>
         </Item>
       ))}
     </List>

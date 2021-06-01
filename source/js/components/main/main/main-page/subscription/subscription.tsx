@@ -17,13 +17,13 @@ const Subscription: FC = () => (
     </InformationContainer>
     <List>
       <Li>
-        <img src="assets/img/news-decorative-photo-1.jpg" loading="lazy" alt=" " />
+        <img src="/assets/img/news-decorative-photo-1.jpg" loading="lazy" alt=" " />
       </Li>
       <Li>
-        <img src="assets/img/news-decorative-photo-2.jpg" loading="lazy" alt=" " />
+        <img src="/assets/img/news-decorative-photo-2.jpg" loading="lazy" alt=" " />
       </Li>
       <Li>
-        <img src="assets/img/news-decorative-photo-3.jpg" loading="lazy" alt=" " />
+        <img src="/assets/img/news-decorative-photo-3.jpg" loading="lazy" alt=" " />
       </Li>
     </List>
   </Section>

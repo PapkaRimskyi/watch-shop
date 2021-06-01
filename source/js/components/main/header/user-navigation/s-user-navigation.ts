@@ -50,6 +50,14 @@ export const Item = styled.li`
 
   @media (min-width: ${MEDIA_SIZES.mobileToTablet}px) {
     margin-bottom: 0;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
   }
 `;
 

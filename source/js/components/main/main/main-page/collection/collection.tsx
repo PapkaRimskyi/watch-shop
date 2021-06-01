@@ -32,7 +32,7 @@ const Collection: FC = () => (
     </DescriptionContainer>
     <ExampleWatchContainer>
       <p>22 000 &#8381;</p>
-      <ExampleImg src="assets/img/watch_example.png" alt="Пример часов из коллекции" />
+      <ExampleImg src="/assets/img/watch_example.png" alt="Пример часов из коллекции" />
       <p>28 мм диаметр</p>
     </ExampleWatchContainer>
   </Section>

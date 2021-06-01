@@ -38,7 +38,7 @@ export const Li = styled.li<{ backgroundImagePaths: string[] }>`
   width: 85%;
   display: flex;
   flex-direction: column;
-  background: #cccccc url(${((props) => `assets/img/${props.backgroundImagePaths[0]}`)}) no-repeat center center;
+  background: #cccccc url(${((props) => `/assets/img/${props.backgroundImagePaths[0]}`)}) no-repeat center center;
   background-size: cover;
   border-top: 3px solid black;
   border-right: 2px solid black;
@@ -46,7 +46,7 @@ export const Li = styled.li<{ backgroundImagePaths: string[] }>`
   transition: ${transitionTemplate(['background-image'])};
 
   &:hover {
-    background-image: url(${((props) => `assets/img/${props.backgroundImagePaths[1]}`)});
+    background-image: url(${((props) => `/assets/img/${props.backgroundImagePaths[1]}`)});
   }
 `;
 

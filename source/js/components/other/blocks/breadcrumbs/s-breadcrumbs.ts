@@ -12,19 +12,21 @@ export const List = styled.ul`
 `;
 
 export const Li = styled.li`
-  position: relative;
-  padding-right: 25px;
-  min-width: 100px;
+  &:not(:last-of-type) {
+    position: relative;
+    margin-right: 10px;
+    padding-right: 25px;
 
-  &::after {
-    position: absolute;
-    content: "";
-    top: 0;
-    right: 0;
-    width: 4px;
-    height: 7px;
-    background: url('assets/img/arrow.svg') no-repeat center center;
-    background-size: cover;
+    &::after {
+      position: absolute;
+      content: "";
+      top: 50%;
+      right: 10%;
+      width: 5px;
+      height: 10px;
+      transform: translateY(-50%) rotate(-180deg);
+      background: url('/assets/img/arrow.svg') no-repeat center center;
+    }
   }
 `;
 

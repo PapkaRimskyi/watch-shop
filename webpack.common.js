@@ -13,7 +13,8 @@ module.exports = {
   entry: `${PATHS.src}/js/index.tsx`,
   output: {
     filename: `${PATHS.assets}js/index.js`,
-    path: `${PATHS.build}`,
+    path: PATHS.build,
+    publicPath: '/',
   },
   module: {
     rules: [

@@ -5,9 +5,9 @@ import NameAndSort from './name-and-sort/name-and-sort';
 
 import Section from './s-products';
 
-const Product: FC<{ location: Location }> = ({ location }) => (
+const Product: FC = () => (
   <Section>
-    <Breadcrumbs loc={location} />
+    <Breadcrumbs />
     <NameAndSort />
     <div>another content</div>
   </Section>

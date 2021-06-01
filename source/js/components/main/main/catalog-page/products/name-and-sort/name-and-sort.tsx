@@ -7,7 +7,7 @@ import Container from './s-name-and-sort';
 
 const NameAndSort: FC = () => (
   <Container>
-    <Name sectionName="Мужские часы" />
+    <Name />
     <Sort />
   </Container>
 );

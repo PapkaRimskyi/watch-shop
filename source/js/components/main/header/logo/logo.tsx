@@ -6,7 +6,7 @@ import '../../../../../img/logo/logo.png';
 
 const Logo: FC = () => (
   <LogoLink href="/" title="На главную страницу">
-    <img src="assets/img/logo.png" alt="Логотип нашего сайта" />
+    <img src="/assets/img/logo.png" alt="Логотип нашего сайта" />
   </LogoLink>
 );
 

@@ -14,7 +14,7 @@ const AdditionalInformation: FC = () => (
     <MainList>
       {data.map((li) => (
         <MainListItem key={li.nameOfSubList}>
-          {li.nameOfSubList === 'logo' ? <img src="assets/img/logo-footer.png" alt="Логотип нашего сайта" /> : <HeadlineSubList>{li.nameOfSubList}</HeadlineSubList>}
+          {li.nameOfSubList === 'logo' ? <img src="/assets/img/logo-footer.png" alt="Логотип нашего сайта" /> : <HeadlineSubList>{li.nameOfSubList}</HeadlineSubList>}
           <ul>
             {li.subListItems.map((items) => (
               <SubListItem key={items.link}>

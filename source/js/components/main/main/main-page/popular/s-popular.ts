@@ -97,7 +97,7 @@ export const List = styled.ul`
         right: -25%;
         width: 239px;
         height: 100%;
-        background-image: url('assets/img/ellipse2.png');
+        background-image: url('/assets/img/ellipse2.png');
         background-repeat: no-repeat;
         background-size: contain;
         z-index: -1;

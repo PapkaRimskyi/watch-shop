@@ -1,13 +1,28 @@
 import React, { FC } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import VisuallyHidden from '../../../../styles/visually-hidden';
-
 import { Section, List, Li, LinkTo } from './s-breadcrumbs';
+
+import appRoute from '../../../../app-route/app-route';
 
 import '../../../../../img/unique-icon/arrow.svg';
 
-const Breadcrumbs: FC<{ loc: Location }> = ({ loc }) => {
-  const test = loc.pathname.split('/').filter((link) => link);
+const Breadcrumbs: FC = () => {
+  const { pathname } = useLocation();
+
+  // Разделяю pathname на массив по /
+
+  const pathCollection = pathname.split('/').filter((link) => link);
+
+  //
+
+  // Получаю локализованное название для роута
+
+  const getLocalizationString = (routeList: typeof appRoute, route: string): string => routeList.find((path) => path.route === route)?.localization || 'Route not found';
+
+  //
+
   return (
     <Section>
       <VisuallyHidden>Навигационная цепочка</VisuallyHidden>
@@ -15,9 +30,9 @@ const Breadcrumbs: FC<{ loc: Location }> = ({ loc }) => {
         <Li>
           <LinkTo exact to="/">Главная</LinkTo>
         </Li>
-        {test.map((link, index) => (
-          <Li>
-            <LinkTo exact to={`/${test.slice(0, index + 1).join('/')}`}>{link}</LinkTo>
+        {pathCollection.map((link, index) => (
+          <Li key={link}>
+            <LinkTo exact to={`/${pathCollection.slice(0, index + 1).join('/')}`}>{getLocalizationString(appRoute, link)}</LinkTo>
           </Li>
         ))}
       </List>

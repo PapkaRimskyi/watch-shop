@@ -11,8 +11,9 @@ const Name: FC = () => {
   // Определяю название раздела по роуту
 
   const getSectionName = (routeList: typeof appRoute, currentUrl: string): string => {
-    const filteredRouteListByType = routeList.filter((path) => path.type === 'Catalog subroute');
-    const findCurrentRouteObject = filteredRouteListByType.find((catalogSection) => currentUrl.includes(catalogSection.route));
+    const currentUrlToArray = currentUrl.split('/').filter((text) => text);
+    const filteredAppRouteListByType = routeList.filter((path) => path.type === 'Catalog subroute');
+    const findCurrentRouteObject = filteredAppRouteListByType.find((catalogSection) => catalogSection.route === currentUrlToArray[currentUrlToArray.length - 1]);
     return findCurrentRouteObject?.localization || 'Раздел не определён';
   };
 

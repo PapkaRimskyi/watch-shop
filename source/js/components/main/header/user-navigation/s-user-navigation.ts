@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-import IUserNavigationProps from './interface';
-
 import { MEDIA_SIZES, transitionTemplate, USER_NAVIGATION_ACTIVE_LINK_COLOR, USER_NAVIGATION_LINK_COLOR } from '../../../../styles/variables';
 
-export const Navigation = styled.nav<IUserNavigationProps>`
+export const Navigation = styled.nav<{ isOpen: boolean }>`
   position: absolute;
   top: 0;
   left: 0;

@@ -1,9 +1,14 @@
 import styled from 'styled-components';
 
-import { MAIN_COLOR, WHITE_COLOR } from '../../../../../../../styles/variables';
+import { MAIN_COLOR, MEDIA_SIZES, WHITE_COLOR } from '../../../../../../../styles/variables';
 
 export const Section = styled.section`
   position: relative;
+  align-self: flex-end;
+
+  @media (min-width: ${MEDIA_SIZES.mobileToTablet}px) {
+    align-self: unset;
+  }
 `;
 
 export const Label = styled.label`
@@ -36,7 +41,7 @@ export const SortInput = styled.input`
 export const List = styled.ul`
   position: absolute;
   top: 100%;
-  right: 8%;
+  right: 9%;
   z-index: 101;
   background-color: ${WHITE_COLOR};
 `;

@@ -12,7 +12,7 @@ const InputField = styled.input`
   color: inherit;
   background-color: ${WHITE_COLOR};
   border-bottom: 1px solid ${BLACK_COLOR};
-  z-index: 99;
+  z-index: 100;
 `;
 
 export default InputField;

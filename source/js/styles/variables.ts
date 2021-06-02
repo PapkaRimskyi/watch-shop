@@ -35,6 +35,11 @@ export const FACEBOOK_HOVER_COLOR = '#155aec';
 export const TWITTER_DEFAULT_COLOR = '#1da1f2';
 export const TWITTER_HOVER_COLOR = '#0d73b1';
 
+export const OUTLINE_BORDER_COLOR = '#5e9ed6';
+
+export const INPUT_LABEL_HOVER_COLOR = '#e47474';
+export const INPUT_LABEL_ACTIVE_COLOR = '#ec2626';
+
 //
 
 // Шрифты
@@ -47,6 +52,6 @@ export const ROBOTO_FONT = 'Roboto';
 
 // Позволяет гибко настроить правило transition для css эффектов
 
-export const transitionTemplate = ((transitionParams: string[]): string => `${transitionParams.toString()}, .5s ease-in`);
+export const transitionTemplate = ((transitionParams: string[], time = '.5'): string => `${transitionParams.toString()}, ${time}s ease-in`);
 
 //

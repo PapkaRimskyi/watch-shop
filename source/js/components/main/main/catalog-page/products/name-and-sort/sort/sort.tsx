@@ -10,7 +10,7 @@ import '../../../../../../../../img/unique-icon/arrow.svg';
 
 const Sort: FC = () => {
   const [popupStatus, setPopupStatus] = useState(false);
-  const [defaultSortType, setDefaultSortType] = useState(data[0]);
+  const [defaultSortType, setDefaultSortType] = useState('популярности');
 
   // Обработчик сортировки по клику и нажатию Enter
 
@@ -19,7 +19,7 @@ const Sort: FC = () => {
     setPopupStatus((prevState) => !prevState);
   };
 
-  const inputEnterListHandler = (e: React.KeyboardEvent) => {
+  const inputEnterHandler = (e: React.KeyboardEvent) => {
     e.preventDefault();
     if (e.key === 'Enter') {
       setPopupStatus((prevState) => !prevState);
@@ -44,7 +44,7 @@ const Sort: FC = () => {
   return (
     <Section>
       <VisuallyHidden>Сортировка товара</VisuallyHidden>
-      <Label htmlFor="sort-input">Сортировать по <SortInput onClick={inputClickHandler} onKeyUp={inputEnterListHandler} id="sort-input" type="text" value={defaultSortType} title="Тип сортировки" readOnly /></Label>
+      <Label htmlFor="sort-input">Сортировать по <SortInput onClick={inputClickHandler} onKeyUp={inputEnterHandler} id="sort-input" type="text" value={defaultSortType} title="Тип сортировки" readOnly /></Label>
       {popupStatus && (
         <List onClick={popupClickListHandler}>
           {data.map((type) => (

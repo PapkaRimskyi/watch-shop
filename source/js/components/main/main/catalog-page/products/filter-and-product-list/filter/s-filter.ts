@@ -1,6 +1,15 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import { INPUT_LABEL_ACTIVE_COLOR, INPUT_LABEL_HOVER_COLOR, MAIN_COLOR, MEDIA_SIZES, OUTLINE_BORDER_COLOR, transitionTemplate } from '../../../../../../../styles/variables';
+
+const listAppearAnimation = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 export const Form = styled.form`
   width: 100%;
@@ -11,8 +20,11 @@ export const Form = styled.form`
 `;
 
 export const Fieldset = styled.fieldset`
-  &:not(:last-of-type) {
-    margin-bottom: 37px;
+  max-height: 60px;
+
+  &.active {
+    max-height: 1200px;
+    transition: ${transitionTemplate(['max-height'], '.3')};
   }
 `;
 
@@ -35,7 +47,7 @@ export const Legend = styled.legend`
     width: 0;
     height: 10px;
     border: 1px solid ${MAIN_COLOR};
-    transition: ${transitionTemplate(['opacity'])};
+    transition: ${transitionTemplate(['opacity'], '.3')};
   }
 
   &::after {
@@ -43,7 +55,14 @@ export const Legend = styled.legend`
   }
 
   &::before {
+    transform: translateY(-50%);
+  }
+
+  &.active::before {
     display: none;
+  }
+
+  &::before {
     transform: translateY(-50%);
   }
 
@@ -65,18 +84,21 @@ export const Legend = styled.legend`
       opacity: .3;
     }
   }
+`;
 
-  /* &.active {
-    &::before {
-      position: absolute;
-      content: "";
-      top: 50%;
-      right: 4%;
-      width: 0;
-      height: 10px;
-      border: 1px solid ${MAIN_COLOR};
-    }
-  } */
+export const List = styled.ul`
+  display: none;
+
+
+  fieldset:not(:last-of-type) & {
+    margin-bottom: 37px;
+  }
+
+  ${Legend}.active + & {
+    display: block;
+    transition: opacity, 1s ease-in;
+    animation: ${listAppearAnimation} 1.5s forwards;
+  }
 `;
 
 export const Li = styled.li`

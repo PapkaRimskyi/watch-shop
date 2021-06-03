@@ -4,6 +4,8 @@ import VisuallyHidden from '../../../../../../../styles/visually-hidden';
 
 import { Section, Label, SortInput, List } from './s-sort';
 
+import { ENTER } from '../../../../../../../styles/variables';
+
 import data from './data/data';
 
 import '../../../../../../../../img/unique-icon/arrow.svg';
@@ -12,16 +14,11 @@ const Sort: FC = () => {
   const [popupStatus, setPopupStatus] = useState(false);
   const [defaultSortType, setDefaultSortType] = useState('популярности');
 
-  // Обработчик сортировки по клику и нажатию Enter
+  // Обработчик сортировки
 
-  const inputClickHandler = (e: React.MouseEvent) => {
+  const inputHandler = (e: React.MouseEvent | React.KeyboardEvent) => {
     e.preventDefault();
-    setPopupStatus((prevState) => !prevState);
-  };
-
-  const inputEnterHandler = (e: React.KeyboardEvent) => {
-    e.preventDefault();
-    if (e.key === 'Enter') {
+    if (e.type === 'click' || (e.type === 'keyup' && (e as React.KeyboardEvent).code === ENTER)) {
       setPopupStatus((prevState) => !prevState);
     }
   };
@@ -44,7 +41,7 @@ const Sort: FC = () => {
   return (
     <Section>
       <VisuallyHidden>Сортировка товара</VisuallyHidden>
-      <Label htmlFor="sort-input">Сортировать по <SortInput onClick={inputClickHandler} onKeyUp={inputEnterHandler} id="sort-input" type="text" value={defaultSortType} title="Тип сортировки" readOnly /></Label>
+      <Label htmlFor="sort-input">Сортировать по <SortInput onClick={inputHandler} onKeyUp={inputHandler} id="sort-input" type="text" value={defaultSortType} title="Тип сортировки" readOnly /></Label>
       {popupStatus && (
         <List onClick={popupClickListHandler}>
           {data.map((type) => (

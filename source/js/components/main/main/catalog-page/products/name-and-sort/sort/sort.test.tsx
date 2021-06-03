@@ -7,8 +7,11 @@ import '@testing-library/jest-dom/extend-expect';
 
 import Sort from './sort';
 
+import { ENTER } from '../../../../../../../styles/variables';
+
 describe('Testing <Sort /> component', () => {
   let input: HTMLInputElement;
+
   beforeEach(() => {
     render(<Sort />);
     input = screen.getByRole('textbox') as HTMLInputElement;
@@ -25,14 +28,34 @@ describe('Testing <Sort /> component', () => {
   });
 
   describe('Checking user interaction with component', () => {
-    test('Popup should open when user click on input', () => {
-      userEvent.click(input);
-      expect(screen.queryByRole('list')).toBeInTheDocument();
+    describe('Appear block', () => {
+      afterEach(() => {
+        expect(screen.queryByRole('list')).toBeInTheDocument();
+      });
+
+      test('After click', () => {
+        userEvent.click(input);
+      });
+
+      test('After push Enter', () => {
+        fireEvent.keyUp(input, { code: ENTER, key: ENTER });
+      });
     });
 
-    test('Popup should open when user pressed Enter key on input', () => {
-      fireEvent.keyUp(input, { code: 'Enter', key: 'Enter' });
-      expect(screen.queryByRole('list')).toBeInTheDocument();
+    describe('Disappear block', () => {
+      afterEach(() => {
+        expect(screen.queryByRole('list')).not.toBeInTheDocument();
+      });
+
+      test('After click', () => {
+        userEvent.click(input);
+        userEvent.click(input);
+      });
+
+      test('After push Enter', () => {
+        fireEvent.keyUp(input, { code: ENTER, key: ENTER });
+        fireEvent.keyUp(input, { code: ENTER, key: ENTER });
+      });
     });
 
     test('Popup should close after user choose option in sort list and input should update', () => {

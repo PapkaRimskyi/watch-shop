@@ -55,3 +55,9 @@ export const ROBOTO_FONT = 'Roboto';
 export const transitionTemplate = ((transitionParams: string[], time = '.5'): string => `${transitionParams.toString()}, ${time}s ease-in`);
 
 //
+
+// Клавиши
+
+export const ENTER = 'Enter';
+
+//

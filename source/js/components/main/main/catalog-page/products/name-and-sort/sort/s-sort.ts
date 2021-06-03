@@ -1,6 +1,15 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import { MAIN_COLOR, MEDIA_SIZES, WHITE_COLOR } from '../../../../../../../styles/variables';
+
+const scaleAnimation = keyframes`
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+`;
 
 export const Section = styled.section`
   position: relative;
@@ -42,6 +51,7 @@ export const List = styled.ul`
   position: absolute;
   top: 100%;
   right: 9%;
-  z-index: 101;
   background-color: ${WHITE_COLOR};
+  animation: ${scaleAnimation} .2s ease-in forwards;
+  z-index: 101;
 `;

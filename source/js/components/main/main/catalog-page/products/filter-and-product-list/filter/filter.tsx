@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 
+import DropFilterButton from './drop-filter-button/drop-filter-button';
+
 import { Form, Fieldset, Legend, List, Li, Input, InputLabel } from './s-filter';
 
 import { ENTER } from '../../../../../../../styles/variables';
@@ -51,6 +53,7 @@ const Filter: FC = () => {
           </List>
         </Fieldset>
       ))}
+      <DropFilterButton />
     </Form>
   );
 };

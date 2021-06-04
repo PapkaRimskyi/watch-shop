@@ -14,6 +14,10 @@ const listAppearAnimation = keyframes`
 export const Form = styled.form`
   width: 100%;
 
+  @media (min-width: ${MEDIA_SIZES.mobileToTablet}px) {
+    width: 30%;
+  }
+
   @media (min-width: ${MEDIA_SIZES.tablet}px) {
     width: 20%;
   }
@@ -88,11 +92,7 @@ export const Legend = styled.legend`
 
 export const List = styled.ul`
   display: none;
-
-
-  fieldset:not(:last-of-type) & {
-    margin-bottom: 37px;
-  }
+  margin-bottom: 37px;
 
   ${Legend}.active + & {
     display: block;

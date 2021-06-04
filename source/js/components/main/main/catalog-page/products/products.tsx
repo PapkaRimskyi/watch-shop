@@ -3,15 +3,15 @@ import React, { FC } from 'react';
 import Breadcrumbs from '../../../../other/blocks/breadcrumbs/breadcrumbs';
 import NameAndSort from './name-and-sort/name-and-sort';
 import FilterAndProductList from './filter-and-product-list/filter-and-product-list';
+import Discount from './discount/discount';
 
-import Section from './s-products';
-
-const Product: FC = () => (
-  <Section>
+const Products: FC = () => (
+  <section>
     <Breadcrumbs />
     <NameAndSort />
     <FilterAndProductList />
-  </Section>
+    <Discount />
+  </section>
 );
 
-export default Product;
+export default Products;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import HeadlineStyles from '../../../../../../../styles/common/headline/s-headline';
+import HeadlineStyles from '../../../../../../../styles/mixins/headline/headline';
 
 import { MEDIA_SIZES } from '../../../../../../../styles/variables';
 

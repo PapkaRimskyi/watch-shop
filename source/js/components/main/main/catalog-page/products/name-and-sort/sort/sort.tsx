@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 
-import VisuallyHidden from '../../../../../../../styles/visually-hidden';
+import VisuallyHidden from '../../../../../../../styles/mixins/visually-hidden/visually-hidden';
 
 import { Section, Label, SortInput, List } from './s-sort';
 

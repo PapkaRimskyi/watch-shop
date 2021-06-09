@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import DefaultHeadlineStyle from '../../../../../styles/common/headline/s-headline';
-import LearnMoreLink from '../../../../../styles/common/learn-more-link/learn-more-link';
+import DefaultHeadlineStyle from '../../../../../styles/mixins/headline/headline';
+import LearnMoreLink from '../../../../../styles/styled/learn-more-link/learn-more-link';
 
 import { MEDIA_SIZES, transitionTemplate } from '../../../../../styles/variables';
 

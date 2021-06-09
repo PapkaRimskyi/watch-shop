@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import VisuallyHidden from '../../../../styles/visually-hidden';
+import VisuallyHidden from '../../../../styles/mixins/visually-hidden/visually-hidden';
 import { Section, List, Li, LinkTo } from './s-breadcrumbs';
 
 import appRoute from '../../../../app-route/app-route';

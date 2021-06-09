@@ -1,10 +1,12 @@
 import React, { FC } from 'react';
+import { ThemeProvider } from 'styled-components';
 
 import SocialLinks from '../../../../other/blocks/social-links/social-links';
 
 import {
   Section,
   MainHeadline,
+  socialLinksStyles,
   DescriptionContainer,
   CollectionHeadline,
   Type,
@@ -12,9 +14,6 @@ import {
   CatalogLink,
   ExampleWatchContainer,
   ExampleImg,
-  ModifiedSocialLinksSection,
-  ModifiedSocialLinksList,
-  ModifiedSocialLinksToSocial,
 } from './s-collection';
 
 import '../../../../../../img/watch-example/watch_example.png';
@@ -23,7 +22,9 @@ import '../../../../../../img/decorative-elements/ellipse.png';
 const Collection: FC = () => (
   <Section>
     <MainHeadline>Магазин часов</MainHeadline>
-    <SocialLinks modifiedComponents={{ Section: ModifiedSocialLinksSection, List: ModifiedSocialLinksList, LinkToSocial: ModifiedSocialLinksToSocial }} />
+    <ThemeProvider theme={socialLinksStyles}>
+      <SocialLinks />
+    </ThemeProvider>
     <DescriptionContainer>
       <CollectionHeadline>Весна/Лето 2019</CollectionHeadline>
       <Type>Коллекция</Type>

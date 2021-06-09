@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { MARGIN_AUTO, transitionTemplate } from '../../../../styles/variables';
+import { MARGIN_AUTO } from '../../../../styles/variables';
 
 const List = styled.ul`
   margin: ${MARGIN_AUTO};
@@ -9,23 +9,6 @@ const List = styled.ul`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  & li:last-of-type svg {
-    transform: rotate(180deg);
-  }
-
-  & button {
-    transition: ${transitionTemplate(['opacity'])};
-
-    &:hover,
-    &:focus-visible {
-      opacity: .6;
-    }
-
-    &:active {
-      opacity: .3;
-    }
-  }
 `;
 
 export default List;

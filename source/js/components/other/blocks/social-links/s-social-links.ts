@@ -1,7 +1,17 @@
 import styled from 'styled-components';
-import { FACEBOOK_DEFAULT_COLOR, FACEBOOK_HOVER_COLOR, INSTAGRAM_DEFAULT_COLOR, INSTAGRAM_HOVER_COLOR, transitionTemplate, TWITTER_DEFAULT_COLOR, TWITTER_HOVER_COLOR } from '../../../../styles/variables';
+import {
+  FACEBOOK_DEFAULT_COLOR,
+  FACEBOOK_HOVER_COLOR,
+  INSTAGRAM_DEFAULT_COLOR,
+  INSTAGRAM_HOVER_COLOR,
+  transitionTemplate,
+  TWITTER_DEFAULT_COLOR,
+  TWITTER_HOVER_COLOR,
+} from '../../../../styles/variables';
 
-export const Section = styled.section``;
+export const Section = styled.section`
+  ${((props) => props.theme?.socialLinksSection)};
+`;
 
 export const List = styled.ul`
   display: flex;
@@ -11,6 +21,8 @@ export const List = styled.ul`
   & li {
     margin-right: 10px;
   }
+
+  ${((props) => props.theme?.socialLinksList)};
 `;
 
 export const LinkToSocial = styled.a`
@@ -61,4 +73,6 @@ export const LinkToSocial = styled.a`
   & svg path {
     transition: ${transitionTemplate(['stroke', 'fill', 'opacity'])}
   }
+
+  ${((props) => props.theme?.socialLinksToSocial)};
 `;

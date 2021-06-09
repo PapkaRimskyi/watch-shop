@@ -1,8 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { Button, DefaultButtonInteractiveStyles } from '../../../../../styles/common/button/s-button';
-
-import { Section as SocialLinksSection, List as SocialLinksList, LinkToSocial as SocialLinkToSocial } from '../../../../other/blocks/social-links/s-social-links';
+import { Button, DefaultButtonInteractiveStyles } from '../../../../../styles/styled/button/button';
 
 import { MEDIA_SIZES, PLAYFAIR_DISPLAY_FONT, WHITE_COLOR } from '../../../../../styles/variables';
 
@@ -36,7 +34,7 @@ export const MainHeadline = styled.h1`
   overflow: hidden;
 `;
 
-export const ModifiedSocialLinksSection = styled(SocialLinksSection)`
+export const SocialLinksSection = css`
   position: absolute;
   top: 45%;
   left: 5px;
@@ -48,7 +46,7 @@ export const ModifiedSocialLinksSection = styled(SocialLinksSection)`
   }
 `;
 
-export const ModifiedSocialLinksList = styled(SocialLinksList)`
+export const SocialLinksList = css`
   flex-direction: column;
 
   & li {
@@ -57,12 +55,18 @@ export const ModifiedSocialLinksList = styled(SocialLinksList)`
   }
 `;
 
-export const ModifiedSocialLinksToSocial = styled(SocialLinkToSocial)`
+export const SocialLinksToSocial = css`
   & svg {
     width: 20px;
     height: 20px;
   }
 `;
+
+export const socialLinksStyles = {
+  socialLinksSection: SocialLinksSection,
+  socialLinksList: SocialLinksList,
+  socialLinksToSocial: SocialLinksToSocial,
+};
 
 export const DescriptionContainer = styled.div`
   @media (min-width: ${MEDIA_SIZES.tablet}px) {

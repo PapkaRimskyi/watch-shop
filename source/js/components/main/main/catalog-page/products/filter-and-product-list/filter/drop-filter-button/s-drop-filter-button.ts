@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Button as DefaultButton } from '../../../../../../../../styles/common/button/s-button';
+import { Button as DefaultButton } from '../../../../../../../../styles/styled/button/button';
 import { transitionTemplate } from '../../../../../../../../styles/variables';
 
 const Button = styled(DefaultButton)`

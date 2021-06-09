@@ -2,9 +2,10 @@ import styled from 'styled-components';
 
 import { WHITE_COLOR, MAIN_COLOR, PLAYFAIR_DISPLAY_FONT, transitionTemplate, MEDIA_SIZES } from '../../../../../../styles/variables';
 
-import { Button as DefaultButtonStyle, DefaultButtonInteractiveStyles } from '../../../../../../styles/common/button/s-button';
+import { Button as DefaultButtonStyle, DefaultButtonInteractiveStyles } from '../../../../../../styles/styled/button/button';
 
 export const Section = styled.section`
+  margin-bottom: 80px;
   padding: 20px 40px 40px;
   background-color: rgba(234, 228, 213, 0.38);
   @media (min-width: ${MEDIA_SIZES.desktop}px) {

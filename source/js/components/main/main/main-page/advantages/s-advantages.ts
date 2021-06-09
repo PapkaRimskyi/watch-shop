@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { Button, DefaultButtonInteractiveStyles } from '../../../../../styles/common/button/s-button';
+import { Button, DefaultButtonInteractiveStyles } from '../../../../../styles/styled/button/button';
 
-import HeadlineStyles from '../../../../../styles/common/headline/s-headline';
+import HeadlineStyles from '../../../../../styles/mixins/headline/headline';
 
 import { MEDIA_SIZES, transitionTemplate, WHITE_COLOR } from '../../../../../styles/variables';
 
@@ -92,7 +92,7 @@ export const SliderText = styled.p`
   color: '#444240';
 `;
 
-export const CatalogLink = styled(Button) <{ tabIndex: string }>`
+export const CatalogLink = styled(Button) <{ tabIndex: number }>`
   color: ${WHITE_COLOR};
   background-color: #D4B098;
   ${DefaultButtonInteractiveStyles};

@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import DefaultHeadline from '../../../../../styles/common/headline/s-headline';
+import DefaultHeadline from '../../../../../styles/mixins/headline/headline';
 
-import LearnMoreLink from '../../../../../styles/common/learn-more-link/learn-more-link';
+import LearnMoreLink from '../../../../../styles/styled/learn-more-link/learn-more-link';
 
-import { MEDIA_SIZES, PLAYFAIR_DISPLAY_FONT, transitionTemplate } from '../../../../../styles/variables';
+import { MEDIA_SIZES, PLAYFAIR_DISPLAY_FONT } from '../../../../../styles/variables';
 
 export const Section = styled.section`
   margin-bottom: 50px;
@@ -12,25 +12,25 @@ export const Section = styled.section`
   flex-direction: column;
 `;
 
-export const WatchMoreLink = styled.a`
-  margin-bottom: 40px;
-  padding-bottom: 5px;
-  align-self: flex-end;
-  font-weight: 700;
-  color: #444240;
-  border-bottom: 1px solid #C4C0B6;
-  transition: ${transitionTemplate(['opacity', 'border'])};
-
-  &:hover,
-  &:focus-visible {
-    opacity: .6;
-    border-bottom-color: transparent;
-  }
-
-  &:active {
-    opacity: .3;
-  }
+export const TopSectionContainer = css`
+  flex-direction: column;
 `;
+
+export const TopSectionHeadline = css`
+  margin-bottom: 25px;
+  padding: 0 15px;
+  text-align: center;
+`;
+
+export const TopSectionLink = css`
+  align-self: flex-end;
+`;
+
+export const topSectionStyles = {
+  topSectionContainer: TopSectionContainer,
+  topSectionHeadline: TopSectionHeadline,
+  topSectionLink: TopSectionLink,
+};
 
 export const PopularHeadline = styled.h2`
   margin-bottom: 25px;

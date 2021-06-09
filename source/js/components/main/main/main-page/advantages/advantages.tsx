@@ -5,7 +5,7 @@ import Slider from '../../../../other/blocks/slider/slider';
 import useSliderCount from '../../../../../hooks/use-slider-count/use-slider-count';
 
 import { Section, List, Li, ImageContainer, InformationContainer, SliderHeadline, SliderText, CatalogLink } from './s-advantages';
-import VisuallyHidden from '../../../../../styles/visually-hidden';
+import VisuallyHidden from '../../../../../styles/mixins/visually-hidden/visually-hidden';
 
 import data from './data/data';
 
@@ -26,7 +26,7 @@ const Advantages: FC = () => {
             <InformationContainer>
               <SliderHeadline>{slider.sliderHeadline}</SliderHeadline>
               <SliderText>{slider.sliderText}</SliderText>
-              <CatalogLink href="/catalog" as="a" tabIndex={index + 1 !== counter ? '-1' : '0'}>Смотреть каталог</CatalogLink>
+              <CatalogLink href="/catalog" as="a" tabIndex={index + 1 !== counter ? -1 : 0}>Смотреть каталог</CatalogLink>
             </InformationContainer>
           </Li>
         ))}

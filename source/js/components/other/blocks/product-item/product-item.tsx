@@ -2,15 +2,15 @@ import React, { FC } from 'react';
 
 import UserButton from '../../buttons/user-button/user-button';
 
-import { Li, InformationSection, ProductName, ProductPrice, ButtonList, Figure, Img } from './s-product-item';
+import { Li, InformationSection, ProductInfoContainer, ProductName, ProductPrice, ButtonList, Figure, Img } from './s-product-item';
 
 const ProductItem: FC<{ product: { id: string, brandname: string, price: string, imgPath: string } }> = ({ product }) => (
   <Li>
     <InformationSection>
-      <div>
+      <ProductInfoContainer>
         <ProductName href="_">{product.brandname}</ProductName>
         <ProductPrice>{product.price}</ProductPrice>
-      </div>
+      </ProductInfoContainer>
       <ButtonList>
         <li>
           <UserButton elemClass="favorite" title="Добавить в избранное" />

@@ -45,6 +45,7 @@ export const SortInput = styled.input`
   padding-right: 18px;
   width: 130px;
   color: ${MAIN_COLOR};
+  user-select: none;
 `;
 
 export const List = styled.ul`

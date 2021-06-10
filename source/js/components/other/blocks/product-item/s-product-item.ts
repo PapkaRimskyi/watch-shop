@@ -4,12 +4,18 @@ import { transitionTemplate } from '../../../../styles/variables';
 
 export const Li = styled.li`
   padding: 20px;
+  display: flex;
+  flex-direction: column;
   background: linear-gradient(0deg, #FDFDFB, #FDFDFB);
 `;
 
 export const InformationSection = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+
+export const ProductInfoContainer = styled.div`
+  margin-right: 15px;
 `;
 
 export const ProductName = styled.a`
@@ -39,6 +45,7 @@ export const ButtonList = styled.ul`
 `;
 
 export const Figure = styled.figure`
+  margin-top: auto;
   text-align: center;
 `;
 

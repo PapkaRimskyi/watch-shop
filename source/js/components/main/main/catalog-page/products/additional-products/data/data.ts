@@ -17,6 +17,12 @@ const data = [
     price: '5 400',
     imgPath: '/assets/img/watch_strap_3.png',
   },
+  {
+    id: 'strap-spark-2',
+    brandname: 'Spark',
+    price: '5 400',
+    imgPath: '/assets/img/watch_strap_3.png',
+  },
 ];
 
 export default data;

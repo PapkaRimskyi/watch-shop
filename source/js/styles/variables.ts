@@ -61,3 +61,9 @@ export const transitionTemplate = ((transitionParams: string[], time = '.5'): st
 export const ENTER = 'Enter';
 
 //
+
+// Значения
+
+export const MAX_PRODUCT_COUNT_IN_SLIDER_VIEWPORT = 3;
+
+//

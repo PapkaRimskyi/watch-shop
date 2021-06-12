@@ -54,6 +54,10 @@ const GlobalStyles = createGlobalStyle`
     font-display: swap;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     margin: 0;
     font-family: 'Roboto', 'PlayfairDisplay', sans-serif;

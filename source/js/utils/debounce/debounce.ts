@@ -1,4 +1,4 @@
-export default function debounce(f: any, ms: number): () => void {
+export default function debounce(f: () => void, ms: number): () => void {
   let debounceStatus = false;
   let timerID: NodeJS.Timeout;
 

@@ -31,7 +31,7 @@ const Sort: FC = () => {
     e.preventDefault();
     if (e.target instanceof HTMLAnchorElement) {
       const { textContent } = e.target as HTMLAnchorElement;
-      setDefaultSortType((prevState) => textContent || prevState);
+      setDefaultSortType(textContent as string);
       setPopupStatus(false);
     }
   };

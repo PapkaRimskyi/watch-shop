@@ -1,11 +1,11 @@
-import React, { ChangeEvent, FC, useState } from 'react';
+import React, { FC, useState } from 'react';
 
 import InputField from './s-search-input';
 
 const SearchInput: FC = () => {
   const [inputValue, setInputValue] = useState('');
 
-  const changeInputValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
+  const changeInputValueHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setInputValue(e.target.value);
   };

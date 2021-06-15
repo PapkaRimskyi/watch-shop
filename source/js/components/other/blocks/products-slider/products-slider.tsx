@@ -87,7 +87,7 @@ const ProductsSlider: FC<{ data: typeof Idata }> = ({ data }) => {
           <ArrowButton className="left" title="Предыдущий товар" side="left" disabled={blockedArrow === 'left'} onClick={arrowButtonHandler} />
         </ThemeProvider>
       )}
-      <List onTouchEnd={toucnEndHandlerDebounced} ref={sliderList}>
+      <List data-testid="slider-list" onTouchEnd={toucnEndHandlerDebounced} ref={sliderList}>
         {data.map((product) => (
           <ProductItem key={product.id} product={product} />
         ))}

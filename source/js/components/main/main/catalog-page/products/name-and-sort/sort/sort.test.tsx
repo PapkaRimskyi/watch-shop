@@ -14,7 +14,7 @@ describe('Testing <Sort /> component', () => {
 
   beforeEach(() => {
     render(<Sort />);
-    input = screen.getByRole('textbox') as HTMLInputElement;
+    input = screen.getByTitle('Тип сортировки') as HTMLInputElement;
   });
 
   describe('Checking default status', () => {

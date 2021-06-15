@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { FAVORITE_LINK_ACTIVE, BASKET_LINK_ACTIVE, transitionTemplate, SEARCH_BUTTON_ACTIVE } from '../../../../styles/variables';
 
-const InteractiveElement = styled.a`
+const InteractiveElement = styled.a<{ type: 'button' | undefined, href: string | undefined }>`
   display: inline-block;
 
   &.search {

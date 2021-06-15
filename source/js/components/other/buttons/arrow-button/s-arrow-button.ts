@@ -4,8 +4,8 @@ import { transitionTemplate } from '../../../../styles/variables';
 
 const Button = styled.button<{ side: 'left' | 'right' }>`
   transition: ${transitionTemplate(['opacity'])};
-  width: ${((props) => props.theme?.width)};
-  height: ${((props) => props.theme?.height)};
+  width: ${((props) => props.theme.width)};
+  height: ${((props) => props.theme.height)};
 
   &:hover,
   &:focus-visible {
@@ -17,8 +17,8 @@ const Button = styled.button<{ side: 'left' | 'right' }>`
   }
 
   & svg {
-    width: 100%;
-    height: 100%;
+    width: inherit;
+    height: inherit;
     transform: ${((props) => (props.side === 'right' ? 'rotate(180deg)' : null))}
   }
 `;

@@ -12,7 +12,7 @@ interface IUserButton {
 }
 
 const UserButton: FC<IUserButton> = ({ elemClass, href, title, handler }) => (
-  <InteractiveElement className={elemClass} type={href ? undefined : 'button'} href={href || undefined} as={href ? 'a' : 'button'} title={title} onClick={handler}>
+  <InteractiveElement className={elemClass} type={href ? undefined : 'button'} href={href} as={href ? 'a' : 'button'} title={title} onClick={handler}>
     {getSpecialIcon(elemClass)}
   </InteractiveElement>
 );

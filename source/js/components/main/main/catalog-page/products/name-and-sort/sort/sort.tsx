@@ -29,11 +29,9 @@ const Sort: FC = () => {
 
   const popupClickListHandler = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (e.target instanceof HTMLAnchorElement) {
-      const { textContent } = e.target as HTMLAnchorElement;
-      setDefaultSortType(textContent as string);
-      setPopupStatus(false);
-    }
+    const { textContent } = e.target as HTMLAnchorElement;
+    setDefaultSortType(textContent as string);
+    setPopupStatus(false);
   };
 
   //

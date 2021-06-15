@@ -23,6 +23,7 @@ export const List = styled.ul`
   grid-auto-columns: 100%;
   grid-auto-flow: column;
   overflow-x: auto;
+  scrollbar-width: none;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
 

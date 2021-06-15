@@ -4,8 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import userIcon from './user-icons';
 
 describe('Testing user-icon functional', () => {
-  test.each([['search', true], ['favorite', true], ['basket', true], ['something', false]])('Should equal true if function return JSX.Element or false if default block was triggered',
-    (type, expectBool) => {
-      expect(Boolean(userIcon(type))).toBe(expectBool);
-    });
+  const [searchIcon, favoriteIcon, basketIcon] = [userIcon('search'), userIcon('favorite'), userIcon('basket')];
+  test.each([['search', searchIcon], ['favorite', favoriteIcon], ['basket', basketIcon], ['something', null]])('Should equal if function return JSX.Element or not if default block was triggered',
+    (type, elem) => expect(userIcon(type)).toEqual(elem));
 });

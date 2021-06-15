@@ -11,13 +11,13 @@ describe('Testing <SearchInput /> component', () => {
   });
 
   test('Input should have empty value by default', () => {
-    expect(screen.getByDisplayValue('')).toBeInTheDocument();
+    expect((screen.getByPlaceholderText('Поиск...') as HTMLInputElement).value).toBe('');
   });
 
-  test('Change input value', async () => {
+  test('Change input value', () => {
     const someText = 'someText';
-    fireEvent.change(screen.getByDisplayValue(''), { target: { value: someText } });
-    const input = await screen.findByDisplayValue(`${someText}`) as HTMLInputElement;
+    const input = screen.getByPlaceholderText('Поиск...') as HTMLInputElement;
+    fireEvent.change(screen.getByPlaceholderText('Поиск...'), { target: { value: someText } });
     expect(input.value).toEqual(someText);
   });
 });

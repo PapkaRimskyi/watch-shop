@@ -22,6 +22,12 @@ describe('Testing <UserPanel /> component', () => {
       expect(screen.getByPlaceholderText('Поиск...')).toBeInTheDocument();
     });
 
+    test('Input should be in :focus after appear', () => {
+      const button = screen.getByTitle('Поиск');
+      userEvent.click(button);
+      expect(document.activeElement).toBe(screen.getByPlaceholderText('Поиск...'));
+    });
+
     test('Input value should change when user change it', () => {
       const button = screen.getByTitle('Поиск');
       userEvent.click(button);

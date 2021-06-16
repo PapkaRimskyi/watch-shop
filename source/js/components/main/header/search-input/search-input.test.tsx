@@ -7,7 +7,7 @@ import SearchInput from './search-input';
 
 describe('Testing <SearchInput /> component', () => {
   beforeEach(() => {
-    render(<SearchInput />);
+    render(<SearchInput status />);
   });
 
   test('Input should have empty value by default', () => {

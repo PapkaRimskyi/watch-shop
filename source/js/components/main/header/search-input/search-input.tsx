@@ -1,9 +1,14 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 
 import InputField from './s-search-input';
 
-const SearchInput: FC = () => {
+const SearchInput: FC<{ status: boolean }> = ({ status }) => {
   const [inputValue, setInputValue] = useState('');
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    (inputRef.current as HTMLInputElement).focus();
+  }, []);
 
   const changeInputValueHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -11,7 +16,7 @@ const SearchInput: FC = () => {
   };
 
   return (
-    <InputField type="text" placeholder="Поиск..." value={inputValue} onChange={changeInputValueHandler} />
+    <InputField ref={inputRef} type="text" placeholder="Поиск..." value={inputValue} onChange={changeInputValueHandler} status={status} />
   );
 };
 

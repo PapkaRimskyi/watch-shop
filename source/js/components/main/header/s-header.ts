@@ -12,7 +12,7 @@ export const Header = styled.header`
 `;
 
 export const ContainerBlock = styled.div`
-  z-index: 101;
+  z-index: 201;
 
   @media (min-width: ${MEDIA_SIZES.tablet}px) {
     display: flex;

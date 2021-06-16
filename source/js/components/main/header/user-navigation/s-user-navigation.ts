@@ -1,7 +1,20 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 import { MEDIA_SIZES, transitionTemplate, USER_NAVIGATION_ACTIVE_LINK_COLOR, USER_NAVIGATION_LINK_COLOR } from '../../../../styles/variables';
+
+const getPopupFromAboveAnimation = keyframes`
+  from {
+    top: -1000%;
+  }
+  to {
+    top: 0;
+  }
+`;
+
+const animationRule = css`
+  animation: ${getPopupFromAboveAnimation} .3s linear forwards;
+`;
 
 export const Navigation = styled.nav<{ isOpen: boolean }>`
   position: absolute;
@@ -11,8 +24,9 @@ export const Navigation = styled.nav<{ isOpen: boolean }>`
   padding-top: 25px;
   width: 100%;
   display: ${(props) => (props.isOpen ? 'block' : 'none')};
+  ${((props) => (props.isOpen ? animationRule : null))};
   background-color: #b5b5b5;
-  z-index: 100;
+  z-index: 200;
 
   @media (min-width: ${MEDIA_SIZES.mobileToTablet}px) {
     position: static;
@@ -20,7 +34,9 @@ export const Navigation = styled.nav<{ isOpen: boolean }>`
     padding: 0;
     width: auto;
     display: block;
+    animation: none;
     background-color: transparent;
+    z-index: 100;
   }
 
   @media (min-width: ${MEDIA_SIZES.tablet}px) {

@@ -20,7 +20,7 @@ const UserPanel: FC = () => {
 
   return (
     <Container>
-      {searchStatus && <SearchInput />}
+      {searchStatus && <SearchInput status={searchStatus} />}
       <PanelList>
         <li>
           <UserButton elemClass="search" title="Поиск" handler={searchInputHandler} />

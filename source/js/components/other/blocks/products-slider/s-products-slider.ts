@@ -36,8 +36,18 @@ export const List = styled.ul`
   }
 
   @media (min-width: ${MEDIA_SIZES.tablet}px) {
-    grid-template-columns: 30% 30% 30%;
-    grid-auto-columns: 30%;
+    grid-template-columns: 45% 45%;
+    grid-auto-columns: 45%;
+  }
+
+  @media (min-width: ${MEDIA_SIZES.desktop}px) {
+    grid-template-columns: minmax(365px, 365px);
+    grid-auto-columns: 365px;
+    scroll-snap-type: unset;
+
+    & > li {
+      scroll-snap-align: unset;
+    }
   }
 `;
 

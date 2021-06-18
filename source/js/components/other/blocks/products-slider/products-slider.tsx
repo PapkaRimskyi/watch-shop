@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import React, { FC, useMemo, useRef, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 
@@ -43,19 +44,62 @@ const ProductsSlider: FC<{ data: typeof Idata }> = ({ data }) => {
 
   //
 
+  // Изменение scrollLeft у контейнера слайдера
+
+  const changeScrollLeft = (itemWidth: number, time: number, progress: number, list: HTMLUListElement, side: string) => {
+    if (side === 'left') {
+      list.scrollLeft -= (itemWidth / time) * progress;
+    } else {
+      list.scrollLeft += (itemWidth / time) * progress;
+    }
+  };
+
+  //
+
+  // Проверка, должна ли анимация продолжаться.
+
+  const shouldContinueToAnimate = (time: number, progress: number, list: HTMLUListElement, side: 'left' | 'right', scrollSlider: (timestamp: number) => void) => {
+    if (progress < time) {
+      window.requestAnimationFrame(scrollSlider);
+    } else {
+      changeButtonStatus(list, side);
+    }
+  };
+
+  //
+
+  // requestAnimationFrame анимация
+
+  function smoothSliderAnimation(time: number, list: HTMLUListElement, side: 'left' | 'right') {
+    const start = performance.now();
+    const defaultScrollLeftNumber = list.scrollLeft;
+
+    return function scrollSlider(timestamp: number) {
+      const itemWidth = (list.querySelector('li') as HTMLLIElement).clientWidth;
+      const progress = timestamp - start;
+
+      if (!(Math.abs(list.scrollLeft - defaultScrollLeftNumber) > itemWidth)) {
+        changeScrollLeft(itemWidth, time, progress, list, side);
+
+        shouldContinueToAnimate(time, progress, list, side, scrollSlider);
+      } else {
+        changeButtonStatus(list, side);
+      }
+    };
+  }
+
   // Обработчик стрелок слайдера
 
   const arrowButtonHandler = (e: React.MouseEvent) => {
     e.preventDefault();
     const buttonTarget = e.currentTarget as HTMLButtonElement;
     if (sliderList.current) {
-      const itemWidth = (sliderList.current.firstChild as HTMLLIElement).clientWidth;
       if (buttonTarget.classList.contains('left')) {
-        sliderList.current.scrollLeft -= itemWidth;
-        changeButtonStatus(sliderList.current, 'left');
+        const func = smoothSliderAnimation(1000, sliderList.current, 'left');
+        window.requestAnimationFrame(func);
       } else {
-        sliderList.current.scrollLeft += itemWidth;
-        changeButtonStatus(sliderList.current, 'right');
+        const func = smoothSliderAnimation(1000, sliderList.current, 'right');
+        window.requestAnimationFrame(func);
       }
     }
   };
@@ -87,7 +131,7 @@ const ProductsSlider: FC<{ data: typeof Idata }> = ({ data }) => {
           <ArrowButton className="left" title="Предыдущий товар" side="left" disabled={blockedArrow === 'left'} onClick={arrowButtonHandler} />
         </ThemeProvider>
       )}
-      <List data-testid="slider-list" onTouchEnd={toucnEndHandlerDebounced} ref={sliderList}>
+      <List onTouchEnd={toucnEndHandlerDebounced} ref={sliderList}>
         {data.map((product) => (
           <ProductItem key={product.id} product={product} />
         ))}

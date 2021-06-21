@@ -2,9 +2,7 @@ import React, { FC } from 'react';
 
 import Button from './s-burger';
 
-interface IBurger {
-  changePopupStatus: (e: React.MouseEvent) => void,
-}
+import IBurger from './interface';
 
 const Burger: FC<IBurger> = ({ changePopupStatus }) => (
   <Button id="burger-menu" title="Бургерное меню" onClick={changePopupStatus}>

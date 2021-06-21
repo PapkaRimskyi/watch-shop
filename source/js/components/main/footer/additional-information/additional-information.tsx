@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import VisuallyHidden from '../../../../styles/mixins/visually-hidden/visually-hidden';
+import VisuallyHidden from '../../../../styles/styled/visually-hidden/visually-hidden';
 
 import data from './data/data';
 

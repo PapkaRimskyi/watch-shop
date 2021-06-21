@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import sliderHookReturnedValues from './interfaces';
+import IuseSliderCount from './interfaces';
 
-export default function useSliderCount(initCount: number, sliderLength: number): sliderHookReturnedValues {
+export default function useSliderCount(initCount: number, sliderLength: number): IuseSliderCount {
   const [counter, setCounter] = useState(initCount);
 
   const increment = () => (counter + 1 <= sliderLength ? setCounter((prevState) => prevState + 1) : setCounter(initCount));

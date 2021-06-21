@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import MainTag from './s-main';
-
 import MainPage from './main-page/main-page';
-import Catalog from './catalog-page/catalog-page';
+import CatalogPage from './catalog-page/catalog-page';
+
+import MainTag from './s-main';
 
 const Main: FC = () => (
   <MainTag>
@@ -13,7 +13,7 @@ const Main: FC = () => (
         <MainPage />
       </Route>
       <Route path="/catalog">
-        <Catalog />
+        <CatalogPage />
       </Route>
     </Switch>
   </MainTag>

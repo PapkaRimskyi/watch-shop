@@ -2,7 +2,7 @@
 import React, { FC, useMemo, useRef, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import ProductItem from '../product-item/product-item';
+import ProductCard from '../product-card/product-card';
 
 import debounce from '../../../../utils/debounce/debounce';
 
@@ -10,10 +10,10 @@ import { Wrapper, List, ArrowButton } from './s-products-slider';
 
 import { MAX_PRODUCT_COUNT_IN_SLIDER_VIEWPORT } from '../../../../styles/variables';
 
-import Idata from '../../../main/main/catalog-page/products/additional-products/data/data';
+import Idata from '../../../main/main/catalog-page/products-of-section/additional-products/data/data';
 
 const ProductsSlider: FC<{ data: typeof Idata }> = ({ data }) => {
-  const [blockedArrow, setBlockedArrow] = useState<null | 'left' | 'right'>(null);
+  const [blockedArrow, setBlockedArrow] = useState<null | 'left' | 'right'>('left');
 
   // Мемоизирую слушатель onTouchEnd. Когда таймер закончится, произойдёт расчет скролла списка и, в зависимости от данных, стрелки скроются.
 
@@ -95,11 +95,11 @@ const ProductsSlider: FC<{ data: typeof Idata }> = ({ data }) => {
     const buttonTarget = e.currentTarget as HTMLButtonElement;
     if (sliderList.current) {
       if (buttonTarget.classList.contains('left')) {
-        const func = smoothSliderAnimation(1000, sliderList.current, 'left');
-        window.requestAnimationFrame(func);
+        const sliderAnimation = smoothSliderAnimation(1000, sliderList.current, 'left');
+        window.requestAnimationFrame(sliderAnimation);
       } else {
-        const func = smoothSliderAnimation(1000, sliderList.current, 'right');
-        window.requestAnimationFrame(func);
+        const sliderAnimation = smoothSliderAnimation(1000, sliderList.current, 'right');
+        window.requestAnimationFrame(sliderAnimation);
       }
     }
   };
@@ -133,7 +133,7 @@ const ProductsSlider: FC<{ data: typeof Idata }> = ({ data }) => {
       )}
       <List onTouchEnd={toucnEndHandlerDebounced} ref={sliderList}>
         {data.map((product) => (
-          <ProductItem key={product.id} product={product} />
+          <ProductCard key={product.id} product={product} />
         ))}
       </List>
       {data.length > MAX_PRODUCT_COUNT_IN_SLIDER_VIEWPORT && (

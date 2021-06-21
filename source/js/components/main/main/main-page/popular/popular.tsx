@@ -3,9 +3,9 @@ import { ThemeProvider } from 'styled-components';
 
 import { topSectionStyles, Section, List, ListItem, ProductName, ProductPrice, ProductImgContainer, Link } from './s-popular';
 
-import data from './data/data';
-
 import TopSection from '../../../../other/blocks/top-of-section/top-of-section';
+
+import data from './data/data';
 
 import '../../../../../../img/watch-example/popular_watch_1.png';
 import '../../../../../../img/watch-example/popular_watch_2.png';

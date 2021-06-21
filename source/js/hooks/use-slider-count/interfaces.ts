@@ -1,5 +1,4 @@
-/* eslint-disable semi */
-export default interface sliderHookReturnedValues {
+export default interface IuseSliderCount {
   counter: number,
   increment: () => void,
   decrement: () => void,

@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 
-import Slider from '../../../../other/blocks/slider/slider';
+import SliderSwitch from '../../../../other/blocks/slider-switch/slider-switch';
 
 import useSliderCount from '../../../../../hooks/use-slider-count/use-slider-count';
 
 import { Section, List, Li, ImageContainer, InformationContainer, SliderHeadline, SliderText, CatalogLink } from './s-advantages';
-import VisuallyHidden from '../../../../../styles/mixins/visually-hidden/visually-hidden';
+import VisuallyHidden from '../../../../../styles/styled/visually-hidden/visually-hidden';
 
 import data from './data/data';
 
@@ -16,7 +16,7 @@ const Advantages: FC = () => {
 
   return (
     <Section>
-      <VisuallyHidden>Преимущества наших часов</VisuallyHidden>
+      <VisuallyHidden>Слайдер с перечислением преимуществ наших часов</VisuallyHidden>
       <List counter={counter}>
         {data.map((slider, index) => (
           <Li key={slider.sliderHeadline}>
@@ -31,7 +31,7 @@ const Advantages: FC = () => {
           </Li>
         ))}
       </List>
-      <Slider counter={counter} increment={increment} decrement={decrement} />
+      <SliderSwitch counter={counter} increment={increment} decrement={decrement} />
     </Section>
   );
 };

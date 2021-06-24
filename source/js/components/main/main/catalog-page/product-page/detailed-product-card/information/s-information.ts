@@ -2,32 +2,43 @@ import styled, { keyframes } from 'styled-components';
 
 import { Button as DefaultButton, DefaultButtonInteractiveStyles } from '../../../../../../../styles/styled/button/button';
 
-import { WHITE_COLOR, BLACK_COLOR, transitionTemplate } from '../../../../../../../styles/variables';
-
-const underlineIN = keyframes`
-  from {
-    left: -100%;
-  }
-  to {
-    left: 0;
-  }
-`;
+import { WHITE_COLOR, BLACK_COLOR, transitionTemplate, MEDIA_SIZES } from '../../../../../../../styles/variables';
 
 const underlineOUT = keyframes`
   from {
     left: 0;
   }
   to {
-    left: 100%;
+    left: 20%;
+  }
+`;
+
+const underlineOpacityIN = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const underlineOpacityOUT = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 `;
 
 export const ProductInformationContainer = styled.div`
   margin-bottom: 45px;
-  margin-left: auto;
   padding: 35px;
-  width: 45%;
   background-color: #FDFDFB;
+
+  @media (min-width: ${MEDIA_SIZES.desktop}px) {
+    width: 50%;
+  }
 `;
 
 export const TopOfBlock = styled.div`
@@ -54,17 +65,25 @@ export const ProductPrice = styled.p`
 export const SwitchInformationButtonsContainer = styled.div`
   margin-bottom: 10px;
   display: flex;
-  justify-content: space-between;
-  width: 70%;
+  flex-wrap: wrap;
+
+  @media (min-width: ${MEDIA_SIZES.largeDesktop}px) {
+    margin-bottom: 20px;
+    width: 70%;
+    justify-content: space-between;
+  }
 `;
 
 export const SwitchInformationButton = styled.button<{ className?: string }>`
-  position: relative;
   margin-bottom: 10px;
+  position: relative;
   font-weight: 700;
   color: #444240;
   transition: ${transitionTemplate(['opacity'])};
-  overflow-x: clip;
+
+  &:first-of-type {
+    margin-right: 15px;
+  }
 
   &::before {
     position: absolute;
@@ -74,7 +93,13 @@ export const SwitchInformationButton = styled.button<{ className?: string }>`
     width: 100%;
     height: 2px;
     background-color: #C4C0B6;
-    animation: ${underlineOUT} .5s ease-out forwards;
+    animation-name: ${underlineOUT}, ${underlineOpacityOUT};
+    animation-duration: .3s, .2s;
+    animation-fill-mode: forwards;
+  }
+
+  &.active::before {
+    animation: ${underlineOpacityIN} .3s ease-in normal forwards;
   }
 
   &:hover,
@@ -86,8 +111,8 @@ export const SwitchInformationButton = styled.button<{ className?: string }>`
     opacity: .3;
   }
 
-  &.active::before {
-    animation: ${underlineIN} .5s ease-in forwards;
+  @media (min-width: ${MEDIA_SIZES.largeDesktop}px) {
+    margin-bottom: 0;
   }
 `;
 

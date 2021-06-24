@@ -10,9 +10,9 @@ import { Wrapper, List, ArrowButton } from './s-products-slider';
 
 import { MAX_PRODUCT_COUNT_IN_SLIDER_VIEWPORT } from '../../../../styles/variables';
 
-import Idata from '../../../main/main/catalog-page/products-of-section/additional-products/data/data';
+import IProductsSlider from './interface';
 
-const ProductsSlider: FC<{ data: typeof Idata }> = ({ data }) => {
+const ProductsSlider: FC<IProductsSlider> = ({ data }) => {
   const [blockedArrow, setBlockedArrow] = useState<null | 'left' | 'right'>('left');
 
   // Мемоизирую слушатель onTouchEnd. Когда таймер закончится, произойдёт расчет скролла списка и, в зависимости от данных, стрелки скроются.

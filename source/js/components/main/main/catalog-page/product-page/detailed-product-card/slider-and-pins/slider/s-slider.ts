@@ -1,30 +1,24 @@
 import styled from 'styled-components';
+
+import { Wrapper as DefaultWrapper, List as DefaultList } from '../../../../../../../other/blocks/slider/s-slider';
+
 import { MEDIA_SIZES } from '../../../../../../../../styles/variables';
 
-export const List = styled.ul`
-  margin-bottom: 15px;
-  max-width: 350px;
-  display: grid;
-  grid-template-columns: 100%;
-  grid-auto-columns: 100%;
-  grid-auto-flow: column;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-
-  &::-webkit-scrollbar {
-    width: 0;
-  }
-
-  & > li {
-    scroll-snap-align: start;
-  }
+export const Wrapper = styled(DefaultWrapper)`
+  justify-content: space-between;
 
   @media (min-width: ${MEDIA_SIZES.tablet}px) {
     margin-right: 30px;
   }
+
+  @media (min-width: ${MEDIA_SIZES.desktop}px) {
+    width: 100%;
+  }
+`;
+
+export const List = styled(DefaultList)`
+  margin: 0 10px 15px;
+  max-width: 350px;
 
   @media (min-width: ${MEDIA_SIZES.desktop}px) {
     max-width: 423px;

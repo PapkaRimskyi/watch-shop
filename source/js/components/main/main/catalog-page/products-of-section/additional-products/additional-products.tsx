@@ -3,7 +3,8 @@ import React, { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import TopSection from '../../../../../other/blocks/top-of-section/top-of-section';
-import ProductsSlider from '../../../../../other/blocks/products-slider/products-slider';
+import ProductsSlider from '../../../../../other/blocks/slider/slider';
+import AdditionalSlider from './additional-slider/additional-slider';
 
 import { topSectionStyles, Section } from './s-additional-products';
 
@@ -18,7 +19,7 @@ const AdditionalProducts: FC = () => (
     <ThemeProvider theme={topSectionStyles}>
       <TopSection href="/accessories" sectionName="Ремешки" />
     </ThemeProvider>
-    <ProductsSlider data={data} />
+    <ProductsSlider data={data} SliderComponent={AdditionalSlider} />
   </Section>
 );
 

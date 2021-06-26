@@ -5,7 +5,7 @@ import ProductList from './product-list/product-list';
 
 import Container from './s-filter-and-product-list';
 
-import data from '../../data/data';
+import data from './product-list/data/data';
 
 import '../../../../../../../img/watch-list/watch_1.png';
 import '../../../../../../../img/watch-list/watch_2.png';

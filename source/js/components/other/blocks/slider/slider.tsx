@@ -1,18 +1,11 @@
 /* eslint-disable no-param-reassign */
 import React, { FC, useMemo, useRef, useState } from 'react';
-import { ThemeProvider } from 'styled-components';
-
-import ProductCard from '../product-card/product-card';
 
 import debounce from '../../../../utils/debounce/debounce';
 
-import { Wrapper, List, ArrowButton } from './s-products-slider';
+import { ISlider } from './interface';
 
-import { MAX_PRODUCT_COUNT_IN_SLIDER_VIEWPORT } from '../../../../styles/variables';
-
-import IProductsSlider from './interface';
-
-const ProductsSlider: FC<IProductsSlider> = ({ data }) => {
+const Slider: FC<ISlider> = ({ data, SliderComponent }) => {
   const [blockedArrow, setBlockedArrow] = useState<null | 'left' | 'right'>('left');
 
   // Мемоизирую слушатель onTouchEnd. Когда таймер закончится, произойдёт расчет скролла списка и, в зависимости от данных, стрелки скроются.
@@ -122,27 +115,9 @@ const ProductsSlider: FC<IProductsSlider> = ({ data }) => {
 
   //
 
-  // onTouchEnd={arrowButtonTouchHandler}
-
   return (
-    <Wrapper>
-      {data.length > MAX_PRODUCT_COUNT_IN_SLIDER_VIEWPORT && (
-        <ThemeProvider theme={{ width: '15px', height: '26px' }}>
-          <ArrowButton className="left" title="Предыдущий товар" side="left" disabled={blockedArrow === 'left'} onClick={arrowButtonHandler} />
-        </ThemeProvider>
-      )}
-      <List onTouchEnd={toucnEndHandlerDebounced} ref={sliderList}>
-        {data.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </List>
-      {data.length > MAX_PRODUCT_COUNT_IN_SLIDER_VIEWPORT && (
-        <ThemeProvider theme={{ width: '15px', height: '26px' }}>
-          <ArrowButton className="right" title="Следующий товар" side="right" disabled={blockedArrow === 'right'} onClick={arrowButtonHandler} />
-        </ThemeProvider>
-      )}
-    </Wrapper>
+    <SliderComponent data={data} sliderRef={sliderList} blockedArrow={blockedArrow} onClickHandler={arrowButtonHandler} onTouchEndHandler={toucnEndHandlerDebounced} />
   );
 };
 
-export default ProductsSlider;
+export default Slider;

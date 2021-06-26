@@ -1,4 +1,4 @@
-export default interface ISliderDataStructure {
+export default interface IAdditionalProductsDataModel {
   id: string,
   brandname: string,
   price: string,

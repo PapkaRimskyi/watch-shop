@@ -9,6 +9,6 @@ const data = {
   Наручные часы KULTE — это образец датского дизайнерского наследия, история баланса и точности как внутри, так и снаружи.`,
   techProperty: 'test',
   imgForSlider: ['https://via.placeholder.com/423x520?text=1', 'https://via.placeholder.com/423x520?text=2', 'https://via.placeholder.com/423x520?text=3', 'https://via.placeholder.com/423x520?text=4'],
-}
+};
 
 export default data;

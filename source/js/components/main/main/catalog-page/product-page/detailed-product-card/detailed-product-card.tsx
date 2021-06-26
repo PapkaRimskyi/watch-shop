@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 
+import ImgSlider from '../../../../../other/blocks/slider/slider';
 import SliderAndPins from './slider-and-pins/slider-and-pins';
 import ProductInformation from './information/information';
 
@@ -7,12 +8,12 @@ import VisuallyHidden from '../../../../../../styles/styled/visually-hidden/visu
 
 import Section from './s-detailed-product-card';
 
-import Idata from '../data/interface';
+import IDetailedProductCardData from '../data/interface';
 
-const DetailedProductCard: FC<{ data: Idata }> = ({ data }) => (
+const DetailedProductCard: FC<{ data: IDetailedProductCardData }> = ({ data }) => (
   <Section>
     <VisuallyHidden>Страница товара с подробной информацией</VisuallyHidden>
-    <SliderAndPins data={data.imgForSlider} />
+    <ImgSlider data={data.imgForSlider} SliderComponent={SliderAndPins} />
     <ProductInformation productName={data.productName} productPrice={data.productPrice} description={data.description} techProperty={data.techProperty} />
   </Section>
 );

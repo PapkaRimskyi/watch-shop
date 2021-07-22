@@ -7,11 +7,13 @@ import Main from './components/main/main/main';
 import Footer from './components/main/footer/footer';
 
 import GlobalStyles from './styles/global-styles';
+import ScrollToTop from './utils/scroll-to-top/scroll-to-top';
 
 function App() {
   return (
     <BrowserRouter>
       <GlobalStyles />
+      <ScrollToTop />
       <Header />
       <Main />
       <Footer />

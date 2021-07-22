@@ -21,9 +21,9 @@ const Information: FC<IInformation> = ({ productName, productPrice, description,
   // Обработчик событий по клику
 
   const handlerOfButtonInformation = (e: React.MouseEvent) => {
-    if (e.target.tagName === 'BUTTON') {
+    if ((e.target as HTMLElement).tagName === 'BUTTON') {
       const target = e.target as HTMLButtonElement;
-      setTypeOfInformation(e.target.id);
+      setTypeOfInformation(target.id);
     }
   };
 
@@ -51,7 +51,7 @@ const Information: FC<IInformation> = ({ productName, productPrice, description,
         </SwitchInformationButtonsContainer>
         <InformationContainer>{typeOfInformation === 'description-info' ? description : techProperty}</InformationContainer>
       </div>
-      <AddToBasket type="button">В корзину</AddToBasket>
+      <AddToBasket className="basket" type="button">В корзину</AddToBasket>
     </ProductInformationContainer>
   );
 };

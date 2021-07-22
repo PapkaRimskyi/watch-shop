@@ -121,7 +121,7 @@ export const InformationContainer = styled.div`
   white-space: pre-line;
 `;
 
-export const AddToBasket = styled(DefaultButton)`
+export const AddToBasket = styled(DefaultButton)<{ className: string }>`
   width: 185px;
   color: ${WHITE_COLOR};
   background-color: ${BLACK_COLOR};

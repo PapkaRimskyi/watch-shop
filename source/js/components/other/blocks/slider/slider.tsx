@@ -66,14 +66,13 @@ const Slider: FC<ISlider> = ({ data, SliderComponent }) => {
   function smoothSliderAnimation(time: number, list: HTMLUListElement, side: 'left' | 'right') {
     const start = performance.now();
     const defaultScrollLeftNumber = list.scrollLeft;
+    const itemWidth = (list.querySelector('li') as HTMLLIElement).clientWidth;
 
     return function scrollSlider(timestamp: number) {
-      const itemWidth = (list.querySelector('li') as HTMLLIElement).clientWidth;
-      const progress = timestamp - start;
+      const progress = Math.abs(Math.min(timestamp - start, time));
 
       if (!(Math.abs(list.scrollLeft - defaultScrollLeftNumber) > itemWidth)) {
         changeScrollLeft(itemWidth, time, progress, list, side);
-
         shouldContinueToAnimate(time, progress, list, side, scrollSlider);
       } else {
         changeButtonStatus(list, side);

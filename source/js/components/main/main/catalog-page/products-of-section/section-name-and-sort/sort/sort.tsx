@@ -8,8 +8,6 @@ import { ENTER } from '../../../../../../../styles/variables';
 
 import data from './data/data';
 
-import '../../../../../../../../img/unique-icon/arrow.svg';
-
 const Sort: FC = () => {
   const [popupStatus, setPopupStatus] = useState(false);
   const [defaultSortType, setDefaultSortType] = useState('популярности');

@@ -2,3 +2,4 @@ node_modules/
 npm-debug.*
 debug.log
 coverage
+build

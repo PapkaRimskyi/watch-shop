@@ -6,8 +6,6 @@ import { ENTER } from '../../../../../../../styles/variables';
 
 import data from './data/data';
 
-import '../../../../../../../../img/unique-icon/check-mark.svg';
-
 const Filter: FC = () => {
   // Добавляет или удаляет класс, необходимый для появления списка
 

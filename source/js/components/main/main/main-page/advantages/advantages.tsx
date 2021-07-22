@@ -9,8 +9,6 @@ import VisuallyHidden from '../../../../../styles/styled/visually-hidden/visuall
 
 import data from './data/data';
 
-import '../../../../../../img/decorative-photo/advantages__banner-1.jpg';
-
 const Advantages: FC = () => {
   const { counter, increment, decrement } = useSliderCount(1, data.length);
 

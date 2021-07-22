@@ -7,14 +7,6 @@ import TopSection from '../../../../other/blocks/top-of-section/top-of-section';
 
 import data from './data/data';
 
-import '../../../../../../img/watch-example/popular_watch_1.png';
-import '../../../../../../img/watch-example/popular_watch_2.png';
-import '../../../../../../img/watch-example/popular_watch_3.png';
-import '../../../../../../img/watch-example/popular_watch_4.png';
-
-import '../../../../../../img/decorative-elements/ellipse2.png';
-import '../../../../../../img/decorative-elements/ellipse3.png';
-
 const Popular: FC = () => (
   <Section>
     <ThemeProvider theme={topSectionStyles}>

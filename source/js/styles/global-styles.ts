@@ -1,13 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { MAIN_COLOR, MARGIN_AUTO, MEDIA_SIZES } from './variables';
 
-import '../../fonts/Roboto-Light.woff';
-import '../../fonts/Roboto-Regular.woff';
-import '../../fonts/Roboto-Bold.woff';
-
-import '../../fonts/PlayfairDisplay-Bold.woff';
-import '../../fonts/PlayfairDisplay-Regular.woff';
-
 const GlobalStyles = createGlobalStyle`
     @font-face {
     font-family: 'Roboto';

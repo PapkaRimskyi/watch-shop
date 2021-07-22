@@ -6,8 +6,6 @@ import { Section, List, Li, LinkTo } from './s-breadcrumbs';
 
 import appRoute from '../../../../app-route/app-route';
 
-import '../../../../../img/unique-icon/arrow.svg';
-
 const Breadcrumbs: FC = () => {
   const { pathname } = useLocation();
 

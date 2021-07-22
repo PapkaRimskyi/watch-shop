@@ -16,8 +16,8 @@ import {
   ExampleImg,
 } from './s-collection';
 
-import '../../../../../../img/watch-example/watch_example.png';
-import '../../../../../../img/decorative-elements/ellipse.png';
+// import '../../../../../../img/watch-example/watch_example.png';
+// import '../../../../../../img/decorative-elements/ellipse.png';
 
 const Collection: FC = () => (
   <Section>
@@ -33,7 +33,7 @@ const Collection: FC = () => (
     </DescriptionContainer>
     <ExampleWatchContainer>
       <p>22 000 &#8381;</p>
-      <ExampleImg src="/assets/img/watch_example.png" alt="Пример часов из коллекции" />
+      <ExampleImg src="/img/watch_example.png" alt="Пример часов из коллекции" />
       <p>28 мм диаметр</p>
     </ExampleWatchContainer>
   </Section>

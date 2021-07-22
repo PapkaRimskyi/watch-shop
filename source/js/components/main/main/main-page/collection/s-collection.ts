@@ -137,7 +137,7 @@ export const ExampleWatchContainer = styled.div`
       left: -30%;
       width: 100%;
       height: 100%;
-      background-image: url('/assets/img/ellipse.png');
+      background-image: url('/img/ellipse.png');
       background-repeat: no-repeat;
       background-size: contain;
       z-index: -1;
